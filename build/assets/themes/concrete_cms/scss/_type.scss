@@ -1,0 +1,82 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+// Bootstrap makes you give blockquotes a specific class to get the styling. We don't need
+// that level of fussiness
+blockquote {
+  @extend .blockquote;
+  border-left-width: $blockquote-border-width;
+  border-left-style: $blockquote-border-style;
+  border-left-color: $blockquote-border-color;
+  padding-left: $spacer;
+  font-weight: 100;
+
+}
+
+.title-thin {
+  font-family: $font-family-headings;
+  color: $accent;
+  font-size: $font-size-base * 2;
+  font-weight: 300;
+  display: block
+}
+
+
+// Headings
+// -------------------------
+
+h1 {
+  font-weight: 700;
+  font-size: 59px;
+  letter-spacing: -0.8;
+  line-height: 61px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+h5 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+h6 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  text-transform: uppercase;
+
+  &.highlight {
+    color: theme-color('accent');
+  }
+}
+
+.highlight {
+  .page-title {
+    color: theme-color('accent');
+  }
+}

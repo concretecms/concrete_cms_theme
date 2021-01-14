@@ -1,0 +1,93 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+// ---- Set up our theme colors
+$accent: #017DDD;
+$secondary: #0099ff;
+$light-gray: #F6F8FA;
+$border: #979797;
+$text: #4C4F56;
+$white: #ffffff;
+$dark-gray: #3B3B3B;
+$gray: #828282;
+$legal: #19191A;
+$error: #D11A15;
+$breadcrumb: #A9AAAB;
+$mobile-nav: #363636;
+$card-border: #D8D8D8;
+$card-headlines: #7C8088;
+$header-image-background: #e4e4e4;
+$modal-header-background-fallback-color: rgba(0,116,211,1);
+$modal-header-background-gradient-start-color: rgba(0,116,211,1);
+$modal-header-background-gradient-end-color: rgba(0,97,176,1);
+$modal-header-text-color: #ffffff;
+$table-head-background-color: #E5EAEC;
+
+// ---- Map those to theme conventions
+$theme-colors: (
+        'accent': $accent,
+        'secondary': $secondary,
+        'light-gray': $light-gray,
+        'border': $border,
+        'text': $text,
+        'white': $white,
+        'dark-gray': $dark-gray,
+        'gray': $gray,
+        'legal': $legal,
+        'error': $error,
+        'breadcrumb': $breadcrumb,
+        'mobile-nav': $mobile-nav,
+        'card-border': $card-border,
+        'card-headlines': $card-headlines,
+        'header-image-background': $header-image-background,
+        'modal-header-background-fallback-color': $modal-header-background-fallback-color,
+        'modal-header-background-gradient-start-color': $modal-header-background-gradient-start-color,
+        'modal-header-background-gradient-end-color': $modal-header-background-gradient-end-color,
+        'modal-header-text-color': $modal-header-text-color,
+        'table-head-background-color': $table-head-background-color
+);
+
+$link-color: theme-color('secondary');
+$link-hover-color: theme-color('secondary');
+$link-hover-decoration: none !default;
+
+$body-bg: $light-gray;
+$headings-color: theme-color('text');
+$headings-font-family: "Poppins";
+$label-color: theme-color('text');
+$font-family-base: 'Noto Sans';
+$alert-border-radius: 0 !default;
+$alert-success-border: $alert-border-radius !default;
+$alert-info-border: $alert-border-radius !default;
+$alert-warning-border: $alert-border-radius !default;
+$alert-danger-border: $alert-border-radius !default;
+$input-border-radius: 0 !default;
+$breadcrumb-color: theme-color('accent') !default;
+$breadcrumb-active-color: theme-color('breadcrumb') !default;
+
+
+
+//== Modals
+//
+//##
+$modal-title-padding: 40px;
+
+//** Background color of modal content area
+$modal-content-bg:                             #fff !default;
+//** Modal content border color
+$modal-content-border-color:                   rgba(0, 0, 0, .2) !default;
+//** Modal content border color **for IE8**
+$modal-content-fallback-border-color:          #999 !default;
+
+//** Modal backdrop background color
+$modal-backdrop-bg:           #000 !default;
+//** Modal backdrop opacity
+$modal-backdrop-opacity:      .5 !default;
+//** Modal header border color
+$modal-header-border-color:   #e5e5e5 !default;
+//** Modal footer border color
+$modal-footer-border-color:   $modal-header-border-color !default;

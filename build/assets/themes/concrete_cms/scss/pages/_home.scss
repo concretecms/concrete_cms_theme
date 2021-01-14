@@ -1,0 +1,142 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.section-marketing {
+  .page-title {
+    text-transform: none;
+  }
+
+  .ccm-brand {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+.section-features {
+
+}
+
+.section-get-started {
+
+}
+
+.section-marketing, .section-features, .section-get-started {
+  h2 {
+    font-size: 42px;
+  }
+
+  p {
+    font-size: 26px;
+    line-height: 44px;
+  }
+
+  .row {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .col-6 {
+      align-items: center;
+    }
+  }
+
+  .ccm-image-block {
+    padding: 30px;
+  }
+}
+
+/* Tablet + Mobile */
+@include media-breakpoint-down(md) {
+
+  h2 {
+    font-size: 30px !important;
+  }
+
+  .section-marketing, .section-features, .section-get-started {
+    p {
+      font-size: 18px !important;
+      line-height: 31px !important;
+    }
+
+    .ccm-image-block {
+      padding: 0px;
+    }
+  }
+}
+
+
+/* Mobile */
+@include media-breakpoint-down(sm) {
+
+  .section-marketing {
+
+    .page-title {
+      font-size: 16px;
+    }
+
+    .ccm-brand {
+      display: block;
+      width: 100px;
+      height: auto;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      position: relative;
+
+      img {
+        max-width: 100px;
+        max-height: 100px;
+        width: auto;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  .section-marketing, .section-features, .section-get-started {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+
+    p {
+      font-size: 14px !important;
+      line-height: 22px !important;
+    }
+
+    .col-6 {
+      max-width: 100%;
+      flex: 0 0 100%;
+      text-align: center;
+    }
+
+    .ccm-image-block {
+      max-width: 80%;
+      margin: auto;
+      display: block;
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+  }
+
+  .ccm-custom-style-main3.section-features {
+    .container:nth-child(1) {
+      .row {
+        display: flex;
+        flex-flow: column;
+
+        .col-6:nth-child(1) {
+          order: 2;
+        }
+
+        .col-6:nth-child(2) {
+          order: 1;
+        }
+      }
+    }
+  }
+}

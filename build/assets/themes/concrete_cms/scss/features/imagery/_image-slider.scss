@@ -1,0 +1,240 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.ccm-image-slider-container {
+  margin-top: -15px;
+
+  background-color: transparent;
+  background-repeat: repeat;
+
+  .ccm-image-slider {
+    height: 580px;
+    overflow: hidden;
+
+    .rslides {
+
+      li {
+        list-style-type: none;
+
+        .image-wrapper {
+          height: 580px;
+          overflow: hidden;
+          position: relative;
+
+          .image-overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background-image: linear-gradient(to right, theme-color('white'), rgba(255, 255, 255, 0));
+            opacity: 0.8;
+            z-index: 1;
+          }
+
+          img {
+            position: absolute;
+            min-width: 100%;
+            min-height: 580px;
+            width: auto;
+            z-index: 0;
+          }
+        }
+      }
+
+      .ccm-image-slider-text {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+
+        h2, p {
+          max-width: 800px;
+        }
+
+        h2 {
+          color: theme-color('accent');
+          font-weight: 700;
+          font-size: 59px;
+          line-height: 61px;
+          text-transform: uppercase;
+          letter-spacing: -0.8;
+        }
+
+        p {
+          font-size: 29px;
+          line-height: 40px;
+          color: theme-color('text');
+        }
+
+      }
+    }
+
+
+    /* Tablet + Mobile */
+    @include media-breakpoint-down(md) {
+      height: 412px;
+
+      .rslides {
+        li {
+          .image-wrapper {
+            height: 412px;
+
+            img {
+              min-height: 412px;
+            }
+          }
+        }
+
+        .ccm-image-slider-text {
+          h2, p {
+            max-width: 558px;
+          }
+
+          h2 {
+            font-size: 39px;
+            letter-spacing: -0.53;
+            line-height: 41px;
+          }
+
+          p {
+            font-size: 19px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+
+    /* Mobile */
+    @include media-breakpoint-down(sm) {
+      .rslides {
+        .ccm-image-slider-text {
+          h2, p {
+            max-width: none;
+            text-align: center;
+          }
+
+          h2 {
+            font-size: 29px;
+            letter-spacing: -0.39;
+            line-height: 30px;
+          }
+
+          p {
+            font-size: 16px;
+            line-height: 24px;
+          }
+
+          .btn {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+
+    @include clearfix();
+  }
+
+  .rslides_nav {
+    opacity: 1;
+    border-radius: 4px;
+    height: 38px;
+    margin-top: -20px;
+    width: 38px;
+
+    &.next {
+      color: white;
+      display: flex;
+      position: absolute;
+      right: -$grid-gutter-width;
+      transition: background .35s ease-in-out;
+      align-items: center;
+
+      &:hover {
+        text-decoration: none;
+        color: black;
+        background: white;
+      }
+
+      &:before {
+        transition: background .35s ease-in-out;
+        content: fa-content($fa-var-chevron-right);
+        font-family: 'Font Awesome 5 Free';
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 auto;
+      }
+    }
+
+    &.prev {
+      color: white;
+      display: flex;
+      position: absolute;
+      left: -$grid-gutter-width;
+      transition: background .35s ease-in-out;
+      align-items: center;
+
+      &:hover {
+        text-decoration: none;
+        color: black;
+        background: white;
+      }
+
+      &:after {
+        transition: background .35s ease-in-out;
+        content: fa-content($fa-var-chevron-left);
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 700;
+        font-size: 16px;
+        display: flex;
+        margin: 0 auto;
+      }
+    }
+
+    background: rgba(0, 0, 0, .92);
+  }
+
+  .rslides_tabs {
+    padding-left: 0px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+      margin-right: 5px;
+
+      &.rslides_here {
+        a {
+          background: theme-color('accent');
+        }
+      }
+
+      a {
+        overflow: hidden;
+        text-indent: 99px;
+        background: $bullet-color;
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        margin-right: 10px;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  a.mega-link-overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+  }
+
+}
+

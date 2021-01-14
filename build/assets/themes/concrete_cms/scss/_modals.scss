@@ -1,0 +1,25 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.modal-header {
+  background-color: theme-color('modal-header-background-fallback-color');
+  background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+
+  .modal-title {
+    color: theme-color('modal-header-text-color');
+    text-transform: none;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .close, .close span {
+    text-shadow: none;
+    color: white;
+    opacity: 1 !important;
+    outline: none;
+  }
+}

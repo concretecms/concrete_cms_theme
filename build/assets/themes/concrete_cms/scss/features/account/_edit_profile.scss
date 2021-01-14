@@ -1,0 +1,133 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.edit-profile {
+
+  h1 {
+    color: theme-color('accent');
+  }
+
+  form {
+    display: inline;
+
+    label {
+      margin-bottom: 0;
+    }
+  }
+
+  .profile-header-image {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background-color: theme-color('header-image-background');
+    position: relative;
+
+    .profile-header-actions {
+      bottom: 15px;
+      right: 15px;
+      position: absolute;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+  }
+
+  [type="file"] {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  [type="file"] + label {
+    /* File upload button styles */
+  }
+
+  [type="file"]:focus + label,
+  [type="file"] + label:hover {
+    /* File upload hover state button styles */
+  }
+
+  [type="file"]:focus + label {
+    /* File upload focus state button styles */
+  }
+
+  .profile-meta {
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.02);
+    background-color: theme-color('white');
+    padding: 15px;
+
+    .profile-image {
+      position: relative;
+      width: 200px;
+
+      .profile-image-actions {
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        margin: 50px;
+        width: 180px;
+
+        .btn-danger {
+          margin-bottom: 15px;
+        }
+      }
+
+      .image-wrapper {
+        border-radius: 50%;
+        width: 280px;
+        height: 280px;
+        margin-top: -140px;
+        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.02);
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: auto;
+          min-height: 100%;
+        }
+      }
+    }
+  }
+
+  #ccm-edit-profile-form {
+    margin-top: 30px;
+    display: block;
+  }
+
+  /* Mobile */
+  @include media-breakpoint-down(sm) {
+    .profile-header-image {
+      height: 212px;
+
+      .btn {
+        display: none;
+      }
+    }
+
+    .profile-meta {
+      .profile-image {
+        .image-wrapper {
+          width: 100px;
+          height: 100px;
+          margin-top: -50px;
+        }
+
+        .btn {
+          display: none;
+        }
+      }
+    }
+  }
+}

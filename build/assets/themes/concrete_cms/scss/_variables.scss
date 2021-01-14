@@ -1,0 +1,47 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+// ---- Theme variables
+$primary-margin-y: 20px;
+$header-footer-padding: 30px;
+$font-header-site-title: normal ($font-size-base * 2) "Noto Sans", sans-serif;
+$font-footer-site-title: 700 $font-size-base "Noto Sans", sans-serif;
+$font-family-footer-site-title: "Noto Sans", sans-serif;
+$font-family-headings: "Noto Sans", sans-serif;
+$font-family-header-navigation: "Noto Sans", sans-serif;
+
+// hr
+$hr-margin-y: $primary-margin-y;
+$hr-border-color: $gray-300;
+
+// buttons
+$btn-border-radius: 20px;
+$btn-padding-x: 30px;
+$btn-padding-y: 10px;
+$btn-success-background-color: theme-color('accent');
+$btn-success-border-color: #4cae4c;
+
+$btn-default-background-color: theme-color('white');
+$btn-default-border-color: theme-color('border');
+$btn-primary-background-color: theme-color('accent');
+$btn-primary-border-color: theme-color('accent');
+$btn-danger-background-color: theme-color('error');
+$btn-danger-border-color: theme-color('error');
+
+// colors
+$border-color: $gray-300;
+$bullet-color: $gray-300;
+$theme-accent-bg: #f8faf1;
+$theme-accent-color: #988e47;
+$caption-color: $gray-300;
+
+// block quote
+$blockquote-border-width: 4px;
+$blockquote-border-style: solid;
+$blockquote-border-color: $gray-300;
+
+// blocks

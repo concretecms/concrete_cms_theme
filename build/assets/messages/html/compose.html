@@ -1,0 +1,86 @@
+<!--
+ @project:   ConcreteCMS Theme
+
+ @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ @author     Fabian Bitter (fabian@bitter.de)
+-->
+
+<div class="modal" tabindex="-1" role="dialog" id="ccm-composer-message-<%=id%>">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <%=i18n.dialogTitle%>
+                </h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form method="post" action="#">
+                    <input type="hidden" name="ccm_token" class="token"/>
+                    <input type="hidden" name="msgID" class="message-id"/>
+
+                    <div class="form-group row">
+                        <label for="msgReceiver-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.receiverLabel%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <% if (isReply) { %>
+                            <input type="hidden" name="uID" class="user-id"/>
+                            <input type="text" id="msgReceiver-<%=id%>" disabled="disabled"
+                                   class="form-control user-name"/>
+                            <% } else { %>
+                            <select id="msgReceiver-<%=id%>" name="uID" class="form-control user-name"></select>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="msgSubject-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.subjectLabel%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <input id="msgSubject-<%=id%>" name="msgSubject" type="text" class="form-control subject"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="msgAttachments-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.attachmentsLabel%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <input id="msgAttachments-<%=id%>" name="msgAttachments[]" type="file"
+                                   class="form-control attachments" multiple="multiple"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="msgBody-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.messageLabel%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <textarea id="msgBody-<%=id%>" name="msgBody" rows="8" class="form-control body"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <%=i18n.cancelButton%>
+                </button>
+
+                <button type="button" class="btn btn-primary">
+                    <%=i18n.sendButton%>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

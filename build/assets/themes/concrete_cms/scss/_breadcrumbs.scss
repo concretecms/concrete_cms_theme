@@ -1,0 +1,18 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.breadcrumb {
+  font-size: 16px;
+  line-height: 40px;
+
+  > li {
+    + li:before {
+      color: $breadcrumb-active-color;
+      content: ">";
+    }
+  }
+}

@@ -1,0 +1,72 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.dropdown-menu {
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
+  text-transform: none;
+}
+
+.dropdown-header {
+  text-transform: none;
+  font-weight: 700;
+  font-size: 16px;
+  color: #999999;
+  line-height: 26px;
+}
+
+.dropdown-item {
+  font-weight: 400;
+  font-size: 16px;
+  color: #19191A;
+  line-height: 41px;
+
+  &:hover, &:active, &.active {
+    background-color: theme-color('accent');
+    color: theme-color('white');
+  }
+}
+
+.dropdown {
+  display: inline;
+}
+
+.dropdown-toggle {
+  border: none;
+  background: transparent;
+  outline: 0;
+}
+
+.ccm-dropdown {
+
+  .dropdown-toggle {
+    padding: 0;
+  }
+
+  .dropdown-toggle:focus {
+    background-color: theme-color('white');
+
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .dropdown-menu {
+    margin-top: -1px;
+    position: relative;
+
+    &::before {
+      z-index: 4;
+      content: " ";
+      width: calc(100% - 1px);
+      height: 6px;
+      background-color: theme-color('white');
+      position: absolute;
+      top: -3px;
+      left: 1px;
+    }
+  }
+}

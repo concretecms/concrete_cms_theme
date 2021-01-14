@@ -1,0 +1,20 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+// Overrides bootstraps breadcrumb styles
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0px;
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}

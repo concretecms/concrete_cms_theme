@@ -1,0 +1,145 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+div.ccm-block-testimonial {
+  @include make-row();
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  div.ccm-block-testimonial-image {
+    @include make-col-ready();
+    @include make-col(3);
+    align-items: center;
+  }
+
+  div.ccm-block-testimonial-text {
+    @include make-col-ready();
+    @include make-col(9);
+    align-items: center;
+
+    &::before {
+      content: "\275D";
+      font-family: "Poppins";
+      color: theme-color('gray');
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      font-size: 90px;
+      top: -45px;
+      left: -45px;
+      text-align: center;
+      opacity: 0.3;
+    }
+  }
+
+  img {
+    @extend .img-fluid;
+    border-radius: 50%;
+  }
+
+  .ccm-block-testimonial-name {
+    color: theme-color('text');
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 18px;
+
+    span {
+      &::before {
+        content: " - ";
+      }
+
+      font-weight: normal;
+    }
+  }
+
+  div.ccm-block-testimonial-paragraph {
+    font-size: 28px;
+    line-height: 44px;
+    color: theme-color('text');
+    font-weight: bold;
+  }
+}
+
+div.ccm-block-testimonial-wrapper {
+  @include clearfix();
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+@include media-breakpoint-up(sm) {
+  .ccm-block-testimonial-image {
+    img {
+      margin: 10px auto;
+    }
+  }
+}
+
+
+/* Tablet + Mobile */
+@include media-breakpoint-down(md) {
+  div.ccm-block-testimonial {
+    div.ccm-block-testimonial-paragraph {
+      font-size: 20px;
+      line-height: 32px;
+    }
+
+    div.ccm-block-testimonial-text {
+
+      &::before {
+        width: 70px;
+        height: 70px;
+        font-size: 70px;
+        top: -35px;
+        left: -35px;
+      }
+    }
+
+    .ccm-block-testimonial-name {
+      font-size: 12px;
+    }
+  }
+}
+
+/* Mobile */
+@include media-breakpoint-down(sm) {
+  div.ccm-block-testimonial {
+    padding: 30px 0;
+    margin: 15px;
+    background-image: linear-gradient(to right, theme-color('white'), rgba(255, 255, 255, 0));
+
+    div.ccm-block-testimonial-text {
+      margin: auto;
+    }
+
+    .ccm-block-testimonial-image {
+      flex: 100% !important;
+      max-width: 100% !important;
+      margin-bottom: 15px;
+
+      img {
+        margin: auto;
+        display: block;
+        width: 100px;
+      }
+    }
+
+    div.ccm-block-testimonial-paragraph {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .ccm-block-testimonial-name {
+      font-size: 12px;
+    }
+  }
+
+  div.ccm-block-testimonial-wrapper {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}

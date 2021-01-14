@@ -1,0 +1,287 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+// Import hamburger styles
+$hamburger-layer-width: 20px;
+$hamburger-padding-x: 0px;
+$hamburger-padding-y: 0px;
+$hamburger-layer-height: 3px;
+$hamburger-layer-spacing: 5px;
+$hamburger-types: (spin);
+
+$hamburger-layer-color: theme-color('gray');
+$hamburger-active-layer-color: theme-color('gray');
+$hamburger-hover-opacity: 1.0;
+
+@import "~hamburgers/_sass/hamburgers/hamburgers";
+
+header {
+  margin-bottom: 15px;
+  background-color: theme-color('white');
+  height: 80px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+
+  &.no-breadcrumb {
+    margin-bottom: 0 !important;
+  }
+
+  .navbar-inner {
+    display: contents;
+  }
+  /* General */
+  #ccm-toggle-mobile-nav {
+    outline: none !important;
+    box-shadow: none !important;
+    margin-right: 16px;
+    top: 12px;
+  }
+
+  #ccm-mobile-search-btn {
+    position: absolute;
+    right: 59px;
+    color: theme-color('gray');
+    margin-top: 0;
+    top: 8px;
+  }
+
+  /* Desktop */
+  @include media-breakpoint-up(lg) {
+    .header-site-title {
+      img {
+        width: 260px;
+        height: auto;
+      }
+    }
+
+    .navbar {
+      padding: 0;
+      height: 80px;
+
+      .nav-item {
+        &:not(:last-child) {
+          & > a {
+            margin-left: 5px;
+            margin-right: 5px;
+          }
+        }
+
+        & > a {
+          font-family: "Poppins";
+          color: theme-color('gray');
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 30px;
+          margin-top: 25px;
+          margin-bottom: 25px;
+          min-width: 50px;
+          text-align: center;
+          position: relative;
+
+          &:hover, &:active, &:focus {
+            outline: none !important;
+            color: theme-color('accent') !important;
+          }
+        }
+
+        &.active {
+          & > a {
+            color: theme-color('accent');
+
+            &::after {
+              content: " ";
+              position: absolute;
+              height: 4px;
+              background-color: theme-color('accent');
+              bottom: -17px;
+              width: 100%;
+              left: 0;
+            }
+          }
+        }
+      }
+
+      #ccm-account-dropdown:focus {
+        &::before {
+          content: " ";
+          width: 50px;
+          height: 15px;
+          background-color: theme-color('white');
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      div[aria-labelledby='ccm-account-dropdown'] {
+        &::before {
+          content: " ";
+          width: 50px;
+          height: 20px;
+          background-color: theme-color('white');
+          position: absolute;
+          top: -11px;
+          right: 0;
+        }
+
+        margin-top: -12px;
+        min-width: 234px;
+      }
+    }
+  }
+
+  /* Tablet + Mobile */
+  @include media-breakpoint-down(md) {
+    height: 60px;
+
+    .header-site-title {
+      display: flex;
+      position: relative;
+      top: 0;
+      z-index: 1500;
+      margin-left: 16px;
+
+      img {
+        width: 209px;
+      }
+    }
+
+    #ccm-desktop-nav {
+      align-items: center;
+      display: flex;
+      min-height: calc(100vh - 60px - 70px); /* substract line height of one nav-item + navbar height */
+      justify-content: center;
+      text-align: center;
+    }
+
+    #ccm-mobile-search-btn {
+      z-index: 1500;
+    }
+
+    #ccm-toggle-mobile-nav {
+      position: absolute;
+      right: 16px;
+      top: 11px;
+      z-index: 1500;
+      margin-right: 0;
+    }
+
+    .navbar {
+      height: 60px;
+      z-index: 1030; //this value is from variables.less -> @zindex-navbar-fixed
+      position: fixed;
+      left: 0;
+      right: 0;
+      background-color: theme-color('white');
+      padding-left: 0;
+      padding-right: 0;
+
+      .nav-item {
+        opacity: 0;
+        -webkit-transform: translateY(-40px);
+        transform: translateY(-40px);
+        -webkit-animation-timing-function: cubic-bezier(.45, .005, 0, 1);
+        -moz-animation-timing-function: cubic-bezier(.45, .005, 0, 1);
+        -o-animation-timing-function: cubic-bezier(.45, .005, 0, 1);
+        animation-timing-function: cubic-bezier(.45, .005, 0, 1);
+
+        & > a {
+          font-size: 30px;
+          font-weight: 400;
+          text-align: center;
+          color: theme-color('mobile-nav');
+          line-height: 70px;
+
+          &:hover, &:active, &:focus {
+            outline: none !important;
+            color: theme-color('accent') !important;
+          }
+        }
+
+        &.active {
+          & > a {
+            color: theme-color('accent');
+          }
+        }
+      }
+    }
+
+    .navbar-collapse.collapse.show {
+      .nav-item {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-transition: -webkit-transform .2s, opacity .2s;
+        transition: transform .2s, opacity .2s;
+
+        @for $i from 1 through 10 {
+          &.index-#{$i} {
+            transition-delay: ($i / 20) + s;
+          }
+        }
+      }
+    }
+
+    #navbarSupportedContent {
+      background-color: theme-color('white');
+      text-align: center;
+      width: 100%;
+      z-index: 1030; //this value is from variables.less -> @zindex-navbar-fixed
+      height: 100vh;
+    }
+
+    .navbar-inner {
+      max-width: 720px;
+      margin: auto;
+      display: flex;
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  /* Mobile */
+  @include media-breakpoint-down(sm) {
+    height: 50px;
+
+    #ccm-mobile-search-btn {
+      top: 5px;
+    }
+
+    #ccm-toggle-mobile-nav {
+      top: 7px;
+    }
+
+    .header-site-title {
+      top: -5px;
+
+      img {
+        width: 179px;
+      }
+    }
+
+    #ccm-desktop-nav {
+      min-height: calc(100vh - 60px - 60px); /* substract line height of one nav-item + navbar height */
+    }
+
+    .navbar {
+      height: 50px;
+
+      .nav-item {
+        & > a {
+          font-size: 24px;
+          line-height: 50px;
+        }
+      }
+    }
+
+    .navbar-inner {
+      max-width: 540px;
+    }
+  }
+}

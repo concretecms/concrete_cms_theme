@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concrete5-cif version="1.0">
+    <singlepages>
+        <page name="Welcome Back" path="/account/welcome" filename="/account/welcome.php" pagetype="" description=""
+              package="concrete_cms_theme">
+            <attributes>
+                <attributekey handle="desktop_priority">
+                    <value>10</value>
+                </attributekey>
+                <attributekey handle="is_desktop">
+                    <value>1</value>
+                </attributekey>
+                <attributekey handle="exclude_nav">
+                    <value>1</value>
+                </attributekey>
+            </attributes>
+        </page>
+        <page name="Edit Profile" path="/account/edit_profile" filename="/account/edit_profile.php" pagetype=""
+              description=""
+              package="concrete_cms_theme">
+            <attributes>
+                <attributekey handle="desktop_priority">
+                    <value>10</value>
+                </attributekey>
+                <attributekey handle="is_desktop">
+                    <value>1</value>
+                </attributekey>
+            </attributes>
+        </page>
+        <page name="Private Messages" path="/account/messages" filename="/account/messages.php" pagetype=""
+              description=""
+              package="concrete_cms_theme">
+            <attributes>
+                <attributekey handle="desktop_priority">
+                    <value>10</value>
+                </attributekey>
+                <attributekey handle="is_desktop">
+                    <value>1</value>
+                </attributekey>
+            </attributes>
+        </page>
+        <page name="View Profile" path="/members/profile" filename="/members/profile.php" pagetype="" description=""
+              package="concrete_cms_theme">
+            <attributes>
+                <attributekey handle="desktop_priority">
+                    <value>10</value>
+                </attributekey>
+                <attributekey handle="is_desktop">
+                    <value>1</value>
+                </attributekey>
+                <attributekey handle="exclude_nav">
+                    <value>1</value>
+                </attributekey>
+            </attributes>
+        </page>
+    </singlepages>
+    <attributekeys>
+        <attributekey handle="header_image" name="Header Image" package="concrete_cms_theme" searchable="1" indexed="1" type="image_file"
+                      category="user">
+            <type placeholder=""/>
+        </attributekey>
+        <attributekey handle="profile_private_messages_enabled" name="Private Messages" package="concrete_cms_theme"
+                      searchable="1"
+                      indexed="1" type="boolean" category="user">
+            <type checked="1" checkbox-label=""/>
+        </attributekey>
+        <attributekey handle="first_name" name="First Name" package="concrete_cms_theme" searchable="1" indexed="1"
+                      type="text"
+                      category="user">
+            <type placeholder=""/>
+        </attributekey>
+        <attributekey handle="last_name" name="Last Name" package="concrete_cms_theme" searchable="1" indexed="1"
+                      type="text"
+                      category="user">
+            <type placeholder=""/>
+        </attributekey>
+        <attributekey handle="phone" name="Phone" package="concrete_cms_theme" searchable="1" indexed="1" type="text"
+                      category="user">
+            <type placeholder=""/>
+        </attributekey>
+        <attributekey handle="address" name="Address" package="concrete_cms_theme" searchable="1" indexed="1"
+                      type="address"
+                      category="user">
+            <type custom-countries="" default-country="" geolocate-country="0"/>
+        </attributekey>
+        <attributekey handle="description" name="Describe Yourself" package="concrete_cms_theme" searchable="1"
+                      indexed="1"
+                      type="textarea" category="user">
+            <type mode="text"/>
+        </attributekey>
+        <attributekey handle="website" name="Website" package="concrete_cms_theme" searchable="1" indexed="1" type="url"
+                      category="user"/>
+        <attributekey handle="associations" name="Associations" package="concrete_cms_theme" searchable="1" indexed="1"
+                      type="textarea"
+                      category="user">
+            <type mode="text"/>
+        </attributekey>
+        <attributekey handle="education" name="Education" package="concrete_cms_theme" searchable="1" indexed="1"
+                      type="textarea"
+                      category="user">
+            <type mode="text"/>
+        </attributekey>
+        <attributekey handle="past_experience" name="Past Experience" package="concrete_cms_theme" searchable="1"
+                      indexed="1"
+                      type="textarea" category="user">
+            <type mode="text"/>
+        </attributekey>
+        <attributekey handle="role" name="Role" package="concrete_cms_theme" searchable="1" indexed="1" type="select"
+                      category="user">
+            <type allow-multiple-values="1" display-order="display_asc" display-multiple-values="" allow-other-values=""
+                  hide-none-option="">
+                <options>
+                    <option value="I build websites for other people" is-end-user-added=""/>
+                    <option value="I run websites" is-end-user-added=""/>
+                    <option value="Yes, I am open to receive work opportunities" is-end-user-added=""/>
+                </options>
+            </type>
+        </attributekey>
+        <attributekey handle="social_skills" name="Clients would describe me as..." package="concrete_cms_theme"
+                      searchable="1"
+                      indexed="1" type="select" category="user">
+            <type allow-multiple-values="1" display-order="display_asc" display-multiple-values="" allow-other-values=""
+                  hide-none-option="">
+                <options>
+                    <option value="Great communicator" is-end-user-added=""/>
+                    <option value="Super fast" is-end-user-added=""/>
+                    <option value="Technically brilliant" is-end-user-added=""/>
+                    <option value="Creative problem solver" is-end-user-added=""/>
+                    <option value="Very affordable" is-end-user-added=""/>
+                </options>
+            </type>
+        </attributekey>
+        <attributekey handle="client_requirements" name="I work best with clients who..." package="concrete_cms_theme"
+                      searchable="1"
+                      indexed="1" type="select" category="user">
+            <type allow-multiple-values="1" display-order="display_asc" display-multiple-values="" allow-other-values=""
+                  hide-none-option="">
+                <options>
+                    <option value="Have very clear requirements" is-end-user-added=""/>
+                    <option value="Have a big picture need" is-end-user-added=""/>
+                    <option value="Are big companies" is-end-user-added=""/>
+                    <option value="Want to stay highly involved during the project" is-end-user-added=""/>
+                    <option value="Are hands-off" is-end-user-added=""/>
+                </options>
+            </type>
+        </attributekey>
+        <attributekey handle="project_budget" name="Project budget" package="concrete_cms_theme" searchable="1"
+                      indexed="1" type="select"
+                      category="user">
+            <type allow-multiple-values="1" display-order="display_asc" display-multiple-values="" allow-other-values=""
+                  hide-none-option="">
+                <options>
+                    <option value="$3,000 and under" is-end-user-added=""/>
+                    <option value="$3,000 - $10,000" is-end-user-added=""/>
+                    <option value="$10,000 - $25,000" is-end-user-added=""/>
+                    <option value="$25,000 - $50,000" is-end-user-added=""/>
+                    <option value="$50,000 and over" is-end-user-added=""/>
+                </options>
+            </type>
+        </attributekey>
+        <attributekey handle="current_specialties" name="Current Specialties" package="concrete_cms_theme"
+                      searchable="1" indexed="1"
+                      type="select" category="user">
+            <type allow-multiple-values="1" display-order="display_asc" display-multiple-values="" allow-other-values=""
+                  hide-none-option="">
+                <options>
+                    <option value="Project Management" is-end-user-added=""/>
+                    <option value="Strategic Consulting" is-end-user-added=""/>
+                    <option value="Information Architecture" is-end-user-added=""/>
+                    <option value="Graphic Design" is-end-user-added=""/>
+                    <option value="HTML &amp; CSS" is-end-user-added=""/>
+                    <option value="PHP Developer" is-end-user-added=""/>
+                    <option value="SEO &amp; SEM" is-end-user-added=""/>
+                    <option value="Traditional Marketing" is-end-user-added=""/>
+                    <option value="Generel Problem Solver" is-end-user-added=""/>
+                    <option value="JavaScript" is-end-user-added=""/>
+                </options>
+            </type>
+        </attributekey>
+        <attributekey handle="newsletter" name="Newsletter" package="concrete_cms_theme" searchable="1" indexed="1"
+                      type="boolean"
+                      category="user">
+            <type checked="" checkbox-label=""/>
+        </attributekey>
+    </attributekeys>
+    <attributesets>
+        <attributeset name="Contact Information" package="concrete_cms_theme" handle="contact_information"
+                      category="user">
+            <attributekey handle="phone"/>
+            <attributekey handle="address"/>
+            <attributekey handle="profile_private_messages_enabled"/>
+            <attributekey handle="newsletter"/>
+        </attributeset>
+        <attributeset name="Public Profile" package="concrete_cms_theme" handle="public_profile" category="user">
+            <attributekey handle="first_name"/>
+            <attributekey handle="last_name"/>
+            <attributekey handle="description"/>
+            <attributekey handle="website"/>
+            <attributekey handle="associations"/>
+            <attributekey handle="education"/>
+            <attributekey handle="past_experience"/>
+            <attributekey handle="role"/>
+            <attributekey handle="social_skills"/>
+            <attributekey handle="client_requirements"/>
+            <attributekey handle="project_budget"/>
+            <attributekey handle="current_specialties"/>
+        </attributeset>
+    </attributesets>
+</concrete5-cif>

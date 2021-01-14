@@ -1,0 +1,130 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.public-profile {
+  margin-top: -15px;
+
+  .profile-header-image {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background-color: theme-color('header-image-background');
+
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+  }
+
+  .profile-badges {
+    display: flex;
+    flex-wrap: wrap;
+
+    .profile-badge {
+      width: 97px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .profile-image {
+    .image-wrapper {
+      border-radius: 50%;
+      width: 280px;
+      height: 280px;
+      margin-top: -140px;
+      box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+      }
+    }
+  }
+
+  .profile-intro {
+    margin-left: 330px;
+    margin-top: -100px;
+
+    strong {
+      color: theme-color('accent');
+    }
+  }
+
+  .profile-username {
+    margin-top: 100px;
+    margin-bottom: 25px;
+
+    h1 {
+      display: inline;
+    }
+
+    .profile-user-actions {
+      margin-bottom: 25px;
+      display: inline;
+    }
+  }
+
+  .profile-website {
+    margin-bottom: 25px;
+  }
+
+  .profile-description {
+    margin-bottom: 25px;
+  }
+
+  .profile-user-actions {
+    display: none;
+  }
+
+  /* Mobile */
+  @include media-breakpoint-down(sm) {
+    .profile-header-image {
+      height: 212px;
+    }
+
+    .profile-image {
+      .image-wrapper {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+      }
+    }
+
+    .profile-intro {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    .profile-username {
+      margin-top: 40px;
+
+      h1 {
+        display: block;
+      }
+
+      .profile-user-actions {
+        display: none;
+      }
+    }
+
+    .profile-description {
+      clear: both;
+    }
+
+    .profile-user-actions {
+      width: 100%;
+      display: block;
+      float: left;
+      margin-bottom: 25px;
+    }
+
+  }
+}

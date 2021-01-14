@@ -1,0 +1,42 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.form-control {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: theme-color('border');
+
+  &:focus {
+    border-color: theme-color('accent');
+  }
+}
+
+
+input[type=checkbox] {
+  visibility: hidden;
+  position: absolute;
+}
+
+input[type=checkbox]::before {
+  visibility: visible;
+  font-size: 16px;
+  display: inline-block;
+  letter-spacing: 5px;
+  content: "\f0c8";
+  font-family: 'Font Awesome 5 Free';
+  position: absolute;
+  top: -5px;
+  color: theme-color('text');
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked::before {
+  content: "\f14a";
+  letter-spacing: 5px;
+  font-family: 'Font Awesome 5 Free';
+  color: theme-color('accent');
+}

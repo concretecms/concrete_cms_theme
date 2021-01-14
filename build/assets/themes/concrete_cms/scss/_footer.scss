@@ -1,0 +1,99 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+footer {
+  background-color: theme-color('white');
+  padding-top: 40px;
+  padding-bottom: 26px;
+  margin-top: 15px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+
+  h4.page-title {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 19px;
+    color: theme-color('accent');
+  }
+
+  ul.list-unstyled {
+    li {
+      a {
+        line-height: 44px;
+        font-size: 16px;
+        color: theme-color('text');
+
+        &:hover, &:active, &.nav-selected, &.nav-path-selected {
+          color: theme-color('accent');
+        }
+      }
+    }
+  }
+
+  .footer-social {
+    a {
+      color: theme-color('gray');
+      font-size: 19px;
+      line-height: 40px;
+
+      &:hover {
+        color: theme-color('accent');
+      }
+    }
+  }
+
+  .footer-site-title {
+    img {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  .footer-legal {
+    p {
+      font-family: "Noto Sans";
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 40px;
+      color: theme-color('legal');
+      text-align: right;
+      margin-bottom: 0;
+    }
+  }
+
+
+  /* Tablet + Mobile */
+  @include media-breakpoint-down(sm) {
+
+    h4.page-title {
+      position: relative;
+      height: 22px;
+      line-height: 22px;
+
+      border-bottom: 1px solid theme-color('light-gray');
+      padding-bottom: 35px;
+
+      &::after {
+        content : "\f078";
+        font-family: "Font Awesome 5 Free";
+        position: absolute;
+        right: 0;
+        height: 22px;
+        line-height: 22px;
+        width: 22px;
+        color: theme-color('gray');
+      }
+
+      &[aria-expanded="true"] {
+        &::after {
+          content : "\f077";
+        }
+      }
+    }
+
+  }
+}

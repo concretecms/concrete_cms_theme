@@ -1,0 +1,56 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+
+
+// Tabs
+// -------------------------
+
+// Give the tabs something to sit on
+.nav-tabs {
+  border-bottom: 0;
+
+  > li {
+
+    // Actual tabs (as links)
+    > a {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 3px solid transparent;
+      color: theme-color('text');
+      font-weight: bold;
+
+      &:hover, &.active {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid theme-color('accent');
+        color: theme-color('accent');
+      }
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid theme-color('accent');
+        font-weight: bold;
+        color: theme-color('accent');
+      }
+    }
+  }
+  // pulling this in mainly for less shorthand
+  &.nav-justified {
+
+  }
+}
+

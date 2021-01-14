@@ -1,0 +1,10 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+div.ccm-block-next-previous-header h5 {
+  @include font-size($font-size-base);
+}
