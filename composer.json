@@ -1,5 +1,10 @@
 {
   "name": "concrete5/concrete_cms_theme",
   "description": "Package that contains the official ConcreteCMS Theme.",
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "type": "concrete5-package",
+  "license": "MIT",
+  "require": {
+    "php": "^7.2",
+  }
 }
