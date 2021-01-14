@@ -3,8 +3,5 @@
   "description": "Package that contains the official ConcreteCMS Theme.",
   "minimum-stability": "dev",
   "type": "concrete5-package",
-  "license": "MIT",
-  "require": {
-    "php": "^7.2",
-  }
+  "license": "MIT"
 }
