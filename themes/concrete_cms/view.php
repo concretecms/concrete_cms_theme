@@ -9,6 +9,7 @@
 
 defined('C5_EXECUTE') or die("Access Denied.");
 
+use Concrete\Core\Area\Area;
 use Concrete\Core\Error\ErrorList\ErrorList;
 use Concrete\Core\View\View;
 
@@ -43,6 +44,21 @@ $this->inc('elements/header.php');
     echo $innerContent;
     ?>
 </main>
+
+<section class="additional-content">
+    <?php
+    $a = new Area('Main');
+    $a->enableGridContainer();
+    $a->display($c);
+
+    // Render additional areas if required
+    for ($i = 1; $i <= (int)$c->getAttribute('main_area_number'); $i++) {
+        $a = new Area('Main ' . $i);
+        $a->enableGridContainer();
+        $a->display($c);
+    }
+    ?>
+</section>
 
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */

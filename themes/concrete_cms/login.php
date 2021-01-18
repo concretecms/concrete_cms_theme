@@ -9,6 +9,7 @@
 
 defined('C5_EXECUTE') or die('Access denied.');
 
+use Concrete\Core\Area\Area;
 use Concrete\Core\Attribute\Key\Key;
 use Concrete\Core\Authentication\AuthenticationType;
 use Concrete\Core\Config\Repository\Repository;
@@ -142,6 +143,21 @@ $this->inc('elements/header.php');
         <?php } ?>
     </div>
 </main>
+
+<section class="additional-content">
+    <?php
+    $a = new Area('Main');
+    $a->enableGridContainer();
+    $a->display($c);
+
+    // Render additional areas if required
+    for ($i = 1; $i <= (int)$c->getAttribute('main_area_number'); $i++) {
+        $a = new Area('Main ' . $i);
+        $a->enableGridContainer();
+        $a->display($c);
+    }
+    ?>
+</section>
 
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */
