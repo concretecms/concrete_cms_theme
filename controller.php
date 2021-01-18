@@ -25,7 +25,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.0.1';
+    protected $pkgVersion = '0.0.2';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
@@ -73,10 +73,27 @@ class Controller extends Package
         unset($themePaths["/login"]);
         unset($themePaths["/account/*"]);
         unset($themePaths["/account"]);
+        unset($themePaths["/login_oauth"]);
 
         $config->save('app.theme_paths', $themePaths);
 
         parent::uninstall();
+    }
+
+    public function upgrade()
+    {
+        parent::upgrade();
+
+        /** @var Repository $config */
+        $config = $this->app->make(Repository::class);
+
+        $config->save('app.theme_paths', [
+            '/account' => 'concrete_cms',
+            '/account/*' => 'concrete_cms',
+            '/register' => 'concrete_cms',
+            '/login' => 'concrete_cms',
+            '/oauth/authorize' => 'concrete_cms'
+        ]);
     }
 
     public function install()
@@ -99,7 +116,8 @@ class Controller extends Package
             '/account' => 'concrete_cms',
             '/account/*' => 'concrete_cms',
             '/register' => 'concrete_cms',
-            '/login' => 'concrete_cms'
+            '/login' => 'concrete_cms',
+            '/oauth/authorize' => 'concrete_cms'
         ]);
 
         // Enable Public registration

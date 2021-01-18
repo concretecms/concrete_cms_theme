@@ -11,6 +11,7 @@ defined('C5_EXECUTE') or die("Access Denied.");
 
 use Concrete\Core\Area\Area;
 use Concrete\Core\Error\ErrorList\ErrorList;
+use Concrete\Core\Page\Page;
 use Concrete\Core\View\View;
 
 /** @var View $this */
