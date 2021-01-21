@@ -16,6 +16,7 @@ use Concrete\Core\Http\Response;
 use Concrete\Core\Http\ResponseFactory;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Routing\Router;
+use PortlandLabs\ConcreteCmsTheme\API\OAuth\Controller as OAuthController;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Messages;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Middleware\FractalNegotiatorMiddleware;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -48,6 +49,18 @@ class ServiceProvider extends Provider
         $this->registerPageSelectorRedirect();
         $this->registerAPI();
         $this->registerAssetLocalizations();
+        $this->overrideOAuthController();
+    }
+
+    private function overrideOAuthController()
+    {
+        /*
+         * It is required to override the OAuth controller to manipulate the login view
+         */
+        /** @noinspection PhpParamsInspection */
+        $this->router->post('/oauth/2.0/token', [OAuthController::class, 'token']);
+        /** @noinspection PhpParamsInspection */
+        $this->router->all('/oauth/2.0/authorize', [OAuthController::class, 'authorize']);
     }
 
     private function registerPageSelectorRedirect()
