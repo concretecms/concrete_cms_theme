@@ -79,8 +79,13 @@ $excludeBreadcrumb = $c->getPageController()->get("exclude_breadcrumb") ||$c->ge
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div id="ccm-desktop-nav" class="header-navigation ml-auto">
                         <?php
-                        $a = new GlobalArea('Header Navigation');
-                        $a->display($c);
+                        if ($config->get("concrete_cms_theme.use_static_navigation")) {
+                            /** @noinspection PhpUnhandledExceptionInspection */
+                            echo View::element("header_navigation", [], "concrete_cms_theme");
+                        } else {
+                            $a = new GlobalArea('Header Navigation');
+                            $a->display($c);
+                        }
                         ?>
                     </div>
                 </div>
