@@ -83,7 +83,7 @@ foreach ($navItems as $ni) {
 $curPage = Page::getCurrentPage();
 $selectedPathCIDs = [$curPage->getCollectionID()];
 
-while(true) {
+while (true) {
     $selectedPathCIDs[] = $curPage->getCollectionParentID();
 
     if ($curPage->getCollectionParentID() == $curPage->getCollectionID()) {
@@ -102,7 +102,7 @@ $searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
 $searchPage = Page::getByID($searchPageId);
 
 if ($searchPage instanceof Page && !$searchPage->isError()) {
-    echo '<li class="d-none d-lg-block nav-item' . (in_array($searchPage->getCollectionID(), $selectedPathCIDs) ? " active"  : "") . '">';
+    echo '<li class="d-none d-lg-block nav-item' . (in_array($searchPage->getCollectionID(), $selectedPathCIDs) ? " active" : "") . '">';
     echo '<a href="' . (string)Url::to($searchPage) . '" title="' . h(t("Search")) . '" class="nav-link"><i class="fas fa-search"></i></a>';
     echo '</li>';
 }
@@ -112,7 +112,7 @@ $user = new User();
 $accountPage = Page::getByPath('/account');
 
 if ($user->isRegistered()) {
-    echo '<li class="d-none d-lg-block nav-item' . (in_array($accountPage->getCollectionID(), $selectedPathCIDs) ? " active"  : "") . '">';
+    echo '<li class="d-none d-lg-block nav-item' . (in_array($accountPage->getCollectionID(), $selectedPathCIDs) ? " active" : "") . '">';
     echo '<a href="javascript:void(0);" title="' . h(t("Profile")) . '" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="ccm-account-dropdown"><i class="fas fa-user"></i></a>';
 
     echo '<div class="dropdown-menu dropdown-menu-right" aria-labelledby="ccm-account-dropdown">';
@@ -135,11 +135,34 @@ if ($user->isRegistered()) {
     echo '<a class="dropdown-item" href="' . (string)Url::to('/login', 'do_logout', $token->generate('do_logout')) . '">' . t("Sign Out") . '</a>';
     echo '</div>';
     echo '</li>';
+
+
+    echo '<li class="d-block d-lg-none nav-item' . (in_array($accountPage->getCollectionID(), $selectedPathCIDs) ? " active" : "") . '">';
+    echo '<a href="javascript:void(0);" title="' . h(t("Profile")) . '" class="nav-link dropdown-toggle" data-toggle="dropdown" >' . t("Account") . '<span class="caret"></span></a>';
+
+    echo '<ul class="dropdown-menu">';
+
+    $children = $accountPage->getCollectionChildrenArray(true);
+
+    foreach ($children as $cID) {
+        $nc = Page::getByID($cID, 'ACTIVE');
+        $ncp = new Checker($nc);
+
+        if ($ncp->canRead() && (!$nc->getAttribute('exclude_nav'))) {
+            echo '<li class="nav-item"><a class="nav-link" href="' . (string)Url::to($nc) . '">' . $nc->getCollectionName() . '</a></li>';
+        }
+    }
+
+    echo '<li class="nav-item"><a class="nav-link" href="' . (string)Url::to('/members/profile', $user->getUserID()) . '">' . t("View Public Profile") . '</a></li>';
+    echo '<li class="nav-item"><a class="nav-link" href="' . (string)Url::to('/login', 'do_logout', $token->generate('do_logout')) . '">' . t("Sign Out") . '</a></li>';
+    echo '</ul>';
 } else {
-    echo '<li class="d-none d-lg-block nav-item' . (in_array($accountPage->getCollectionID(), $selectedPathCIDs) ? " active"  : "") . '">';
+    echo '<li class="d-none d-lg-block nav-item' . (in_array($accountPage->getCollectionID(), $selectedPathCIDs) ? " active" : "") . '">';
     echo '<a href="' . (string)Url::to('/login') . '" title="' . h(t("Sign In")) . '" class="nav-link"><i class="fas fa-user"></i></a>';
     echo '</li>';
-
+    echo '<li class="d-block d-lg-none nav-item' . (in_array($accountPage->getCollectionID(), $selectedPathCIDs) ? " active" : "") . '">';
+    echo '<a href="' . (string)Url::to('/login') . '" title="' . h(t("Sign In")) . '" class="nav-link">' . t("Login") . '</a>';
+    echo '</li>';
 }
 
 echo '</ul>'; //closes the top-level menu
