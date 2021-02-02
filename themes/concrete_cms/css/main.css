@@ -19838,14 +19838,22 @@ div.ccm-page header #ccm-mobile-search-btn {
     margin-right: 5px;
   }
 
-  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown.show,
-  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown:hover {
-    background-color: #ffffff !important;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown::before {
+    /* Position the pseudo-element. */
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* Create the box shadow at expanded size. */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    /* Hidden by default. */
+    opacity: 0;
+    transition: opacity 500ms;
   }
 
-  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown.show::before,
-  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown:hover::before {
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown::after {
     content: " ";
     height: 15px;
     background-color: #ffffff !important;
@@ -19855,6 +19863,23 @@ div.ccm-page header #ccm-mobile-search-btn {
     width: 100%;
     left: 0;
     z-index: 10000;
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown.show,
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown:hover {
+    background-color: #ffffff !important;
+  }
+
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown.show::before,
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown:hover::before {
+    opacity: 1;
+  }
+
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown.show::after,
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item.dropdown:hover::after {
+    opacity: 1;
   }
 
   div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item > a {
@@ -19893,9 +19918,20 @@ div.ccm-page header #ccm-mobile-search-btn {
     left: 0;
   }
 
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item:hover > ul.dropdown-menu,
+  div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item > ul.dropdown-menu.show {
+    max-height: 450px;
+    opacity: 1;
+  }
+
   div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item > ul.dropdown-menu {
     margin-top: -23px;
     min-width: 234px;
+    transition: all 0.5s;
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
   }
 
   div.ccm-page header .navbar #ccm-desktop-nav > .nav > .nav-item > ul.dropdown-menu > li.nav-item:hover,
@@ -19919,6 +19955,10 @@ div.ccm-page header #ccm-mobile-search-btn {
     text-transform: none;
     padding: 4px 24px;
     color: #19191A;
+  }
+
+  div.ccm-page header .navbar #ccm-account-dropdown {
+    margin-right: 0 !important;
   }
 
   div.ccm-page header .navbar #ccm-account-dropdown:focus {

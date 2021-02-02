@@ -24,57 +24,8 @@ $config = $app->make(Repository::class);
 ?>
 <footer>
     <div class="container">
-        <?php if ($config->get("concrete_cms_theme.use_static_navigation")) { ?>
-            <?php /** @noinspection PhpUnhandledExceptionInspection */
-            echo View::element("footer_navigation", [], "concrete_cms_theme"); ?>
-        <?php } else { ?>
-            <div class="row">
-                <div class="col-md">
-                    <div class="footer-navigation">
-                        <?php
-                        $a = new GlobalArea('Footer Navigation Column 1');
-                        $a->display($c);
-                        ?>
-                    </div>
-                </div>
-
-                <div class="col-md">
-                    <div class="footer-navigation">
-                        <?php
-                        $a = new GlobalArea('Footer Navigation Column 2');
-                        $a->display($c);
-                        ?>
-                    </div>
-                </div>
-
-                <div class="col-md">
-                    <div class="footer-navigation">
-                        <?php
-                        $a = new GlobalArea('Footer Navigation Column 3');
-                        $a->display($c);
-                        ?>
-                    </div>
-                </div>
-
-                <div class="col-md">
-                    <div class="footer-navigation">
-                        <?php
-                        $a = new GlobalArea('Footer Navigation Column 4');
-                        $a->display($c);
-                        ?>
-                    </div>
-                </div>
-
-                <div class="col-md">
-                    <div class="footer-navigation">
-                        <?php
-                        $a = new GlobalArea('Footer Navigation Column 5');
-                        $a->display($c);
-                        ?>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+        <?php /** @noinspection PhpUnhandledExceptionInspection */
+        echo View::element("footer_navigation", [], "concrete_cms_theme"); ?>
 
         <div class="row">
             <div class="col-sm">

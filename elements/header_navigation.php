@@ -185,7 +185,7 @@ $token = $app->make(Token::class);
         </ul>
     </li>
 
-    <li class="nav-item active dropdown index-5">
+    <li class="nav-item dropdown index-5">
         <a href="<?php echo (string)Url::to("/training"); ?>" target="_self"
            class="nav-link  dropdown-toggle" data-toggle="dropdown">
             <?php echo t("Training"); ?> <span class="caret"></span>
@@ -220,7 +220,7 @@ $token = $app->make(Token::class);
                 </a>
             </li>
 
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="<?php echo (string)Url::to("/training/training-certification"); ?>"
                    target="_self" class="nav-link ">
                     <?php echo t("Training &amp; Certification"); ?>

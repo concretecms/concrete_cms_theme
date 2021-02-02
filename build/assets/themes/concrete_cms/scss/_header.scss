@@ -82,11 +82,25 @@ header {
 
         }
 
-        &.dropdown.show, &.dropdown:hover {
-          background-color: theme-color('white') !important;
-          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
-
+        &.dropdown {
           &::before {
+            /* Position the pseudo-element. */
+            content: ' ';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            /* Create the box shadow at expanded size. */
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+            /* Hidden by default. */
+            opacity: 0;
+            transition: opacity 500ms;
+          }
+
+          &::after {
             content: " ";
             height: 15px;
             background-color: theme-color('white') !important;
@@ -96,6 +110,20 @@ header {
             width: 100%;
             left: 0;
             z-index: 10000;
+            opacity: 0;
+            transition: opacity 500ms;
+          }
+        }
+
+        &.dropdown.show, &.dropdown:hover {
+          background-color: theme-color('white') !important;
+
+          &::before {
+            opacity: 1;
+          }
+
+          &::after {
+            opacity: 1;
           }
         }
 
@@ -135,10 +163,24 @@ header {
           }
         }
 
+
+        &:hover > ul.dropdown-menu,
+        & > ul.dropdown-menu.show {
+          max-height: 450px;
+          opacity: 1;
+        }
+
         & > ul.dropdown-menu {
 
           margin-top: -23px;
           min-width: 234px;
+          transition: all 0.5s;
+
+          max-height: 0;
+          display: block;
+          overflow: hidden;
+          opacity: 0;
+
 
           & > li.nav-item {
             &:hover, &.active, &:active {
@@ -161,6 +203,10 @@ header {
             }
           }
         }
+      }
+
+      #ccm-account-dropdown {
+        margin-right: 0 !important;
       }
 
       #ccm-account-dropdown:focus {
