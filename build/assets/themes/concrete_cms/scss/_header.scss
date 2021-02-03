@@ -24,6 +24,7 @@ header {
   background-color: theme-color('white');
   height: 80px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  position: relative;
 
   &.no-breadcrumb {
     margin-bottom: 0 !important;
@@ -47,6 +48,68 @@ header {
     color: theme-color('gray');
     margin-top: 0;
     top: 8px;
+  }
+
+  & > .container {
+    z-index: 101;
+  }
+
+  &.has-sub-nav {
+    height: 120px;
+  }
+
+  #ccm-sub-nav {
+    background-color: theme-color('white');
+    box-shadow: 0 8px 4px -4px rgb(0 0 0 / 5%);
+    height: 40px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    border-top: 1px solid theme-color('card-border');
+
+    h3 {
+      font-family: "Poppins";
+      float: left;
+      font-size: 12px;
+      line-height: 40px;
+      color: theme-color('legal');
+    }
+
+    nav {
+      float: right;
+
+      ul {
+        display: block;
+        float: right;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          display: block;
+          float: left;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          margin-left: 30px;
+
+          &.active, &:hover {
+            a {
+              color: theme-color('accent');
+            }
+          }
+
+          a {
+            font-family: "Noto Sans";
+            font-size: 14px;
+            line-height: 40px;
+            color: theme-color('dark-gray');
+          }
+        }
+      }
+    }
   }
 
   /* Desktop */
@@ -243,6 +306,10 @@ header {
   /* Tablet + Mobile */
   @include media-breakpoint-down(md) {
     height: 60px;
+
+    #ccm-sub-nav {
+      display: none;
+    }
 
     .header-site-title {
       display: flex;

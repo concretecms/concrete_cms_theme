@@ -25,7 +25,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.0.2';
+    protected $pkgVersion = '0.0.4';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
@@ -80,6 +80,19 @@ class Controller extends Package
         parent::uninstall();
     }
 
+    private function createSinglePage($cPath, $cName = '')
+    {
+        $page = Page::getByPath($cPath);
+
+        if (!$page instanceof Page || $page->isError()) {
+            $page = Single::add($cPath, $this);
+            $page->update([
+                "cName" => $cName
+            ]);
+        }
+    }
+
+
     public function upgrade()
     {
         parent::upgrade();
@@ -94,6 +107,8 @@ class Controller extends Package
             '/login' => 'concrete_cms',
             '/oauth/authorize' => 'concrete_cms'
         ]);
+
+        $this->createSinglePage('/account/karma', t("Karma"));
     }
 
     public function install()

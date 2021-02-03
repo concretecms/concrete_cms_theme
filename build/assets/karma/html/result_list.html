@@ -1,0 +1,42 @@
+<!--
+ @project:   ConcreteCMS Theme
+
+ @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ @author     Fabian Bitter (fabian@bitter.de)
+-->
+
+<% _.each(results, function(result){ %>
+<div class="karma-entry">
+    <div class="row">
+        <div class="col-auto profile-picture">
+            <div class="profile-image">
+                <div class="image-wrapper">
+                    <img src="<%=result.avatar%>" alt="<%=result.username%>">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-auto infos">
+            <p class="text-muted">
+                <%=result.info%>
+            </p>
+
+            <h3>
+                <%=result.title%>
+            </h3>
+
+            <p>
+                <%=result.description%>
+            </p>
+        </div>
+
+        <div class="col points">
+            <h3 class="float-right">
+                <%=result.points%>
+            </h3>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+<% }); %>

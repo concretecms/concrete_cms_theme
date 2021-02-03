@@ -48,6 +48,23 @@ $("#ccm-toggle-mobile-nav").click(function (e) {
     }
 });
 
+// Karma
+
+// Custom assets
+import fetchResults from '../../../karma/js/result_list';
+
+if ($(".karma-page").length > 0) {
+    $("#load-more a").click(function () {
+        fetchResults();
+    });
+
+    $(window).scroll(function () {
+        if ($(document).height() - $(this).height() == $(this).scrollTop()) {
+            fetchResults();
+        }
+    });
+}
+
 /*
  * Send message actions
  */

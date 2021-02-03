@@ -1,0 +1,180 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.karma-page {
+  .karma-entry {
+    .row {
+      .profile-picture {
+        width: 100px;
+
+        .profile-image {
+          margin: 0 10px;
+
+          .image-wrapper {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              height: auto;
+              min-height: 100%;
+            }
+          }
+        }
+      }
+
+      .infos {
+        p.text-muted {
+          font-size: 14px;
+          margin: 0;
+          padding: 0;
+        }
+
+        h3 {
+          color: theme-color('legal');
+          line-height: 26px;
+          font-size: 22px;
+          font-weight: 700;
+          text-transform: none;
+          padding: 0;
+          margin: 7px 0 0;
+          font-family: "Noto Sans";
+        }
+
+        p:not(.text-muted) {
+          margin: 0;
+          padding: 0;
+          font-size: 16px;
+          color: theme-color('legal');
+        }
+      }
+
+      .points {
+        width: 100px;
+
+        h3 {
+          font-size: 39px;
+          color: theme-color('legal');
+          line-height: 71px;
+          margin: 0;
+          padding: 0;
+          font-weight: 400;
+          font-family: "Noto Sans";
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: 1px solid theme-color('card-border');
+      margin-bottom: 20px;
+    }
+  }
+
+  .karma-totals {
+    p {
+      span {
+        display: inline-block;
+        width: 40%;
+        text-align: right;
+        padding: 0 5px;
+        font-size: 14px;
+        font-family: "Noto Sans";
+      }
+
+      strong {
+        display: inline-block;
+        width: 60%;
+        text-align: left;
+        padding: 0 5px;
+        font-size: 16px;
+        font-family: "Noto Sans";
+        font-weight: 700;
+      }
+
+      &:last-child {
+        margin-top: 10px;
+
+        span {
+          color: theme-color('text');
+          font-weight: bold;
+          margin-top: 27px;
+        }
+
+        strong {
+          font-size: 39px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .karma-request {
+    strong {
+      font-size: 14px;
+      color: theme-color('text');
+    }
+
+    p {
+      margin-top: 10px;
+    }
+  }
+
+  #load-more {
+    margin-top: 15px;
+  }
+
+  /* Tablet */
+  @include media-breakpoint-only(md) {
+    #my-karma {
+      order: 1;
+
+      .karma-totals {
+        width: 350px;
+        display: block;
+        float: left;
+        border-right: 1px solid theme-color('card-border');
+        padding: 20px;
+      }
+
+      hr {
+        display: none;
+      }
+
+      .clearfix {
+        display: none;
+        clear: none;
+      }
+
+      .karma-request {
+        width: calc(100% - 350px);
+        display: block;
+        float: left;
+        padding: 20px;
+      }
+    }
+
+    #karma-list {
+      order: 2;
+    }
+  }
+
+
+  /* Mobile */
+  @include media-breakpoint-down(sm) {
+    #my-karma {
+      order: 1;
+    }
+
+    #karma-list {
+      order: 2;
+    }
+  }
+}

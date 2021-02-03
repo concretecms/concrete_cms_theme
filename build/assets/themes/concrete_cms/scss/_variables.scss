@@ -22,9 +22,9 @@ $hr-border-color: $gray-300;
 $btn-border-radius: 20px;
 $btn-padding-x: 30px;
 $btn-padding-y: 10px;
-$btn-success-background-color: theme-color('accent');
-$btn-success-border-color: #4cae4c;
 
+$btn-success-border-color: theme-color('green') !default;
+$btn-success-background-color: theme-color('green') !default;
 $btn-default-background-color: theme-color('white');
 $btn-default-border-color: theme-color('border');
 $btn-primary-background-color: theme-color('accent');

@@ -98,7 +98,7 @@ if (!isset($authTypeParams)) {
 
                         <?php if ($config->get('concrete.user.registration.enabled')) { ?>
                             <hr/>
-                            <a href="<?php echo (string)Url::to('/register') ?>" class="btn btn-block btn-success"
+                            <a href="<?php echo (string)Url::to('/register') ?>" class="btn btn-block btn-primary"
                                target="_blank">
                                 <?php echo t('Not a member? Register') ?>
                             </a>

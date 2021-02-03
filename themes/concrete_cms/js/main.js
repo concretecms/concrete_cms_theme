@@ -86,6 +86,84 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./assets/karma/html/result_list.html":
+/*!********************************************!*\
+  !*** ./assets/karma/html/result_list.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function(obj){
+var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+with(obj||{}){
+__p+='<!--\n @project:   ConcreteCMS Theme\n\n @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)\n @author     Fabian Bitter (fabian@bitter.de)\n-->\n\n';
+ _.each(results, function(result){ 
+__p+='\n<div class="karma-entry">\n    <div class="row">\n        <div class="col-auto profile-picture">\n            <div class="profile-image">\n                <div class="image-wrapper">\n                    <img src="'+
+((__t=(result.avatar))==null?'':__t)+
+'" alt="'+
+((__t=(result.username))==null?'':__t)+
+'">\n                </div>\n            </div>\n        </div>\n\n        <div class="col-auto infos">\n            <p class="text-muted">\n                '+
+((__t=(result.info))==null?'':__t)+
+'\n            </p>\n\n            <h3>\n                '+
+((__t=(result.title))==null?'':__t)+
+'\n            </h3>\n\n            <p>\n                '+
+((__t=(result.description))==null?'':__t)+
+'\n            </p>\n        </div>\n\n        <div class="col points">\n            <h3 class="float-right">\n                '+
+((__t=(result.points))==null?'':__t)+
+'\n            </h3>\n        </div>\n    </div>\n\n    <div class="clearfix"></div>\n</div>\n';
+ }); 
+__p+='';
+}
+return __p;
+};
+
+
+/***/ }),
+
+/***/ "./assets/karma/js/result_list.js":
+/*!****************************************!*\
+  !*** ./assets/karma/js/result_list.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+var currentPage = 2;
+/* harmony default export */ __webpack_exports__["default"] = (function (options) {
+  var tpl = __webpack_require__(/*! ../html/result_list.html */ "./assets/karma/html/result_list.html");
+
+  if ($("#load-more").hasClass("d-none")) {
+    return;
+  }
+
+  $.ajax({
+    url: CCM_DISPATCHER_FILENAME + "/account/karma/fetch_results",
+    method: "GET",
+    data: {
+      ccm_paging_p: currentPage
+    },
+    success: function success(response) {
+      var html = tpl(response);
+      $("#karma-container").append(html);
+
+      if (!response.hasNextPage) {
+        $("#load-more").addClass("d-none");
+      } else {
+        currentPage++;
+      }
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./assets/messages/html/compose.html":
 /*!*******************************************!*\
   !*** ./assets/messages/html/compose.html ***!
@@ -312,6 +390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @pnotify/bootstrap4 */ "./node_modules/@pnotify/bootstrap4/dist/PNotifyBootstrap4.js");
 /* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _messages_js_compose__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../messages/js/compose */ "./assets/messages/js/compose.js");
+/* harmony import */ var _karma_js_result_list__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../karma/js/result_list */ "./assets/karma/js/result_list.js");
 /**
  * @project:   ConcreteCMS Theme
  *
@@ -352,10 +431,25 @@ $("#ccm-toggle-mobile-nav").click(function (e) {
   } else {
     $(this).addClass(activeClass);
   }
-});
+}); // Karma
+// Custom assets
+
+
+
+if ($(".karma-page").length > 0) {
+  $("#load-more a").click(function () {
+    Object(_karma_js_result_list__WEBPACK_IMPORTED_MODULE_9__["default"])();
+  });
+  $(window).scroll(function () {
+    if ($(document).height() - $(this).height() == $(this).scrollTop()) {
+      Object(_karma_js_result_list__WEBPACK_IMPORTED_MODULE_9__["default"])();
+    }
+  });
+}
 /*
  * Send message actions
  */
+
 
 $(".send-message").click(function (e) {
   e.preventDefault();
