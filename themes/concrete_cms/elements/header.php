@@ -46,7 +46,7 @@ $excludeBreadcrumb = $c->getPageController()->get("exclude_breadcrumb") ||$c->ge
 </head>
 <body>
 <div class="<?php echo $c->getPageWrapperClass() ?>">
-    <header class="<?php echo $excludeBreadcrumb ? "no-breadcrumb" : ""; ?>">
+    <header class="<?php echo $excludeBreadcrumb ? "no-breadcrumb" : ""; ?> <?php echo $c->getCollectionParentID() > 0 ? "has-sub-nav" : ""; ?>">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="navbar-inner">
@@ -86,6 +86,11 @@ $excludeBreadcrumb = $c->getPageController()->get("exclude_breadcrumb") ||$c->ge
                 </div>
             </nav>
         </div>
+
+        <?php
+        /** @noinspection PhpUnhandledExceptionInspection */
+        $this->inc('elements/sub_nav.php');
+         ?>
     </header>
 
     <?php if (!$excludeBreadcrumb) { ?>

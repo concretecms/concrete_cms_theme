@@ -27,6 +27,9 @@ $modal-header-background-gradient-end-color: rgba(0,97,176,1);
 $modal-header-text-color: #ffffff;
 $table-head-background-color: #E5EAEC;
 $nav-hover: #F2F3F3;
+$green: #59AD15;
+$badge-background: #D11A15;
+$badge-text: #ffffff;
 
 // ---- Map those to theme conventions
 $theme-colors: (
@@ -50,7 +53,10 @@ $theme-colors: (
         'modal-header-background-gradient-end-color': $modal-header-background-gradient-end-color,
         'modal-header-text-color': $modal-header-text-color,
         'table-head-background-color': $table-head-background-color,
-        'nav-hover': $nav-hover
+        'nav-hover': $nav-hover,
+        'green': $green,
+        'badge-background': $badge-background,
+        'badge-text': $badge-text
 );
 
 $link-color: theme-color('secondary');
@@ -70,7 +76,6 @@ $alert-danger-border: $alert-border-radius !default;
 $input-border-radius: 0 !default;
 $breadcrumb-color: theme-color('accent') !default;
 $breadcrumb-active-color: theme-color('breadcrumb') !default;
-
 
 
 //== Modals

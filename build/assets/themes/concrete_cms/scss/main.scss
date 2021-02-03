@@ -25,6 +25,7 @@
 @import "./features/taxonomy/taxonomy";
 @import "./features/members/public_profile";
 @import "./features/account/edit_profile";
+@import "./features/account/karma";
 @import "./features/account/messages";
 
 div.ccm-page {
@@ -59,6 +60,7 @@ div.ccm-page {
   @import "./breadcrumbs";
   @import "./card";
   @import "./navs";
+  @import "./badges";
   @import "./footer";
 
   /* Pages */

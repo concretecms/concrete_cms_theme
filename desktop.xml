@@ -39,6 +39,20 @@
                 </attributekey>
             </attributes>
         </page>
+        <page name="Karma" path="/account/karma" filename="/account/karma.php" pagetype="" description=""
+              package="concrete_cms_theme">
+            <attributes>
+                <attributekey handle="desktop_priority">
+                    <value>10</value>
+                </attributekey>
+                <attributekey handle="is_desktop">
+                    <value>1</value>
+                </attributekey>
+                <attributekey handle="exclude_nav">
+                    <value>1</value>
+                </attributekey>
+            </attributes>
+        </page>
         <page name="View Profile" path="/members/profile" filename="/members/profile.php" pagetype="" description=""
               package="concrete_cms_theme">
             <attributes>
