@@ -54,10 +54,6 @@ header {
     z-index: 101;
   }
 
-  &.has-sub-nav {
-    height: 120px;
-  }
-
   #ccm-sub-nav {
     background-color: theme-color('white');
     box-shadow: 0 8px 4px -4px rgb(0 0 0 / 5%);
@@ -114,6 +110,10 @@ header {
 
   /* Desktop */
   @include media-breakpoint-up(lg) {
+    
+    &.has-sub-nav {
+      height: 120px;
+    }
 
     .caret, .dropdown-toggle::after {
       display: none;
