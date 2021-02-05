@@ -25,7 +25,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.0.4';
+    protected $pkgVersion = '0.0.7';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
@@ -109,6 +109,15 @@ class Controller extends Package
         ]);
 
         $this->createSinglePage('/account/karma', t("Karma"));
+
+        $this->installContentFile('desktop.xml');
+
+        // Clear the cache to prevent navigation issues
+        /** @var NavigationCache $navigationCache */
+        $navigationCache = $this->app->make(NavigationCache::class);
+        $navigationCache->clear();
+        $navigationCache = $this->app->make(FavoritesNavigationCache::class);
+        $navigationCache->clear();
     }
 
     public function install()

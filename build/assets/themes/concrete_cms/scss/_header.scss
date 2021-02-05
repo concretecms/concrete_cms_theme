@@ -110,7 +110,7 @@ header {
 
   /* Desktop */
   @include media-breakpoint-up(lg) {
-    
+
     &.has-sub-nav {
       height: 120px;
     }

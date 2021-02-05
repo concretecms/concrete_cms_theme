@@ -1,0 +1,44 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.alert.alert-new-badge {
+  background-color: theme-color('accent');
+  background: linear-gradient(90deg, theme-color('accent'), darken(theme-color('accent'), 10%));
+  color: theme-color('white');
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 5%);
+  padding: 25px 0;
+
+  .close {
+    color: theme-color('white');
+    opacity: 1;
+    outline: none;
+
+    span {
+      text-shadow: none;
+      color: theme-color('white');
+      opacity: 1;
+    }
+  }
+
+  .alert-info-text {
+    margin-bottom: 16px;
+  }
+
+  .badge-icon {
+
+  }
+
+  .badge-name {
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    display: block;
+    width: 100%;
+  }
+}
