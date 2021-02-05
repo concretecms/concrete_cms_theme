@@ -168,3 +168,46 @@ $(".bulk-action-item").click(function (e) {
         }
     });
 });
+
+/*
+ * Public Profile stuff
+ */
+
+let mediumBreakpoint = 991;
+
+$(".hidden-awards").click(function () {
+    $(".hidden-award").removeClass("hidden-award");
+    $(this).addClass("hidden");
+    $(window).trigger("resize");
+});
+
+$(".hidden-achievements").click(function () {
+    $(".hidden-achievement").removeClass("hidden-achievement");
+    $(this).addClass("hidden");
+    $(window).trigger("resize");
+});
+
+$(".alert-new-badge .close").click(function () {
+    let grantedAwardId = $(this).parent().data("awardGrantId");
+
+    $.ajax({
+        url: CCM_DISPATCHER_FILENAME + "/api/v1/community_badges/dismiss_grant_award",
+        method: "POST",
+        data: {
+            grantedAwardId: grantedAwardId
+        }
+    });
+});
+
+$(window).resize(function () {
+    if ($(window).width() > mediumBreakpoint) {
+        if ($("#achievements-card").height() < $("#info-card").height()) {
+            $("#achievements-card").css("min-height", $("#info-card").height());
+            $("#achievements-card .achievements-box").css("height", $("#info-card").height() - 79);
+        } else {
+            $("#info-card").css("min-height", $("#achievements-card").height());
+        }
+    } else {
+        $("#info-card").css("min-height", "0");
+    }
+}).trigger("resize");

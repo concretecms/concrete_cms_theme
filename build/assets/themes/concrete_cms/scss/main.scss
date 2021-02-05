@@ -28,6 +28,11 @@
 @import "./features/account/karma";
 @import "./features/account/messages";
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 div.ccm-page {
   overflow-x: hidden;
   display: flex;
@@ -60,6 +65,7 @@ div.ccm-page {
   @import "./breadcrumbs";
   @import "./card";
   @import "./navs";
+  @import "./alerts";
   @import "./badges";
   @import "./footer";
 

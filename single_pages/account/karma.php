@@ -10,10 +10,12 @@
 defined('C5_EXECUTE') or die('Access Denied.');
 
 use Concrete\Core\Localization\Service\Date;
+use Concrete\Core\Page\Page;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\User\Point\Entry;
 use Concrete\Core\User\User;
+use Concrete\Core\Config\Repository\Repository;
 
 /** @var Entry[] $entries */
 /** @var array $myTotalList */
@@ -22,6 +24,9 @@ use Concrete\Core\User\User;
 $app = Application::getFacadeApplication();
 /** @var Date $dateService */
 $dateService = $app->make(Date::class);
+/** @var Repository $config */
+$config = $app->make(Repository::class);
+
 ?>
 
 <div class="karma-page">
@@ -196,7 +201,8 @@ $dateService = $app->make(Date::class);
                                 </p>
 
                                 <div class="text-center">
-                                    <a href="javascript:void(0);" class="btn btn-primary" onclick="alert('What should happening when click on this button?');">
+                                    <a href="<?php echo (string)Url::to(Page::getByID($config->get("concrete_cms_theme.submit_karma_request_page", false))); ?>"
+                                       class="btn btn-primary">
                                         <?php echo t("Submit Karma Request"); ?>
                                     </a>
                                 </div>
