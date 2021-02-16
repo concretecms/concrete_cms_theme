@@ -15,6 +15,9 @@ use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Validation\CSRF\Token;
 
 /** @var int $submitKarmaRequestPage */
+/** @var int $teamsGroupFolderId */
+/** @var int $teamsGroupTypeId */
+/** @var Concrete\Core\Tree\Tree $tree */
 
 $app = Application::getFacadeApplication();
 /** @var Form $form */
@@ -29,10 +32,58 @@ $token = $app->make(Token::class);
 <form action="#" method="post">
     <?php echo $token->output("update_settings"); ?>
 
-    <div class="form-group">
-        <?php echo $form->label("submitKarmaRequestPage", t("Submit Karma Request Page")); ?>
-        <?php echo $pageSelector->selectPage("submitKarmaRequestPage", $submitKarmaRequestPage); ?>
-    </div>
+    <fieldset>
+        <legend>
+            <?php echo t("General"); ?>
+        </legend>
+
+        <div class="form-group">
+            <?php echo $form->label("submitKarmaRequestPage", t("Submit Karma Request Page")); ?>
+            <?php echo $pageSelector->selectPage("submitKarmaRequestPage", $submitKarmaRequestPage); ?>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <?php echo t("Teams"); ?>
+        </legend>
+
+        <div class="form-group">
+            <?php echo $form->label("teamsGroupTypeId", t("Group Type")); ?>
+            <?php echo $form->select("teamsGroupTypeId", \Concrete\Core\User\Group\GroupType::getSelectList(), $teamsGroupTypeId); ?>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">
+                <?php echo t('Parent Folder')?>
+            </label>
+
+            <div class="controls">
+                <div class="groups-tree" style="width: 460px" data-groups-tree="<?php echo $tree->getTreeID()?>"></div>
+                <?php echo $form->hidden('teamsGroupFolderId')?>
+                <script type="text/javascript">
+                    $(function() {
+                        $('[data-groups-tree=<?php echo $tree->getTreeID()?>]').concreteTree({
+                            'treeID': '<?php echo $tree->getTreeID()?>',
+                            'chooseNodeInForm': 'single',
+                            'enableDragAndDrop': false,
+                            ajaxData: {
+                                displayOnly: 'group_folder'
+                            },
+                            'selectNodesByKey': [<?php echo intval($teamsGroupFolderId)?>],
+                            'onSelect': function(nodes) {
+                                if (nodes.length) {
+                                    $('input[name=teamsGroupFolderId]').val(nodes[0]);
+                                } else {
+                                    $('input[name=teamsGroupFolderId]').val('');
+                                }
+                            }
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </fieldset>
 
     <div class="ccm-dashboard-form-actions-wrapper">
         <div class="ccm-dashboard-form-actions">
