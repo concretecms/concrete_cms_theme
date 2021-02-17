@@ -20497,6 +20497,12 @@ div.ccm-page {
    */
   /* Tablet + Mobile */
   /* Mobile */
+  /**
+   * @project:   ConcreteCMS Theme
+   *
+   * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+   * @author     Fabian Bitter (fabian@bitter.de)
+   */
 }
 
 div.ccm-page main {
@@ -22110,5 +22116,140 @@ div.ccm-page .section-get-started .ccm-image-block {
   div.ccm-page .ccm-custom-style-main3.section-features .container:nth-child(1) .row .col-6:nth-child(2) {
     order: 1;
   }
+}
+
+div.ccm-page .login-page {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #ffffff;
+  /* Mobile */
+}
+
+div.ccm-page .login-page h2 {
+  text-transform: none;
+  font-size: 16px !important;
+}
+
+@media (max-width: 767.98px) {
+  div.ccm-page .login-page {
+    background: linear-gradient(90deg, #0074d3 0%, #0061b0 50%);
+  }
+
+  div.ccm-page .login-page h1,
+  div.ccm-page .login-page h2,
+  div.ccm-page .login-page h3,
+  div.ccm-page .login-page h4,
+  div.ccm-page .login-page h5,
+  div.ccm-page .login-page h6,
+  div.ccm-page .login-page label,
+  div.ccm-page .login-page input[type=checkbox]::before,
+  div.ccm-page .login-page .col-form-label,
+  div.ccm-page .login-page .ccm-title,
+  div.ccm-page .login-page .sign-up-container,
+  div.ccm-page .login-page .help-block,
+  div.ccm-page .login-page p,
+  div.ccm-page .login-page .scopes,
+  div.ccm-page .login-page h2 {
+    color: #ffffff !important;
+    font-size: 14px !important;
+  }
+
+  div.ccm-page .login-page .alert,
+  div.ccm-page .login-page a,
+  div.ccm-page .login-page .btn {
+    font-size: 14px !important;
+  }
+
+  div.ccm-page .login-page input[type=checkbox]::before {
+    top: -2px !important;
+  }
+
+  div.ccm-page .login-page .ccm-logo-column {
+    max-width: 100% !important;
+  }
+
+  div.ccm-page .login-page .ccm-logo-column .ccm-logo {
+    margin: auto;
+  }
+
+  div.ccm-page .login-page .ccm-title {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 26px !important;
+    line-height: 30px !important;
+  }
+
+  div.ccm-page .login-page .col-form-label {
+    text-align: left !important;
+  }
+
+  div.ccm-page .login-page .form-check {
+    margin-left: 0 !important;
+  }
+
+  div.ccm-page .login-page .login-content {
+    margin-top: 25px !important;
+  }
+}
+
+div.ccm-page .login-page main {
+  position: relative;
+}
+
+div.ccm-page .login-page main .form-check {
+  margin-left: 15px;
+}
+
+div.ccm-page .login-page main .login-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+div.ccm-page .login-page main .login-wrapper .login-container {
+  width: 600px;
+  margin: auto;
+}
+
+div.ccm-page .login-page main .login-wrapper .login-container .ccm-logo-column {
+  max-width: 100px;
+}
+
+div.ccm-page .login-page main .login-wrapper .login-container .ccm-logo-column .ccm-logo {
+  display: block;
+  width: 100px;
+  height: auto;
+}
+
+div.ccm-page .login-page main .login-wrapper .login-container .ccm-title {
+  font-size: 29px;
+  line-height: 40px;
+  color: #4C4F56;
+  font-weight: 600;
+  text-transform: none;
+  width: 424px;
+  margin: 11px auto auto;
+}
+
+div.ccm-page .login-page main .login-wrapper .login-container .login-content {
+  margin-top: 50px;
+}
+
+div.ccm-page .login-page main .login-wrapper .login-container .col-form-label {
+  text-align: right;
+  font-weight: bold;
+}
+
+div.ccm-page .login-page main .login-wrapper .login-container .help-block {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-style: normal;
+  color: #4C4F56;
 }
 
