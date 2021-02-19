@@ -253,3 +253,42 @@ $(window).resize(function () {
             });
     });
 })(jQuery);
+
+/*
+ * Display popups for login + register page when clicking on a link item
+ */
+
+$("a").click(function (e) {
+    if ($(this).attr("href").substr($(this).attr("href").length - 6) === "/login" ||
+        $(this).attr("href").substr($(this).attr("href").length - 9) === "/register") {
+
+        e.preventDefault();
+
+        $.ajax({
+            url: $(this).attr("href"),
+            method: 'GET',
+            data: {
+                ajax: true
+            },
+            success: function (html) {
+                var $modal =$("<div/>").addClass("modal h-100 d-flex flex-column justify-content-center my-0").attr("role", "dialog").attr("tabindex", "-1").attr("id", "login-register-modal");
+                $modal.append(
+                    $("<div/>").attr("role", "document").addClass("modal-dialog").append(
+                        $("<div/>").addClass("modal-content").append(
+                            $("<div/>").addClass("modal-body").html(
+                                html
+                            )
+                        )
+                    )
+                );
+                $(".ccm-page").append($modal);
+                $modal.modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+            }
+        });
+
+        return false;
+    }
+});

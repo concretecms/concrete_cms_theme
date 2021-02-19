@@ -14,6 +14,7 @@ use Concrete\Core\Attribute\Form\RendererBuilder;
 use Concrete\Core\Entity\Attribute\Key\UserKey;
 use Concrete\Core\Captcha\CaptchaInterface;
 use Concrete\Core\Form\Service\Form;
+use Concrete\Core\Http\Request;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Support\Facade\Url;
@@ -41,9 +42,13 @@ $form = $app->make(Form::class);
 $config = $app->make(Repository::class);
 /** @var CaptchaInterface $captcha */
 $captcha = $app->make(CaptchaInterface::class);
+/** @var Request $request */
+$request = $app->make(Request::class);
 
-/** @noinspection PhpUnhandledExceptionInspection */
-$this->inc('elements/header_minimal.php');
+if (!$request->query->has("ajax")) {
+    /** @noinspection PhpUnhandledExceptionInspection */
+    $this->inc('elements/header_minimal.php');
+}
 
 $renderer->setContext(new FrontendFormContext());
 ?>
@@ -274,11 +279,11 @@ $renderer->setContext(new FrontendFormContext());
                 </div>
             </div>
         </div>
-
-
     </main>
 </div>
 <?php
-/** @noinspection PhpUnhandledExceptionInspection */
-$this->inc('elements/footer_minimal.php');
+if (!$request->query->has("ajax")) {
+    /** @noinspection PhpUnhandledExceptionInspection */
+    $this->inc('elements/footer_minimal.php');
+}
 ?>

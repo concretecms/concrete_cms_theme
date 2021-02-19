@@ -22118,6 +22118,67 @@ div.ccm-page .section-get-started .ccm-image-block {
   }
 }
 
+div.ccm-page #login-register-modal {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+}
+
+div.ccm-page #login-register-modal .modal-dialog {
+  max-width: 720px;
+}
+
+div.ccm-page #login-register-modal .modal-dialog .modal-content {
+  background: linear-gradient(90deg, #0074d3 0%, #0061b0 50%);
+}
+
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body {
+  padding: 0;
+}
+
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page {
+  padding: 25px;
+  background: transparent;
+  position: relative;
+  min-height: 0;
+  background: linear-gradient(90deg, #0074d3 0%, #0061b0 50%);
+}
+
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page .login-wrapper {
+  height: auto;
+}
+
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page h1,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page h2,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page h3,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page h4,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page h5,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page h6,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page label,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page input[type=checkbox]::before,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page .col-form-label,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page .ccm-title,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page .sign-up-container,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page .help-block,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page p,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page .scopes,
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page h2 {
+  color: #ffffff !important;
+}
+
+div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page .login-content {
+  margin-top: 25px !important;
+}
+
+@media (max-width: 767.98px) {
+  div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body .login-page {
+    position: fixed;
+    min-height: 100%;
+  }
+}
+
 div.ccm-page .login-page {
   position: fixed;
   left: 0;

@@ -5,6 +5,70 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+#login-register-modal {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+
+  .modal-dialog {
+    max-width: 720px;
+
+    .modal-content {
+      background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+
+      .modal-body {
+        padding: 0;
+
+        .login-page {
+          padding: 25px;
+          background: transparent;
+          position: relative;
+          min-height: 0;
+
+          .login-wrapper {
+            height: auto;
+          }
+
+          background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+
+          h1, h2, h3, h4, h5, h6, label,
+          input[type=checkbox]::before,
+          .col-form-label,
+          .ccm-title,
+          .sign-up-container,
+          .help-block,
+          p, .scopes,
+          h2 {
+            color: theme-color('white') !important;
+          }
+
+          .login-content {
+            margin-top: 25px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+
+    .modal-dialog {
+
+      .modal-content {
+        .modal-body {
+
+          .login-page {
+            position: fixed;
+            min-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
 .login-page {
   position: fixed;
   left: 0;
@@ -31,7 +95,7 @@
     .sign-up-container,
     .help-block,
     p, .scopes,
-    h2{
+    h2 {
       color: theme-color('white') !important;
       font-size: 14px !important;;
     }
