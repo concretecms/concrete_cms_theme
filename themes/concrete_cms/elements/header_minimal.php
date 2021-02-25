@@ -10,10 +10,18 @@
 defined('C5_EXECUTE') or die("Access Denied.");
 
 use Concrete\Core\Localization\Localization;
+use Concrete\Core\Page\Page;
 use Concrete\Core\View\View;
+use Concrete\Core\Support\Facade\Application;
+use Concrete\Core\Config\Repository\Repository;
 
 /** @var View $view */
 
+$app = Application::getFacadeApplication();
+/** @var Repository $config */
+$config = $app->make(Repository::class);
+
+$enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page ? $c->getAttribute("enable_dark_mode") : false);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo Localization::activeLanguage() ?>">
@@ -32,4 +40,4 @@ use Concrete\Core\View\View;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="<?php echo $c->getPageWrapperClass() ?>">
+<div class="<?php echo $c->getPageWrapperClass() ?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">

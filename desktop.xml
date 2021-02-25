@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <concrete5-cif version="1.0">
+    <attributekeys>
+        <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
+                      searchable="1"
+                      indexed="0" type="boolean"
+                      category="collection"/>
+    </attributekeys>
     <expressentities>
         <entity id="85d12748-67c1-11eb-a212-7aaef9d541c3" handle="submit_karma_request" plural_handle=""
                 name="Submit Karma Request" supports_custom_display_order="" include_in_public_list="" description=""

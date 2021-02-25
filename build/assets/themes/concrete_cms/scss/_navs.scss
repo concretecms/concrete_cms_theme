@@ -5,7 +5,15 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
-
+main {
+  .nav {
+    li {
+      display: block;
+      width: 100%;
+      line-height: 38px;
+    }
+  }
+}
 
 // Tabs
 // -------------------------

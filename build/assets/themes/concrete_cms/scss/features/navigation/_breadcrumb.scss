@@ -7,9 +7,15 @@
 
 // Overrides bootstraps breadcrumb styles
 
+.ccm-dark-mode {
+  .breadcrumb {
+    font-size: 14px !important;
+  }
+}
+
 .breadcrumb {
   background-color: transparent;
-  padding: 0px;
+  padding: 0;
 
   a {
     &:hover {

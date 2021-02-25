@@ -5,6 +5,48 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+&.ccm-dark-mode {
+  #login-register-modal {
+    .modal-dialog {
+      .modal-content {
+        background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%);
+
+        .modal-body {
+          .login-page {
+            background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%);
+
+            h1, h2, h3, h4, h5, h6, label,
+            input[type=checkbox]::before,
+            .col-form-label,
+            .ccm-title,
+            .sign-up-container,
+            .help-block,
+            p, .scopes,
+            h2 {
+              color: theme-color('white') !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .login-page {
+    background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%) !important;
+
+    h1, h2, h3, h4, h5, h6, label,
+    input[type=checkbox]::before,
+    .col-form-label,
+    .ccm-title,
+    .sign-up-container,
+    .help-block,
+    p, .scopes,
+    h2 {
+      color: theme-color('white') !important;
+    }
+  }
+}
+
 #login-register-modal {
   min-height: calc(100vh - 60px);
   display: flex;
@@ -16,7 +58,7 @@
     max-width: 720px;
 
     .modal-content {
-      background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+      background: linear-gradient(180deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
 
       .modal-body {
         padding: 0;
@@ -31,7 +73,7 @@
             height: auto;
           }
 
-          background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+          background: linear-gradient(180deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
 
           h1, h2, h3, h4, h5, h6, label,
           input[type=checkbox]::before,

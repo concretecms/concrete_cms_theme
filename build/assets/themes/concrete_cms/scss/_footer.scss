@@ -5,6 +5,61 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+&.ccm-dark-mode {
+  footer {
+    background-color: theme-color('dark-blue-secondary');
+
+    h4.page-title {
+      color: theme-color('gray-secondary');
+    }
+
+    ul.list-unstyled {
+      li {
+        a {
+          color: theme-color('white');
+          opacity: 0.7;
+
+          &:hover, &:active, &.nav-selected, &.nav-path-selected {
+            color: theme-color('white');
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .footer-social {
+      a {
+        color: theme-color('white');
+        opacity: 0.7;
+
+        &:hover {
+          color: theme-color('white');
+          opacity: 1;
+        }
+      }
+    }
+
+    .footer-legal {
+      p {
+        color: theme-color('white');
+        opacity: 0.7;
+      }
+    }
+
+
+    /* Tablet + Mobile */
+    @include media-breakpoint-down(sm) {
+      h4.page-title {
+        border-bottom: 1px solid theme-color('dark-blue-tertiary');
+
+        &::after {
+          color: theme-color('gray-tertiary');
+        }
+      }
+    }
+  }
+}
+
 footer {
   background-color: theme-color('white');
   padding-top: 40px;
@@ -78,7 +133,7 @@ footer {
       padding-bottom: 35px;
 
       &::after {
-        content : "\f078";
+        content: "\f078";
         font-family: "Font Awesome 5 Free";
         position: absolute;
         right: 0;
@@ -90,7 +145,7 @@ footer {
 
       &[aria-expanded="true"] {
         &::after {
-          content : "\f077";
+          content: "\f077";
         }
       }
     }

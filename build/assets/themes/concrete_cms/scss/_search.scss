@@ -5,6 +5,26 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
-main {
+&.ccm-dark-mode {
 
+}
+
+.ccm-search-block-form {
+  & > h3 {
+
+  }
+
+  .ccm-input-text {
+    padding: 22px 8px;
+  }
+
+  .ccm-input-submit {
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: center !important;
+  }
 }

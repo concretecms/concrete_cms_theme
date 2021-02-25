@@ -36,7 +36,8 @@ class Settings extends DashboardPageController
 
         $tree = GroupTree::get();
         $this->set('tree', $tree);
-        $this->set('submitKarmaRequestPage', $config->get("concrete_cms_theme.submit_karma_request_page", false));
+        $this->set('submitKarmaRequestPage', $config->get("concrete_cms_theme.submit_karma_request_page", 0));
+        $this->set('enableDarkMode', $config->get("concrete_cms_theme.enable_dark_mode", false));
         $this->set('teamsGroupFolderId', $teamsService->getTeamsGroupFolder() instanceof GroupFolder ? $teamsService->getTeamsGroupFolder()->getTreeNodeID() : 0);
         $this->set('teamsGroupTypeId', $teamsService->getTeamsGroupType() instanceof GroupType ? $teamsService->getTeamsGroupType()->getId() : 0);
     }
@@ -53,6 +54,7 @@ class Settings extends DashboardPageController
         if ($this->request->getMethod() === "POST") {
             if ($this->token->validate("update_settings")) {
                 $config->save("concrete_cms_theme.submit_karma_request_page", (int)$this->request->request->get("submitKarmaRequestPage"));
+                $config->save("concrete_cms_theme.enable_dark_mode", $this->request->request->has("enableDarkMode"));
                 $teamsService->setTeamsGroupFolder(GroupFolder::getByID($this->request->request->get("teamsGroupFolderId")));
                 $teamsService->setTeamsGroupType(GroupType::getByID($this->request->request->get("teamsGroupTypeId")));
                 return $responseFactory->redirect(Url::to("/dashboard/concrete_cms_theme/settings/updated"), Response::HTTP_TEMPORARY_REDIRECT);

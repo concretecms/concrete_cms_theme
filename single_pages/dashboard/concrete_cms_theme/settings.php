@@ -17,6 +17,7 @@ use Concrete\Core\Validation\CSRF\Token;
 /** @var int $submitKarmaRequestPage */
 /** @var int $teamsGroupFolderId */
 /** @var int $teamsGroupTypeId */
+/** @var bool $enableDarkMode */
 /** @var Concrete\Core\Tree\Tree $tree */
 
 $app = Application::getFacadeApplication();
@@ -41,6 +42,17 @@ $token = $app->make(Token::class);
             <?php echo $form->label("submitKarmaRequestPage", t("Submit Karma Request Page")); ?>
             <?php echo $pageSelector->selectPage("submitKarmaRequestPage", $submitKarmaRequestPage); ?>
         </div>
+
+        <div class="form-group">
+            <div class="form-check">
+                <?php echo $form->checkbox("enableDarkMode", 1, $enableDarkMode, ["class" => "form-check-input"]); ?>
+                <?php echo $form->label("enableDarkMode", t("Enable Dark Mode"), ["class" => "form-check-label"]); ?>
+            </div>
+
+            <div class="help-block">
+                <?php echo t("If you enable this checkbox the entire theme will be rendered in the dark mode theme. If you want to enable the dark mode just for a specific page you can do so by setting a page attribute."); ?>
+            </div>
+        </div>
     </fieldset>
 
     <fieldset>
@@ -55,14 +67,14 @@ $token = $app->make(Token::class);
 
         <div class="form-group">
             <label class="control-label">
-                <?php echo t('Parent Folder')?>
+                <?php echo t('Parent Folder') ?>
             </label>
 
             <div class="controls">
-                <div class="groups-tree" style="width: 460px" data-groups-tree="<?php echo $tree->getTreeID()?>"></div>
-                <?php echo $form->hidden('teamsGroupFolderId')?>
+                <div class="groups-tree" style="width: 460px" data-groups-tree="<?php echo $tree->getTreeID() ?>"></div>
+                <?php echo $form->hidden('teamsGroupFolderId') ?>
                 <script type="text/javascript">
-                    $(function() {
+                    $(function () {
                         $('[data-groups-tree=<?php echo $tree->getTreeID()?>]').concreteTree({
                             'treeID': '<?php echo $tree->getTreeID()?>',
                             'chooseNodeInForm': 'single',
@@ -71,7 +83,7 @@ $token = $app->make(Token::class);
                                 displayOnly: 'group_folder'
                             },
                             'selectNodesByKey': [<?php echo intval($teamsGroupFolderId)?>],
-                            'onSelect': function(nodes) {
+                            'onSelect': function (nodes) {
                                 if (nodes.length) {
                                     $('input[name=teamsGroupFolderId]').val(nodes[0]);
                                 } else {

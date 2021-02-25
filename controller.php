@@ -14,13 +14,13 @@ use Concrete\Core\Application\UserInterface\Dashboard\Navigation\NavigationCache
 use Concrete\Core\Block\Block;
 use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Database\Connection\Connection;
+use Concrete\Core\Http\Request;
 use Concrete\Core\Package\Package;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Page\Single;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Tree\Node\Type\GroupFolder;
 use Concrete\Core\Tree\Type\Group as GroupTree;
-use Concrete\Core\User\Group\FolderManager;
 use Concrete\Core\User\Group\GroupRole;
 use Concrete\Core\User\Group\GroupType;
 use Concrete\Theme\Concrete\PageTheme;
@@ -32,10 +32,14 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.1.1';
+    protected $pkgVersion = '0.1.2';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
+    ];
+    protected $pkgContentSwapFiles = [
+        "content_Swap_templates/marketing.xml" => "Marketing",
+        "content_Swap_templates/community.xml" => "Community"
     ];
 
     public function getPackageDescription()
@@ -193,6 +197,12 @@ class Controller extends Package
         $site = $this->app->make('site')->getActiveSiteForEditing();
         $siteConfig = $site->getConfigRepository();
         $siteConfig->save('user.profiles_enabled', true);
+
+        // Enable/disable dark mode based on the selected content swap file
+        /** @var Request $request */
+        $request = $this->app->make(Request::class);
+        $enableDarkMode = $request->request->get("contentSwapFile") === "content_Swap_templates/community.xml";
+        $config->save("concrete_cms_theme.enable_dark_mode", $enableDarkMode);
 
         return $pkg;
     }
