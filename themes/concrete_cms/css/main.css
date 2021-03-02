@@ -21134,6 +21134,10 @@ ul.ccm-block-topic-list-page-topics li {
   /* Mobile */
 }
 
+.public-profile .showcase-item {
+  margin-bottom: 15px;
+}
+
 .public-profile .btn.award-icon {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyVpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDA1IDc5LjE2NDU5MCwgMjAyMC8xMi8wOS0xMTo1Nzo0NCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIyLjEgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjA1Qjc2ODM1RkQ5MTFFQjlDODFEODc2NUZFODJCNDAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjA1Qjc2ODQ1RkQ5MTFFQjlDODFEODc2NUZFODJCNDAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGMDVCNzY4MTVGRDkxMUVCOUM4MUQ4NzY1RkU4MkI0MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGMDVCNzY4MjVGRDkxMUVCOUM4MUQ4NzY1RkU4MkI0MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pjscf+sAAASoSURBVHjadFULTBxVFL3zZmdmv+yHXxphsaVQKNVSalu0NpoYJK201KhRo5YYoU2MNkpitbExJk39kPpLmqJ2SzQaE42JQmKN2gbStFa0aknWRaC7sEKB5bvDsp+Z3Znxzgy7DbB9yct78959555777m7lKIokG20nasofcC0ps7N2EpsNGMltIHMK8nwdYEf7I2Gfmvd7R3I9o7KBjjSXX/MLbPFAMrBjCFNA2WzpT89w0Jk+JM5b/s7Df75WwIe7nKzbbbN73EGxgiENOM1AMvitAHFmAHkBIC4iH5kzT6hSKc+mu57/9XdvuGsgIvdDR9YFHiJstsBaAbAhIxoA4DBCUDMupEiAUQnAOIzS6CpU29M/n6srSHAq98kDXbpwq4mswxmFV9JyqBYHDoYDokPgjB8GdndAEhOImMawL5WuzNShheaXRsPpXEygLXEWYvLQQ3EVQAURWWYC+OjEA8OobUR2boAmFwADh0aXdp9OecoO3GuojgD2PFjdS2RZW1POXOBImRZkcTpCZAScZAiGBWlskZnaihWxKA02+bt5kKVEGgxVbI5lRo7dZiskJwNgRga11MmSwgW03Pc3wsGs08PzewE04Z7ka0VPS5AKWcvywDmUVw+qLVBZio72pIDUnwIkvzcMqaphbA2CYrAWnSnfkiz2mInnD0TcgI5LNHRcY0myKnZCea1G1ZplHEWguPuh4DJK9IP5JSeZ0USM4BjUnxUB8SZFJcERQFbsGY1oANzzJAlY5V2VFumpVgoA3gxHurBPH+qYfI3hS9OTehRmcwI7tbPZlTZ5OvFESKoqaTWOX2xmWsZwLf3BebnKEVPWHQBlHg085grLAL7tvvAtqkGrBVbQIryIIf9CISFWhxNd0ziQN3VS8t02BENeNIsgccuEBNgq7oLrFU1SAa7hrYA574DHDsbMcc5aBNEUEEz7+KHO1cJ+0hDv58fYjhNzzLmJx4BorZZKqlrjpjUDAKhcB/BVKT0OopBAv0BfiqNY0hvzry19ZnGv9fdH5cIGCsEUMLhFeW4DhTHAWUy3eygQQLRHgPstW08gp9PL2NY53O34lISu2KCyC8ukOOsrks6PWlt1QqLGeG/k2DhewxZouD2sKPm3fbN92QYfvnmjsMPCm6nJitBhOQoiw8cyAiDvE0GYkF9oszkRQVSkykElFDcGL7FnOZTuXegQmW5n54o97AHfq30GGSyPn2ryAggipo/ZYGGVIjAbCgG9Bg6jGN9rFYgLLOs560iq3hGjgdIvdf9GpeiVVfBRS7516w1cZG22fppswkj1n9xfLmTp7/a7tuGYg9qDkUBWzACMYhfnTcmzktE0TS4Z6i81XC5bOLsz1X/tX381FiiYMnbYMvD3XmUq1JLAcjez2v6XvQ8cUP+51rjQP4cWyKLSaBYxv/hrt59J5v8mvpbvi4iOQKXn/U/pf3k1kce/7f6uLr/ozDYWX/i/FF1f/Ts+tKXf9pyAbuuZDxf6Kw+3bV/1WMVMNsMtjx5Zeq5pr6V538+v+fb0GOPjrzSsa442zsCtxjfbPK+3lMc+GLl+Wc7vId8bv6Htmf9o9ne/S/AAGZJAHKLz5gkAAAAAElFTkSuQmCC");
   background-repeat: no-repeat;
@@ -21877,6 +21881,13 @@ div.ccm-page {
    */
   /* Tablet + Mobile */
   /* Mobile */
+  /**
+   * @project:   ConcreteCMS Theme
+   *
+   * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+   * @author     Fabian Bitter (fabian@bitter.de)
+   */
+  /* Dialogs */
   /**
    * @project:   ConcreteCMS Theme
    *
@@ -23375,7 +23386,7 @@ div.ccm-page .card-text h6 {
   }
 }
 
-div.ccm-page main .nav li {
+div.ccm-page main .nav:not(.nav-tabs) li {
   display: block;
   width: 100%;
   line-height: 38px;
@@ -24082,5 +24093,68 @@ div.ccm-page .login-page main .login-wrapper .login-container .help-block {
   padding: 0;
   font-style: normal;
   color: #4C4F56;
+}
+
+div.ccm-page .modal-dialog .col-form-label {
+  text-align: right;
+  font-weight: bold;
+  font-size: 14px;
+  color: #4C4F56;
+}
+
+@media (max-width: 575.98px) {
+  div.ccm-page .modal-dialog .col-form-label {
+    text-align: left;
+  }
+}
+
+div.ccm-page .upload-item .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+div.ccm-page .upload-item .upload-btn-wrapper input {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+div.ccm-page .upload-item .file-details {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+div.ccm-page .upload-item .file-details .selected-file {
+  display: block;
+  float: left;
+  width: calc(100% - 20px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #017DDD;
+  font-size: 16px;
+}
+
+div.ccm-page .upload-item .file-details .remove-selected-file {
+  display: block;
+  float: right;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+  text-align: center;
+  color: #828282;
+}
+
+div.ccm-page .upload-item .upload-notice {
+  display: block;
+  float: left;
+  width: 100%;
+  color: #4C4F56;
+  font-size: 14px;
 }
 

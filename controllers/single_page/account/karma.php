@@ -43,7 +43,7 @@ class Karma extends AccountPageController
     {
         $actionList = [];
 
-        foreach ($this->db->fetchAllAssociative("SELECT upaID, upaName FROM UserPointActions") as $row) {
+        foreach ($this->db->fetchAll("SELECT upaID, upaName FROM UserPointActions") as $row) {
             $actionList[$row["upaID"]] = $row["upaName"];
         }
 
@@ -55,7 +55,7 @@ class Karma extends AccountPageController
         $myTotalList = [];
 
         foreach ($this->getActionList() as $actionId => $actionName) {
-            $totalByAction = (int)$this->db->fetchOne("SELECT SUM(upPoints) FROM UserPointHistory WHERE upaID = ? AND upuID = ?", [
+            $totalByAction = (int)$this->db->fetchColumn("SELECT SUM(upPoints) FROM UserPointHistory WHERE upaID = ? AND upuID = ?", [
                 $actionId,
                 $this->user->getUserID()
             ]);

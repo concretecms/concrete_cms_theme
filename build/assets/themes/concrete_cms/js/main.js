@@ -34,6 +34,9 @@ const stackBottomModal = new Stack({
 
 // Custom assets
 import composeMessage from '../../../messages/js/compose';
+import createShowcaseItem from '../../../showcase_items/js/add';
+import editShowcaseItem from '../../../showcase_items/js/edit';
+import removeShowcaseItem from '../../../showcase_items/js/remove';
 
 // Theme stuff
 $("#ccm-toggle-mobile-nav").click(function (e) {
@@ -64,6 +67,31 @@ if ($(".karma-page").length > 0) {
         }
     });
 }
+
+/*
+ * Create/Edit Showcase items
+ */
+
+$(".edit-showcase-item").click(function (e) {
+    e.preventDefault();
+    editShowcaseItem($(this).data());
+});
+
+window.editShowcaseItem = editShowcaseItem;
+
+$(".create-showcase-item").click(function (e) {
+    e.preventDefault();
+    createShowcaseItem();
+});
+
+window.createShowcaseItem = createShowcaseItem;
+
+$(".remove-showcase-item").click(function (e) {
+    e.preventDefault();
+    removeShowcaseItem($(this).data());
+});
+
+window.removeShowcaseItem = removeShowcaseItem;
 
 /*
  * Send message actions

@@ -1,0 +1,72 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.modal-dialog {
+  .col-form-label {
+    text-align: right;
+    font-weight: bold;
+    font-size: 14px;
+    color: #4C4F56;
+
+    @include media-breakpoint-down(xs) {
+      text-align: left;
+    }
+  }
+}
+
+.upload-item {
+
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+    input {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+  }
+
+  .file-details {
+    position: relative;
+    width: 100%;
+    display: block;
+
+    .selected-file {
+      display: block;
+      float: left;
+      width: calc(100% - 20px);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: theme-color('accent');
+      font-size: 16px;
+    }
+
+    .remove-selected-file {
+      display: block;
+      float: right;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 16px;
+      text-align: center;
+      color: #828282;
+    }
+  }
+
+  .upload-notice {
+    display: block;
+    float: left;
+    width: 100%;
+    color: #4C4F56;
+    font-size: 14px;
+  }
+}

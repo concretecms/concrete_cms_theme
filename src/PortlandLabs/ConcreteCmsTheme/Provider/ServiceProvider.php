@@ -19,6 +19,7 @@ use Concrete\Core\Routing\Router;
 use PortlandLabs\ConcreteCmsTheme\API\OAuth\Controller as OAuthController;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Messages;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Middleware\FractalNegotiatorMiddleware;
+use PortlandLabs\ConcreteCmsTheme\API\V1\ShowcaseItems;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Teams;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -106,6 +107,10 @@ class ServiceProvider extends Provider
                 $groupRouter->post('/messages/unread', [Messages::class, 'unread']);
                 $groupRouter->post('/messages/delete', [Messages::class, 'delete']);
                 $groupRouter->post('/teams/search', [Teams::class, 'search']);
+                $groupRouter->post('/showcase_items/create', [ShowcaseItems::class, 'create']);
+                $groupRouter->get('/showcase_items/read', [ShowcaseItems::class, 'read']);
+                $groupRouter->post('/showcase_items/update', [ShowcaseItems::class, 'update']);
+                $groupRouter->get('/showcase_items/delete', [ShowcaseItems::class, 'delete']);
             });
     }
 

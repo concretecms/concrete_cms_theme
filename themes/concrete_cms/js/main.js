@@ -370,6 +370,446 @@ var stackBottomModal = new _pnotify_core__WEBPACK_IMPORTED_MODULE_0__["Stack"]({
 
 /***/ }),
 
+/***/ "./assets/showcase_items/html/add.html":
+/*!*********************************************!*\
+  !*** ./assets/showcase_items/html/add.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function(obj){
+var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+with(obj||{}){
+__p+='<!--\n @project:   ConcreteCMS Theme\n\n @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)\n @author     Fabian Bitter (fabian@bitter.de)\n-->\n\n<div class="modal" tabindex="-1" role="dialog" id="ccm-add-showcase-item-'+
+((__t=(id))==null?'':__t)+
+'">\n    <div class="modal-dialog modal-lg" role="document">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h5 class="modal-title">\n                    '+
+((__t=(i18n.addShowcaseItemDialogTitle))==null?'':__t)+
+'\n                </h5>\n\n                <button type="button" class="close" data-dismiss="modal" aria-label="Close">\n                    <span aria-hidden="true">&times;</span>\n                </button>\n            </div>\n\n            <div class="modal-body">\n                <form method="post" action="#">\n                    <input type="hidden" name="ccm_token" class="token"/>\n                    <input type="hidden" name="showcaseItemId" class="showcase-item-id"/>\n\n                    <div class="form-group row">\n                        <label for="siteUrl-'+
+((__t=(id))==null?'':__t)+
+'" class="col-sm-4 col-form-label">\n                            '+
+((__t=(i18n.siteUrl))==null?'':__t)+
+'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <input id="siteUrl-'+
+((__t=(id))==null?'':__t)+
+'" name="siteUrl" type="text" class="form-control site-url"/>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="title-'+
+((__t=(id))==null?'':__t)+
+'" class="col-sm-4 col-form-label">\n                            '+
+((__t=(i18n.title))==null?'':__t)+
+'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <input id="title-'+
+((__t=(id))==null?'':__t)+
+'" name="title" type="text" class="form-control title"/>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="shortDescription-'+
+((__t=(id))==null?'':__t)+
+'" class="col-sm-4 col-form-label">\n                            '+
+((__t=(i18n.shortDescription))==null?'':__t)+
+'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <input id="shortDescription-'+
+((__t=(id))==null?'':__t)+
+'" name="shortDescription" type="text"\n                                   class="form-control short-description"/>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="requiredImage-'+
+((__t=(id))==null?'':__t)+
+'" class="col-sm-4 col-form-label">\n                            '+
+((__t=(i18n.requiredImage))==null?'':__t)+
+'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <div class="upload-item required-image">\n                                <div class="upload-btn-wrapper">\n                                    <button class="btn btn-sm btn-secondary">\n                                        '+
+((__t=(i18n.uploadButton))==null?'':__t)+
+'\n                                    </button>\n\n                                    <input id="requiredImage-'+
+((__t=(id))==null?'':__t)+
+'" name="requiredImage" type="file"\n                                           class="form-control required-image"/>\n                                </div>\n\n                                <div class="file-details d-none">\n                                    <input type="hidden" name="fileIds[requiredImage]" class="selected-file-id"/>\n\n                                    <a href="#" class="selected-file">\n                                        &nbsp;\n                                    </a>\n\n                                    <a href="#" class="remove-selected-file">\n                                        <i class="fas fa-trash"></i>\n                                    </a>\n                                </div>\n\n                                <div class="upload-notice">\n                                    '+
+((__t=(i18n.uploadNotice))==null?'':__t)+
+'\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="additionalImage1-'+
+((__t=(id))==null?'':__t)+
+'" class="col-sm-4 col-form-label">\n                            '+
+((__t=(i18n.additionalImage1))==null?'':__t)+
+'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <div class="upload-item additional-image-1">\n                                <div class="upload-btn-wrapper">\n                                    <button class="btn btn-sm btn-secondary">\n                                        '+
+((__t=(i18n.uploadButton))==null?'':__t)+
+'\n                                    </button>\n\n                                    <input id="additionalImage1-'+
+((__t=(id))==null?'':__t)+
+'" name="additionalImage1" type="file"\n                                           class="form-control additional-image-1"/>\n                                </div>\n\n                                <div class="file-details d-none">\n                                    <input type="hidden" name="fileIds[additionalImage1]" class="selected-file-id"/>\n\n                                    <a href="#" class="selected-file">\n                                        &nbsp;\n                                    </a>\n\n                                    <a href="#" class="remove-selected-file">\n                                        <i class="fas fa-trash"></i>\n                                    </a>\n                                </div>\n\n                                <div class="upload-notice">\n                                    '+
+((__t=(i18n.uploadNotice))==null?'':__t)+
+'\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="additionalImage2-'+
+((__t=(id))==null?'':__t)+
+'" class="col-sm-4 col-form-label">\n                            '+
+((__t=(i18n.additionalImage2))==null?'':__t)+
+'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <div class="upload-item additional-image-2">\n                                <div class="upload-btn-wrapper">\n                                    <button class="btn btn-sm btn-secondary">\n                                        '+
+((__t=(i18n.uploadButton))==null?'':__t)+
+'\n                                    </button>\n\n                                    <input id="additionalImage2-'+
+((__t=(id))==null?'':__t)+
+'" name="additionalImage2" type="file"\n                                           class="form-control additional-image-2"/>\n                                </div>\n\n                                <div class="file-details d-none">\n                                    <input type="hidden" name="fileIds[additionalImage2]" class="selected-file-id"/>\n\n                                    <a href="#" class="selected-file">\n                                        &nbsp;\n                                    </a>\n\n                                    <a href="#" class="remove-selected-file">\n                                        <i class="fas fa-trash"></i>\n                                    </a>\n                                </div>\n\n                                <div class="upload-notice">\n                                    '+
+((__t=(i18n.uploadNotice))==null?'':__t)+
+'\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="additionalImage3-'+
+((__t=(id))==null?'':__t)+
+'" class="col-sm-4 col-form-label">\n                            '+
+((__t=(i18n.additionalImage3))==null?'':__t)+
+'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <div class="upload-item additional-image-3">\n                                <div class="upload-btn-wrapper">\n                                    <button class="btn btn-sm btn-secondary">\n                                        '+
+((__t=(i18n.uploadButton))==null?'':__t)+
+'\n                                    </button>\n\n                                    <input id="additionalImage3-'+
+((__t=(id))==null?'':__t)+
+'" name="additionalImage3" type="file"\n                                           class="form-control additional-image-3"/>\n                                </div>\n\n                                <div class="file-details d-none">\n                                    <input type="hidden" name="fileIds[additionalImage3]" class="selected-file-id"/>\n\n                                    <a href="#" class="selected-file">\n                                        &nbsp;\n                                    </a>\n\n                                    <a href="#" class="remove-selected-file">\n                                        <i class="fas fa-trash"></i>\n                                    </a>\n                                </div>\n\n                                <div class="upload-notice">\n                                    '+
+((__t=(i18n.uploadNotice))==null?'':__t)+
+'\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n            </div>\n\n            <div class="modal-footer">\n                <button type="button" class="btn btn-secondary" data-dismiss="modal">\n                    '+
+((__t=(i18n.cancelButton))==null?'':__t)+
+'\n                </button>\n\n                <button type="button" class="btn btn-primary">\n                    '+
+((__t=(i18n.saveButton))==null?'':__t)+
+'\n                </button>\n            </div>\n        </div>\n    </div>\n</div>';
+}
+return __p;
+};
+
+
+/***/ }),
+
+/***/ "./assets/showcase_items/js/add.js":
+/*!*****************************************!*\
+  !*** ./assets/showcase_items/js/add.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pnotify_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnotify/core */ "./node_modules/@pnotify/core/dist/PNotify.js");
+/* harmony import */ var _pnotify_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnotify/bootstrap4 */ "./node_modules/@pnotify/bootstrap4/dist/PNotifyBootstrap4.js");
+/* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+
+_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["defaultModules"].set(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__, {});
+var stackBottomModal = new _pnotify_core__WEBPACK_IMPORTED_MODULE_0__["Stack"]({
+  dir1: 'up',
+  dir2: 'left',
+  firstpos1: 25,
+  firstpos2: 25,
+  push: 'top',
+  maxOpen: 5,
+  modal: false,
+  overlayClose: false,
+  context: $('body').get(0)
+});
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var id = Math.random().toString(36).substr(2, 9);
+
+  var tpl = __webpack_require__(/*! ../html/add.html */ "./assets/showcase_items/html/add.html");
+
+  var $container = $(".ccm-page");
+  var html = tpl({
+    id: id,
+    i18n: ccmi18n_community
+  });
+  var $html = $(html);
+  $container.append($html);
+  var $modalDialog = $container.find("#ccm-add-showcase-item-" + id);
+  $modalDialog.find(".token").val(CCM_SECURITY_TOKEN); // Show the dialog
+
+  $modalDialog.modal();
+  $modalDialog.find(".upload-item input").change(function () {
+    var $uploadButton = $(this).parent();
+    var $uploadDetails = $uploadButton.next();
+
+    if ($(this).val() == "") {
+      $uploadButton.removeClass("d-none");
+      $uploadDetails.addClass("d-none");
+    } else {
+      $uploadButton.addClass("d-none");
+      $uploadDetails.removeClass("d-none");
+      $uploadDetails.find(".selected-file").html($(this).get(0).files.item(0).name);
+    }
+  });
+  $modalDialog.find(".remove-selected-file").click(function (e) {
+    e.preventDefault();
+    var $uploadDetails = $(this).parent();
+    var $uploadButton = $uploadDetails.prev();
+    $uploadButton.find("input").val("");
+    $uploadDetails.find(".selected-file").html("");
+    $uploadButton.removeClass("d-none");
+    $uploadDetails.addClass("d-none");
+    return false;
+  });
+  $modalDialog.find(".btn-primary").click(function (e) {
+    e.preventDefault();
+    var $form = $modalDialog.find("form");
+    var messageData = new FormData($form.get(0));
+    $.ajax({
+      url: CCM_DISPATCHER_FILENAME + "/api/v1/showcase_items/create",
+      method: "POST",
+      data: messageData,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function success(data) {
+        if (data.error) {
+          for (var i = 0; i < data.errors.length; i++) {
+            var errorMessage = data.errors[i];
+            Object(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["alert"])({
+              text: errorMessage,
+              stack: stackBottomModal,
+              type: 'error'
+            });
+          }
+        } else {
+          Object(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["alert"])({
+            text: data.message,
+            stack: stackBottomModal,
+            type: 'success'
+          });
+          $modalDialog.modal('hide');
+          $html.remove();
+          setTimeout(function () {
+            window.location.reload();
+          }, 5000);
+        }
+      }
+    });
+  });
+});
+
+/***/ }),
+
+/***/ "./assets/showcase_items/js/edit.js":
+/*!******************************************!*\
+  !*** ./assets/showcase_items/js/edit.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pnotify_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnotify/core */ "./node_modules/@pnotify/core/dist/PNotify.js");
+/* harmony import */ var _pnotify_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnotify/bootstrap4 */ "./node_modules/@pnotify/bootstrap4/dist/PNotifyBootstrap4.js");
+/* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+
+_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["defaultModules"].set(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__, {});
+var stackBottomModal = new _pnotify_core__WEBPACK_IMPORTED_MODULE_0__["Stack"]({
+  dir1: 'up',
+  dir2: 'left',
+  firstpos1: 25,
+  firstpos2: 25,
+  push: 'top',
+  maxOpen: 5,
+  modal: false,
+  overlayClose: false,
+  context: $('body').get(0)
+});
+/* harmony default export */ __webpack_exports__["default"] = (function (options) {
+  var defaults = {
+    showcaseItemId: ''
+  };
+  options = $.extend(defaults, options);
+  $.ajax({
+    url: CCM_DISPATCHER_FILENAME + "/api/v1/showcase_items/read",
+    method: "GET",
+    data: {
+      showcaseItemId: options.showcaseItemId
+    },
+    success: function success(data) {
+      if (data.error) {
+        for (var i = 0; i < data.errors.length; i++) {
+          var errorMessage = data.errors[i];
+          Object(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["alert"])({
+            text: errorMessage,
+            stack: stackBottomModal,
+            type: 'error'
+          });
+        }
+      } else {
+        var id = Math.random().toString(36).substr(2, 9);
+
+        var tpl = __webpack_require__(/*! ../html/add.html */ "./assets/showcase_items/html/add.html");
+
+        var $container = $(".ccm-page");
+        var html = tpl({
+          id: id,
+          i18n: ccmi18n_community
+        });
+        var $html = $(html);
+        $container.append($html);
+        var $modalDialog = $container.find("#ccm-add-showcase-item-" + id);
+        $modalDialog.find(".token").val(CCM_SECURITY_TOKEN); // Show the dialog
+
+        $modalDialog.modal(); // Add the required values to the fields
+
+        $modalDialog.find(".showcase-item-id").val(options.showcaseItemId);
+        $modalDialog.find(".site-url").val(data.showcaseItem.siteUrl);
+        $modalDialog.find(".title").val(data.showcaseItem.title);
+        $modalDialog.find(".short-description").val(data.showcaseItem.shortDescription);
+
+        if (data.showcaseItem.requiredImage !== null) {
+          $modalDialog.find(".upload-item.required-image .upload-btn-wrapper").addClass("d-none");
+          $modalDialog.find(".upload-item.required-image .file-details").removeClass("d-none");
+          $modalDialog.find(".upload-item.required-image .selected-file").html(data.showcaseItem.requiredImage.fName);
+          $modalDialog.find(".upload-item.required-image .selected-file-id").val(data.showcaseItem.requiredImage.fID);
+        }
+
+        if (data.showcaseItem.additionalImage1 !== null) {
+          $modalDialog.find(".upload-item.additional-image-1 .upload-btn-wrapper").addClass("d-none");
+          $modalDialog.find(".upload-item.additional-image-1 .file-details").removeClass("d-none");
+          $modalDialog.find(".upload-item.additional-image-1 .selected-file").html(data.showcaseItem.additionalImage1.fName);
+          $modalDialog.find(".upload-item.additional-image-1 .selected-file-id").val(data.showcaseItem.additionalImage1.fID);
+        }
+
+        if (data.showcaseItem.additionalImage2 !== null) {
+          $modalDialog.find(".upload-item.additional-image-2 .upload-btn-wrapper").addClass("d-none");
+          $modalDialog.find(".upload-item.additional-image-2 .file-details").removeClass("d-none");
+          $modalDialog.find(".upload-item.additional-image-2 .selected-file").html(data.showcaseItem.additionalImage2.fName);
+          $modalDialog.find(".upload-item.additional-image-2 .selected-file-id").val(data.showcaseItem.additionalImage2.fID);
+        }
+
+        if (data.showcaseItem.additionalImage3 !== null) {
+          $modalDialog.find(".upload-item.additional-image-3 .upload-btn-wrapper").addClass("d-none");
+          $modalDialog.find(".upload-item.additional-image-3 .file-details").removeClass("d-none");
+          $modalDialog.find(".upload-item.additional-image-3 .selected-file").html(data.showcaseItem.additionalImage3.fName);
+          $modalDialog.find(".upload-item.additional-image-3 .selected-file-id").val(data.showcaseItem.additionalImage3.fID);
+        }
+
+        $modalDialog.find(".upload-item input").change(function () {
+          var $uploadButton = $(this).parent();
+          var $uploadDetails = $uploadButton.next();
+
+          if ($(this).val() == "") {
+            $uploadButton.removeClass("d-none");
+            $uploadDetails.addClass("d-none");
+          } else {
+            $uploadButton.addClass("d-none");
+            $uploadDetails.removeClass("d-none");
+            $uploadDetails.find(".selected-file").html($(this).get(0).files.item(0).name);
+          }
+        });
+        $modalDialog.find(".remove-selected-file").click(function (e) {
+          e.preventDefault();
+          var $uploadDetails = $(this).parent();
+          var $uploadButton = $uploadDetails.prev();
+          $uploadButton.find("input").val("");
+          $uploadDetails.find(".selected-file").html("");
+          $uploadButton.removeClass("d-none");
+          $uploadDetails.find(".selected-file-id").val("");
+          $uploadDetails.addClass("d-none");
+          return false;
+        });
+        $modalDialog.find(".btn-primary").click(function (e) {
+          e.preventDefault();
+          var $form = $modalDialog.find("form");
+          var messageData = new FormData($form.get(0));
+          $.ajax({
+            url: CCM_DISPATCHER_FILENAME + "/api/v1/showcase_items/update",
+            method: "POST",
+            data: messageData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function success(data) {
+              if (data.error) {
+                for (var _i = 0; _i < data.errors.length; _i++) {
+                  var _errorMessage = data.errors[_i];
+                  Object(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["alert"])({
+                    text: _errorMessage,
+                    stack: stackBottomModal,
+                    type: 'error'
+                  });
+                }
+              } else {
+                Object(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["alert"])({
+                  text: data.message,
+                  stack: stackBottomModal,
+                  type: 'success'
+                });
+                $modalDialog.modal('hide');
+                $html.remove();
+                setTimeout(function () {
+                  window.location.reload();
+                }, 5000);
+              }
+            }
+          });
+        });
+      }
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./assets/showcase_items/js/remove.js":
+/*!********************************************!*\
+  !*** ./assets/showcase_items/js/remove.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pnotify_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnotify/core */ "./node_modules/@pnotify/core/dist/PNotify.js");
+/* harmony import */ var _pnotify_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnotify/bootstrap4 */ "./node_modules/@pnotify/bootstrap4/dist/PNotifyBootstrap4.js");
+/* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+
+_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["defaultModules"].set(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__, {});
+var stackBottomModal = new _pnotify_core__WEBPACK_IMPORTED_MODULE_0__["Stack"]({
+  dir1: 'up',
+  dir2: 'left',
+  firstpos1: 25,
+  firstpos2: 25,
+  push: 'top',
+  maxOpen: 5,
+  modal: false,
+  overlayClose: false,
+  context: $('body').get(0)
+});
+/* harmony default export */ __webpack_exports__["default"] = (function (options) {
+  var defaults = {
+    showcaseItemId: ''
+  };
+  options = $.extend(defaults, options);
+
+  if (confirm(ccmi18n_community.confirm)) {
+    $.ajax({
+      url: CCM_DISPATCHER_FILENAME + "/api/v1/showcase_items/delete",
+      method: "GET",
+      data: {
+        showcaseItemId: options.showcaseItemId
+      },
+      success: function success(data) {
+        if (data.error) {
+          for (var i = 0; i < data.errors.length; i++) {
+            var errorMessage = data.errors[i];
+            Object(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["alert"])({
+              text: errorMessage,
+              stack: stackBottomModal,
+              type: 'error'
+            });
+          }
+        } else {
+          Object(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__["alert"])({
+            text: data.message,
+            stack: stackBottomModal,
+            type: 'success'
+          });
+          setTimeout(function () {
+            window.location.reload();
+          }, 5000);
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./assets/themes/concrete_cms/js/main.js":
 /*!***********************************************!*\
   !*** ./assets/themes/concrete_cms/js/main.js ***!
@@ -390,7 +830,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @pnotify/bootstrap4 */ "./node_modules/@pnotify/bootstrap4/dist/PNotifyBootstrap4.js");
 /* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _messages_js_compose__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../messages/js/compose */ "./assets/messages/js/compose.js");
-/* harmony import */ var _karma_js_result_list__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../karma/js/result_list */ "./assets/karma/js/result_list.js");
+/* harmony import */ var _showcase_items_js_add__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../showcase_items/js/add */ "./assets/showcase_items/js/add.js");
+/* harmony import */ var _showcase_items_js_edit__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../showcase_items/js/edit */ "./assets/showcase_items/js/edit.js");
+/* harmony import */ var _showcase_items_js_remove__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../showcase_items/js/remove */ "./assets/showcase_items/js/remove.js");
+/* harmony import */ var _karma_js_result_list__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../karma/js/result_list */ "./assets/karma/js/result_list.js");
 /**
  * @project:   ConcreteCMS Theme
  *
@@ -420,6 +863,9 @@ var stackBottomModal = new _pnotify_core__WEBPACK_IMPORTED_MODULE_6__["Stack"]({
   context: $('body').get(0)
 }); // Custom assets
 
+
+
+
  // Theme stuff
 
 $("#ccm-toggle-mobile-nav").click(function (e) {
@@ -438,18 +884,37 @@ $("#ccm-toggle-mobile-nav").click(function (e) {
 
 if ($(".karma-page").length > 0) {
   $("#load-more a").click(function () {
-    Object(_karma_js_result_list__WEBPACK_IMPORTED_MODULE_9__["default"])();
+    Object(_karma_js_result_list__WEBPACK_IMPORTED_MODULE_12__["default"])();
   });
   $(window).scroll(function () {
     if ($(document).height() - $(this).height() == $(this).scrollTop()) {
-      Object(_karma_js_result_list__WEBPACK_IMPORTED_MODULE_9__["default"])();
+      Object(_karma_js_result_list__WEBPACK_IMPORTED_MODULE_12__["default"])();
     }
   });
 }
 /*
- * Send message actions
+ * Create/Edit Showcase items
  */
 
+
+$(".edit-showcase-item").click(function (e) {
+  e.preventDefault();
+  Object(_showcase_items_js_edit__WEBPACK_IMPORTED_MODULE_10__["default"])($(this).data());
+});
+window.editShowcaseItem = _showcase_items_js_edit__WEBPACK_IMPORTED_MODULE_10__["default"];
+$(".create-showcase-item").click(function (e) {
+  e.preventDefault();
+  Object(_showcase_items_js_add__WEBPACK_IMPORTED_MODULE_9__["default"])();
+});
+window.createShowcaseItem = _showcase_items_js_add__WEBPACK_IMPORTED_MODULE_9__["default"];
+$(".remove-showcase-item").click(function (e) {
+  e.preventDefault();
+  Object(_showcase_items_js_remove__WEBPACK_IMPORTED_MODULE_11__["default"])($(this).data());
+});
+window.removeShowcaseItem = _showcase_items_js_remove__WEBPACK_IMPORTED_MODULE_11__["default"];
+/*
+ * Send message actions
+ */
 
 $(".send-message").click(function (e) {
   e.preventDefault();

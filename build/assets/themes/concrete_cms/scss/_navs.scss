@@ -6,7 +6,7 @@
  */
 
 main {
-  .nav {
+  .nav:not(.nav-tabs) {
     li {
       display: block;
       width: 100%;

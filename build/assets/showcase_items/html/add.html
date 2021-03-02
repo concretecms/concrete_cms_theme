@@ -1,0 +1,210 @@
+<!--
+ @project:   ConcreteCMS Theme
+
+ @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ @author     Fabian Bitter (fabian@bitter.de)
+-->
+
+<div class="modal" tabindex="-1" role="dialog" id="ccm-add-showcase-item-<%=id%>">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <%=i18n.addShowcaseItemDialogTitle%>
+                </h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form method="post" action="#">
+                    <input type="hidden" name="ccm_token" class="token"/>
+                    <input type="hidden" name="showcaseItemId" class="showcase-item-id"/>
+
+                    <div class="form-group row">
+                        <label for="siteUrl-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.siteUrl%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <input id="siteUrl-<%=id%>" name="siteUrl" type="text" class="form-control site-url"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="title-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.title%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <input id="title-<%=id%>" name="title" type="text" class="form-control title"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="shortDescription-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.shortDescription%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <input id="shortDescription-<%=id%>" name="shortDescription" type="text"
+                                   class="form-control short-description"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="requiredImage-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.requiredImage%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <div class="upload-item required-image">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn btn-sm btn-secondary">
+                                        <%=i18n.uploadButton%>
+                                    </button>
+
+                                    <input id="requiredImage-<%=id%>" name="requiredImage" type="file"
+                                           class="form-control required-image"/>
+                                </div>
+
+                                <div class="file-details d-none">
+                                    <input type="hidden" name="fileIds[requiredImage]" class="selected-file-id"/>
+
+                                    <a href="#" class="selected-file">
+                                        &nbsp;
+                                    </a>
+
+                                    <a href="#" class="remove-selected-file">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+
+                                <div class="upload-notice">
+                                    <%=i18n.uploadNotice%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="additionalImage1-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.additionalImage1%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <div class="upload-item additional-image-1">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn btn-sm btn-secondary">
+                                        <%=i18n.uploadButton%>
+                                    </button>
+
+                                    <input id="additionalImage1-<%=id%>" name="additionalImage1" type="file"
+                                           class="form-control additional-image-1"/>
+                                </div>
+
+                                <div class="file-details d-none">
+                                    <input type="hidden" name="fileIds[additionalImage1]" class="selected-file-id"/>
+
+                                    <a href="#" class="selected-file">
+                                        &nbsp;
+                                    </a>
+
+                                    <a href="#" class="remove-selected-file">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+
+                                <div class="upload-notice">
+                                    <%=i18n.uploadNotice%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="additionalImage2-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.additionalImage2%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <div class="upload-item additional-image-2">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn btn-sm btn-secondary">
+                                        <%=i18n.uploadButton%>
+                                    </button>
+
+                                    <input id="additionalImage2-<%=id%>" name="additionalImage2" type="file"
+                                           class="form-control additional-image-2"/>
+                                </div>
+
+                                <div class="file-details d-none">
+                                    <input type="hidden" name="fileIds[additionalImage2]" class="selected-file-id"/>
+
+                                    <a href="#" class="selected-file">
+                                        &nbsp;
+                                    </a>
+
+                                    <a href="#" class="remove-selected-file">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+
+                                <div class="upload-notice">
+                                    <%=i18n.uploadNotice%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="additionalImage3-<%=id%>" class="col-sm-4 col-form-label">
+                            <%=i18n.additionalImage3%>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <div class="upload-item additional-image-3">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn btn-sm btn-secondary">
+                                        <%=i18n.uploadButton%>
+                                    </button>
+
+                                    <input id="additionalImage3-<%=id%>" name="additionalImage3" type="file"
+                                           class="form-control additional-image-3"/>
+                                </div>
+
+                                <div class="file-details d-none">
+                                    <input type="hidden" name="fileIds[additionalImage3]" class="selected-file-id"/>
+
+                                    <a href="#" class="selected-file">
+                                        &nbsp;
+                                    </a>
+
+                                    <a href="#" class="remove-selected-file">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+
+                                <div class="upload-notice">
+                                    <%=i18n.uploadNotice%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <%=i18n.cancelButton%>
+                </button>
+
+                <button type="button" class="btn btn-primary">
+                    <%=i18n.saveButton%>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
