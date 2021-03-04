@@ -13,8 +13,6 @@ use Concrete\Core\Attribute\Category\UserCategory;
 use Concrete\Core\Entity\File\File;
 use Concrete\Core\Entity\File\Version;
 use Concrete\Core\Entity\Package;
-use Concrete\Core\Express\EntryList;
-use Concrete\Core\Express\ObjectManager;
 use Concrete\Core\Form\Service\Form;
 use Concrete\Core\Form\Service\Widget\UserSelector;
 use Concrete\Core\Html\Service\Html;
@@ -57,15 +55,6 @@ $htmlServer = $app->make(Html::class);
 /** @var Connection $db */
 $db = $app->make(Connection::class);
 
-/** @var ObjectManager $objectManager */
-$objectManager = $app->make(ObjectManager::class);
-$showcaseEntity = $objectManager->getObjectByHandle("showcase_item");
-$showcaseItemsEntryList = new EntryList($showcaseEntity);
-$showcaseItemsEntryList->filterByAttribute("author", $profile->getEntityObject());
-
-/** @var \Concrete\Core\Entity\Express\Entry[] $showcaseItems */
-$showcaseItems = $showcaseItemsEntryList->getResults();
-
 $earnBadgesPageId = (int)$config->get("concrete_cms_theme.earn_badges_page_id");
 $earnBadgesPage = Page::getByID($earnBadgesPageId);
 
@@ -91,9 +80,6 @@ if ($isCommunityAwardsModuleInstalled) {
     $jsFile = $communityBadgesPackage->getRelativePath() . "/blocks/community_badges/view.js";
     View::getInstance()->addFooterItem($htmlServer->javascript($jsFile));
 }
-
-/** @var \Concrete\Package\ConcreteCmsTheme\Controller $pkg */
-$pkg = $packageService->getByHandle("concrete_cms_theme")->getController();
 
 ?>
 
@@ -644,108 +630,6 @@ $pkg = $packageService->getByHandle("concrete_cms_theme")->getController();
                                             ?>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card" id="info-card">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <span>
-                                        <?php echo t("Showcase"); ?>
-                                    </span>
-
-                                    <?php if ($isOwnProfile) { ?>
-                                        <a href="javascript:void(0);"
-                                           class="btn btn-sm btn-secondary float-right create-showcase-item">
-                                            <?php echo t("Add Showcase Item"); ?>
-                                        </a>
-                                    <?php } ?>
-                                </div>
-
-                                <div class="card-text">
-                                    <?php if (count($showcaseItems) === 0) { ?>
-                                        <?php echo t("No showcase items available yet."); ?>
-                                    <?php } else { ?>
-                                        <div class="row">
-                                            <?php foreach ($showcaseItems as $showcaseItem) { ?>
-                                                <div class="col-sm-6 col-md-4">
-                                                    <?php
-                                                    $showcaseItemImageUrl = $pkg->getRelativePath() . "/images/default_showcase_item.png";
-
-                                                    $requiredImage = $showcaseItem->getAttribute("required_image");
-                                                    if ($requiredImage instanceof File) {
-                                                        $approvedVersion = $requiredImage->getApprovedVersion();
-                                                        if ($approvedVersion instanceof Version) {
-                                                            $showcaseItemImageUrl = $approvedVersion->getURL();
-                                                        }
-                                                    }
-                                                    ?>
-
-                                                    <div class="showcase-item">
-                                                        <?php if ($isOwnProfile) { ?>
-                                                            <a href="javascript:void(0);"
-                                                               data-showcase-item-id="<?php echo h($showcaseItem->getID()); ?>"
-                                                               class="edit-showcase-item">
-                                                                <img src="<?php echo h($showcaseItemImageUrl); ?>"
-                                                                     alt="<?php echo h($showcaseItem->getAttribute("title")); ?>"
-                                                                     class="img-fluid">
-                                                            </a>
-
-                                                            <a href="javascript:void(0);"
-                                                               data-showcase-item-id="<?php echo h($showcaseItem->getID()); ?>"
-                                                               class="edit-showcase-item">
-                                                                <h2>
-                                                                    <?php echo $showcaseItem->getAttribute("title"); ?>
-                                                                </h2>
-                                                            </a>
-
-                                                            <p>
-                                                                <?php echo $showcaseItem->getAttribute("short_description"); ?>
-                                                            </p>
-
-                                                            <a href="javascript:void(0);"
-                                                               data-showcase-item-id="<?php echo h($showcaseItem->getID()); ?>"
-                                                               class="remove-showcase-item btn btn-sm btn-danger">
-                                                                <?php echo t("Remove"); ?>
-                                                            </a>
-
-                                                            <a href="javascript:void(0);"
-                                                               data-showcase-item-id="<?php echo h($showcaseItem->getID()); ?>"
-                                                               class="edit-showcase-item btn btn-sm btn-secondary">
-                                                                <?php echo t("Edit"); ?>
-                                                            </a>
-                                                        <?php } else { ?>
-                                                            <a href="<?php echo h($showcaseItem->getAttribute("site_url")); ?>">
-                                                                <img src="<?php echo h($showcaseItemImageUrl); ?>"
-                                                                     alt="<?php echo h($showcaseItem->getAttribute("title")); ?>"
-                                                                     class="img-fluid">
-                                                            </a>
-
-                                                            <a href="<?php echo h($showcaseItem->getAttribute("site_url")); ?>">
-                                                                <h2>
-                                                                    <?php echo $showcaseItem->getAttribute("title"); ?>
-                                                                </h2>
-                                                            </a>
-
-                                                            <p>
-                                                                <?php echo $showcaseItem->getAttribute("short_description"); ?>
-                                                            </p>
-
-                                                            <a href="<?php echo h($showcaseItem->getAttribute("site_url")); ?>"
-                                                               class="edit-showcase-item btn btn-sm btn-secondary">
-                                                                <?php echo t("Visit Site"); ?>
-                                                            </a>
-                                                        <?php } ?>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        </div>
-                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
