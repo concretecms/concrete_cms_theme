@@ -11,7 +11,7 @@ namespace Concrete\Package\ConcreteCmsTheme\Controller\SinglePage\Dashboard\Conc
 
 use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Http\ResponseFactory;
-use Concrete\Core\Page\Controller\DashboardPageController;
+use Concrete\Core\Page\Controller\DashboardSitePageController;
 use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\Tree\Node\Type\GroupFolder;
 use Concrete\Core\Tree\Type\Group as GroupTree;
@@ -19,7 +19,7 @@ use Concrete\Core\User\Group\GroupType;
 use PortlandLabs\ConcreteCmsTheme\TeamsService;
 use Symfony\Component\HttpFoundation\Response;
 
-class Settings extends DashboardPageController
+class Settings extends DashboardSitePageController
 {
     public function updated()
     {
@@ -29,6 +29,10 @@ class Settings extends DashboardPageController
 
     private function setDefaults()
     {
+
+        $siteConfig = $this->getSite()->getConfigRepository();
+        $this->set('enableDarkMode', $siteConfig->get('concrete_cms_theme.enable_dark_mode', false));
+
         /** @var Repository $config */
         $config = $this->app->make(Repository::class);
         /** @var TeamsService $teamsService */
@@ -37,13 +41,14 @@ class Settings extends DashboardPageController
         $tree = GroupTree::get();
         $this->set('tree', $tree);
         $this->set('submitKarmaRequestPage', $config->get("concrete_cms_theme.submit_karma_request_page", 0));
-        $this->set('enableDarkMode', $config->get("concrete_cms_theme.enable_dark_mode", false));
         $this->set('teamsGroupFolderId', $teamsService->getTeamsGroupFolder() instanceof GroupFolder ? $teamsService->getTeamsGroupFolder()->getTreeNodeID() : 0);
         $this->set('teamsGroupTypeId', $teamsService->getTeamsGroupType() instanceof GroupType ? $teamsService->getTeamsGroupType()->getId() : 0);
     }
 
     public function view()
     {
+        $siteConfig = $this->getSite()->getConfigRepository();
+
         /** @var Repository $config */
         $config = $this->app->make(Repository::class);
         /** @var ResponseFactory $responseFactory */
@@ -54,7 +59,7 @@ class Settings extends DashboardPageController
         if ($this->request->getMethod() === "POST") {
             if ($this->token->validate("update_settings")) {
                 $config->save("concrete_cms_theme.submit_karma_request_page", (int)$this->request->request->get("submitKarmaRequestPage"));
-                $config->save("concrete_cms_theme.enable_dark_mode", $this->request->request->has("enableDarkMode"));
+                $siteConfig->save("concrete_cms_theme.enable_dark_mode", $this->request->request->has("enableDarkMode"));
                 $teamsService->setTeamsGroupFolder(GroupFolder::getByID($this->request->request->get("teamsGroupFolderId")));
                 $teamsService->setTeamsGroupType(GroupType::getByID($this->request->request->get("teamsGroupTypeId")));
                 return $responseFactory->redirect(Url::to("/dashboard/concrete_cms_theme/settings/updated"), Response::HTTP_TEMPORARY_REDIRECT);
