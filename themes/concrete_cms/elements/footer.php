@@ -10,6 +10,7 @@
 defined('C5_EXECUTE') or die("Access Denied.");
 
 use Concrete\Core\Area\GlobalArea;
+use Concrete\Core\Page\Page;
 use Concrete\Core\View\View;
 use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\Support\Facade\Application;
@@ -21,6 +22,7 @@ $app = Application::getFacadeApplication();
 /** @var Repository $config */
 $config = $app->make(Repository::class);
 
+$enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page? $c->getAttribute("enable_dark_mode") : false);
 ?>
 <footer>
     <div class="container">
@@ -31,7 +33,7 @@ $config = $app->make(Repository::class);
             <div class="col-sm">
                 <div class="footer-site-title">
                     <?php
-                    $a = new GlobalArea('Footer Site Title');
+                    $a = new GlobalArea('Footer Site Title' . ($enableDarkMode ? " (Dark Mode)" : ""));
                     $a->display($c);
                     ?>
                 </div>

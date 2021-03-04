@@ -19,6 +19,171 @@ $hamburger-hover-opacity: 1.0;
 
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
+&.ccm-dark-mode {
+
+  header {
+    background-color: theme-color('dark-blue-secondary');
+
+    #ccm-mobile-search-btn {
+      color: theme-color('gray');
+    }
+
+    #ccm-sub-nav {
+      background-color: theme-color('dark-blue-quaternary');
+      border-top: 1px solid theme-color('dark-blue-quaternary');
+
+      h3 {
+        color: theme-color('white');
+      }
+
+      nav {
+        ul {
+          li {
+            &.active, &:hover {
+              a {
+                opacity: 1;
+                color: theme-color('white');
+              }
+            }
+
+            a {
+              opacity: 0.7;
+              color: theme-color('white');
+            }
+          }
+        }
+      }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(lg) {
+      .navbar {
+        #ccm-desktop-nav > .nav > .nav-item {
+          &.dropdown {
+            &::after {
+              background-color: theme-color('white') !important;
+            }
+          }
+
+          &.dropdown.show, &.dropdown:hover {
+            background-color: theme-color('white') !important;
+
+            & > a {
+              opacity: 1;
+              color: theme-color('black') !important;
+            }
+          }
+
+          & > a {
+            opacity: 0.7;
+            color: theme-color('white');
+
+            &:hover, &:active, &:focus {
+              opacity: 1;
+              color: theme-color('black') !important;
+            }
+          }
+
+          &:not(.dropdown) > a {
+
+            &:hover, &:active, &:focus {
+              opacity: 1;
+              color: theme-color('white') !important;
+            }
+          }
+
+          &.active {
+            & > a {
+              opacity: 1;
+              color: theme-color('white') !important;
+
+              &::after {
+                background-color: theme-color('white');
+              }
+            }
+          }
+
+          & > ul.dropdown-menu {
+            & > li.nav-item {
+              &:hover, &.active, &:active {
+                background-color: theme-color('dark-blue');
+
+                & > a.nav-link {
+                  color: theme-color('white') !important;
+                }
+              }
+
+              & > a.nav-link {
+                color: theme-color('gray-tertiary');
+              }
+            }
+          }
+        }
+
+        #ccm-account-dropdown:focus,
+        #ccm-account-dropdown[aria-expanded=true] {
+          background-color: theme-color('white');
+
+          &::before {
+            background-color: theme-color('white');
+          }
+        }
+
+        div[aria-labelledby='ccm-account-dropdown'] {
+          &::before {
+            background-color: theme-color('white');
+          }
+        }
+      }
+    }
+
+    /* Tablet + Mobile */
+    @include media-breakpoint-down(md) {
+      .navbar {
+        background-color: theme-color('dark-blue-secondary');
+
+        .nav-item {
+          & > a {
+            color: theme-color('white');
+
+            &:hover, &:active, &:focus {
+              color: theme-color('white') !important;
+            }
+          }
+
+          &.active {
+            & > a {
+              color: theme-color('white');
+            }
+          }
+        }
+      }
+
+      #ccm-desktop-nav {
+        background-color: theme-color('dark-blue-secondary');
+      }
+
+      #navbarSupportedContent {
+        background-color: theme-color('white');
+      }
+
+      .dropdown-menu {
+        background: theme-color('dark-blue-quaternary') !important;
+
+        & > li.nav-item {
+          color: theme-color('white');
+          opacity: 0.7;
+
+          & > a.nav-link {
+            color: theme-color('white');
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
 header {
   margin-bottom: 15px;
   background-color: theme-color('white');

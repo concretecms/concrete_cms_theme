@@ -5,6 +5,12 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+&.ccm-dark-mode {
+  .btn {
+    border-radius: 5px !important;
+  }
+}
+
 .btn-sm {
   border-radius: 2px !important;
 }

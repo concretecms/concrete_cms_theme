@@ -5,6 +5,17 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+&.ccm-dark-mode {
+  .dropdown-item {
+    color: theme-color('gray-tertiary');
+
+    &:hover, &:active, &.active {
+      background-color: theme-color('dark-blue');
+      color: theme-color('white');
+    }
+  }
+}
+
 .dropdown-menu {
   border-radius: 0;
   border: none;

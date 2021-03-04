@@ -1,0 +1,241 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+&.ccm-dark-mode {
+  #login-register-modal {
+    .modal-dialog {
+      .modal-content {
+        background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%);
+
+        .modal-body {
+          .login-page {
+            background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%);
+
+            h1, h2, h3, h4, h5, h6, label,
+            input[type=checkbox]::before,
+            .col-form-label,
+            .ccm-title,
+            .sign-up-container,
+            .help-block,
+            p, .scopes,
+            h2 {
+              color: theme-color('white') !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .login-page {
+    background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%) !important;
+
+    h1, h2, h3, h4, h5, h6, label,
+    input[type=checkbox]::before,
+    .col-form-label,
+    .ccm-title,
+    .sign-up-container,
+    .help-block,
+    p, .scopes,
+    h2 {
+      color: theme-color('white') !important;
+    }
+  }
+}
+
+#login-register-modal {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+
+  .modal-dialog {
+    max-width: 720px;
+
+    .modal-content {
+      background: linear-gradient(180deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+
+      .modal-body {
+        padding: 0;
+
+        .login-page {
+          padding: 25px;
+          background: transparent;
+          position: relative;
+          min-height: 0;
+
+          .login-wrapper {
+            height: auto;
+          }
+
+          background: linear-gradient(180deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+
+          h1, h2, h3, h4, h5, h6, label,
+          input[type=checkbox]::before,
+          .col-form-label,
+          .ccm-title,
+          .sign-up-container,
+          .help-block,
+          p, .scopes,
+          h2 {
+            color: theme-color('white') !important;
+          }
+
+          .login-content {
+            margin-top: 25px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+
+    .modal-dialog {
+
+      .modal-content {
+        .modal-body {
+
+          .login-page {
+            position: fixed;
+            min-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.login-page {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: theme-color('white');
+
+  h2 {
+    text-transform: none;
+    font-size: 16px !important;
+  }
+
+  /* Mobile */
+  @include media-breakpoint-down(sm) {
+    background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+
+    h1, h2, h3, h4, h5, h6, label,
+    input[type=checkbox]::before,
+    .col-form-label,
+    .ccm-title,
+    .sign-up-container,
+    .help-block,
+    p, .scopes,
+    h2 {
+      color: theme-color('white') !important;
+      font-size: 14px !important;;
+    }
+
+    .alert, a, .btn {
+      font-size: 14px !important;
+    }
+
+    input[type=checkbox]::before {
+      top: -2px !important;
+    }
+
+    .ccm-logo-column {
+      max-width: 100% !important;
+
+      .ccm-logo {
+        margin: auto;
+      }
+    }
+
+    .ccm-title {
+      width: 100% !important;
+      text-align: center !important;
+      font-size: 26px !important;
+      line-height: 30px !important;
+    }
+
+    .col-form-label {
+      text-align: left !important;
+    }
+
+    .form-check {
+      margin-left: 0 !important;
+    }
+
+    .login-content {
+      margin-top: 25px !important;
+    }
+  }
+
+  main {
+    position: relative;
+
+    .form-check {
+      margin-left: 15px;
+    }
+
+    .login-wrapper {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      align-items: center;
+      height: 100vh;
+
+      .login-container {
+        width: 600px;
+        margin: auto;
+
+        .ccm-logo-column {
+          max-width: 100px;
+
+          .ccm-logo {
+            display: block;
+            width: 100px;
+            height: auto;
+          }
+        }
+
+        .ccm-title {
+          font-size: 29px;
+          line-height: 40px;
+          color: #4C4F56;
+          font-weight: 600;
+          text-transform: none;
+          width: 424px;
+          margin: 11px auto auto;
+        }
+
+        .login-content {
+          margin-top: 50px;
+        }
+
+        .col-form-label {
+          text-align: right;
+          font-weight: bold;
+        }
+
+        .help-block {
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          font-style: normal;
+          color: theme-color('text');
+        }
+      }
+    }
+  }
+}

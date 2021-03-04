@@ -26,7 +26,7 @@ $config = $app->make(Repository::class);
 $searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
 $searchPage = Page::getByID($searchPageId);
 $excludeBreadcrumb = $c->getPageController()->get("exclude_breadcrumb") ||$c->getAttribute("exclude_breadcrumb");
-
+$enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo Localization::activeLanguage() ?>">
@@ -45,7 +45,7 @@ $excludeBreadcrumb = $c->getPageController()->get("exclude_breadcrumb") ||$c->ge
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="<?php echo $c->getPageWrapperClass() ?>">
+<div class="<?php echo $c->getPageWrapperClass() ?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">
     <header class="<?php echo $excludeBreadcrumb ? "no-breadcrumb" : ""; ?> <?php echo $c->getCollectionParentID() > 0 ? "has-sub-nav" : ""; ?>">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -53,7 +53,7 @@ $excludeBreadcrumb = $c->getPageController()->get("exclude_breadcrumb") ||$c->ge
                     <div class="navbar-brand">
                         <div class="header-site-title">
                             <?php
-                            $a = new GlobalArea('Header Site Title');
+                            $a = new GlobalArea('Header Site Title' . ($enableDarkMode ? " (Dark Mode)" : ""));
                             $a->display($c);
                             ?>
                         </div>

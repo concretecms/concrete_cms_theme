@@ -55,7 +55,7 @@ class PageTheme extends Theme implements ThemeProviderInterface
 
     public function getThemeAreaLayoutPresets()
     {
-        // @todo: to implement
+        return [];
     }
 
     public function registerAssets()

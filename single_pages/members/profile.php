@@ -387,14 +387,16 @@ if ($isCommunityAwardsModuleInstalled) {
                         <div class="card" id="info-card">
                             <div class="card-body">
                                 <div class="card-title">
-                                <span>
-                                    <?php echo t("Information"); ?>
-                                </span>
+                                    <span>
+                                        <?php echo t("Information"); ?>
+                                    </span>
 
-                                    <a href="<?php echo (string)Url::to('/account/edit_profile') ?>"
-                                       class="btn btn-sm btn-secondary float-right">
-                                        <?php echo t("Edit Profile"); ?>
-                                    </a>
+                                    <?php if ($isOwnProfile) { ?>
+                                        <a href="<?php echo (string)Url::to('/account/edit_profile') ?>"
+                                           class="btn btn-sm btn-secondary float-right">
+                                            <?php echo t("Edit Profile"); ?>
+                                        </a>
+                                    <?php } ?>
                                 </div>
 
                                 <div class="card-text">
@@ -624,7 +626,7 @@ if ($isCommunityAwardsModuleInstalled) {
 
                                         <div class="value">
                                             <?php
-                                            echo (int)$db->fetchOne("SELECT SUM(upPoints) FROM UserPointHistory WHERE upuID = ?", [$profile->getUserID()]);
+                                            echo (int)$db->fetchColumn("SELECT SUM(upPoints) FROM UserPointHistory WHERE upuID = ?", [$profile->getUserID()]);
                                             ?>
                                         </div>
                                     </div>

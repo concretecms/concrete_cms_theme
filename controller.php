@@ -14,21 +14,32 @@ use Concrete\Core\Application\UserInterface\Dashboard\Navigation\NavigationCache
 use Concrete\Core\Block\Block;
 use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Database\Connection\Connection;
+use Concrete\Core\Http\Request;
 use Concrete\Core\Package\Package;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Page\Single;
+use Concrete\Core\Support\Facade\Application;
+use Concrete\Core\Tree\Node\Type\GroupFolder;
+use Concrete\Core\Tree\Type\Group as GroupTree;
+use Concrete\Core\User\Group\GroupRole;
+use Concrete\Core\User\Group\GroupType;
 use Concrete\Theme\Concrete\PageTheme;
 use Concrete\Theme\Elemental\PageTheme as ElementalPageTheme;
 use PortlandLabs\ConcreteCmsTheme\Provider\ServiceProvider;
+use PortlandLabs\ConcreteCmsTheme\TeamsService;
 
 class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.0.7';
+    protected $pkgVersion = '0.1.5';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
+    ];
+    protected $pkgContentSwapFiles = [
+        "content_Swap_templates/marketing.xml" => "Marketing",
+        "content_Swap_templates/community.xml" => "Community"
     ];
 
     public function getPackageDescription()
@@ -92,6 +103,37 @@ class Controller extends Package
         }
     }
 
+    private function configureTeamsFunctionality()
+    {
+        $groupFolderName = t("Community Teams");
+        $groupTypeName = t("Community Team");
+
+        $app = Application::getFacadeApplication();
+        /** @var TeamsService $teamService */
+        $teamService = $app->make(TeamsService::class);
+
+        // @todo: in the future a handle for group types would be nice to have
+
+        if (!in_array($groupTypeName, GroupType::getSelectList())) {
+            // setup the teams group type
+            $groupType = GroupType::add($groupTypeName, false);
+
+            // create the member role
+            $memberRole = GroupRole::add(t("Member"), false);
+            $groupType->addRole($memberRole);
+            $groupType->setDefaultRole($memberRole);
+
+            // create the manager role
+            $managerRole = GroupRole::add(t("Manager"), true);
+            $groupType->addRole($managerRole);
+
+            $teamService->setTeamsGroupType($groupType);
+
+            // setup the teams root node
+            $groupFolder = GroupFolder::add($groupFolderName, GroupTree::get()->getRootTreeNodeObject(), GroupFolder::CONTAINS_SPECIFIC_GROUPS, [$groupType]);
+            $teamService->setTeamsGroupFolder($groupFolder);
+        }
+    }
 
     public function upgrade()
     {
@@ -109,8 +151,11 @@ class Controller extends Package
         ]);
 
         $this->createSinglePage('/account/karma', t("Karma"));
+        $this->createSinglePage('/account/teams', t("Teams"));
 
         $this->installContentFile('desktop.xml');
+
+        $this->configureTeamsFunctionality();
 
         // Clear the cache to prevent navigation issues
         /** @var NavigationCache $navigationCache */
@@ -153,6 +198,12 @@ class Controller extends Package
         $siteConfig = $site->getConfigRepository();
         $siteConfig->save('user.profiles_enabled', true);
 
+        // Enable/disable dark mode based on the selected content swap file
+        /** @var Request $request */
+        $request = $this->app->make(Request::class);
+        $enableDarkMode = $request->request->get("contentSwapFile") === "content_Swap_templates/community.xml";
+        $config->save("concrete_cms_theme.enable_dark_mode", $enableDarkMode);
+
         return $pkg;
     }
 
@@ -167,6 +218,8 @@ class Controller extends Package
 
         // Install our new content
         $this->installContentFile('desktop.xml');
+
+        $this->configureTeamsFunctionality();
 
         // Move the new welcome page to the top
         Page::getByPath('/account/welcome')->movePageDisplayOrderToTop();

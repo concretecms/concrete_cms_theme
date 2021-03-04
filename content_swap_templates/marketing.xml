@@ -22,6 +22,10 @@
                       searchable="1"
                       indexed="0" type="boolean"
                       category="collection"/>
+        <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
+                      searchable="1"
+                      indexed="0" type="boolean"
+                      category="collection"/>
     </attributekeys>
     <pagetypes>
         <pagetype name="Empty Page" handle="page" package="concrete_cms_theme" launch-in-composer="0"
@@ -70,6 +74,8 @@
     </pagetypes>
     <pagetemplates>
         <pagetemplate icon="full.png" name="Full" handle="full" package="" internal=""/>
+        <pagetemplate icon="right_sidebar.png" name="Right Sidebar" handle="right_sidebar" package="" internal=""/>
+        <pagetemplate icon="left_sidebar.png" name="Left Sidebar" handle="left_sidebar" package="" internal=""/>
     </pagetemplates>
     <pages>
         <page name="Home" path="" public-date="2020-12-15 10:46:00" filename="" pagetype="page" template="full"
@@ -689,6 +695,19 @@
                     <value>1</value>
                 </attributekey>
             </attributes>
+            <block>
+                <block type="search" name="" custom-template="concrete_search">
+                    <data table="btSearch">
+                        <record>
+                            <title><![CDATA[Search]]></title>
+                            <buttonText><![CDATA[Search]]></buttonText>
+                            <baseSearchPath/>
+                            <postTo_cID/>
+                            <resultsURL/>
+                        </record>
+                    </data>
+                </block>
+            </block>
         </page>
 
         <page name="Typography" path="/typography" public-date="2020-12-15 14:02:22" filename="" pagetype="page" template="full"
@@ -2731,6 +2750,29 @@
                 </blocks>
             </area>
         </stack>
+        <stack name="Footer Site Title (Dark Mode)" type="global_area" path="/footer-site-title-dark-mode">
+            <area name="Main">
+                <blocks>
+                    <block type="image" name="">
+                        <data table="btContentImage">
+                            <record>
+                                <fID>{ccm:export:file:community-logo.svg}</fID>
+                                <fOnstateID/>
+                                <cropImage><![CDATA[0]]></cropImage>
+                                <maxWidth><![CDATA[0]]></maxWidth>
+                                <maxHeight><![CDATA[0]]></maxHeight>
+                                <externalLink><![CDATA[]]></externalLink>
+                                <internalLinkCID/>
+                                <fileLinkID/>
+                                <openLinkInNewWindow><![CDATA[0]]></openLinkInNewWindow>
+                                <altText><![CDATA[]]></altText>
+                                <title><![CDATA[]]></title>
+                            </record>
+                        </data>
+                    </block>
+                </blocks>
+            </area>
+        </stack>
         <stack name="Footer Social" type="global_area" path="/footer-social">
             <area name="Main">
                 <blocks>
@@ -2771,6 +2813,29 @@
                         <data table="btContentImage">
                             <record>
                                 <fID>{ccm:export:file:logo.svg}</fID>
+                                <fOnstateID/>
+                                <cropImage><![CDATA[0]]></cropImage>
+                                <maxWidth><![CDATA[0]]></maxWidth>
+                                <maxHeight><![CDATA[0]]></maxHeight>
+                                <externalLink><![CDATA[]]></externalLink>
+                                <internalLinkCID/>
+                                <fileLinkID/>
+                                <openLinkInNewWindow><![CDATA[0]]></openLinkInNewWindow>
+                                <altText><![CDATA[]]></altText>
+                                <title><![CDATA[]]></title>
+                            </record>
+                        </data>
+                    </block>
+                </blocks>
+            </area>
+        </stack>
+        <stack name="Header Site Title (Dark Mode)" type="global_area" path="/header-site-title-dark-mode">
+            <area name="Main">
+                <blocks>
+                    <block type="image" name="">
+                        <data table="btContentImage">
+                            <record>
+                                <fID>{ccm:export:file:community-logo.svg}</fID>
                                 <fOnstateID/>
                                 <cropImage><![CDATA[0]]></cropImage>
                                 <maxWidth><![CDATA[0]]></maxWidth>

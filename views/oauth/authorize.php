@@ -61,58 +61,113 @@ if (!isset($authTypeParams)) {
 
 ?>
 
+<style>
+    header, footer {
+        display: none !important;
+    }
+</style>
+
 <div class="login-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>
-                    <?php echo t('Sign in to %s', $client->getName()) ?>
-                </h1>
-
-                <form method="post" action="<?php echo $request->getUri() ?>">
-                    <?php if (!$authorize) { ?>
-                        <div class="form-group">
-                            <?php echo $form->label("uName", $emailLogin ? t('Email Address') : t('Username')); ?>
-                            <?php echo $form->text("uName", ["autofocus" => "autofocus"]); ?>
+    <main>
+        <div class="fluid-container">
+            <div class="login-wrapper">
+                <div class="login-container">
+                    <div class="row">
+                        <div class="col-md col-sm-12 ccm-logo-column">
+                            <img src="<?php echo $this->getThemePath() . "/images/logo.svg"; ?>"
+                                 alt="<?php echo h(t("concreteCMS Logo")); ?>" class="ccm-logo">
                         </div>
 
-                        <div class="form-group">
-                            <?php echo $form->label('uPassword', t('Password')) ?>
-                            <?php echo $form->password('uPassword') ?>
+                        <div class="col-md col-sm-12">
+                            <h1 class="ccm-title">
+                                <?php echo t("Welcome to our community.  Join Concrete now. It’s free!"); ?>
+                            </h1>
                         </div>
+                    </div>
 
-                        <?php if (isset($locales) && is_array($locales) && count($locales) > 0) { ?>
-                            <div class="form-group">
-                                <?php echo $form->label('USER_LOCALE', t('Language')) ?>
-                                <?php echo $form->select('USER_LOCALE', $locales) ?>
+                    <div class="container login-content">
+                        <div class="row">
+                            <div class="col">
+                                <?php
+                                /** @noinspection PhpUnhandledExceptionInspection */
+                                View::element('system_errors', [
+                                    'format' => 'block',
+                                    'error' => isset($error) ? $error : null,
+                                    'success' => isset($success) ? $success : null,
+                                    'message' => isset($message) ? $message : null,
+                                ], "concrete_cms_theme"); ?>
                             </div>
-                        <?php } ?>
-
-                        <div class="form-group">
-                            <button class="btn btn-primary">
-                                <?php echo t('Log in') ?>
-                            </button>
                         </div>
 
-                        <?php $token->output('oauth_login_' . $client->getClientKey()); ?>
+                        <form method="post" action="<?php echo $request->getUri() ?>" class="form-stacked">
+                            <div class="row">
+                                <div class="col">
+                                    <?php if (!$authorize) { ?>
+                                        <div class="form-group row">
+                                            <?php echo $form->label("uName", $emailLogin ? t('Email Address') : t('Username'), ["class" => "col-sm-4 col-form-label"]); ?>
 
-                        <?php if ($config->get('concrete.user.registration.enabled')) { ?>
-                            <hr/>
-                            <a href="<?php echo (string)Url::to('/register') ?>" class="btn btn-block btn-primary"
-                               target="_blank">
-                                <?php echo t('Not a member? Register') ?>
-                            </a>
-                        <?php } ?>
+                                            <div class="col-sm-8">
+                                                <?php echo $form->text("uName", ["autofocus" => "autofocus"]); ?>
+                                            </div>
+                                        </div>
 
-                        <?php
-                    } elseif ($consentView) {
-                        $consentView->addScopeItems($view->getScopeItems());
-                        $consentView->setPackageHandle("concrete_cms_theme");
-                        echo $consentView->render();
-                    }
-                    ?>
-                </form>
+                                        <div class="form-group row">
+                                            <?php echo $form->label('uPassword', t('Password'), ["class" => "col-sm-4 col-form-label"]) ?>
+                                            <div class="col-sm-8">
+                                                <?php echo $form->password('uPassword') ?>
+                                            </div>
+                                        </div>
+
+                                        <?php if (isset($locales) && is_array($locales) && count($locales) > 0) { ?>
+                                            <div class="form-group row">
+                                                <?php echo $form->label('USER_LOCALE', t('Language'), ["class" => "col-sm-4 col-form-label"]) ?>
+
+                                                <div class="col-sm-8">
+                                                    <?php echo $form->select('USER_LOCALE', $locales) ?>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+
+                                        <div class="float-right">
+
+                                            <a href="<?php echo (string)Url::to("/"); ?>" class="btn btn-secondary">
+                                                <?php echo t("Cancel"); ?>
+                                            </a>
+
+                                            <button class="btn btn-primary">
+                                                <?php echo t('Sign in to %s', $client->getName()) ?>
+                                            </button>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <?php $token->output('oauth_login_' . $client->getClientKey()); ?>
+
+                                        <?php if ($config->get('concrete.user.registration.enabled')) { ?>
+                                            <hr/>
+
+                                            <div class="text-center sign-up-container">
+                                                <?php echo t("Don't have an account?"); ?>
+
+                                                <a href="<?php echo (string)Url::to('/register') ?>" class="btn-link">
+                                                    <?php echo t('Sign up'); ?>
+                                                </a>
+                                            </div>
+                                        <?php } ?>
+
+                                        <?php
+                                    } elseif ($consentView) {
+                                        $consentView->addScopeItems($view->getScopeItems());
+                                        $consentView->setPackageHandle("concrete_cms_theme");
+                                        echo $consentView->render();
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 </div>

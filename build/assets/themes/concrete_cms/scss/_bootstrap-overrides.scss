@@ -21,15 +21,22 @@ $mobile-nav: #363636;
 $card-border: #D8D8D8;
 $card-headlines: #7C8088;
 $header-image-background: #e4e4e4;
-$modal-header-background-fallback-color: rgba(0,116,211,1);
-$modal-header-background-gradient-start-color: rgba(0,116,211,1);
-$modal-header-background-gradient-end-color: rgba(0,97,176,1);
+$modal-header-background-fallback-color: rgba(0, 116, 211, 1);
+$modal-header-background-gradient-start-color: rgba(0, 116, 211, 1);
+$modal-header-background-gradient-end-color: rgba(0, 97, 176, 1);
 $modal-header-text-color: #ffffff;
 $table-head-background-color: #E5EAEC;
 $nav-hover: #F2F3F3;
 $green: #59AD15;
 $badge-background: #D11A15;
 $badge-text: #ffffff;
+$black: #000000;
+$dark-blue: #252A47;
+$dark-blue-secondary: #222533;
+$gray-secondary: #9C9C9C;
+$gray-tertiary: #666666;
+$dark-blue-tertiary: #373C53;
+$dark-blue-quaternary: #1D1F2B;
 
 // ---- Map those to theme conventions
 $theme-colors: (
@@ -56,7 +63,14 @@ $theme-colors: (
         'nav-hover': $nav-hover,
         'green': $green,
         'badge-background': $badge-background,
-        'badge-text': $badge-text
+        'badge-text': $badge-text,
+        'black': $black,
+        'dark-blue': $dark-blue,
+        'dark-blue-secondary': $dark-blue-secondary,
+        'dark-blue-tertiary': $dark-blue-tertiary,
+        'gray-secondary': $gray-secondary,
+        'gray-tertiary': $gray-tertiary,
+        'dark-blue-quaternary': $dark-blue-quaternary
 );
 
 $link-color: theme-color('secondary');
@@ -77,24 +91,23 @@ $input-border-radius: 0 !default;
 $breadcrumb-color: theme-color('accent') !default;
 $breadcrumb-active-color: theme-color('breadcrumb') !default;
 
-
 //== Modals
 //
 //##
 $modal-title-padding: 40px;
 
 //** Background color of modal content area
-$modal-content-bg:                             #fff !default;
+$modal-content-bg: #fff !default;
 //** Modal content border color
-$modal-content-border-color:                   rgba(0, 0, 0, .2) !default;
+$modal-content-border-color: rgba(0, 0, 0, .2) !default;
 //** Modal content border color **for IE8**
-$modal-content-fallback-border-color:          #999 !default;
+$modal-content-fallback-border-color: #999 !default;
 
 //** Modal backdrop background color
-$modal-backdrop-bg:           #000 !default;
+$modal-backdrop-bg: #000 !default;
 //** Modal backdrop opacity
-$modal-backdrop-opacity:      .5 !default;
+$modal-backdrop-opacity: .5 !default;
 //** Modal header border color
-$modal-header-border-color:   #e5e5e5 !default;
+$modal-header-border-color: #e5e5e5 !default;
 //** Modal footer border color
-$modal-footer-border-color:   $modal-header-border-color !default;
+$modal-footer-border-color: $modal-header-border-color !default;

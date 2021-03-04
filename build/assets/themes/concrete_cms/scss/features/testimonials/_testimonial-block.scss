@@ -5,6 +5,14 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+.ccm-dark-mode {
+  @include media-breakpoint-down(sm) {
+    div.ccm-block-testimonial {
+      background-image: none;;
+    }
+  }
+}
+
 div.ccm-block-testimonial {
   @include make-row();
   align-items: center;
