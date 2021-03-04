@@ -198,12 +198,6 @@ class Controller extends Package
         $siteConfig = $site->getConfigRepository();
         $siteConfig->save('user.profiles_enabled', true);
 
-        // Enable/disable dark mode based on the selected content swap file
-        /** @var Request $request */
-        $request = $this->app->make(Request::class);
-        $enableDarkMode = $request->request->get("contentSwapFile") === "content_Swap_templates/community.xml";
-        $config->save("concrete_cms_theme.enable_dark_mode", $enableDarkMode);
-
         return $pkg;
     }
 
