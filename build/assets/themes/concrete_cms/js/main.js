@@ -48,24 +48,6 @@ $("#ccm-toggle-mobile-nav").click(function (e) {
     }
 });
 
-// Karma
-
-// Custom assets
-import fetchResults from '../../../karma/js/result_list';
-
-if ($(".karma-page").length > 0) {
-    $("#load-more a").click(function () {
-        fetchResults();
-    });
-
-    $(window).scroll(function () {
-        if ($(document).height() - $(this).height() == $(this).scrollTop()) {
-            fetchResults();
-        }
-    });
-}
-
-
 /*
  * Send message actions
  */
@@ -212,48 +194,6 @@ $(window).resize(function () {
         $("#info-card").css("min-height", "0");
     }
 }).trigger("resize");
-
-/*
- * Add search functionality for teams
- */
-
-(function ($) {
-    $(function () {
-        $('.ccm-teams-search')
-            .selectpicker({
-                liveSearch: true
-            })
-            .ajaxSelectPicker({
-                ajax: {
-                    url: CCM_DISPATCHER_FILENAME + '/api/v1/teams/search',
-                    data: function () {
-                        return {
-                            keywords: '{{{q}}}'
-                        };
-                    }
-                },
-                preprocessData: function (data) {
-                    var teams = [];
-
-                    if (data.hasOwnProperty('teams')) {
-                        var len = data.teams.length;
-                        for (var i = 0; i < len; i++) {
-                            var team = data.teams[i];
-                            teams.push(
-                                {
-                                    'value': team.gID,
-                                    'text': team.gName,
-                                    'disabled': false
-                                }
-                            );
-                        }
-                    }
-                    return teams;
-                },
-                preserveSelected: false
-            });
-    });
-})(jQuery);
 
 /*
  * Display popups for login + register page when clicking on a link item
