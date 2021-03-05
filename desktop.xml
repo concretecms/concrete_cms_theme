@@ -6,49 +6,6 @@
                       indexed="0" type="boolean"
                       category="collection"/>
     </attributekeys>
-    <expressentities>
-        <entity id="85d12748-67c1-11eb-a212-7aaef9d541c3" handle="submit_karma_request" plural_handle=""
-                name="Submit Karma Request" supports_custom_display_order="" include_in_public_list="" description=""
-                default_view_form="863ecca8-67c1-11eb-a212-7aaef9d541c3"
-                default_edit_form="863ecca8-67c1-11eb-a212-7aaef9d541c3" results-folder="/Forms">
-            <attributekeys>
-                <attributekey handle="your_account_name" name="Your Account Name" package="" searchable="1" indexed="1"
-                              type="text" category="">
-                    <type placeholder=""/>
-                </attributekey>
-                <attributekey handle="what_did_you_do" name="What did you do?" package="" searchable="1" indexed="1"
-                              type="textarea" category="">
-                    <type mode="text"/>
-                </attributekey>
-                <attributekey handle="any_pictures" name="Any Pictures?" package="" searchable="1" indexed="1"
-                              type="image_file" category="">
-                    <type mode="html_input"/>
-                </attributekey>
-            </attributekeys>
-            <forms>
-                <form id="863ecca8-67c1-11eb-a212-7aaef9d541c3" name="Form">
-                    <fieldsets>
-                        <fieldset title="" description="">
-                            <controls>
-                                <control id="6dcf2d52-67c1-11eb-a212-7aaef9d541c3" type="attribute_key" required="1"
-                                         custom-label="">
-                                    <attributekey handle="your_account_name"/>
-                                </control>
-                                <control id="7686d828-67c1-11eb-a212-7aaef9d541c3" type="attribute_key" required="1"
-                                         custom-label="">
-                                    <attributekey handle="what_did_you_do"/>
-                                </control>
-                                <control id="80d19610-67c1-11eb-a212-7aaef9d541c3" type="attribute_key" required=""
-                                         custom-label="">
-                                    <attributekey handle="any_pictures"/>
-                                </control>
-                            </controls>
-                        </fieldset>
-                    </fieldsets>
-                </form>
-            </forms>
-        </entity>
-    </expressentities>
     <singlepages>
         <page name="Welcome Back" path="/account/welcome" filename="/account/welcome.php" pagetype="" description=""
               package="concrete_cms_theme">
@@ -78,28 +35,6 @@
         </page>
         <page name="Private Messages" path="/account/messages" filename="/account/messages.php" pagetype=""
               description=""
-              package="concrete_cms_theme">
-            <attributes>
-                <attributekey handle="desktop_priority">
-                    <value>10</value>
-                </attributekey>
-                <attributekey handle="is_desktop">
-                    <value>1</value>
-                </attributekey>
-            </attributes>
-        </page>
-        <page name="Karma" path="/account/karma" filename="/account/karma.php" pagetype="" description=""
-              package="concrete_cms_theme">
-            <attributes>
-                <attributekey handle="desktop_priority">
-                    <value>10</value>
-                </attributekey>
-                <attributekey handle="is_desktop">
-                    <value>1</value>
-                </attributekey>
-            </attributes>
-        </page>
-        <page name="Teams" path="/account/teams" filename="/account/teams.php" pagetype="" description=""
               package="concrete_cms_theme">
             <attributes>
                 <attributekey handle="desktop_priority">
@@ -286,39 +221,4 @@
             <attributekey handle="current_specialties"/>
         </attributeset>
     </attributesets>
-    <pages>
-        <page name="Submit Karma Request" path="/account/karma/submit-karma-request" public-date="2021-02-05 15:49:24"
-              filename=""
-              pagetype="page" template="full" user="admin" description="" package="">
-            <area name="Main">
-                <blocks>
-                    <block type="content" name="">
-                        <data table="btContentLocal">
-                            <record>
-                                <content><![CDATA[<p>Have you done something awesome for concrete5 that has a karma reward we can&#39;t automatically apply? Whatever it may be please let us know and shoot us a picture if possible so we can continue to promote the project.&nbsp;</p>
-]]></content>
-                            </record>
-                        </data>
-                    </block>
-                    <block type="express_form" name="">
-                        <data table="btExpressForm">
-                            <record>
-                                <exFormID><![CDATA[863ecca8-67c1-11eb-a212-7aaef9d541c3]]></exFormID>
-                                <submitLabel><![CDATA[Submit]]></submitLabel>
-                                <thankyouMsg><![CDATA[Thanks!]]></thankyouMsg>
-                                <notifyMeOnSubmission><![CDATA[0]]></notifyMeOnSubmission>
-                                <recipientEmail><![CDATA[]]></recipientEmail>
-                                <displayCaptcha><![CDATA[1]]></displayCaptcha>
-                                <storeFormSubmission><![CDATA[1]]></storeFormSubmission>
-                                <redirectCID><![CDATA[0]]></redirectCID>
-                                <replyToEmailControlID><![CDATA[]]></replyToEmailControlID>
-                                <addFilesToSet><![CDATA[0]]></addFilesToSet>
-                                <addFilesToFolder><![CDATA[7]]></addFilesToFolder>
-                            </record>
-                        </data>
-                    </block>
-                </blocks>
-            </area>
-        </page>
-    </pages>
 </concrete5-cif>
