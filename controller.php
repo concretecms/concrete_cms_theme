@@ -112,8 +112,6 @@ class Controller extends Package
             '/oauth/authorize' => 'concrete_cms'
         ]);
 
-        $this->installContentFile('desktop.xml');
-
         // Clear the cache to prevent navigation issues
         /** @var NavigationCache $navigationCache */
         $navigationCache = $this->app->make(NavigationCache::class);
@@ -125,6 +123,8 @@ class Controller extends Package
     public function install()
     {
         $pkg = parent::install();
+
+        $this->installContentFile('data.xml');
 
         /** @var Repository $config */
         $config = $this->app->make(Repository::class);
@@ -168,7 +168,7 @@ class Controller extends Package
         Page::getByPath('/members/profile')->delete();
 
         // Install our new content
-        $this->installContentFile('desktop.xml');
+        $this->installContentFile('data.xml');
 
         // Move the new welcome page to the top
         Page::getByPath('/account/welcome')->movePageDisplayOrderToTop();
