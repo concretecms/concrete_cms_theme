@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concrete5-cif version="1.0">
+    <attributekeys>
+        <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
+                      searchable="1"
+                      indexed="0" type="boolean"
+                      category="collection"/>
+    </attributekeys>
+    <singlepages>
+        <page name="ConcreteCMS Theme" path="/dashboard/concrete_cms_theme" filename="/dashboard/concrete_cms_theme.php"
+              pagetype="" description=""
+              package="concrete_cms_theme">
+        </page>
+        <page name="Settings" path="/dashboard/concrete_cms_theme/settings"
+              filename="/dashboard/concrete_cms_theme/settings.php" pagetype="" description=""
+              package="concrete_cms_theme">
+        </page>
+    </singlepages>
+    <attributekeys>
+        <attributekey handle="header_image" name="Header Image" package="concrete_cms_theme" searchable="1" indexed="1"
+                      type="image_file"
+                      category="user">
+            <type placeholder=""/>
+        </attributekey>
+    </attributekeys>
+    <attributesets>
+        <attributeset name="Contact Information" package="concrete_cms_theme" handle="contact_information"
+                      category="user">
+            <attributekey handle="phone"/>
+            <attributekey handle="address"/>
+            <attributekey handle="profile_private_messages_enabled"/>
+            <attributekey handle="newsletter"/>
+        </attributeset>
+        <attributeset name="Public Profile" package="concrete_cms_theme" handle="public_profile" category="user">
+            <attributekey handle="first_name"/>
+            <attributekey handle="last_name"/>
+            <attributekey handle="description"/>
+            <attributekey handle="website"/>
+            <attributekey handle="associations"/>
+            <attributekey handle="education"/>
+            <attributekey handle="past_experience"/>
+            <attributekey handle="role"/>
+            <attributekey handle="social_skills"/>
+            <attributekey handle="client_requirements"/>
+            <attributekey handle="project_budget"/>
+            <attributekey handle="current_specialties"/>
+        </attributeset>
+    </attributesets>
+</concrete5-cif>
