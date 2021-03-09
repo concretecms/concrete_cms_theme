@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <concrete5-cif version="1.0">
+    <themes>
+        <theme handle="concrete_cms" package="concrete_cms_theme" activated="1"/>
+    </themes>
     <attributekeys>
         <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
                       searchable="1"
