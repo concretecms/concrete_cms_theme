@@ -11,11 +11,11 @@ namespace Concrete\Package\ConcreteCmsTheme\Controller\SinglePage\Dashboard\Conc
 
 use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Http\ResponseFactory;
-use Concrete\Core\Page\Controller\DashboardPageController;
+use Concrete\Core\Page\Controller\DashboardSitePageController;
 use Concrete\Core\Support\Facade\Url;
 use Symfony\Component\HttpFoundation\Response;
 
-class Settings extends DashboardPageController
+class Settings extends DashboardSitePageController
 {
     public function updated()
     {
@@ -25,6 +25,10 @@ class Settings extends DashboardPageController
 
     private function setDefaults()
     {
+
+        $siteConfig = $this->getSite()->getConfigRepository();
+        $this->set('enableDarkMode', $siteConfig->get('concrete_cms_theme.enable_dark_mode', false));
+
         /** @var Repository $config */
         $config = $this->app->make(Repository::class);
         $this->set('enableDarkMode', $config->get("concrete_cms_theme.enable_dark_mode", false));
@@ -32,6 +36,8 @@ class Settings extends DashboardPageController
 
     public function view()
     {
+        $siteConfig = $this->getSite()->getConfigRepository();
+
         /** @var Repository $config */
         $config = $this->app->make(Repository::class);
         /** @var ResponseFactory $responseFactory */

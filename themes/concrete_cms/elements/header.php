@@ -21,7 +21,7 @@ use Concrete\Core\Config\Repository\Repository;
 
 $app = Application::getFacadeApplication();
 /** @var Repository $config */
-$config = $app->make(Repository::class);
+$config = Site::getSite()->getConfigRepository();
 
 $searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
 $elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");

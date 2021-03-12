@@ -20,7 +20,7 @@ use Concrete\Core\Config\Repository\Repository;
 
 $app = Application::getFacadeApplication();
 /** @var Repository $config */
-$config = $app->make(Repository::class);
+$config = Site::getSite()->getConfigRepository();
 
 $elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page? $c->getAttribute("enable_dark_mode") : false);
