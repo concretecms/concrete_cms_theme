@@ -695,19 +695,21 @@
                     <value>1</value>
                 </attributekey>
             </attributes>
-            <block>
-                <block type="search" name="" custom-template="concrete_search">
-                    <data table="btSearch">
-                        <record>
-                            <title><![CDATA[Search]]></title>
-                            <buttonText><![CDATA[Search]]></buttonText>
-                            <baseSearchPath/>
-                            <postTo_cID/>
-                            <resultsURL/>
-                        </record>
-                    </data>
-                </block>
-            </block>
+            <area name="Main">
+                <blocks>
+                    <block type="search" name="" custom-template="concrete_search">
+                        <data table="btSearch">
+                            <record>
+                                <title><![CDATA[Search]]></title>
+                                <buttonText><![CDATA[Search]]></buttonText>
+                                <baseSearchPath/>
+                                <postTo_cID/>
+                                <resultsURL/>
+                            </record>
+                        </data>
+                    </block>
+                </blocks>
+            </area>
         </page>
 
         <page name="Typography" path="/typography" public-date="2020-12-15 14:02:22" filename="" pagetype="page" template="full"

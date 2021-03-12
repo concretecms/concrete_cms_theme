@@ -22,12 +22,13 @@ $app = Application::getFacadeApplication();
 /** @var Repository $config */
 $config = $app->make(Repository::class);
 
+$elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page? $c->getAttribute("enable_dark_mode") : false);
 ?>
 <footer>
     <div class="container">
         <?php /** @noinspection PhpUnhandledExceptionInspection */
-        echo View::element("footer_navigation", [], "concrete_cms_theme"); ?>
+        echo View::element("footer_navigation", [], $elementsPackageHandle); ?>
 
         <div class="row">
             <div class="col-sm">

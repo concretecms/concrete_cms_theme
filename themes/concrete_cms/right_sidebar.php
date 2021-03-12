@@ -24,7 +24,15 @@ $this->inc('elements/header.php');
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-sm-8 col-content">
+            <div class="col-sm-12">
+                <?php
+                $a = new Area('Page Header');
+                $a->display($c);
+                ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8  col-content">
                 <?php
                 $a = new Area('Main');
                 $a->enableGridContainer();
@@ -39,7 +47,7 @@ $this->inc('elements/header.php');
                 ?>
             </div>
 
-            <div class="col-sm-offset-1 col-sm-3 col-sidebar">
+            <div class="col-sm-4 col-sidebar">
                 <?php
                 $a = new Area('Sidebar');
                 $a->display($c);

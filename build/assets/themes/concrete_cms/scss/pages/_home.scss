@@ -188,6 +188,11 @@
 /* Mobile */
 @include media-breakpoint-down(sm) {
 
+  .mobile-center {
+    margin: auto;
+    text-align: center;
+  }
+
   .section-marketing, .section-in-context-editing {
 
     .page-title {

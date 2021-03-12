@@ -7,56 +7,71 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+defined('C5_EXECUTE') or die("Access Denied.");
+
 use Concrete\Core\Page\Page;
 use Concrete\Core\Permission\Checker;
 use Concrete\Core\Support\Facade\Url;
+use Concrete\Core\View\View;
 use HtmlObject\Element;
+use Concrete\Core\Support\Facade\Application;
+use Concrete\Core\Config\Repository\Repository;
 
-defined('C5_EXECUTE') or die("Access Denied.");
+$app = Application::getFacadeApplication();
+/** @var Repository $config */
+$config = $app->make(Repository::class);
 
-$curPage = Page::getCurrentPage();
+$overrideSubNav = (bool)$config->get("concrete_cms_theme.override_sub_nav", false);
+$elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
 
-$ul = new Element("ul");
+if ($overrideSubNav && $elementsPackageHandle != "") {
+    /** @noinspection PhpUnhandledExceptionInspection */
+    echo View::element("sub_nav", [], $elementsPackageHandle);
+} else {
+    $curPage = Page::getCurrentPage();
 
-if ($curPage instanceof Page && !$curPage->isError()) {
-    $parentPage = Page::getByID($curPage->getCollectionParentID());
+    $ul = new Element("ul");
 
-    if ($parentPage instanceof Page && !$parentPage->isError()) {
-        foreach ($parentPage->getCollectionChildren() as $childPage) {
-            $childPagePermissions = new Checker($childPage);
+    if ($curPage instanceof Page && !$curPage->isError()) {
+        $parentPage = Page::getByID($curPage->getCollectionParentID());
 
-            /** @noinspection PhpUndefinedMethodInspection */
-            if ($childPagePermissions->canRead() && (!$childPage->getAttribute('exclude_nav'))) {
-                $li = new Element("li");
+        if ($parentPage instanceof Page && !$parentPage->isError()) {
+            foreach ($parentPage->getCollectionChildren() as $childPage) {
+                $childPagePermissions = new Checker($childPage);
 
-                if ($curPage->getCollectionID() === $childPage->getCollectionID()) {
-                    $li->addClass("active");
+                /** @noinspection PhpUndefinedMethodInspection */
+                if ($childPagePermissions->canRead() && (!$childPage->getAttribute('exclude_nav'))) {
+                    $li = new Element("li");
+
+                    if ($curPage->getCollectionID() === $childPage->getCollectionID()) {
+                        $li->addClass("active");
+                    }
+
+                    $li->appendChild(new Element("a", $childPage->getCollectionName(), [
+                        "href" => (string)Url::to($childPage)
+                    ]));
+
+                    $ul->appendChild($li);
                 }
-
-                $li->appendChild(new Element("a", $childPage->getCollectionName(), [
-                    "href" => (string)Url::to($childPage)
-                ]));
-
-                $ul->appendChild($li);
             }
-        }
 
-        ?>
-        <div id="ccm-sub-nav">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h3>
-                            <?php echo $parentPage->getCollectionName(); ?>
-                        </h3>
+            ?>
+            <div id="ccm-sub-nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                <?php echo $parentPage->getCollectionName(); ?>
+                            </h3>
 
-                        <nav>
-                            <?php echo (string)$ul; ?>
-                        </nav>
+                            <nav>
+                                <?php echo (string)$ul; ?>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <?php
+            <?php
+        }
     }
 }

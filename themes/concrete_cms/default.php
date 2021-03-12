@@ -22,6 +22,14 @@ $this->inc('elements/header.php');
 ?>
 
 <main>
+    <div class="row">
+        <div class="col-sm-12">
+            <?php
+            $a = new Area('Page Header');
+            $a->display($c);
+            ?>
+        </div>
+    </div>
     <?php
     $a = new Area('Main');
     $a->enableGridContainer();

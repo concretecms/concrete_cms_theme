@@ -200,6 +200,8 @@ $(window).resize(function () {
  */
 
 $("a").click(function (e) {
+    let $a = $(this);
+
     if ($(this).attr("href").substr($(this).attr("href").length - 6) === "/login" ||
         $(this).attr("href").substr($(this).attr("href").length - 9) === "/register") {
 
@@ -227,6 +229,9 @@ $("a").click(function (e) {
                     backdrop: 'static',
                     keyboard: false
                 });
+            },
+            error: function () {
+                window.location.href = $a.attr("href");
             }
         });
 
