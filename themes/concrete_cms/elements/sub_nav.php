@@ -19,7 +19,7 @@ use Concrete\Core\Config\Repository\Repository;
 
 $app = Application::getFacadeApplication();
 /** @var Repository $config */
-$config = $app->make(Repository::class);
+$config = Site::getSite()->getConfigRepository();
 
 $overrideSubNav = (bool)$config->get("concrete_cms_theme.override_sub_nav", false);
 $elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
