@@ -58,11 +58,4 @@ class PageTheme extends Theme implements ThemeProviderInterface
         return [];
     }
 
-    public function registerAssets()
-    {
-        /*
-         * The core asset needs to be included to prevent issues with bootstrap select.
-         */
-        $this->requireAsset('core/cms');
-    }
 }

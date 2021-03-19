@@ -20,6 +20,7 @@ use PortlandLabs\ConcreteCmsTheme\API\OAuth\Controller as OAuthController;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Messages;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Middleware\FractalNegotiatorMiddleware;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use PortlandLabs\ConcreteCmsTheme\Search\Pagination\View\Manager;
 
 class ServiceProvider extends Provider
 {
@@ -50,6 +51,14 @@ class ServiceProvider extends Provider
         $this->registerAPI();
         $this->registerAssetLocalizations();
         $this->overrideOAuthController();
+        $this->registerPagination();
+    }
+
+    private function registerPagination()
+    {
+        $this->app->bind('manager/view/pagination', function ($app) {
+            return new Manager($app);
+        });
     }
 
     private function overrideOAuthController()
