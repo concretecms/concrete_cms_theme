@@ -1,0 +1,25 @@
+table {
+
+  thead {
+    th {
+      border-bottom: 1px solid $table-border-color;
+      padding-bottom: 20px;
+    }
+  }
+
+  tbody {
+    tr:first-child {
+      td {
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+.card-body {
+  > table {
+    th {
+      padding-top: 0;
+    }
+  }
+}

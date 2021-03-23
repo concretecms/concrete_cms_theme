@@ -26,7 +26,7 @@ $config = Site::getSite()->getConfigRepository();
 $searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
 $elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
 $searchPage = Page::getByID($searchPageId);
-$excludeBreadcrumb = $c->getPageController()->get("exclude_breadcrumb") ||$c->getAttribute("exclude_breadcrumb");
+$excludeBreadcrumb = $c->isHomePage() || strpos($c->getCollectionPath(), '/account') === 0 || $c->getPageController()->get("exclude_breadcrumb") || $c->getAttribute("exclude_breadcrumb");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
 ?>
 <!DOCTYPE html>
