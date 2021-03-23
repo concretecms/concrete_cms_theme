@@ -25,17 +25,16 @@ class Settings extends DashboardSitePageController
 
     private function setDefaults()
     {
-
         $siteConfig = $this->getSite()->getConfigRepository();
         $this->set('enableDarkMode', $siteConfig->get('concrete_cms_theme.enable_dark_mode', false));
     }
 
     public function view()
     {
-        $siteConfig = $this->getSite()->getConfigRepository();
-
+        $site = $this->app->make('site')->getActiveSiteForEditing();
         /** @var Repository $config */
-        $config = $this->app->make(Repository::class);
+        $siteConfig = $site->getConfigRepository();
+
         /** @var ResponseFactory $responseFactory */
         $responseFactory = $this->app->make(ResponseFactory::class);
 

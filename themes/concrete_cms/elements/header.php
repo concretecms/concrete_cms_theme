@@ -24,6 +24,7 @@ $app = Application::getFacadeApplication();
 $config = Site::getSite()->getConfigRepository();
 
 $searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
+$elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
 $searchPage = Page::getByID($searchPageId);
 $excludeBreadcrumb = $c->isHomePage() || strpos($c->getCollectionPath(), '/account') === 0 || $c->getPageController()->get("exclude_breadcrumb") || $c->getAttribute("exclude_breadcrumb");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
@@ -80,7 +81,7 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getA
                     <div id="ccm-desktop-nav" class="header-navigation ml-auto">
                         <?php
                             /** @noinspection PhpUnhandledExceptionInspection */
-                            echo View::element("header_navigation", [], "concrete_cms_theme");
+                            echo View::element("header_navigation", [], $elementsPackageHandle);
                         ?>
                     </div>
                 </div>
