@@ -13,13 +13,15 @@ use Concrete\Core\Area\GlobalArea;
 use Concrete\Core\Localization\Localization;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Support\Facade\Url;
-use Concrete\Core\View\View;
+use Concrete\Core\Validation\CSRF\Token;use Concrete\Core\View\View;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Config\Repository\Repository;
 
 /** @var View $view */
 
 $app = Application::getFacadeApplication();
+/** @var Token $token */
+$token = $app->make(Token::class);
 /** @var Repository $config */
 $config = Site::getSite()->getConfigRepository();
 
@@ -43,6 +45,11 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getA
         'pageMetaKeywords' => isset($pageMetaKeywords) ? $pageMetaKeywords : ''
     ]);
     ?>
+
+    <script type="text/javascript">
+    <?php echo "var CCM_SECURITY_TOKEN = '" . $token->generate() . "';"; ?>
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
