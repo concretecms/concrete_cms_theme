@@ -15,6 +15,7 @@ use Concrete\Core\Html\Service\Navigation;
 use Concrete\Core\Http\Response;
 use Concrete\Core\Http\ResponseFactory;
 use Concrete\Core\Page\Page;
+use Concrete\Core\Page\Theme\ThemeRouteCollection;
 use Concrete\Core\Routing\Router;
 use PortlandLabs\ConcreteCmsTheme\API\OAuth\Controller as OAuthController;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Messages;
@@ -28,12 +29,14 @@ class ServiceProvider extends Provider
     protected $responseFactory;
     protected $navigationHelper;
     protected $router;
+    protected $themeRouteCollection;
 
     public function __construct(
         Application $app,
         EventDispatcherInterface $eventDispatcher,
         ResponseFactory $responseFactory,
         Navigation $navigationHelper,
+        ThemeRouteCollection $themeRouteCollection,
         Router $router
     )
     {
@@ -42,6 +45,7 @@ class ServiceProvider extends Provider
         $this->eventDispatcher = $eventDispatcher;
         $this->responseFactory = $responseFactory;
         $this->navigationHelper = $navigationHelper;
+        $this->themeRouteCollection = $themeRouteCollection;
         $this->router = $router;
     }
 
@@ -52,6 +56,16 @@ class ServiceProvider extends Provider
         $this->registerAssetLocalizations();
         $this->overrideOAuthController();
         $this->registerPagination();
+        $this->registerThemePaths();
+    }
+
+    private function registerThemePaths()
+    {
+        $this->themeRouteCollection->setThemeByRoute('/account', 'concrete_cms_theme');
+        $this->themeRouteCollection->setThemeByRoute('/account/*', 'concrete_cms_theme');
+        $this->themeRouteCollection->setThemeByRoute('/register', 'concrete_cms_theme');
+        $this->themeRouteCollection->setThemeByRoute('/login', 'concrete_cms_theme');
+        $this->themeRouteCollection->setThemeByRoute('/oauth/authorize', 'concrete_cms_theme');
     }
 
     private function registerPagination()

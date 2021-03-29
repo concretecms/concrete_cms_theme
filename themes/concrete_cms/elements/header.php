@@ -53,10 +53,9 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getA
                 <div class="navbar-inner">
                     <div class="navbar-brand">
                         <div class="header-site-title">
-                            <?php
-                            $a = new GlobalArea('Header Site Title' . ($enableDarkMode ? " (Dark Mode)" : ""));
-                            $a->display($c);
-                            ?>
+                            <a href="#">
+                                <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                            </a>
                         </div>
                     </div>
 
@@ -80,8 +79,8 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getA
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div id="ccm-desktop-nav" class="header-navigation ml-auto">
                         <?php
-                            /** @noinspection PhpUnhandledExceptionInspection */
-                            echo View::element("header_navigation", [], $elementsPackageHandle);
+                            $element = Element::get('header_navigation', 'concrete_cms_theme');
+                            $element->render();
                         ?>
                     </div>
                 </div>
