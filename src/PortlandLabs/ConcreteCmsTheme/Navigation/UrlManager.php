@@ -27,7 +27,7 @@ class UrlManager
 
     private $placeholders = [
         'marketing' => 'MARKETING_COMMERCIAL',
-        'marketingorg' => 'MARKETING_OPENSOURCE',
+        'marketing_org' => 'MARKETING_OPENSOURCE',
         'marketplace' => 'MARKETPLACE',
         'documentation' => 'DOCUMENTATION',
         'training' => 'TRAINING',
@@ -53,6 +53,21 @@ class UrlManager
         return $this->defaultUrls[$site];
     }
 
+    /**
+     * This magic method enables the following
+     *     echo $urlManager->getMarketingUrl();
+     *     echo $urlManager->getMarketingOrgUrl();
+     *     echo $urlManager->getForumsUrl();
+     *     echo $urlManager->getTrainingUrl();
+     *     echo $urlManager->getTranslateUrl();
+     * etc...
+     */
+    public function __call($method, $arguments)
+    {
+        $type = str_replace(['get_', '_url'], '', snake_case($method));
+        return $this->getEnvironmentUrl($this->placeholders[$type]);
+    }
+
     public function replacePlaceholderIfExists(string $url): string
     {
         foreach($this->placeholders as $placeholder => $type) {
@@ -61,12 +76,5 @@ class UrlManager
         return $url;
     }
 
-    /**
-     * Returns the URL to the commercial marketing site.
-     */
-    public function getCommercialMarketingUrl(): string
-    {
-        return $this->getEnvironmentUrl('MARKETING_COMMERCIAL');
-    }
 
 }

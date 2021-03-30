@@ -20,6 +20,7 @@ use Concrete\Core\Routing\Router;
 use PortlandLabs\ConcreteCmsTheme\API\OAuth\Controller as OAuthController;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Messages;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Middleware\FractalNegotiatorMiddleware;
+use PortlandLabs\ConcreteCmsTheme\Navigation\HeaderNavigationFactory;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use PortlandLabs\ConcreteCmsTheme\Search\Pagination\View\Manager;
 
@@ -57,6 +58,12 @@ class ServiceProvider extends Provider
         $this->overrideOAuthController();
         $this->registerPagination();
         $this->registerThemePaths();
+        $this->registerNavigations();
+    }
+
+    private function registerNavigations()
+    {
+        $this->app->singleton(HeaderNavigationFactory::class);
     }
 
     private function registerThemePaths()

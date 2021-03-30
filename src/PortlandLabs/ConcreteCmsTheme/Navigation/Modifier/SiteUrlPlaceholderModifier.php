@@ -21,18 +21,18 @@ class SiteUrlPlaceholderModifier implements ModifierInterface
         $this->urlManager = $urlManager;
     }
 
-    protected function replaceItem(Item $item)
+    protected function replaceItems(Item $item)
     {
         $item->setUrl($this->urlManager->replacePlaceholderIfExists($item->getUrl()));
         foreach($item->getChildren() as $child) {
-            $this->replaceItem($child);
+            $this->replaceItems($child);
         }
     }
 
     public function modify(NavigationInterface $navigation)
     {
         foreach ($navigation->getItems() as $item) {
-            $this->replaceItem($item);
+            $this->replaceItems($item);
         }
     }
 

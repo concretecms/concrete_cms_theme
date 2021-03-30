@@ -15,8 +15,26 @@ class HeaderNavigationFactory implements ApplicationAwareInterface
 
     use ApplicationAwareTrait;
 
+    const SECTION_SUPPORT = 'support';
+    const SECTION_COMMUNITY = 'community';
+
+    /**
+     * @var string|null
+     */
+    protected $activeSection;
+
+    /**
+     * @param string|null $activeSection
+     */
+    public function setActiveSection(string $activeSection): void
+    {
+        $this->activeSection = $activeSection;
+    }
+
     public function createNavigation()
     {
+        $activeSection = isset($this->activeSection) ? $this->activeSection : null;
+
         $navigation = new Navigation();
         $navigation->add(new Item('{{marketing}}/about', t('About'), false, false, [
             new Item('{{marketing}}/about/features', t('Features')),
@@ -32,13 +50,13 @@ class HeaderNavigationFactory implements ApplicationAwareInterface
             new Item('{{marketing}}/download', t('Download')),
             new Item('{{marketing}}/installation', t('Installation')),
         ]));
-        $navigation->add(new Item('{{marketplace}}', t('Extensions')));
-        $navigation->add(new Item('{{marketing}}/support', t('Support'), false, false, [
+        $navigation->add(new Item('{{marketplace}}', t('Extensions'), false, false));
+        $navigation->add(new Item('{{marketing}}/support', t('Support'), false, $activeSection === 'support', [
             new Item('{{documentation}}', t('Documentation')),
             new Item('{{training}}', t('Training & Certification')),
             new Item('{{gigs}}', t('Hire Help')),
         ]));
-        $navigation->add(new Item('{{community}}', t('Community'), false, false, [
+        $navigation->add(new Item('{{community}}', t('Community'), false, $activeSection === 'community', [
             new Item('{{forums}}', t('Forums')),
             new Item('{{community}}/members', t('Members')),
             new Item('{{translate}}', t('Translate Concrete')),

@@ -24,12 +24,11 @@ $app = Application::getFacadeApplication();
 $config = Site::getSite()->getConfigRepository();
 
 $searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
-$elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
 $searchPage = Page::getByID($searchPageId);
 $excludeBreadcrumb = $c->isHomePage() || strpos($c->getCollectionPath(), '/account') === 0 || $c->getPageController()->get("exclude_breadcrumb") || $c->getAttribute("exclude_breadcrumb");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
 
-$marketingUrl = $app->make(UrlManager::class)->getCommercialMarketingUrl();
+$marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
 
 ?>
 <!DOCTYPE html>
@@ -57,7 +56,11 @@ $marketingUrl = $app->make(UrlManager::class)->getCommercialMarketingUrl();
                     <div class="navbar-brand">
                         <div class="header-site-title">
                             <a href="<?=(string) $marketingUrl?>">
+                            <?php if ($enableDarkMode) { ?>
+                                <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
+                            <?php } else { ?>
                                 <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                            <?php } ?>
                             </a>
                         </div>
                     </div>
