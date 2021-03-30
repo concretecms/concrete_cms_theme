@@ -26,7 +26,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.1.5';
+    protected $pkgVersion = '0.1.6';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
@@ -54,6 +54,7 @@ class Controller extends Package
     }
 
 
+
     public function testForUninstall()
     {
         // Restore default theme on uninstall
@@ -64,25 +65,6 @@ class Controller extends Package
         }
 
         return parent::testForUninstall();
-    }
-
-    public function uninstall()
-    {
-        /** @var Repository $config */
-        $config = $this->app->make(Repository::class);
-
-        $themePaths = $config->get('app.theme_paths');
-
-        // Remove all defined theme paths.
-        unset($themePaths["/register"]);
-        unset($themePaths["/login"]);
-        unset($themePaths["/account/*"]);
-        unset($themePaths["/account"]);
-        unset($themePaths["/login_oauth"]);
-
-        $config->save('app.theme_paths', $themePaths);
-
-        parent::uninstall();
     }
 
     private function createSinglePage($cPath, $cName = '')
@@ -99,18 +81,8 @@ class Controller extends Package
 
     public function upgrade()
     {
+
         parent::upgrade();
-
-        /** @var Repository $config */
-        $config = $this->app->make(Repository::class);
-
-        $config->save('app.theme_paths', [
-            '/account' => 'concrete_cms',
-            '/account/*' => 'concrete_cms',
-            '/register' => 'concrete_cms',
-            '/login' => 'concrete_cms',
-            '/oauth/authorize' => 'concrete_cms'
-        ]);
 
         // Clear the cache to prevent navigation issues
         /** @var NavigationCache $navigationCache */
@@ -118,6 +90,11 @@ class Controller extends Package
         $navigationCache->clear();
         $navigationCache = $this->app->make(FavoritesNavigationCache::class);
         $navigationCache->clear();
+
+        // Set members directory to current package
+        $pkgID = $this->getPackageEntity()->getPackageID();
+        $db = $this->app->make(Connection::class);
+        $db->update('Pages', ['pkgID' => $pkgID], ['cFilename' => '/members/directory.php']);
     }
 
     public function install()
@@ -128,23 +105,6 @@ class Controller extends Package
 
         /** @var Repository $config */
         $config = $this->app->make(Repository::class);
-
-        $config->save('app.theme_paths', [
-
-            /*
-             * The usual suspects, use the theme single page template.
-             *
-             * NOTE - any single page view provided within the theme, such as
-             * login.php, will need to implement the entire page
-             * template, such single pages will not use view.php.
-             */
-
-            '/account' => 'concrete_cms',
-            '/account/*' => 'concrete_cms',
-            '/register' => 'concrete_cms',
-            '/login' => 'concrete_cms',
-            '/oauth/authorize' => 'concrete_cms'
-        ]);
 
         // Enable Public registration
 
@@ -160,6 +120,11 @@ class Controller extends Package
         $request = $this->app->make(Request::class);
         $enableDarkMode = $request->request->get("contentSwapFile") === "content_swap_templates/community.xml";
         $siteConfig->save("concrete_cms_theme.enable_dark_mode", $enableDarkMode);
+
+        // Set members directory to current package
+        $pkgID = $pkg->getPackageID();
+        $db = $this->app->make(Connection::class);
+        $db->update('Pages', ['pkgID' => $pkgID], ['cFilename' => '/members/directory.php']);
 
         return $pkg;
     }
