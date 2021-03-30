@@ -14,6 +14,8 @@ use Concrete\Core\Page\Page;
 use Concrete\Core\Permission\Checker;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Support\Facade\Url;
+use Concrete\Core\Support\Facade\Element;
+use HtmlObject\Element as HtmlElement;
 
 $app = Application::getFacadeApplication();
 /** @var Repository $config */
@@ -24,7 +26,7 @@ if ($element->exists()) {
 } else {
     $curPage = Page::getCurrentPage();
 
-    $ul = new Element("ul");
+    $ul = new HtmlElement("ul");
 
     if ($curPage instanceof Page && !$curPage->isError()) {
         $parentPage = Page::getByID($curPage->getCollectionParentID());
@@ -35,13 +37,13 @@ if ($element->exists()) {
 
                 /** @noinspection PhpUndefinedMethodInspection */
                 if ($childPagePermissions->canRead() && (!$childPage->getAttribute('exclude_nav'))) {
-                    $li = new Element("li");
+                    $li = new HtmlElement("li");
 
                     if ($curPage->getCollectionID() === $childPage->getCollectionID()) {
                         $li->addClass("active");
                     }
 
-                    $li->appendChild(new Element("a", $childPage->getCollectionName(), [
+                    $li->appendChild(new HtmlElement("a", $childPage->getCollectionName(), [
                         "href" => (string)Url::to($childPage)
                     ]));
 

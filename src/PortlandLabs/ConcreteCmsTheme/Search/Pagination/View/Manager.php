@@ -10,7 +10,7 @@ class Manager extends CoreManager
 
     protected function createApplicationDriver()
     {
-        return new ConcreteCmsThemeView();
+        return new ConcreteCMSView();
     }
 
     protected function createDashboardDriver()
