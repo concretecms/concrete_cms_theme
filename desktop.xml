@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <concrete5-cif version="1.0">
-    <attributekeys>
-        <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
-                      searchable="1"
-                      indexed="0" type="boolean"
-                      category="collection"/>
-    </attributekeys>
     <singlepages>
         <page name="Welcome Back" path="/account/welcome" filename="/account/welcome.php" pagetype="" description=""
               package="concrete_cms_theme">
@@ -69,6 +63,10 @@
         </page>
     </singlepages>
     <attributekeys>
+        <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
+                      searchable="1"
+                      indexed="0" type="boolean"
+                      category="collection"/>
         <attributekey handle="header_image" name="Header Image" package="concrete_cms_theme" searchable="1" indexed="1"
                       type="image_file"
                       category="user">
