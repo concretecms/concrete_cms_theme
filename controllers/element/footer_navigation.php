@@ -10,22 +10,20 @@
 namespace Concrete\Package\ConcreteCmsTheme\Controller\Element;
 
 use Concrete\Core\Controller\ElementController;
-use Concrete\Core\Validation\CSRF\Token;
-use PortlandLabs\ConcreteCmsTheme\Navigation\HeaderNavigationFactory;
+use PortlandLabs\ConcreteCmsTheme\Navigation\FooterNavigationFactory;
 
-class HeaderNavigation extends ElementController
+class FooterNavigation extends ElementController
 {
 
     public function getElement()
     {
-        return 'header_navigation';
+        return 'footer_navigation';
     }
 
     public function view()
     {
-        $navigationFactory = $this->app->make(HeaderNavigationFactory::class);
+        $navigationFactory = $this->app->make(FooterNavigationFactory::class);
 
-        $this->set('token', new Token());
         $this->set('navigation', $navigationFactory->createNavigation());
     }
 }

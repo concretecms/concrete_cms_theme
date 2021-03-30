@@ -16,7 +16,7 @@ use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\View\View;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Config\Repository\Repository;
-
+use PortlandLabs\ConcreteCmsTheme\Navigation\UrlManager;
 /** @var View $view */
 
 $app = Application::getFacadeApplication();
@@ -28,6 +28,9 @@ $elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handl
 $searchPage = Page::getByID($searchPageId);
 $excludeBreadcrumb = $c->isHomePage() || strpos($c->getCollectionPath(), '/account') === 0 || $c->getPageController()->get("exclude_breadcrumb") || $c->getAttribute("exclude_breadcrumb");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
+
+$marketingUrl = $app->make(UrlManager::class)->getCommercialMarketingUrl();
+
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo Localization::activeLanguage() ?>">
@@ -53,7 +56,7 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getA
                 <div class="navbar-inner">
                     <div class="navbar-brand">
                         <div class="header-site-title">
-                            <a href="#">
+                            <a href="<?=(string) $marketingUrl?>">
                                 <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
                             </a>
                         </div>
