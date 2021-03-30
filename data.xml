@@ -8,6 +8,12 @@
                       searchable="1"
                       indexed="0" type="boolean"
                       category="collection"/>
+        <attributekey handle="header_image" name="Header Image" package="concrete_cms_theme" searchable="1" indexed="1"
+                      type="image_file"
+                      category="user">
+            <type placeholder=""/>
+        </attributekey>
+
     </attributekeys>
     <singlepages>
         <page name="ConcreteCMS Theme" path="/dashboard/concrete_cms_theme" filename="/dashboard/concrete_cms_theme.php"
@@ -19,13 +25,6 @@
               package="concrete_cms_theme">
         </page>
     </singlepages>
-    <attributekeys>
-        <attributekey handle="header_image" name="Header Image" package="concrete_cms_theme" searchable="1" indexed="1"
-                      type="image_file"
-                      category="user">
-            <type placeholder=""/>
-        </attributekey>
-    </attributekeys>
     <attributesets>
         <attributeset name="Contact Information" package="concrete_cms_theme" handle="contact_information"
                       category="user">
