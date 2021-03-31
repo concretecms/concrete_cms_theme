@@ -47,14 +47,11 @@ $this->inc('elements/header.php');
                 ?>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <?php
-                echo $innerContent;
-                ?>
-            </div>
-        </div>
     </div>
+
+    <?php
+    echo $innerContent;
+    ?>
 </main>
 
 <section class="additional-content">

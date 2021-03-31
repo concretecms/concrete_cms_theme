@@ -68,8 +68,13 @@ class ServiceProvider extends Provider
 
     private function registerThemePaths()
     {
-        $this->themeRouteCollection->setThemeByRoute('/account', 'concrete_cms_theme');
-        $this->themeRouteCollection->setThemeByRoute('/account/*', 'concrete_cms_theme');
+        if (!$this->themeRouteCollection->getThemeByRoute('/account')) {
+            $this->themeRouteCollection->setThemeByRoute('/account', 'concrete_cms_theme');
+        }
+        if (!$this->themeRouteCollection->getThemeByRoute('/account/*')) {
+            $this->themeRouteCollection->setThemeByRoute('/account/*', 'concrete_cms_theme');
+        }
+
         $this->themeRouteCollection->setThemeByRoute('/register', 'concrete_cms_theme');
         $this->themeRouteCollection->setThemeByRoute('/login', 'concrete_cms_theme');
         $this->themeRouteCollection->setThemeByRoute('/oauth/authorize', 'concrete_cms_theme');
