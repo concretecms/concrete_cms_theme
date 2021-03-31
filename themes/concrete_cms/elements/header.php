@@ -16,7 +16,7 @@ use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\Validation\CSRF\Token;use Concrete\Core\View\View;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Config\Repository\Repository;
-
+use PortlandLabs\ConcreteCmsTheme\Navigation\UrlManager;
 /** @var View $view */
 
 $app = Application::getFacadeApplication();
@@ -26,10 +26,12 @@ $token = $app->make(Token::class);
 $config = Site::getSite()->getConfigRepository();
 
 $searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
-$elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
 $searchPage = Page::getByID($searchPageId);
-$excludeBreadcrumb = $c->getPageController()->get("exclude_breadcrumb") ||$c->getAttribute("exclude_breadcrumb");
+$excludeBreadcrumb = $c->isHomePage() || strpos($c->getCollectionPath(), '/account') === 0 || $c->getPageController()->get("exclude_breadcrumb") || $c->getAttribute("exclude_breadcrumb");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
+
+$marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
+
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo Localization::activeLanguage() ?>">
@@ -60,10 +62,13 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getA
                 <div class="navbar-inner">
                     <div class="navbar-brand">
                         <div class="header-site-title">
-                            <?php
-                            $a = new GlobalArea('Header Site Title' . ($enableDarkMode ? " (Dark Mode)" : ""));
-                            $a->display($c);
-                            ?>
+                            <a href="<?=(string) $marketingUrl?>">
+                            <?php if ($enableDarkMode) { ?>
+                                <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
+                            <?php } else { ?>
+                                <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                            <?php } ?>
+                            </a>
                         </div>
                     </div>
 
@@ -87,8 +92,8 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getA
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div id="ccm-desktop-nav" class="header-navigation ml-auto">
                         <?php
-                            /** @noinspection PhpUnhandledExceptionInspection */
-                            echo View::element("header_navigation", [], $elementsPackageHandle);
+                            $element = Element::get('header_navigation', 'concrete_cms_theme');
+                            $element->render();
                         ?>
                     </div>
                 </div>

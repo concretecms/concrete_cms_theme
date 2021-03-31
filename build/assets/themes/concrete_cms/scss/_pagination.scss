@@ -77,3 +77,18 @@ div.ccm-pagination-wrapper {
     }
   }
 }
+
+/* Note - this is used with the basic boring pagination as shown in the hosting control panel. If we don't want that
+we should get rid of the custom pagination I've added in the ServiceProvider.
+ */
+
+.ccm-search-results-pagination {
+  display: flex;
+  nav {
+    margin-left: auto;
+
+    > span, a {
+      margin-left: 10px;
+    }
+  }
+}

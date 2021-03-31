@@ -9,28 +9,24 @@
 
 defined('C5_EXECUTE') or die("Access Denied.");
 
+use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Permission\Checker;
-use Concrete\Core\Support\Facade\Url;
-use Concrete\Core\View\View;
-use HtmlObject\Element;
 use Concrete\Core\Support\Facade\Application;
-use Concrete\Core\Config\Repository\Repository;
+use Concrete\Core\Support\Facade\Url;
+use Concrete\Core\Support\Facade\Element;
+use HtmlObject\Element as HtmlElement;
 
 $app = Application::getFacadeApplication();
 /** @var Repository $config */
-$config = Site::getSite()->getConfigRepository();
 
-$overrideSubNav = (bool)$config->get("concrete_cms_theme.override_sub_nav", false);
-$elementsPackageHandle = $config->get("concrete_cms_theme.elements_package_handle", "concrete_cms_theme");
-
-if ($overrideSubNav && $elementsPackageHandle != "") {
-    /** @noinspection PhpUnhandledExceptionInspection */
-    echo View::element("sub_nav", [], $elementsPackageHandle);
+$element = Element::get('sub_nav_custom');
+if ($element->exists()) {
+    $element->render();
 } else {
     $curPage = Page::getCurrentPage();
 
-    $ul = new Element("ul");
+    $ul = new HtmlElement("ul");
 
     if ($curPage instanceof Page && !$curPage->isError()) {
         $parentPage = Page::getByID($curPage->getCollectionParentID());
@@ -41,13 +37,13 @@ if ($overrideSubNav && $elementsPackageHandle != "") {
 
                 /** @noinspection PhpUndefinedMethodInspection */
                 if ($childPagePermissions->canRead() && (!$childPage->getAttribute('exclude_nav'))) {
-                    $li = new Element("li");
+                    $li = new HtmlElement("li");
 
                     if ($curPage->getCollectionID() === $childPage->getCollectionID()) {
                         $li->addClass("active");
                     }
 
-                    $li->appendChild(new Element("a", $childPage->getCollectionName(), [
+                    $li->appendChild(new HtmlElement("a", $childPage->getCollectionName(), [
                         "href" => (string)Url::to($childPage)
                     ]));
 

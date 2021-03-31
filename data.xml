@@ -1,53 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <concrete5-cif version="1.0">
-    <singlepages>
-        <page name="Welcome Back" path="/account/welcome" filename="/account/welcome.php" pagetype="" description=""
-              package="concrete_cms_theme">
-            <attributes>
-                <attributekey handle="desktop_priority">
-                    <value>10</value>
-                </attributekey>
-                <attributekey handle="is_desktop">
-                    <value>1</value>
-                </attributekey>
-                <attributekey handle="exclude_nav">
-                    <value>1</value>
-                </attributekey>
-            </attributes>
-        </page>
-        <page name="Edit Profile" path="/account/edit_profile" filename="/account/edit_profile.php" pagetype=""
-              description=""
-              package="concrete_cms_theme">
-            <attributes>
-                <attributekey handle="desktop_priority">
-                    <value>10</value>
-                </attributekey>
-                <attributekey handle="is_desktop">
-                    <value>1</value>
-                </attributekey>
-            </attributes>
-        </page>
-        <page name="Private Messages" path="/account/messages" filename="/account/messages.php" pagetype=""
-              description=""
-              package="concrete_cms_theme">
-            <attributes>
-                <attributekey handle="desktop_priority">
-                    <value>10</value>
-                </attributekey>
-                <attributekey handle="is_desktop">
-                    <value>1</value>
-                </attributekey>
-            </attributes>
-        </page>
-        <page name="ConcreteCMS Theme" path="/dashboard/concrete_cms_theme" filename="/dashboard/concrete_cms_theme.php"
-              pagetype="" description=""
-              package="concrete_cms_theme">
-        </page>
-        <page name="Settings" path="/dashboard/concrete_cms_theme/settings"
-              filename="/dashboard/concrete_cms_theme/settings.php" pagetype="" description=""
-              package="concrete_cms_theme">
-        </page>
-    </singlepages>
+    <themes>
+        <theme handle="concrete_cms" package="concrete_cms_theme" activated="1"/>
+    </themes>
     <attributekeys>
         <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
                       searchable="1"
@@ -182,6 +137,16 @@
             <type checked="" checkbox-label=""/>
         </attributekey>
     </attributekeys>
+    <singlepages>
+        <page name="ConcreteCMS Theme" path="/dashboard/concrete_cms_theme" filename="/dashboard/concrete_cms_theme.php"
+              pagetype="" description=""
+              package="concrete_cms_theme">
+        </page>
+        <page name="Settings" path="/dashboard/concrete_cms_theme/settings"
+              filename="/dashboard/concrete_cms_theme/settings.php" pagetype="" description=""
+              package="concrete_cms_theme">
+        </page>
+    </singlepages>
     <attributesets>
         <attributeset name="Contact Information" package="concrete_cms_theme" handle="contact_information"
                       category="user">
