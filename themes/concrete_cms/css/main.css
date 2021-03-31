@@ -23175,29 +23175,53 @@ div.ccm-page .form-control:focus {
   border-color: #017DDD;
 }
 
+div.ccm-page .form-check {
+  margin-left: 0 !important;
+}
+
+div.ccm-page .form-check .form-check-label {
+  width: calc(100% - 30px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 div.ccm-page input[type=checkbox] {
-  visibility: hidden;
-  position: absolute;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  position: relative;
 }
 
-div.ccm-page input[type=checkbox]::before {
-  visibility: visible;
-  font-size: 16px;
-  display: inline-block;
-  letter-spacing: 5px;
-  content: "\F0C8";
-  font-family: "Font Awesome 5 Free";
+div.ccm-page input[type=checkbox] + label::after {
   position: absolute;
-  top: -5px;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: block;
+  pointer-events: none;
+  opacity: 1;
+  font-family: "Font Awesome 5 Free";
   color: #4C4F56;
-  cursor: pointer;
+  content: "\F0C8";
+  outline: none !important;
 }
 
-div.ccm-page input[type=checkbox]:checked::before {
+div.ccm-page input[type=checkbox]:checked + label::after {
   content: "\F14A";
-  letter-spacing: 5px;
-  font-family: "Font Awesome 5 Free";
   color: #017DDD;
+}
+
+div.ccm-page input[type=checkbox],
+div.ccm-page input[type=checkbox] + label::after {
+  width: 22px;
+  height: 22px;
+  font-size: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+  margin-top: 4px;
+  outline: none !important;
 }
 
 div.ccm-page.ccm-dark-mode .dropdown-item {
