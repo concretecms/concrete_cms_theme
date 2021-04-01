@@ -15,27 +15,50 @@
   }
 }
 
+.form-check {
+  margin-left: 0 !important;
+
+
+  .form-check-label {
+    width: calc(100% - 30px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 input[type=checkbox] {
-  visibility: hidden;
-  position: absolute;
+  appearance: none;
+  background: transparent;
+  position: relative;
 }
 
-input[type=checkbox]::before {
-  visibility: visible;
-  font-size: 16px;
-  display: inline-block;
-  letter-spacing: 5px;
-  content: "\f0c8";
-  font-family: 'Font Awesome 5 Free';
+input[type=checkbox] + label::after {
   position: absolute;
-  top: -5px;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: block;
+  pointer-events: none;
+  opacity: 1;
+  font-family: 'Font Awesome 5 Free';
   color: theme-color('text');
-  cursor: pointer;
+  content: "\f0c8";
+  outline: none !important;
 }
 
-input[type=checkbox]:checked::before {
+input[type=checkbox]:checked + label::after {
   content: "\f14a";
-  letter-spacing: 5px;
-  font-family: 'Font Awesome 5 Free';
   color: theme-color('accent');
+}
+
+input[type=checkbox],
+input[type=checkbox] + label::after {
+  width: 22px;
+  height: 22px;
+  font-size: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+  margin-top: 4px;
+  outline: none !important;
 }

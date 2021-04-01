@@ -13,7 +13,6 @@
                       category="user">
             <type placeholder=""/>
         </attributekey>
-
     </attributekeys>
     <singlepages>
         <page name="ConcreteCMS Theme" path="/dashboard/concrete_cms_theme" filename="/dashboard/concrete_cms_theme.php"
