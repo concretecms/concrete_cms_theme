@@ -1,0 +1,35 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+main ul:not(.ccm-edit-mode-inline-commands),
+main ol {
+  padding-left: 25px;
+}
+
+main img {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  max-width: 100%;
+  height: auto;
+}
+
+.text-center img {
+  display: inline-block;
+}
+
+.ccm-pagination-wrapper {
+  width: 100%;
+}
+
+main table {
+  margin-bottom: 15px;
+}
+
+main blockquote {
+  margin-top: 15px;
+}
