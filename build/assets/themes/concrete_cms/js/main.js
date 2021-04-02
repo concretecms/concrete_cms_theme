@@ -238,3 +238,11 @@ $("a").click(function (e) {
         return false;
     }
 });
+
+/*
+ * Create fancy checkboxes
+ */
+
+$(".ccm-page .form-group select").each(function() {
+    $(this).wrap($("<div/>").addClass("fancy-select"));
+});

@@ -8,7 +8,8 @@
 .form-control {
   outline: none !important;
   box-shadow: none !important;
-  border-color: theme-color('border');
+  border-color: rgba(151, 151, 151, 0.3);
+  border-radius: 4px !important;
 
   &:focus {
     border-color: theme-color('accent');
@@ -61,4 +62,39 @@ input[type=checkbox] + label::after {
   vertical-align: middle;
   margin-top: 4px;
   outline: none !important;
+}
+
+.form-check {
+  cursor: pointer !important;
+}
+
+.fancy-select {
+  position: relative;
+  display: flex;
+
+  select {
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+    width: 100%;
+    padding-right: 36px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: -1px;
+    line-height: 33px;
+    text-align: center;
+    width: 16px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\F0DD";
+    color: #828282;
+    font-size: 21px;
+  }
 }

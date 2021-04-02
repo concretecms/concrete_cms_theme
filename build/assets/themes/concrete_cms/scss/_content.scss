@@ -5,12 +5,13 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
-main ul:not(.ccm-edit-mode-inline-commands),
-main ol {
+
+.col-content ul:not(.ccm-edit-mode-inline-commands) + main ul:not(.nav),
+.col-content ol {
   padding-left: 25px;
 }
 
-main img {
+.col-content img:not(.u-avatar) {
   display: block;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -18,7 +19,7 @@ main img {
   height: auto;
 }
 
-.text-center img {
+.text-center img:not(.u-avatar) {
   display: inline-block;
 }
 
@@ -26,10 +27,10 @@ main img {
   width: 100%;
 }
 
-main table {
+.col-content table {
   margin-bottom: 15px;
 }
 
-main blockquote {
+.col-content blockquote {
   margin-top: 15px;
 }
