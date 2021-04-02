@@ -65,7 +65,7 @@ $this->inc('elements/header.php');
                 $bt->controller->displayPages = 'custom';
                 $bt->controller->orderBy = 'display_asc';
                 $bt->controller->displayPagesCID = Page::getByPath("/developers")->getCollectionID();
-                $bt->controller->displaySubPages = 'all';
+                $bt->controller->displaySubPages = 'relevant';
                 $bt->controller->displaySubPageLevels = 'all';
                 $bt->controller->displaySubPageLevelsNum = 0;
                 $bt->render("templates/docs_sidebar/view");
