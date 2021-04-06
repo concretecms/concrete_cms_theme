@@ -36,10 +36,13 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
         <div class="row">
             <div class="col-sm">
                 <div class="footer-site-title">
-                    <?php
-                    $a = new GlobalArea('Footer Site Title' . ($enableDarkMode ? " (Dark Mode)" : ""));
-                    $a->display($c);
-                    ?>
+                    <a href="<?=(string) $marketingUrl?>">
+                        <?php if ($enableDarkMode) { ?>
+                            <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
+                        <?php } else { ?>
+                            <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                        <?php } ?>
+                    </a>
                 </div>
             </div>
 
@@ -65,10 +68,7 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
 
             <div class="col-sm">
                 <div class="footer-legal">
-                    <?php
-                    $a = new GlobalArea('Footer Legal');
-                    $a->display($c);
-                    ?>
+                    <?php echo t("PortlandLabsⒸ Copyright %s", date("Y")); ?>
                 </div>
             </div>
         </div>

@@ -145,7 +145,7 @@ if (!$request->query->has("ajax")) {
                                             </div>
 
                                             <?php if ($i == 0 && count($activeAuths) > 1 && $config->get('concrete.user.registration.enabled')) { ?>
-                                                <div class="text-center" style="margin-bottom: 5px;">
+                                                <div class="text-center" style="color: #ffffff; margin-bottom: 15px;">
                                                     <?php echo t('or'); ?>
                                                 </div>
                                             <?php } elseif ($i == 0 && count($activeAuths) > 1) { ?>
