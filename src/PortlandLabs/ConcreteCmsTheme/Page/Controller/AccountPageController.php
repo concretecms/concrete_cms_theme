@@ -27,7 +27,8 @@ class AccountPageController extends CoreAccountPageController
         // Override the theme
         $this->setTheme('concrete_cms');
         $this->set('exclude_breadcrumb', true);
-
+        $this->requireAsset("core/cms");
+        
         $this->responseFactory = $this->app->make(ResponseFactory::class);
     }
 }
