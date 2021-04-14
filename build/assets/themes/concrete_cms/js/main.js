@@ -246,3 +246,15 @@ $("a").click(function (e) {
 $(".ccm-page .form-group select").each(function() {
     $(this).wrap($("<div/>").addClass("fancy-select"));
 });
+
+/*
+ * Add support for video popups (lightbox)
+ */
+
+$(function () {
+    $('.ccm-page .popup-video').magnificPopup({
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        preloader: true
+    })
+});
