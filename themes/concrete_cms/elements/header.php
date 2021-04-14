@@ -55,6 +55,13 @@ $marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
+<div id="ccm-loading-screen" style="display: none">
+    <div class="loading-wrapper">
+        <div class="loader"></div>
+    </div>
+</div>
+
 <div class="<?php echo $c->getPageWrapperClass() ?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">
     <header class="<?php echo $excludeBreadcrumb ? "no-breadcrumb" : ""; ?> <?php echo $c->getCollectionParentID() > 0 ? "has-sub-nav" : ""; ?>">
         <div class="container">

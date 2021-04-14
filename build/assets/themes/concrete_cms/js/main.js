@@ -258,3 +258,7 @@ $(function () {
         preloader: true
     })
 });
+
+$("#ccm-upload-avatar, #ccm-upload-header-image").on("submit", function () {
+    $("body").addClass("loading");
+});
