@@ -48,6 +48,7 @@ div.ccm-block-testimonial {
   img {
     @extend .img-fluid;
     border-radius: 50%;
+    max-width: 200px;
   }
 
   .ccm-block-testimonial-name {
@@ -109,6 +110,12 @@ div.ccm-block-testimonial-wrapper {
 
     .ccm-block-testimonial-name {
       font-size: 12px;
+    }
+  }
+
+  .ccm-block-testimonial-image {
+    img {
+      max-width: 140px !important;
     }
   }
 }
