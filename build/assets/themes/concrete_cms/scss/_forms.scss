@@ -22,9 +22,6 @@
 
   .form-check-label {
     width: calc(100% - 30px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
 
@@ -78,9 +75,6 @@ input[type=checkbox] + label::after {
     appearance: none;
     width: 100%;
     padding-right: 36px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
   }
 
   &::after {

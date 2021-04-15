@@ -43,9 +43,6 @@
       display: block;
       float: left;
       width: calc(100% - 20px);
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       color: theme-color('accent');
       font-size: 16px;
     }

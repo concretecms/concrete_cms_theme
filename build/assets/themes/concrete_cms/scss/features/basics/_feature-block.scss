@@ -43,3 +43,120 @@ div.feature-home-page {
     padding-left: 45px;
   }
 }
+
+// Add styles for custom feature block with image support
+div.feature-section {
+  padding-bottom: 50px;
+  padding-top: 50px;
+
+  @include media-breakpoint-down(sm) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      * {
+        text-align: center;
+      }
+    }
+  }
+
+  .page-title {
+    font-family: "Poppins";
+    font-weight: 700 !important;
+    font-size: 42px !important;;
+    line-height: 48px !important;;
+    color: rgb(83, 83, 84);
+    width: 100%;
+    padding-bottom: 27px;
+    margin-bottom: 33px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    text-transform: uppercase !important;
+  }
+
+  &.feature-section-blue {
+    background-color: rgb(1, 98, 173);
+
+    * {
+      color: rgb(255, 255, 255) !important;
+    }
+  }
+
+  &.feature-section-dark-gray {
+    background-color: rgb(60, 61, 62);
+
+    * {
+      color: rgb(255, 255, 255) !important;
+    }
+  }
+
+  &.feature-section-light-gray {
+    background-color: rgb(250, 250, 250);
+  }
+}
+
+div.ccm-feature-item {
+  display: flex;
+
+  .ccm-feature-image-wrapper {
+    flex: 0 0 170px;
+
+    .ccm-feature-image {
+      width: 100%;
+      max-width: 150px;
+      height: auto;
+      margin: auto auto 15px;
+    }
+  }
+
+  .ccm-feature-content {
+    font-family: "Noto Sans" !important;
+
+    .ccm-feature-title {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 30px;
+      color: rgb(0, 0, 0);
+    }
+
+    .ccm-feature-description, .ccm-feature-description * {
+      font-weight: 400 !important;
+      font-size: 16px !important;
+      line-height: 28px !important;
+      color: rgb(25, 25, 26);
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          &::before {
+            content: "• ";
+          }
+        }
+      }
+    }
+  }
+
+
+  /* Mobile */
+  @include media-breakpoint-down(sm) {
+    display: block;
+    margin-bottom: 25px;
+  }
+}

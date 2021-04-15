@@ -40,4 +40,11 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
+<div id="ccm-loading-screen" style="display: none">
+    <div class="loading-wrapper">
+        <div class="loader"></div>
+    </div>
+</div>
+
 <div class="<?php echo $c->getPageWrapperClass() ?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">

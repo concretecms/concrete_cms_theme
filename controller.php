@@ -26,7 +26,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.1.6';
+    protected $pkgVersion = '0.1.7';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
@@ -83,6 +83,8 @@ class Controller extends Package
     {
 
         parent::upgrade();
+
+        $this->installContentFile('data.xml');
 
         // Clear the cache to prevent navigation issues
         /** @var NavigationCache $navigationCache */

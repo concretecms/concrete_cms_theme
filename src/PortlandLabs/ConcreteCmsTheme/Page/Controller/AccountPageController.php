@@ -25,6 +25,7 @@ class AccountPageController extends CoreAccountPageController
         parent::on_start();
 
         $this->set('exclude_breadcrumb', true);
+        $this->requireAsset("core/cms");
 
         $this->responseFactory = $this->app->make(ResponseFactory::class);
     }

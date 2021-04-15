@@ -33,6 +33,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@import "./loading-screen";
+
 div.ccm-page {
   overflow-x: hidden;
   display: flex;
