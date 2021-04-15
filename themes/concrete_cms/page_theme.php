@@ -53,6 +53,24 @@ class PageTheme extends Theme implements ThemeProviderInterface
         ];
     }
 
+    public function getThemeAreaClasses()
+    {
+        $classesAvailable = [
+            "feature-section",
+            "feature-section-blue",
+            "feature-section-dark-gray",
+            "feature-section-light-gray"
+        ];
+
+        $areaComputed["Main"] = $classesAvailable;
+
+        for($i = 1; $i <= 15; $i++) {
+            $areaComputed["Main " . $i] = $classesAvailable;
+        }
+
+        return $areaComputed;
+    }
+
     public function getThemeAreaLayoutPresets()
     {
         return [];

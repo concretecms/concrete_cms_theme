@@ -18234,6 +18234,138 @@ div.feature-home-page div.ccm-block-feature-item {
   padding-left: 45px;
 }
 
+div.feature-section {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+@media (max-width: 767.98px) {
+  div.feature-section .col-1,
+  div.feature-section .col-2,
+  div.feature-section .col-3,
+  div.feature-section .col-4,
+  div.feature-section .col-5,
+  div.feature-section .col-6,
+  div.feature-section .col-7,
+  div.feature-section .col-8,
+  div.feature-section .col-9,
+  div.feature-section .col-10,
+  div.feature-section .col-11,
+  div.feature-section .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  div.feature-section .col-1 *,
+  div.feature-section .col-2 *,
+  div.feature-section .col-3 *,
+  div.feature-section .col-4 *,
+  div.feature-section .col-5 *,
+  div.feature-section .col-6 *,
+  div.feature-section .col-7 *,
+  div.feature-section .col-8 *,
+  div.feature-section .col-9 *,
+  div.feature-section .col-10 *,
+  div.feature-section .col-11 *,
+  div.feature-section .col-12 * {
+    text-align: center;
+  }
+}
+
+div.feature-section .page-title {
+  font-family: "Poppins";
+  font-weight: 700 !important;
+  font-size: 42px !important;
+  line-height: 48px !important;
+  color: #535354;
+  width: 100%;
+  padding-bottom: 27px;
+  margin-bottom: 33px;
+  border-bottom: 1px solid #e0e0e0;
+  text-transform: uppercase !important;
+}
+
+div.feature-section.feature-section-blue {
+  background-color: #0162ad;
+}
+
+div.feature-section.feature-section-blue * {
+  color: white !important;
+}
+
+div.feature-section.feature-section-dark-gray {
+  background-color: #3c3d3e;
+}
+
+div.feature-section.feature-section-dark-gray * {
+  color: white !important;
+}
+
+div.feature-section.feature-section-light-gray {
+  background-color: #fafafa;
+}
+
+div.ccm-feature-item {
+  display: flex;
+  /* Mobile */
+}
+
+div.ccm-feature-item .ccm-feature-image-wrapper {
+  flex: 0 0 170px;
+}
+
+div.ccm-feature-item .ccm-feature-image-wrapper .ccm-feature-image {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin: auto auto 15px;
+}
+
+div.ccm-feature-item .ccm-feature-content {
+  font-family: "Noto Sans" !important;
+}
+
+div.ccm-feature-item .ccm-feature-content .ccm-feature-title {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 30px;
+  color: black;
+}
+
+div.ccm-feature-item .ccm-feature-content .ccm-feature-description,
+div.ccm-feature-item .ccm-feature-content .ccm-feature-description * {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 28px !important;
+  color: #19191a;
+}
+
+div.ccm-feature-item .ccm-feature-content .ccm-feature-description ul,
+div.ccm-feature-item .ccm-feature-content .ccm-feature-description * ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+div.ccm-feature-item .ccm-feature-content .ccm-feature-description ul li,
+div.ccm-feature-item .ccm-feature-content .ccm-feature-description * ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+div.ccm-feature-item .ccm-feature-content .ccm-feature-description ul li::before,
+div.ccm-feature-item .ccm-feature-content .ccm-feature-description * ul li::before {
+  content: "\2022   ";
+}
+
+@media (max-width: 767.98px) {
+  div.ccm-feature-item {
+    display: block;
+    margin-bottom: 25px;
+  }
+}
+
 /**
  * @project:   ConcreteCMS Theme
  *
