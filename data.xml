@@ -27,27 +27,4 @@
               package="concrete_cms_theme">
         </page>
     </singlepages>
-    <attributesets>
-        <attributeset name="Contact Information" package="concrete_cms_theme" handle="contact_information"
-                      category="user">
-            <attributekey handle="phone"/>
-            <attributekey handle="address"/>
-            <attributekey handle="profile_private_messages_enabled"/>
-            <attributekey handle="newsletter"/>
-        </attributeset>
-        <attributeset name="Public Profile" package="concrete_cms_theme" handle="public_profile" category="user">
-            <attributekey handle="first_name"/>
-            <attributekey handle="last_name"/>
-            <attributekey handle="description"/>
-            <attributekey handle="website"/>
-            <attributekey handle="associations"/>
-            <attributekey handle="education"/>
-            <attributekey handle="past_experience"/>
-            <attributekey handle="role"/>
-            <attributekey handle="social_skills"/>
-            <attributekey handle="client_requirements"/>
-            <attributekey handle="project_budget"/>
-            <attributekey handle="current_specialties"/>
-        </attributeset>
-    </attributesets>
 </concrete5-cif>
