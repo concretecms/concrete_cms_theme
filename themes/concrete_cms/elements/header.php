@@ -32,6 +32,8 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getA
 
 $marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
 
+$subnavElement = Element::get('sub_nav_custom');
+
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo Localization::activeLanguage() ?>">
@@ -49,7 +51,7 @@ $marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
     ?>
 
     <script type="text/javascript">
-    <?php echo "var CCM_SECURITY_TOKEN = '" . $token->generate() . "';"; ?>
+        <?php echo "var CCM_SECURITY_TOKEN = '" . $token->generate() . "';"; ?>
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,18 +65,18 @@ $marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
 </div>
 
 <div class="<?php echo $c->getPageWrapperClass() ?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">
-    <header class="<?php echo $excludeBreadcrumb ? "no-breadcrumb" : ""; ?> <?php echo $c->getCollectionParentID() > 0 ? "has-sub-nav" : ""; ?>">
+    <header class="<?php echo $excludeBreadcrumb ? "no-breadcrumb" : ""; ?> <?php $subnavElement->exists() ? "has-sub-nav" : ""; ?>">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="navbar-inner">
                     <div class="navbar-brand">
                         <div class="header-site-title">
                             <a href="<?=(string) $marketingUrl?>">
-                            <?php if ($enableDarkMode) { ?>
-                                <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
-                            <?php } else { ?>
-                                <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
-                            <?php } ?>
+                                <?php if ($enableDarkMode) { ?>
+                                    <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
+                                <?php } else { ?>
+                                    <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                                <?php } ?>
                             </a>
                         </div>
                     </div>
@@ -99,8 +101,8 @@ $marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div id="ccm-desktop-nav" class="header-navigation ml-auto">
                         <?php
-                            $element = Element::get('header_navigation', 'concrete_cms_theme');
-                            $element->render();
+                        $element = Element::get('header_navigation', 'concrete_cms_theme');
+                        $element->render();
                         ?>
                     </div>
                 </div>
@@ -109,8 +111,10 @@ $marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
 
         <?php
         /** @noinspection PhpUnhandledExceptionInspection */
-        $this->inc('elements/sub_nav.php');
-         ?>
+        if ($subnavElement->exists()) {
+            $subnavElement->render();
+        }
+        ?>
     </header>
 
     <?php if (!$excludeBreadcrumb) { ?>
