@@ -5,6 +5,10 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+.bootstrap-select {
+  display: block !important;
+}
+
 .form-control {
   outline: none !important;
   box-shadow: none !important;

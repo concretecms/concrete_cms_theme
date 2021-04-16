@@ -18,6 +18,13 @@ class PageTheme extends Theme implements ThemeProviderInterface
 {
     use BedrockThemeTrait;
 
+    public function registerAssets()
+    {
+        parent::registerAssets();
+
+        $this->requireAsset('core/cms');
+    }
+
     public function getThemeName()
     {
         return t('ConcreteCMS Theme');
