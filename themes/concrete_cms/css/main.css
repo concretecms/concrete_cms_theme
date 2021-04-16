@@ -19967,6 +19967,14 @@ div.ccm-lightbox-popup-white {
   margin: 0 auto;
 }
 
+a.mega-link-overlay {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+}
+
 /**
  * @project:   ConcreteCMS Theme
  *
@@ -23441,6 +23449,10 @@ div.ccm-page .ccm-search-block-form .ccm-input-submit {
 div.ccm-page .ccm-search-block-form .pagination-container {
   display: flex;
   justify-content: center !important;
+}
+
+div.ccm-page .bootstrap-select {
+  display: block !important;
 }
 
 div.ccm-page .form-control {

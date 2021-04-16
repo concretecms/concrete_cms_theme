@@ -26640,8 +26640,8 @@ module.exports = function (module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/fabianbitter/Projekte/concrete5/core/9.0.0/packages/concrete_cms_theme/build/assets/themes/concrete_cms/js/main.js */"./assets/themes/concrete_cms/js/main.js");
-module.exports = __webpack_require__(/*! /Users/fabianbitter/Projekte/concrete5/core/9.0.0/packages/concrete_cms_theme/build/assets/themes/concrete_cms/scss/main.scss */"./assets/themes/concrete_cms/scss/main.scss");
+__webpack_require__(/*! /Users/fabianbitter/Projekte/concrete_cms/core/dev/packages/concrete_cms_theme/build/assets/themes/concrete_cms/js/main.js */"./assets/themes/concrete_cms/js/main.js");
+module.exports = __webpack_require__(/*! /Users/fabianbitter/Projekte/concrete_cms/core/dev/packages/concrete_cms_theme/build/assets/themes/concrete_cms/scss/main.scss */"./assets/themes/concrete_cms/scss/main.scss");
 
 
 /***/ }),
