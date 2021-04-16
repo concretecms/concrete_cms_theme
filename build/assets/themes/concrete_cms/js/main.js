@@ -34,6 +34,7 @@ const stackBottomModal = new Stack({
 
 // Custom assets
 import composeMessage from '../../../messages/js/compose';
+import asyncConfirm from '../../../dialogs/js/confirm';
 
 // Theme stuff
 $("#ccm-toggle-mobile-nav").click(function (e) {
@@ -47,6 +48,8 @@ $("#ccm-toggle-mobile-nav").click(function (e) {
         $(this).addClass(activeClass);
     }
 });
+
+window.asyncConfirm = asyncConfirm;
 
 /*
  * Send message actions
