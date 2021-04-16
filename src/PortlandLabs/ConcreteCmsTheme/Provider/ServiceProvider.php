@@ -10,13 +10,16 @@
 namespace PortlandLabs\ConcreteCmsTheme\Provider;
 
 use Concrete\Core\Application\Application;
+use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Foundation\Service\Provider;
 use Concrete\Core\Html\Service\Navigation;
 use Concrete\Core\Http\Response;
 use Concrete\Core\Http\ResponseFactory;
+use Concrete\Core\Package\PackageService;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Page\Theme\ThemeRouteCollection;
 use Concrete\Core\Routing\Router;
+use Concrete\Package\ConcreteCmsTheme\Controller;
 use PortlandLabs\ConcreteCmsTheme\API\OAuth\Controller as OAuthController;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Messages;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Middleware\FractalNegotiatorMiddleware;
@@ -31,6 +34,10 @@ class ServiceProvider extends Provider
     protected $navigationHelper;
     protected $router;
     protected $themeRouteCollection;
+    protected $config;
+    protected $packageService;
+    /** @var Controller */
+    protected $pkg;
 
     public function __construct(
         Application $app,
@@ -38,7 +45,9 @@ class ServiceProvider extends Provider
         ResponseFactory $responseFactory,
         Navigation $navigationHelper,
         ThemeRouteCollection $themeRouteCollection,
-        Router $router
+        Router $router,
+        Repository $config,
+        PackageService $packageService
     )
     {
         parent::__construct($app);
@@ -48,6 +57,10 @@ class ServiceProvider extends Provider
         $this->navigationHelper = $navigationHelper;
         $this->themeRouteCollection = $themeRouteCollection;
         $this->router = $router;
+        $this->config = $config;
+        $this->packageService = $packageService;
+        $pkgEntity = $this->packageService->getByHandle("concrete_cms_theme");
+        $this->pkg = $pkgEntity->getController();
     }
 
     public function register()
@@ -59,6 +72,12 @@ class ServiceProvider extends Provider
         $this->registerPagination();
         $this->registerThemePaths();
         $this->registerNavigations();
+        $this->changeAvatarIcon();
+    }
+
+    private function changeAvatarIcon()
+    {
+        $this->config->set("concrete.icons.user_avatar.default", $this->pkg->getRelativePath() . "/images/avatar_none.png");
     }
 
     private function registerNavigations()
