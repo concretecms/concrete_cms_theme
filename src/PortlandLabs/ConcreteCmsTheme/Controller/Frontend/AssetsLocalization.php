@@ -42,6 +42,7 @@ class AssetsLocalization extends Controller
                 "additionalImage3" => t("Additional Image 3"),
                 "uploadNotice" => t("540 x 300px jpg no larger than 2MB"),
                 "uploadButton" => t("Upload Image"),
+                "okayButton" => t("OK"),
                 "confirm" => t("Are you sure?"),
                 "userSearch" => [
                     'currentlySelected' => t('Currently Selected'),

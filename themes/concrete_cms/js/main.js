@@ -86,6 +86,85 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./assets/dialogs/html/confirm.html":
+/*!******************************************!*\
+  !*** ./assets/dialogs/html/confirm.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function(obj){
+var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+with(obj||{}){
+__p+='<!--\n @project:   ConcreteCMS Theme\n\n @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)\n @author     Fabian Bitter (fabian@bitter.de)\n-->\n\n<div class="modal" tabindex="-1" role="dialog" id="ccm-confirm-dialog-'+
+((__t=(id))==null?'':__t)+
+'">\n    <div class="modal-dialog h-100 d-flex flex-column justify-content-center my-0" role="document">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h5 class="modal-title">\n                    '+
+((__t=(i18n.title))==null?'':__t)+
+'\n                </h5>\n\n                <button type="button" class="close" data-dismiss="modal" aria-label="Close">\n                    <span aria-hidden="true">&times;</span>\n                </button>\n            </div>\n\n            <div class="modal-body">\n                '+
+((__t=(i18n.message))==null?'':__t)+
+'\n            </div>\n\n            <div class="modal-footer">\n                <button type="button" class="btn btn-secondary" data-dismiss="modal">\n                    '+
+((__t=(i18n.cancelButton))==null?'':__t)+
+'\n                </button>\n\n                <button type="button" class="btn btn-primary">\n                    '+
+((__t=(i18n.confirmButton))==null?'':__t)+
+'\n                </button>\n            </div>\n        </div>\n    </div>\n</div>';
+}
+return __p;
+};
+
+
+/***/ }),
+
+/***/ "./assets/dialogs/js/confirm.js":
+/*!**************************************!*\
+  !*** ./assets/dialogs/js/confirm.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (options) {
+  // ccmi18n_community
+  var defaults = {
+    i18n: {
+      title: ccmi18n_community.confirm,
+      message: ccmi18n_community.confirm,
+      cancelButton: ccmi18n_community.cancelButton,
+      confirmButton: ccmi18n_community.okayButton
+    }
+  };
+  options = $.extend(defaults, options);
+
+  var tpl = __webpack_require__(/*! ../html/confirm.html */ "./assets/dialogs/html/confirm.html");
+
+  var id = Math.random().toString(36).substr(2, 9);
+  var $container = $(".ccm-page");
+  var html = tpl({
+    id: id,
+    i18n: options.i18n
+  });
+  var $html = $(html);
+  $container.append($html);
+  var $modalDialog = $container.find("#ccm-confirm-dialog-" + id);
+  $html.find(".btn-primary").click(function () {
+    $modalDialog.modal("hide");
+    $modalDialog.remove();
+
+    if (typeof options.onConfirm === "function") {
+      options.onConfirm();
+    }
+  });
+  $modalDialog.modal();
+});
+
+/***/ }),
+
 /***/ "./assets/messages/html/compose.html":
 /*!*******************************************!*\
   !*** ./assets/messages/html/compose.html ***!
@@ -312,6 +391,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @pnotify/bootstrap4 */ "./node_modules/@pnotify/bootstrap4/dist/PNotifyBootstrap4.js");
 /* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _messages_js_compose__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../messages/js/compose */ "./assets/messages/js/compose.js");
+/* harmony import */ var _dialogs_js_confirm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../dialogs/js/confirm */ "./assets/dialogs/js/confirm.js");
 /**
  * @project:   ConcreteCMS Theme
  *
@@ -341,6 +421,7 @@ var stackBottomModal = new _pnotify_core__WEBPACK_IMPORTED_MODULE_6__["Stack"]({
   context: $('body').get(0)
 }); // Custom assets
 
+
  // Theme stuff
 
 $("#ccm-toggle-mobile-nav").click(function (e) {
@@ -353,6 +434,7 @@ $("#ccm-toggle-mobile-nav").click(function (e) {
     $(this).addClass(activeClass);
   }
 });
+window.asyncConfirm = _dialogs_js_confirm__WEBPACK_IMPORTED_MODULE_9__["default"];
 /*
  * Send message actions
  */
