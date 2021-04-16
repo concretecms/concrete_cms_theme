@@ -5,6 +5,10 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+div.ccm-block-next-previous-wrapper {
+  margin-top: 2em;
+}
+
 div.ccm-block-next-previous-header h5 {
   @include font-size($font-size-base);
 }

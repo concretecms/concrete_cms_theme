@@ -24,6 +24,12 @@ $element = Element::get('sub_nav_custom');
 if ($element->exists()) {
     $element->render();
 } else {
+
+    // We used to dynamically add in the sub nav here but we've decided we don't want to do that
+    // so instead I'm going to comment that out. Now the only way to have a sub nav is if the sub_nav_custom
+    // element is in your site.
+
+    /*
     $curPage = Page::getCurrentPage();
 
     $ul = new HtmlElement("ul");
@@ -35,7 +41,6 @@ if ($element->exists()) {
             foreach ($parentPage->getCollectionChildren() as $childPage) {
                 $childPagePermissions = new Checker($childPage);
 
-                /** @noinspection PhpUndefinedMethodInspection */
                 if ($childPagePermissions->canRead() && (!$childPage->getAttribute('exclude_nav'))) {
                     $li = new HtmlElement("li");
 
@@ -70,4 +75,5 @@ if ($element->exists()) {
             <?php
         }
     }
+    */
 }
