@@ -19967,14 +19967,6 @@ div.ccm-lightbox-popup-white {
   margin: 0 auto;
 }
 
-a.mega-link-overlay {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 20;
-}
-
 /**
  * @project:   ConcreteCMS Theme
  *
@@ -24231,10 +24223,6 @@ div.ccm-page .section-in-context-editing .ccm-image-block {
   }
 }
 
-div.ccm-page.ccm-dark-mode #login-register-modal .modal-dialog .modal-content {
-  background: linear-gradient(180deg, #222533 0%, #373C53 50%);
-}
-
 div.ccm-page.ccm-dark-mode #login-register-modal .modal-dialog .modal-content .modal-body .login-page {
   background: linear-gradient(180deg, #222533 0%, #373C53 50%);
 }
@@ -24287,12 +24275,35 @@ div.ccm-page #login-register-modal {
   overflow: auto;
 }
 
+div.ccm-page #login-register-modal iframe {
+  width: 100%;
+  border: none;
+}
+
+@media only screen and (min-width: 768px) {
+  div.ccm-page #login-register-modal iframe {
+    min-width: 768px;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  div.ccm-page #login-register-modal iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100% !important;
+  }
+}
+
 div.ccm-page #login-register-modal .modal-dialog {
   max-width: 720px;
 }
 
 div.ccm-page #login-register-modal .modal-dialog .modal-content {
-  background: linear-gradient(180deg, #0074d3 0%, #0061b0 50%);
+  background: transparent !important;
 }
 
 div.ccm-page #login-register-modal .modal-dialog .modal-content .modal-body {
@@ -24357,6 +24368,40 @@ div.ccm-page .login-page h2 {
   font-size: 16px !important;
 }
 
+div.ccm-page .login-page.is-popup {
+  background: linear-gradient(90deg, #0074d3 0%, #0061b0 50%);
+}
+
+div.ccm-page .login-page.is-popup h1,
+div.ccm-page .login-page.is-popup h2,
+div.ccm-page .login-page.is-popup h3,
+div.ccm-page .login-page.is-popup h4,
+div.ccm-page .login-page.is-popup h5,
+div.ccm-page .login-page.is-popup h6,
+div.ccm-page .login-page.is-popup label,
+div.ccm-page .login-page.is-popup input[type=checkbox]::before,
+div.ccm-page .login-page.is-popup .col-form-label,
+div.ccm-page .login-page.is-popup .ccm-title,
+div.ccm-page .login-page.is-popup .sign-up-container,
+div.ccm-page .login-page.is-popup .help-block,
+div.ccm-page .login-page.is-popup p,
+div.ccm-page .login-page.is-popup .scopes,
+div.ccm-page .login-page.is-popup h2 {
+  color: #ffffff !important;
+}
+
+div.ccm-page .login-page.is-popup .btn-link {
+  color: #c5c5c5 !important;
+}
+
+div.ccm-page .login-page.is-popup input[type=checkbox] + label::after {
+  color: #ffffff !important;
+}
+
+div.ccm-page .login-page.is-popup input[type=checkbox]:checked + label::after {
+  color: #ffffff !important;
+}
+
 @media (max-width: 767.98px) {
   div.ccm-page .login-page {
     background: linear-gradient(90deg, #0074d3 0%, #0061b0 50%);
@@ -24379,6 +24424,18 @@ div.ccm-page .login-page h2 {
   div.ccm-page .login-page h2 {
     color: #ffffff !important;
     font-size: 14px !important;
+  }
+
+  div.ccm-page .login-page .btn-link {
+    color: #c5c5c5 !important;
+  }
+
+  div.ccm-page .login-page input[type=checkbox] + label::after {
+    color: #ffffff !important;
+  }
+
+  div.ccm-page .login-page input[type=checkbox]:checked + label::after {
+    color: #ffffff !important;
   }
 
   div.ccm-page .login-page .alert,

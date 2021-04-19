@@ -14,7 +14,6 @@ import '@concretecms/bedrock/assets/calendar/js/frontend';
 import '@concretecms/bedrock/assets/navigation/js/frontend';
 import '@concretecms/bedrock/assets/conversations/js/frontend';
 import '@concretecms/bedrock/assets/imagery/js/frontend';
-
 import {alert, Stack, defaultModules} from '@pnotify/core';
 import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
 
@@ -202,45 +201,121 @@ $(window).resize(function () {
  * Display popups for login + register page when clicking on a link item
  */
 
-$("a").click(function (e) {
-    let $a = $(this);
+if (window.self === window.top) {
+    $("a").click(function (e) {
+        let $a = $(this);
 
-    if ($(this).attr("href").substr($(this).attr("href").length - 6) === "/login" ||
-        $(this).attr("href").substr($(this).attr("href").length - 9) === "/register") {
+        $(window).on("resize", function () {
+            let $iframe = $("iframe");
 
-        e.preventDefault();
+            if ($iframe.length && typeof $iframe.get(0).contentWindow.window.requestScrollHeight === "function") {
+                // It is important to set the height to 0 before calculating the scroll height
+                $iframe.css("height", '0px');
 
-        $.ajax({
-            url: $(this).attr("href"),
-            method: 'GET',
-            data: {
-                ajax: true
-            },
-            success: function (html) {
-                var $modal =$("<div/>").addClass("modal h-100 d-flex flex-column justify-content-center my-0").attr("role", "dialog").attr("tabindex", "-1").attr("id", "login-register-modal");
-                $modal.append(
+                // Send an IPC call to the iframe window to determinate the scrollable height within the iframe
+                $iframe.get(0).contentWindow.window.requestScrollHeight();
+            }
+        });
+
+        // This one is the IPC receiver method for the iframe to adjust the iframe after receiving the real height
+        window.resizeIframe = function (scrollHeight) {
+            let padding = 30; // add some padding
+            $("iframe").css("height", (scrollHeight + padding * 2) + 'px');
+            $("#login-register-modal").css("opacity", 1);
+        };
+
+        window.hideIframe = function() {
+            $("#login-register-modal").css("opacity", 0);
+        };
+
+        window.closeIframe = function (forceReload) {
+            $("#login-register-modal")
+                .modal("hide")
+                .remove();
+
+            if (forceReload) {
+                window.location.reload();
+            }
+        };
+
+        if ($(this).attr("href").substr($(this).attr("href").length - 6) === "/login" ||
+            $(this).attr("href").substr($(this).attr("href").length - 9) === "/register") {
+
+            e.preventDefault();
+
+            let $modal = $("<div/>")
+                .addClass("modal h-100 d-flex flex-column justify-content-center my-0")
+                .attr("role", "dialog")
+                .attr("tabindex", "-1")
+                .attr("id", "login-register-modal")
+                .css("opacity", 0)
+                .append(
                     $("<div/>").attr("role", "document").addClass("modal-dialog").append(
                         $("<div/>").addClass("modal-content").append(
-                            $("<div/>").addClass("modal-body").html(
-                                html
+                            $("<div/>").addClass("modal-body").append(
+                                $("<iframe/>")
+                                    .attr("src", $a.attr("href") + "?ajax")
+                                    .attr("scrolling", "no")
+                                    .attr("frameborder", "0")
+                                    .on("load", function() {
+                                        $(window).trigger("resize"); // trigger resize event to resize the iframe (see above)
+                                        $("#login-register-modal").css("opacity", 1);
+                                    })
                             )
                         )
                     )
                 );
-                $(".ccm-page").append($modal);
-                $modal.modal({
-                    backdrop: 'static',
-                    keyboard: false
-                });
-            },
-            error: function () {
-                window.location.href = $a.attr("href");
+
+            $(".ccm-page").append($modal);
+
+            $modal.modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+
+            return false;
+        }
+    });
+} else {
+    // We are within an iframe...
+    let $loginPage = $(".login-page");
+
+    if ($loginPage.length) {
+        window.requestScrollHeight = function () {
+            if (typeof window.parent.resizeIframe === "function") {
+                window.parent.resizeIframe($loginPage.get(0).scrollHeight - 15); // remove the top/bottom margins
+            }
+        };
+
+        $("form").on("submit", function () {
+            if (typeof window.parent.hideIframe === "function") {
+                window.parent.hideIframe();
             }
         });
 
-        return false;
+        $("a").on("click", function () {
+            if (typeof window.parent.hideIframe === "function") {
+                window.parent.hideIframe();
+            }
+        });
+
+        $(".concrete-login-form .btn-secondary, .form-stacked .btn-secondary").on("click", function (e) {
+            if (typeof window.parent.closeIframe === "function") {
+                e.preventDefault();
+                window.parent.closeIframe(false);
+                return false;
+            }
+        });
+
+        $(".authentication-type-community a").on("click", function(e) {
+            if (typeof window.parent.closeIframe === "function") {
+                e.preventDefault();
+                window.parent.location.href = $(this).attr("href");
+                return false;
+            }
+        });
     }
-});
+}
 
 /*
  * Create fancy checkboxes

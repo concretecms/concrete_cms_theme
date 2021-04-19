@@ -9,7 +9,6 @@
   #login-register-modal {
     .modal-dialog {
       .modal-content {
-        background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%);
 
         .modal-body {
           .login-page {
@@ -54,11 +53,31 @@
   justify-content: center;
   overflow: auto;
 
+  iframe {
+    width: 100%;
+
+    @media only screen and (min-width: 768px) {
+      min-width: 768px;
+      overflow: hidden;
+    }
+
+    @media only screen and (min-width: 0px) and (max-width: 767px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100% !important;
+    }
+
+    border: none;
+  }
+
   .modal-dialog {
     max-width: 720px;
 
     .modal-content {
-      background: linear-gradient(180deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+      background: transparent !important;
 
       .modal-body {
         padding: 0;
@@ -126,6 +145,33 @@
     font-size: 16px !important;
   }
 
+  &.is-popup {
+    background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+
+    h1, h2, h3, h4, h5, h6, label,
+    input[type=checkbox]::before,
+    .col-form-label,
+    .ccm-title,
+    .sign-up-container,
+    .help-block,
+    p, .scopes,
+    h2 {
+      color: theme-color('white') !important;
+    }
+
+    .btn-link {
+      color: #c5c5c5 !important;
+    }
+
+    input[type=checkbox] + label::after {
+      color: #ffffff !important;
+    }
+
+    input[type=checkbox]:checked + label::after {
+      color: #ffffff !important;
+    }
+  }
+
   /* Mobile */
   @include media-breakpoint-down(sm) {
     background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
@@ -140,6 +186,18 @@
     h2 {
       color: theme-color('white') !important;
       font-size: 14px !important;;
+    }
+
+    .btn-link {
+      color: #c5c5c5 !important;
+    }
+
+    input[type=checkbox] + label::after {
+      color: #ffffff !important;
+    }
+
+    input[type=checkbox]:checked + label::after {
+      color: #ffffff !important;
     }
 
     .alert, a, .btn {

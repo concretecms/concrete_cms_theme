@@ -45,10 +45,8 @@ $captcha = $app->make(CaptchaInterface::class);
 /** @var Request $request */
 $request = $app->make(Request::class);
 
-if (!$request->query->has("ajax")) {
-    /** @noinspection PhpUnhandledExceptionInspection */
-    $this->inc('elements/header_minimal.php');
-}
+/** @noinspection PhpUnhandledExceptionInspection */
+$this->inc('elements/header_minimal.php');
 
 $renderer->setContext(new FrontendFormContext());
 ?>
@@ -282,8 +280,6 @@ $renderer->setContext(new FrontendFormContext());
     </main>
 </div>
 <?php
-if (!$request->query->has("ajax")) {
-    /** @noinspection PhpUnhandledExceptionInspection */
-    $this->inc('elements/footer_minimal.php');
-}
+/** @noinspection PhpUnhandledExceptionInspection */
+$this->inc('elements/footer_minimal.php');
 ?>

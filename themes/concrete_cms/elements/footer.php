@@ -11,6 +11,7 @@ defined('C5_EXECUTE') or die("Access Denied.");
 
 use Concrete\Core\Area\GlobalArea;
 use Concrete\Core\Page\Page;
+use Concrete\Core\User\User;
 use Concrete\Core\View\View;
 use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\Support\Facade\Application;
@@ -21,6 +22,7 @@ use Concrete\Core\Config\Repository\Repository;
 $app = Application::getFacadeApplication();
 /** @var Repository $config */
 $config = Site::getSite()->getConfigRepository();
+$u = new User();
 
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page? $c->getAttribute("enable_dark_mode") : false);
 ?>
@@ -82,5 +84,19 @@ View::element('footer_required');
 <script src="<?php echo (string)Url::to("/community/js"); ?>"></script>
 <!--suppress HtmlUnknownTarget -->
 <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/main.js"></script>
+<script>
+    $(window).ready(function () {
+        if (window.self !== window.top) {
+            $(".login-page").addClass("is-popup")
+        }
+    });
+</script>
+<?php if ($u->isRegistered()) {?>
+    <script>
+        if (window.self !== window.top) {
+            window.parent.closeIframe(true);
+        }
+    </script>
+<?php } ?>
 </body>
 </html>
