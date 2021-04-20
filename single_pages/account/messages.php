@@ -54,13 +54,10 @@ $token = $app->make(Token::class);
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>
-                    <?php echo t("Messages"); ?>
-                </h1>
-
-                <p>
-                    <?php echo t("Each level of certification build on the one before."); ?>
-                </p>
+                <?php
+                $a = new \Concrete\Core\Area\Area('Header');
+                $a->display($c);
+                ?>
             </div>
         </div>
 
