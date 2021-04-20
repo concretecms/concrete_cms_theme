@@ -147,7 +147,7 @@ $token = $app->make(Token::class);
                             </th>
 
                             <th>
-                                <?php if ('sent' == $mailbox) { ?>
+                                <?php if (Mailbox::MBTYPE_SENT == $mailbox->getMailboxID()) { ?>
                                     <?php echo t('To'); ?>
                                 <?php } else { ?>
                                     <?php echo t('From'); ?>

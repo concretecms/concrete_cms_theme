@@ -21899,7 +21899,8 @@ ul.ccm-block-topic-list-page-topics li {
   line-height: 50px;
 }
 
-.messages .message-table tbody tr.unread {
+.messages .message-table tbody tr.unread td:nth-child(2),
+.messages .message-table tbody tr.unread td:nth-child(3) {
   font-weight: bold;
 }
 
@@ -22136,6 +22137,12 @@ div.ccm-page {
    */
   /* Tablet + Mobile */
   /* Mobile */
+  /**
+   * @project:   ConcreteCMS Theme
+   *
+   * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+   * @author     Fabian Bitter (fabian@bitter.de)
+   */
   /**
    * @project:   ConcreteCMS Theme
    *
@@ -24221,6 +24228,44 @@ div.ccm-page .section-in-context-editing .ccm-image-block {
   div.ccm-page .ccm-custom-style-main3.section-features .container:nth-child(1) .row .col-6:nth-child(2) {
     order: 1;
   }
+}
+
+div.ccm-page .message-table .ccm-dropdown {
+  left: 0;
+}
+
+div.ccm-page .message-table .ccm-dropdown input[type=checkbox] + label::after {
+  margin-left: 15px;
+}
+
+div.ccm-page .message-table .dropdown-menu {
+  margin-top: -9px !important;
+}
+
+div.ccm-page #ccm-message-bulk-action {
+  width: 70px;
+}
+
+div.ccm-page #ccm-message-bulk-action::after {
+  position: absolute;
+  top: 23px;
+}
+
+div.ccm-page #ccm-message-bulk-action label {
+  position: absolute;
+  left: 0;
+}
+
+div.ccm-page .messages .message-table thead .checkbox-wrapper {
+  padding-top: 12px !important;
+}
+
+div.ccm-page .messages .message-table tbody .checkbox-wrapper {
+  margin-top: 12px !important;
+}
+
+div.ccm-page .messages .message-table tr:first-child td {
+  padding-top: 0px !important;
 }
 
 div.ccm-page.ccm-dark-mode #login-register-modal .modal-dialog .modal-content .modal-body .login-page {
