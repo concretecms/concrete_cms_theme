@@ -62,11 +62,9 @@ $hasRequiredAttributes = (isset($required_attributes) && count($required_attribu
 
 // See if we have a user object and if that user is registered
 $loggedIn = !$hasRequiredAttributes && isset($user) && $user->isRegistered();
+/** @noinspection PhpUnhandledExceptionInspection */
+$this->inc('elements/header_minimal.php');
 
-if (!$request->query->has("ajax")) {
-    /** @noinspection PhpUnhandledExceptionInspection */
-    $this->inc('elements/header_minimal.php');
-}
 ?>
 
 <div class="login-page">
@@ -82,7 +80,7 @@ if (!$request->query->has("ajax")) {
 
                         <div class="col-md col-sm-12">
                             <h1 class="ccm-title">
-                                <?php echo t("Welcome to our community.  Join Concrete now. It’s free!"); ?>
+                                <?php echo t("Welcome to our community. Join Concrete now. It’s free!"); ?>
                             </h1>
                         </div>
                     </div>
@@ -135,6 +133,7 @@ if (!$request->query->has("ajax")) {
 
                                             <?php echo $navHelper->getLogInOutLink(); ?>
                                         </div>
+
                                     <?php } else { ?>
                                         <?php $i = 0; ?>
 
@@ -165,24 +164,21 @@ if (!$request->query->has("ajax")) {
     </main>
 </div>
 
-<?php if (!$request->query->has("ajax")) { ?>
-    <section class="additional-content">
-        <?php
-        $a = new Area('Main');
+<section class="additional-content">
+    <?php
+    $a = new Area('Main');
+    $a->enableGridContainer();
+    $a->display($c);
+
+    // Render additional areas if required
+    for ($i = 1; $i <= (int)$c->getAttribute('main_area_number'); $i++) {
+        $a = new Area('Main ' . $i);
         $a->enableGridContainer();
         $a->display($c);
-
-        // Render additional areas if required
-        for ($i = 1; $i <= (int)$c->getAttribute('main_area_number'); $i++) {
-            $a = new Area('Main ' . $i);
-            $a->enableGridContainer();
-            $a->display($c);
-        }
-        ?>
-    </section>
-    </div>
-    <?php
-    /** @noinspection PhpUnhandledExceptionInspection */
-    $this->inc('elements/footer_minimal.php');
-}
-?>
+    }
+    ?>
+</section>
+</div>
+<?php
+/** @noinspection PhpUnhandledExceptionInspection */
+$this->inc('elements/footer_minimal.php');

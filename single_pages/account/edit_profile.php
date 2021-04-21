@@ -45,13 +45,10 @@ $profileFormRenderer->setContext(new FrontendFormContext());
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>
-                    <?php echo t("Edit Profile"); ?>
-                </h1>
-
-                <p>
-                    <?php echo t("This is where you can spend some time and share a little about who you are and what you do with Concrete."); ?>
-                </p>
+                <?php
+                $a = new \Concrete\Core\Area\Area('Header');
+                $a->display($c);
+                ?>
 
                 <div class="profile-header-image">
                     <div class="profile-header-actions">

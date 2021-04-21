@@ -134,7 +134,7 @@ class Messages
                     // mark as read
                     $msg->markAsRead();
                 } else {
-                    $errorList->add(t("The user don't want to receive messages."));
+                    $errorList->add(t("The user doesn’t want to receive messages."));
                 }
             }
         } else if ($this->request->query->has("uID") && $this->request->query->getInt("uID") > 0) {
@@ -143,8 +143,8 @@ class Messages
 
             if (!$recipient instanceof UserInfo) {
                 $errorList->add(t("The user doesn't exists."));
-            } else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
-                $errorList->add(t("The user don't want to receive messages."));
+            //} else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
+            //    $errorList->add(t("The user doesn’t want to receive messages."));
             } else {
                 $messageData["uID"] = $uID;
                 $messageData["uName"] = $recipient->getUserName();
@@ -175,8 +175,8 @@ class Messages
 
             if (!$recipient instanceof UserInfo) {
                 $errorList->add(t("The user doesn't exists."));
-            } else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
-                $errorList->add(t("The user don't want to receive messages."));
+            //} else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
+            //    $errorList->add(t("The user doesn’t want to receive messages."));
             } else {
                 $subject = $this->request->request->get("msgSubject");
                 $body = $this->request->request->get("msgBody");

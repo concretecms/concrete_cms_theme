@@ -65,7 +65,6 @@ $items = $navigation->getItems();
         echo '<a href="javascript:void(0);" title="' . h(t("Profile")) . '" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="ccm-account-dropdown"><i class="fas fa-user"></i></a>';
 
         echo '<div class="dropdown-menu dropdown-menu-right" aria-labelledby="ccm-account-dropdown">';
-        echo '<h6 class="dropdown-header">' . t("Profile") . '</h6>';
 
         $children = $accountPage->getCollectionChildrenArray(true);
 
