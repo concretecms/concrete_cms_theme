@@ -87,6 +87,10 @@ div.feature-section {
   &.feature-section-blue {
     background-color: rgb(1, 98, 173);
 
+    .page-title {
+      border-bottom: 1px solid rgba(224, 224, 224, 0.3) !important;
+    }
+
     * {
       color: rgb(255, 255, 255) !important;
     }
@@ -94,6 +98,10 @@ div.feature-section {
 
   &.feature-section-dark-gray {
     background-color: rgb(60, 61, 62);
+
+    .page-title {
+      border-bottom: 1px solid rgba(224, 224, 224, 0.3) !important;
+    }
 
     * {
       color: rgb(255, 255, 255) !important;
@@ -127,6 +135,7 @@ div.ccm-feature-item {
       font-size: 22px;
       line-height: 30px;
       color: rgb(0, 0, 0);
+      text-transform: none!important;
     }
 
     .ccm-feature-description, .ccm-feature-description * {

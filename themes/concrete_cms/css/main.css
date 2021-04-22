@@ -18289,12 +18289,20 @@ div.feature-section.feature-section-blue {
   background-color: #0162ad;
 }
 
+div.feature-section.feature-section-blue .page-title {
+  border-bottom: 1px solid rgba(224, 224, 224, 0.3) !important;
+}
+
 div.feature-section.feature-section-blue * {
   color: white !important;
 }
 
 div.feature-section.feature-section-dark-gray {
   background-color: #3c3d3e;
+}
+
+div.feature-section.feature-section-dark-gray .page-title {
+  border-bottom: 1px solid rgba(224, 224, 224, 0.3) !important;
 }
 
 div.feature-section.feature-section-dark-gray * {
@@ -18330,6 +18338,7 @@ div.ccm-feature-item .ccm-feature-content .ccm-feature-title {
   font-size: 22px;
   line-height: 30px;
   color: black;
+  text-transform: none !important;
 }
 
 div.ccm-feature-item .ccm-feature-content .ccm-feature-description,
