@@ -51,7 +51,7 @@ $idHelper = $app->make(Identifier::class);
                     <h4 data-toggle="collapse" href="#<?php echo $id; ?>"
                         role="button" aria-expanded="false"
                         aria-controls="<?php echo $id; ?>" class="page-title">
-                        <?php echo t("Support"); ?>
+                        <?php echo $item->getName(); ?>
                     </h4>
 
                     <ul id="<?php echo $id; ?>" class="list-unstyled collapse multi-collapse" data-parent="footer">

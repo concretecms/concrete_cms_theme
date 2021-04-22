@@ -19,7 +19,7 @@ use Concrete\Core\Entity\File\File;
 
 ?>
 
-<div class="ccm-feature-item">
+<div class="ccm-feature-item ccm-feature-button-right">
     <div class="ccm-feature-image-wrapper">
         <img src="<?php echo h($image->getApprovedVersion()->getURL()); ?>" alt="<?php echo h($title); ?>"
              class="ccm-feature-image"/>
@@ -36,7 +36,7 @@ use Concrete\Core\Entity\File\File;
     </div>
 
     <?php if (strlen($linkText) > 0) { ?>
-        <a href="<?php echo h($linkURL); ?>" title="<?php echo h($linkText); ?>" class="ccm-feature-link">
+        <a href="<?php echo h($linkURL); ?>" title="<?php echo h($linkText); ?>" class="ccm-feature-link btn btn-primary">
             <?php echo $linkText; ?>
         </a>
     <?php } ?>
