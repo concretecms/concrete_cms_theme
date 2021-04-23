@@ -24331,6 +24331,20 @@ div.ccm-page .section-in-context-editing .ccm-image-block {
   }
 }
 
+div.ccm-page .message-dialog {
+  padding: 0 !important;
+}
+
+div.ccm-page .message-dialog .modal-dialog {
+  max-width: 864px !important;
+  width: 100%;
+}
+
+div.ccm-page .message-dialog .col-sm-4 {
+  max-width: 150px;
+  flex: 0 0 150px;
+}
+
 div.ccm-page .message-table .ccm-dropdown {
   left: 0;
 }
@@ -24341,6 +24355,10 @@ div.ccm-page .message-table .ccm-dropdown input[type=checkbox] + label::after {
 
 div.ccm-page .message-table .dropdown-menu {
   margin-top: -9px !important;
+}
+
+div.ccm-page .messages .message-table thead th {
+  min-width: 50px;
 }
 
 div.ccm-page #ccm-message-bulk-action {
@@ -24367,6 +24385,104 @@ div.ccm-page .messages .message-table tbody .checkbox-wrapper {
 
 div.ccm-page .messages .message-table tr:first-child td {
   padding-top: 0px !important;
+}
+
+div.ccm-page .message-details {
+  background: #ffffff;
+  padding: 40px;
+  margin-top: 40px;
+  /* Mobile */
+}
+
+div.ccm-page .message-details .message-subject {
+  text-transform: none !important;
+  font-size: 29px !important;
+  line-height: 40px !important;
+}
+
+div.ccm-page .message-details .message-date {
+  line-height: 40px !important;
+}
+
+div.ccm-page .message-details hr {
+  margin-top: 0;
+}
+
+div.ccm-page .message-details .message-user-avatar {
+  margin-right: 15px;
+}
+
+div.ccm-page .message-details .message-user-avatar img {
+  width: 55px;
+  height: auto;
+}
+
+div.ccm-page .message-details .message-user-name {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+div.ccm-page .message-details .message-body {
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+div.ccm-page .message-details .message-body,
+div.ccm-page .message-details .message-attachments {
+  margin-left: 75px;
+}
+
+div.ccm-page .message-details .message-attachments strong {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+div.ccm-page .message-details .message-attachments .message-attachment-list,
+div.ccm-page .message-details .message-attachments .message-attachment-list-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.ccm-page .message-details .message-attachments .message-attachment-list a,
+div.ccm-page .message-details .message-attachments .message-attachment-list-item a {
+  word-break: break-word;
+}
+
+@media (max-width: 767.98px) {
+  div.ccm-page .message-details .message-body {
+    font-size: 16px;
+  }
+
+  div.ccm-page .message-details .message-body,
+  div.ccm-page .message-details .message-attachments {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  div.ccm-page .message-details .message-subject {
+    text-transform: none !important;
+    font-size: 16px !important;
+    line-height: 26px !important;
+    margin-bottom: 0 !important;
+  }
+
+  div.ccm-page .message-details .message-date {
+    font-size: 14px;
+    line-height: 24px !important;
+    margin-bottom: 34px !important;
+    display: block;
+    width: 100%;
+  }
+
+  div.ccm-page .message-details .message-actions-mobile {
+    margin-top: 30px;
+  }
 }
 
 div.ccm-page.ccm-dark-mode #login-register-modal .modal-dialog .modal-content .modal-body .login-page {

@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<!--\n @project:   ConcreteCMS Theme\n\n @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)\n @author     Fabian Bitter (fabian@bitter.de)\n-->\n\n<div class="modal" tabindex="-1" role="dialog" id="ccm-composer-message-'+
+__p+='<!--\n @project:   ConcreteCMS Theme\n\n @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)\n @author     Fabian Bitter (fabian@bitter.de)\n-->\n\n<div class="h-100 d-flex flex-column justify-content-center my-0 modal message-dialog" tabindex="-1" role="dialog" id="ccm-composer-message-'+
 ((__t=(id))==null?'':__t)+
 '">\n    <div class="modal-dialog" role="document">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h5 class="modal-title">\n                    '+
 ((__t=(i18n.dialogTitle))==null?'':__t)+
@@ -183,7 +183,7 @@ __p+='<!--\n @project:   ConcreteCMS Theme\n\n @copyright  (C) 2021 Portland Lab
 ((__t=(id))==null?'':__t)+
 '" class="col-sm-4 col-form-label">\n                            '+
 ((__t=(i18n.receiverLabel))==null?'':__t)+
-'\n                        </label>\n\n                        <div class="col-sm-8">\n                            ';
+'\n                        </label>\n\n                        <div class="col-sm">\n                            ';
  if (isReply) { 
 __p+='\n                            <input type="hidden" name="uID" class="user-id"/>\n                            <input type="text" id="msgReceiver-'+
 ((__t=(id))==null?'':__t)+
@@ -197,21 +197,25 @@ __p+='\n                        </div>\n                    </div>\n\n          
 ((__t=(id))==null?'':__t)+
 '" class="col-sm-4 col-form-label">\n                            '+
 ((__t=(i18n.subjectLabel))==null?'':__t)+
-'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <input id="msgSubject-'+
+'\n                        </label>\n\n                        <div class="col-sm">\n                            <input id="msgSubject-'+
 ((__t=(id))==null?'':__t)+
-'" name="msgSubject" type="text" class="form-control subject"/>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="msgAttachments-'+
-((__t=(id))==null?'':__t)+
-'" class="col-sm-4 col-form-label">\n                            '+
-((__t=(i18n.attachmentsLabel))==null?'':__t)+
-'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <input id="msgAttachments-'+
-((__t=(id))==null?'':__t)+
-'" name="msgAttachments[]" type="file"\n                                   class="form-control attachments" multiple="multiple"/>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="msgBody-'+
+'" name="msgSubject" type="text" class="form-control subject"/>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="msgBody-'+
 ((__t=(id))==null?'':__t)+
 '" class="col-sm-4 col-form-label">\n                            '+
 ((__t=(i18n.messageLabel))==null?'':__t)+
-'\n                        </label>\n\n                        <div class="col-sm-8">\n                            <textarea id="msgBody-'+
+'\n                        </label>\n\n                        <div class="col-sm">\n                            <textarea id="msgBody-'+
 ((__t=(id))==null?'':__t)+
-'" name="msgBody" rows="8" class="form-control body"></textarea>\n                        </div>\n                    </div>\n                </form>\n            </div>\n\n            <div class="modal-footer">\n                <button type="button" class="btn btn-secondary" data-dismiss="modal">\n                    '+
+'" name="msgBody" rows="8" class="form-control body"></textarea>\n                        </div>\n                    </div>\n\n                    <div class="form-group row">\n                        <label for="msgAttachments-'+
+((__t=(id))==null?'':__t)+
+'" class="col-sm-4 col-form-label">\n                            '+
+((__t=(i18n.attachmentsLabel))==null?'':__t)+
+'\n                        </label>\n\n                        <div class="col-sm">\n\n                            <div class="upload-item">\n                                <div class="upload-btn-wrapper">\n                                    <button class="btn btn-sm btn-secondary">\n                                        '+
+((__t=(i18n.uploadFilesButton))==null?'':__t)+
+'\n                                    </button>\n\n                                    <input id="msgAttachments-'+
+((__t=(id))==null?'':__t)+
+'" name="msgAttachments[]" type="file"\n                                           class="form-control attachments" multiple="multiple"/>\n                                </div>\n\n                                <div class="files-container"></div>\n\n                                <div class="upload-notice">\n                                    '+
+((__t=(i18n.uploadFilesNotice))==null?'':__t)+
+'\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n            </div>\n\n            <div class="modal-footer">\n                <button type="button" class="btn btn-secondary" data-dismiss="modal">\n                    '+
 ((__t=(i18n.cancelButton))==null?'':__t)+
 '\n                </button>\n\n                <button type="button" class="btn btn-primary">\n                    '+
 ((__t=(i18n.sendButton))==null?'':__t)+
@@ -236,12 +240,89 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pnotify_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_pnotify_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnotify/bootstrap4 */ "./node_modules/@pnotify/bootstrap4/dist/PNotifyBootstrap4.js");
 /* harmony import */ var _pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__);
+function _createForOfIteratorHelper(o, allowArrayLike) {
+  var it;
+
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
+      var i = 0;
+
+      var F = function F() {};
+
+      return {
+        s: F,
+        n: function n() {
+          if (i >= o.length) return {
+            done: true
+          };
+          return {
+            done: false,
+            value: o[i++]
+          };
+        },
+        e: function e(_e) {
+          throw _e;
+        },
+        f: F
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var normalCompletion = true,
+      didErr = false,
+      err;
+  return {
+    s: function s() {
+      it = o[Symbol.iterator]();
+    },
+    n: function n() {
+      var step = it.next();
+      normalCompletion = step.done;
+      return step;
+    },
+    e: function e(_e2) {
+      didErr = true;
+      err = _e2;
+    },
+    f: function f() {
+      try {
+        if (!normalCompletion && it["return"] != null) it["return"]();
+      } finally {
+        if (didErr) throw err;
+      }
+    }
+  };
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
 /**
  * @project:   ConcreteCMS Theme
  *
  * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
  * @author     Fabian Bitter (fabian@bitter.de)
  */
+
+
 
 
 _pnotify_core__WEBPACK_IMPORTED_MODULE_0__["defaultModules"].set(_pnotify_bootstrap4__WEBPACK_IMPORTED_MODULE_1__, {});
@@ -301,6 +382,41 @@ var stackBottomModal = new _pnotify_core__WEBPACK_IMPORTED_MODULE_0__["Stack"]({
         $html.find(".token").val(data.messageData.sendMessageToken);
         $container.append($html);
         var $modalDialog = $container.find("#ccm-composer-message-" + id);
+        $modalDialog.find(".upload-item input").change(function () {
+          var $uploadButton = $(this).parent();
+          var $uploadDetails = $modalDialog.find(".files-container");
+
+          if ($(this).val() == "") {
+            $uploadButton.removeClass("d-none");
+            $uploadDetails.addClass("d-none");
+          } else {
+            $uploadButton.addClass("d-none");
+            $uploadDetails.removeClass("d-none");
+
+            var _iterator = _createForOfIteratorHelper($(this).get(0).files),
+                _step;
+
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                var file = _step.value;
+                var $fileEntry = $("<div></div>").addClass("file-details").append($("<a></a>").attr("href", "javascript:void(0);").addClass("selected-file").html(file.name)).append($("<a></a>").attr("href", "javascript:void(0);").addClass("remove-selected-file").append($("<i></i>").addClass("fas").addClass("fa-trash")));
+                $fileEntry.find(".remove-selected-file").click(function (e) {
+                  e.preventDefault();
+                  $uploadButton.removeClass("d-none");
+                  $uploadDetails.addClass("d-none");
+                  $modalDialog.find(".files-container").html("");
+                  $modalDialog.find(".upload-item input").val("");
+                  return false;
+                });
+                $modalDialog.find(".files-container").append($fileEntry);
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+          }
+        });
 
         if (typeof data.messageData.uID === "undefined" || parseInt(data.messageData.uID) === 0 || data.messageData.uID === "") {
           $modalDialog.on('shown.bs.modal', function () {

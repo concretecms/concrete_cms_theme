@@ -24,7 +24,7 @@ class AssetsLocalization extends Controller
         /** @noinspection PhpComposerExtensionStubsInspection */
         $content = 'var ccmi18n_community = ' . json_encode([
                 "dialogTitle" => t("Send Message"),
-                "receiverLabel" => t("Send To"),
+                "receiverLabel" => t("To"),
                 "subjectLabel" => t("Subject"),
                 "attachmentsLabel" => t("Attachments"),
                 "messageLabel" => t("Message"),
@@ -41,6 +41,8 @@ class AssetsLocalization extends Controller
                 "additionalImage2" => t("Additional Image 2"),
                 "additionalImage3" => t("Additional Image 3"),
                 "uploadNotice" => t("540 x 300px jpg no larger than 2MB"),
+                "uploadFilesNotice" => t("Files no larger then 5MB"),
+                "uploadFilesButton" => t("Upload Files"),
                 "uploadButton" => t("Upload Image"),
                 "okayButton" => t("OK"),
                 "confirm" => t("Are you sure?"),

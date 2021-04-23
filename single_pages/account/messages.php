@@ -62,7 +62,19 @@ $token = $app->make(Token::class);
         </div>
 
         <div class="row">
-            <div class="col">
+            <div class="col-md col-sm-12">
+                <div class="d-block d-md-none">
+                    <div class="float-right">
+                        <a href="javascript:void(0);" class="btn btn-primary send-message">
+                            <?php echo t("Send Message"); ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md col-sm-12">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link <?php echo $mailbox->getMailboxID() == $inbox->getMailboxID() ? "active" : ""; ?>"
@@ -80,11 +92,13 @@ $token = $app->make(Token::class);
                 </ul>
             </div>
 
-            <div class="col">
-                <div class="float-right">
-                    <a href="javascript:void(0);" class="btn btn-primary send-message">
-                        <?php echo t("Send Message"); ?>
-                    </a>
+            <div class="col-md col-sm-12">
+                <div class="d-none d-md-block">
+                    <div class="float-right">
+                        <a href="javascript:void(0);" class="btn btn-primary send-message">
+                            <?php echo t("Send Message"); ?>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -180,20 +194,13 @@ $token = $app->make(Token::class);
                                         </div>
                                     </td>
                                     <td class="ccm-profile-message-from">
-                                        <?php if ($profileURL) { ?>
-                                            <a href="<?php echo $profileURL; ?>">
-                                                <?php echo $msg->getMessageRelevantUserName(); ?>
-                                            </a>
-                                        <?php } else { ?>
-                                            <div>
-                                                <?php echo $msg->getMessageRelevantUserName(); ?>
-                                            </div>
-                                        <?php } ?>
+                                        <a href="<?php echo (string)Url::to("/account/messages/details", $mailbox->getMailboxID(), $msg->getMessageID()); ?>">
+                                            <?php echo $msg->getMessageRelevantUserName(); ?>
+                                        </a>
                                     </td>
 
                                     <td class="ccm-profile-messages-item-name">
-                                        <a href="javascript:void(0);" class="send-message"
-                                           data-message-id="<?php echo $msg->getMessageID(); ?>">
+                                        <a href="<?php echo (string)Url::to("/account/messages/details", $mailbox->getMailboxID(), $msg->getMessageID()); ?>">
                                             <?php echo $msg->getFormattedMessageSubject(); ?>
                                         </a>
                                     </td>

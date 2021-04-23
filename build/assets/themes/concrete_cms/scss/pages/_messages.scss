@@ -5,16 +5,34 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+.message-dialog {
+  padding: 0 !important;
+
+  .modal-dialog {
+    max-width: 864px !important;
+    width: 100%;
+  }
+
+  .col-sm-4 {
+    max-width: 150px;
+    flex: 0 0 150px;
+  }
+}
+
 .message-table .ccm-dropdown {
   left: 0;
 }
 
-.message-table .ccm-dropdown  input[type=checkbox] + label::after {
+.message-table .ccm-dropdown input[type=checkbox] + label::after {
   margin-left: 15px;
 }
 
 .message-table .dropdown-menu {
   margin-top: -9px !important;
+}
+
+.messages .message-table thead th {
+  min-width: 50px;
 }
 
 #ccm-message-bulk-action {
@@ -41,4 +59,103 @@
 
 .messages .message-table tr:first-child td {
   padding-top: 0px !important;
+}
+
+.message-details {
+  background: theme-color('white');
+  padding: 40px;
+  margin-top: 40px;
+
+  .message-subject {
+    text-transform: none !important;
+    font-size: 29px !important;
+    line-height: 40px !important;
+  }
+
+  .message-date {
+    line-height: 40px !important;
+  }
+
+  hr {
+    margin-top: 0;
+  }
+
+  .message-user-avatar {
+    margin-right: 15px;
+
+    img {
+      width: 55px;
+      height: auto;
+    }
+  }
+
+  .message-user-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .message-body {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .message-body, .message-attachments {
+    margin-left: 75px;
+  }
+
+  .message-attachments {
+    strong {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 5px;
+    }
+
+    .message-attachment-list, .message-attachment-list-item {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      a {
+        word-break: break-word;
+      }
+    }
+  }
+
+
+  /* Mobile */
+  @include media-breakpoint-down(sm) {
+
+
+    .message-body {
+      font-size: 16px;
+    }
+
+    .message-body, .message-attachments {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .message-subject {
+      text-transform: none !important;
+      font-size: 16px !important;
+      line-height: 26px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .message-date {
+      font-size: 14px;
+      line-height: 24px !important;
+      margin-bottom: 34px !important;
+      display: block;
+      width: 100%;
+    }
+
+    .message-actions-mobile {
+      margin-top: 30px;
+    }
+  }
 }
