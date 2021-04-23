@@ -9,5 +9,7 @@
         <field name="fID" type="integer" size="10"/>
         <field name="title" type="string" size="255"/>
         <field name="description" type="text"/>
+        <field name="linkText" type="string" size="255"/>
+        <field name="linkURL" type="string" size="2048"/>
     </table>
 </schema>

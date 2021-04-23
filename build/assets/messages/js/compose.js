@@ -70,9 +70,42 @@ export default (options) => {
                 $html.find(".body").val(data.messageData.msgBody);
                 $html.find(".token").val(data.messageData.sendMessageToken);
 
+
                 $container.append($html);
 
                 let $modalDialog = $container.find("#ccm-composer-message-" + id);
+
+                $modalDialog.find(".upload-item input").change(function () {
+                    let $uploadButton = $(this).parent();
+                    let $uploadDetails = $modalDialog.find(".files-container");
+
+                    if ($(this).val() == "") {
+                        $uploadButton.removeClass("d-none");
+                        $uploadDetails.addClass("d-none");
+                    } else {
+                        $uploadButton.addClass("d-none");
+                        $uploadDetails.removeClass("d-none");
+
+                        for (let file of $(this).get(0).files) {
+                            let $fileEntry = $("<div></div>").addClass("file-details").append(
+                                $("<a></a>").attr("href", "javascript:void(0);").addClass("selected-file").html(file.name)
+                            ).append(
+                                $("<a></a>").attr("href", "javascript:void(0);").addClass("remove-selected-file").append($("<i></i>").addClass("fas").addClass("fa-trash"))
+                            );
+
+                            $fileEntry.find(".remove-selected-file").click(function (e) {
+                                e.preventDefault();
+                                $uploadButton.removeClass("d-none");
+                                $uploadDetails.addClass("d-none");
+                                $modalDialog.find(".files-container").html("");
+                                $modalDialog.find(".upload-item input").val("");
+                                return false;
+                            });
+
+                            $modalDialog.find(".files-container").append($fileEntry);
+                        }
+                    }
+                });
 
                 if (typeof data.messageData.uID === "undefined" ||
                     parseInt(data.messageData.uID) === 0 ||

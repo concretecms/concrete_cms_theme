@@ -32,6 +32,8 @@ class Controller extends BlockController
     {
         $this->set("title", "");
         $this->set("description", "");
+        $this->set("linkText", "");
+        $this->set("linkURL", "");
     }
 
     public function validate($args)

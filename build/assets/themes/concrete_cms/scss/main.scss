@@ -81,3 +81,6 @@ div.ccm-page {
   /* Dialogs */
   @import "./dialogs/showcase_items";
 }
+
+/* Imported Pages without .ccm-page wrapper */
+@import "./pages/blog";

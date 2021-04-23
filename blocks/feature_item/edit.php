@@ -20,6 +20,8 @@ use Concrete\Core\Support\Facade\Application;
 /** @var string $title */
 /** @var string $description */
 /** @var BlockView $view */
+/** @var string $linkText */
+/** @var string $linkURL */
 
 $app = Application::getFacadeApplication();
 /** @var Form $form */
@@ -40,4 +42,14 @@ $editor = $app->make(EditorInterface::class);
 
     <?php echo $form->label("description", t('Description')); ?>
     <?php echo $editor->outputStandardEditor("description", $description); ?>
+
+    <?php echo $form->label("linkText", t('Link Text')); ?>
+    <?php echo $form->text("linkText", $linkText); ?>
+
+    <?php echo $form->label("linkURL", t('Link URL')); ?>
+    <?php echo $form->url("linkURL", $linkURL); ?>
+
+    <p class="help-block">
+        <?php echo t("Leave the link fields empty if you don't want to add a link."); ?>
+    </p>
 </div>

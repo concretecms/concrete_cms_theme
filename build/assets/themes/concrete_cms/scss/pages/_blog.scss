@@ -1,0 +1,223 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.page-template-blog-entry .ccm-search-block-blog-header h4,
+.page-template-blog-category .ccm-search-block-blog-header h4 {
+  display: none;
+}
+
+.page-template-blog-entry .ccm-search-block-form .form-control,
+.page-template-blog-category .ccm-search-block-form .form-control {
+  height: 48px;
+  margin-right: 15px;
+  min-width: 250px;
+}
+
+.page-template-blog-entry .ccm-block-next-previous-wrapper,
+.page-template-blog-category .ccm-block-next-previous-wrapper {
+  background: #fff;
+  padding: 15px;
+  width: calc(100% - 30px);
+}
+
+.page-template-blog-entry .col-sidebar a,
+.page-template-blog-entry .col-lg-3.col-sm-4 a,
+.page-template-blog-category .col-sidebar a {
+  line-height: 48px;
+}
+
+body .page-template-blog-entry .ccm-search-block-blog-header,
+body .page-template-blog-category .ccm-search-block-blog-header {
+  position: absolute;
+  right: 0;
+}
+
+body .page-template-blog-entry .btn.ccm-search-block-submit,
+body .page-template-blog-category .btn.ccm-search-block-submit,
+body .page-template-blog-category .btn.ccm-search-block-submit:hover,
+body .page-template-blog-category .btn.ccm-search-block-submit:active {
+  background-color: #017ddd !important;
+  border-color: #017ddd !important;
+  color: #ffffff !important;
+}
+
+.page-template-blog-entry hr,
+.page-template-blog-category hr {
+  display: none;
+}
+
+.page-template-blog-entry .page-date {
+  font-style: normal !important;
+}
+
+.page-template-blog-entry .ccm-block-next-previous-previous-link,
+.page-template-blog-entry .ccm-block-next-previous-next-link {
+  line-height: 32px !important;
+}
+
+.page-template-blog-entry h1.page-title,
+.page-template-blog-category h1.page-title {
+  font-size: 59px !important;
+  line-height: 61px !important;
+  text-transform: none !important;
+  font-weight: normal !important;
+  margin-bottom: 25px !important;
+}
+
+.page-template-blog-entry .ccm-block-page-list-title h3 a,
+.page-template-blog-category .ccm-block-page-list-title h3 a {
+  font-size: 26px;
+  line-height: 44px;
+  color: rgb(0, 0, 0);
+  text-transform: none;
+  font-weight: normal;
+}
+
+.page-template-blog-entry .ccm-block-page-list-date,
+.page-template-blog-category .ccm-block-page-list-date {
+  display: none;
+}
+
+.page-template-blog-entry .btn-group-sm > .btn, body .page-template-blog-entry .btn-sm,
+body .page-template-blog-category .btn-group-sm > .btn, body .page-template-blog-category .btn-sm {
+  border-radius: 20px !important;
+}
+
+.page-template-blog-entry .btn-default,
+.page-template-blog-category .btn-default {
+  font-family: Noto Sans;
+  list-style: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 10px 30px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 20px;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  background-color: #fff;
+  border-color: #979797;
+  color: #017ddd !important;
+  font-weight: 700 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  border-radius: 20px !important;
+}
+
+
+.page-template-blog-entry .col-lg-8.col-lg-offset-1.col-sm-8 ul,
+.page-template-blog-entry .col-lg-8.col-lg-offset-1.col-sm-8 ol {
+  margin-left: 15px;
+  padding-left: 0;
+}
+
+.page-template-blog-category div.ccm-block-page-list-page-entry,
+.page-template-blog-category div.ccm-block-page-list-page-entry-horizontal {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(151, 151, 151, 0.3)
+}
+
+.page-template-blog-category .ccm-block-page-list-description,
+.page-template-blog-entry .col-lg-8 {
+  line-height: 28px !important;
+  margin-bottom: 15px;
+}
+
+.page-template-blog-entry .col-lg-8 img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-template-blog-entry .col-lg-8 h1,
+.page-template-blog-entry .col-lg-8 h2,
+.page-template-blog-entry .col-lg-8 h3,
+.page-template-blog-entry .col-lg-8 h4,
+.page-template-blog-entry .col-lg-8 h5,
+.page-template-blog-entry .col-lg-8 h6 {
+  text-transform: none !important;
+  font-weight: normal !important;
+}
+
+.page-template-blog-category .col-sidebar,
+.page-template-blog-entry .col-lg-3 {
+  flex: 0 0 33.33333333% !important;
+  max-width: 33.33333333% !important;
+}
+
+.page-template-blog-category .col-content,
+.page-template-blog-entry .col-lg-8 {
+  padding-top: 30px;
+  flex: 0 0 66.6666666667% !important;
+  max-width: 66.6666666667% !important;
+}
+
+.page-template-blog-entry iframe {
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+
+  .page-template-blog-category .col-sidebar,
+  .page-template-blog-entry .col-lg-3 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    order: 1;
+  }
+
+  .page-template-blog-category .col-content,
+  .page-template-blog-entry .col-lg-8 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-top: 0 !important;
+  }
+
+  .page-template-blog-category .form-inline,
+  .page-template-blog-entry .form-inline {
+    width: 100%;
+  }
+
+  .page-template-blog-entry .ccm-search-block-form,
+  .page-template-blog-category .ccm-search-block-form {
+    width: 100%;
+  }
+
+  .page-template-blog-entry .ccm-search-block-form .form-control,
+  .page-template-blog-category .ccm-search-block-form .form-control {
+    display: block;
+    float: left;
+    width: calc(100% - 170px);
+    margin-bottom: 15px;
+  }
+
+  .page-template-blog-category h1.page-title,
+  .page-template-blog-entry h1.page-title {
+    margin-top: 0 !important;
+    font-size: 28px !important;
+    line-height: 37px !important;
+  }
+
+  .page-template-blog-entry .ccm-search-block-submit,
+  .page-template-blog-category .ccm-search-block-submit {
+    display: block;
+    float: left;
+    width: 150px;
+  }
+
+
+  body .page-template-blog-entry .ccm-search-block-blog-header,
+  body .page-template-blog-category .ccm-search-block-blog-header {
+    position: relative;
+  }
+}

@@ -67,7 +67,8 @@ class Messages
 
     protected function validateUser($uID)
     {
-        return (($ui = $this->userInfoRepository->getByID($uID)) instanceof UserInfo && ($ui->getAttribute('profile_private_messages_enabled') == 1));
+        return $ui = $this->userInfoRepository->getByID($uID) instanceof UserInfo;
+        //return (($ui = $this->userInfoRepository->getByID($uID)) instanceof UserInfo && ($ui->getAttribute('profile_private_messages_enabled') == 1));
     }
 
     public function compose()
