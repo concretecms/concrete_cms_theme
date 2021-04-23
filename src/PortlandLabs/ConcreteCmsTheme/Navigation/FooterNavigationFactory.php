@@ -26,14 +26,16 @@ class FooterNavigationFactory implements ApplicationAwareInterface
             new Item('{{marketing}}/about/features', t('Features')),
             new Item('{{marketing}}/about/blog', t('Blog')),
             new Item('{{marketing}}/about/case-studies', t('Case Studies')),
-            new Item('{{marketing}}/about/governance', t('Governance')),
-            new Item('{{marketing}}/about/roadmap', t('Road Map')),
-            new Item('{{marketing}}/about/history', t('History')),
             new Item('{{marketing}}/about/solutions', t('Solutions')),
+            new Item('{{marketing_org}}/history', t('History')),
+            new Item('{{marketing_org}}/vision', t('Vision')),
+            new Item('{{marketing_org}}/roadmap', t('Roadmap')),
+            new Item('{{marketing_org}}/governance', t('Governance')),
+            new Item('{{marketing_org}}/security', t('Security')),
         ]));
         $navigation->add(new Item('{{marketing}}/get-started', t('Get Started'), false, false, [
             new Item('{{marketing}}/get-started/try', t('Try it Now!')),
-            new Item('{{marketing}}/download', t('Download')),
+            new Item('{{marketing_org}}/download', t('Download')),
             new Item('{{marketing}}/installation', t('Installation')),
         ]));
         $navigation->add(new Item('{{marketplace}}/support', t('Marketplace'), false, false, [
@@ -51,6 +53,8 @@ class FooterNavigationFactory implements ApplicationAwareInterface
             new Item('{{forums}}', t('Forums')),
             new Item('{{community}}/members', t('Members')),
             new Item('{{translate}}', t('Translate Concrete')),
+            new Item('{{marketing_org}}/town-halls', t('Town Halls')),
+            new Item('{{marketing_org}}/get-involved', t('Get Involved')),
         ]));
 
         $modifier = new NavigationModifier();
