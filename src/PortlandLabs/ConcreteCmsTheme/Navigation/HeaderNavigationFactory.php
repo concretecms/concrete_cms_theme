@@ -41,13 +41,11 @@ class HeaderNavigationFactory implements ApplicationAwareInterface
             new Item('{{marketing}}/about/blog', t('Blog')),
             new Item('{{marketing}}/about/case-studies', t('Case Studies')),
             new Item('{{marketing}}/about/governance', t('Governance')),
-            new Item('{{marketing}}/about/roadmap', t('Road Map')),
-            new Item('{{marketing}}/about/history', t('History')),
-            new Item('{{marketing}}/about/solutions', t('Solutions')),
+            new Item('{{marketing_org}}', t('Open Source')),
         ]));
         $navigation->add(new Item('{{marketing}}/get-started', t('Get Started'), false, false, [
             new Item('{{marketing}}/get-started/try', t('Try it Now!')),
-            new Item('{{marketing}}/download', t('Download')),
+            new Item('{{marketing_org}}/download', t('Download')),
             new Item('{{marketing}}/installation', t('Installation')),
         ]));
         $navigation->add(new Item('{{marketplace}}', t('Extensions'), false, false));
