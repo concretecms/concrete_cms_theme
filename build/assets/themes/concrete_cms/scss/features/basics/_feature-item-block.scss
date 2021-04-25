@@ -6,6 +6,7 @@
  */
 
 // feature block
+/*
 div.ccm-block-feature-item {
   position: relative;
 
@@ -68,55 +69,6 @@ div.feature-section-header {
 
       * {
         text-align: center;
-      }
-    }
-  }
-}
-
-div.feature-section-container {
-  background: theme-color('white');
-  padding: 25px;
-
-  .ccm-feature-button-right {
-    padding-bottom: 27px;
-    margin-bottom: 33px;
-    border-bottom: 1px solid rgb(224, 224, 224);
-  }
-
-  .ccm-last-feature-item {
-    .ccm-feature-button-right {
-      padding-bottom: 0;
-      margin-bottom: 33px;
-      border-bottom: none;
-    }
-  }
-
-  .ccm-feature-item.ccm-feature-button-right {
-    .ccm-feature-title {
-      text-transform: uppercase !important;
-    }
-
-    .btn {
-      display: inline-table;
-      min-width: 180px;
-      text-align: center;
-      margin: auto;
-    }
-
-
-    @include media-breakpoint-down(sm) {
-      .ccm-feature-image-wrapper {
-        margin: auto;
-        display: flex;
-        margin-bottom: 15px;
-      }
-
-      .ccm-feature-content {
-        text-align: center;
-      }
-
-      .btn {
-        display: block;
       }
     }
   }
@@ -199,9 +151,9 @@ div.ccm-feature-item {
 
     .ccm-feature-image {
       width: 100%;
-      max-width: 150px;
+      max-width: 100px;
       height: auto;
-      margin: auto auto 15px;
+      margin: 0 0 0 2em;
     }
   }
 
@@ -217,9 +169,8 @@ div.ccm-feature-item {
     }
 
     .ccm-feature-description, .ccm-feature-description * {
-      font-weight: 400 !important;
-      font-size: 16px !important;
-      line-height: 28px !important;
+      font-size: 20px;
+      line-height: 1.5em;
       color: rgb(25, 25, 26);
 
       ul {
@@ -241,9 +192,9 @@ div.ccm-feature-item {
   }
 
 
-  /* Mobile */
   @include media-breakpoint-down(sm) {
     display: block;
     margin-bottom: 25px;
   }
 }
+ */

@@ -1,0 +1,17 @@
+.feature-section-container {
+
+  background: theme-color('white');
+  padding: 4em 2em;
+  margin-bottom: 6em;
+  margin-top: 1.5em;
+
+  div.feature-section-title {
+    h1, h2, h3, h4, h5 {
+      text-align: center;
+      margin-bottom: 2em;
+      color: $blue;
+    }
+  }
+
+
+}

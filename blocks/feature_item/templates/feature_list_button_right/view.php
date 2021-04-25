@@ -19,7 +19,7 @@ use Concrete\Core\Entity\File\File;
 
 ?>
 
-<div class="ccm-feature-item ccm-feature-button-right">
+<div class="ccm-feature-item-button-right">
     <div class="ccm-feature-image-wrapper">
         <img src="<?php echo h($image->getApprovedVersion()->getURL()); ?>" alt="<?php echo h($title); ?>"
              class="ccm-feature-image"/>

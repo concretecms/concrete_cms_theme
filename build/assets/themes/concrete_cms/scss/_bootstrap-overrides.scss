@@ -31,12 +31,15 @@ $green: #59AD15;
 $badge-background: #D11A15;
 $badge-text: #ffffff;
 $black: #000000;
+$blue: #017DDD;
 $dark-blue: #252A47;
 $dark-blue-secondary: #222533;
 $gray-secondary: #9C9C9C;
 $gray-tertiary: #666666;
 $dark-blue-tertiary: #373C53;
 $dark-blue-quaternary: #1D1F2B;
+$lead-font-size: 29px;
+$lead-font-weight: 600;
 
 // ---- Map those to theme conventions
 $theme-colors: (
@@ -111,3 +114,10 @@ $modal-backdrop-opacity: .5 !default;
 $modal-header-border-color: #e5e5e5 !default;
 //** Modal footer border color
 $modal-footer-border-color: $modal-header-border-color !default;
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1180px
+);
