@@ -1,14 +1,31 @@
 div.ccm-feature-item {
-  display: flex;
 
-  .ccm-feature-image-wrapper {
-    flex: 0 0 190px;
+  @include media-breakpoint-up(sm) {
 
-    .ccm-feature-image {
-      width: 100%;
-      max-width: 150px;
-      height: auto;
-      margin: 0 0 0 0;
+    display: flex;
+
+    .ccm-feature-image-wrapper {
+      flex: 0 0 190px;
+
+      .ccm-feature-image {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        margin: 0 0 0 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+
+    .ccm-feature-image-wrapper {
+      text-align: center;
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+
+    .ccm-feature-content {
+      margin-bottom: 2em;
     }
   }
 
@@ -45,9 +62,18 @@ div.ccm-feature-item {
   }
 
 
+  /*
   @include media-breakpoint-down(sm) {
-    display: block;
-    margin-bottom: 25px;
+
+    .ccm-feature-image-wrapper {
+      flex: 0 0 100px;
+
+      .ccm-feature-image {
+        max-width: 80px;
+      }
+    }
+
   }
+   */
 
 }

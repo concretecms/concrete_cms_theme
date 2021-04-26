@@ -12,5 +12,18 @@
     }
   }
 
+  @include media-breakpoint-down(sm) {
+    padding: 3em 0.5em;
+
+    div.feature-list-section-title {
+      padding: 0 1em 0 1em;
+
+      h3 {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    }
+  }
+
 
 }

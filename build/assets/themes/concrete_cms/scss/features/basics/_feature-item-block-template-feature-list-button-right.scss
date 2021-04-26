@@ -4,37 +4,45 @@
   margin-bottom: 4em;
   border-bottom: 1px solid rgb(224, 224, 224);
 
-  .ccm-feature-content {
-    align-self: center;
+  @include media-breakpoint-up(sm) {
+
+    display: flex;
+
+    .ccm-feature-image-wrapper {
+      flex: 0 0 170px;
+
+      .ccm-feature-image {
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+        margin: 0 0 0 2em;
+      }
+    }
+
+    .ccm-feature-description {
+      padding-right: 2em;
+    }
+
   }
 
-  .ccm-feature-description {
-    padding-right: 2em;
-  }
-
-  &:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-  }
-}
-
-.ccm-feature-item-button-right {
-
-  display: flex;
-
-  .ccm-feature-image-wrapper {
-    flex: 0 0 170px;
+  @include media-breakpoint-down(sm) {
+    text-align: center;
+    padding: 1em 1em 2em 1em;
+    margin-bottom: 2em;
 
     .ccm-feature-image {
-      width: 100%;
-      max-width: 100px;
-      height: auto;
-      margin: 0 0 0 2em;
+      margin-bottom: 2em;
+    }
+
+    .ccm-feature-content {
+      margin-bottom: 2em;
     }
   }
 
+
   .ccm-feature-content {
     font-family: "Noto Sans" !important;
+    align-self: center;
 
     .ccm-feature-title {
       font-weight: 700;
@@ -49,27 +57,8 @@
       line-height: 1.5em;
       color: rgb(25, 25, 26);
 
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-
-          &::before {
-            content: "• ";
-          }
-        }
-      }
     }
-  }
 
-
-  .ccm-feature-title {
-    text-transform: uppercase !important;
   }
 
   .btn {
@@ -78,25 +67,18 @@
     padding-left: 2em;
     padding-right: 2em;
     text-align: center;
-    margin: auto 2em auto auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    @include media-breakpoint-up(sm) {
+      margin-right: 2em;
+    }
   }
 
-
-  @include media-breakpoint-down(sm) {
-    .ccm-feature-item-button-right {
-      .ccm-feature-image-wrapper {
-        margin: auto;
-        display: flex;
-        margin-bottom: 15px;
-      }
-
-      .ccm-feature-content {
-        text-align: center;
-      }
-
-      .btn {
-        display: block;
-      }
-    }
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
   }
 }
