@@ -1,0 +1,43 @@
+div.ccm-page {
+  .container-masthead-image-text {
+
+    margin-top: 2em;
+    margin-bottom: 4em;
+
+
+    h1 {
+      margin-bottom: 0.3em; // add a little more space between heading and lead
+      color: $blue;
+    }
+
+    @include media-breakpoint-up(sm) {
+      padding-left: 30px; // make the left image exactly flush with the logo
+    }
+
+    @include media-breakpoint-down(sm) {
+
+      margin-top: 1em;
+      margin-bottom: 1em;
+
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 0;
+        line-height: 1.5em;
+      }
+
+      img {
+        max-height: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+    }
+
+  }
+}

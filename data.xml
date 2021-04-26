@@ -27,4 +27,12 @@
               package="concrete_cms_theme">
         </page>
     </singlepages>
+    <containers>
+        <container handle="masthead_image_text" name="Masthead Image with Text" icon="feature.png" package=""/>
+        <container handle="feature_list_section" name="Feature List Section" icon="left_list.png" package=""/>
+        <container handle="two_column_white" name="Two Column White" icon="two_column.png" package=""/>
+        <container handle="two_column_light_gray" name="Two Column Light Gray" icon="two_column.png" package=""/>
+        <container handle="two_column_dark_gray" name="Two Column Dark Gray" icon="two_column.png" package=""/>
+        <container handle="two_column_blue" name="Two Column Blue" icon="two_column.png" package=""/>
+    </containers>
 </concrete5-cif>
