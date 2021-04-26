@@ -64,8 +64,11 @@ footer {
   background-color: theme-color('white');
   padding-top: 40px;
   padding-bottom: 26px;
+  /*
+  // this is adding space at the bottom that most comps don't need.
   margin-top: 15px;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+   */
 
   h4.page-title {
     text-transform: uppercase;

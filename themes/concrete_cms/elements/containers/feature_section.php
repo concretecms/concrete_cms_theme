@@ -8,14 +8,14 @@ use Concrete\Core\Area\ContainerArea;
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="feature-section-container">
-                <div class="feature-section-title">
+            <div class="feature-list-section-container">
+                <div class="feature-list-section-title">
                     <?php
                     $area = new ContainerArea($container, 'Title');
                     $area->display($c);
                     ?>
                 </div>
-                <div class="feature-section-items">
+                <div class="feature-list-section-items">
                     <?php
                     $area = new ContainerArea($container, 'Items');
                     $area->display($c);
