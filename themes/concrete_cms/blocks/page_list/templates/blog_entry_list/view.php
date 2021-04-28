@@ -142,7 +142,7 @@ $dh = Core::make('helper/date'); /* @var $dh \Concrete\Core\Localization\Service
                 $moreArea = new Area('Blog Post More');
                 if ($moreArea->getTotalBlocksInArea($page)) {?>
                     <div class="ccm-block-page-list-read-more">
-                        <a href="<?=$page->getCollectionLink()?>" class="btn btn-sm btn-default">Read Full Post &gt;</a>
+                        <a href="<?=$page->getCollectionLink()?>" class="btn btn-sm btn-default">Read Full Post</a>
                     </div>
                 <?php } ?>
 

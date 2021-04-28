@@ -87,68 +87,75 @@ class Messages
         $response = new EditResponse();
         $errorList = new ErrorList();
 
-        $mailbox = UserPrivateMessageMailbox::get($this->userInfo, UserPrivateMessageMailbox::MBTYPE_INBOX);
-        $messageData["box"] = $mailbox->getMailboxID();
+        if (!$this->user->isRegistered()) {
+            $errorList->add(t("You are not logged in."));
+            $messageData["requireLogin"] = true;
+        }
 
-        if ($this->request->query->has("msgID") && $this->request->query->getInt("msgID") > 0) {
-            $messageId = (int)$this->request->query->get("msgID");
+        if (!$errorList->has()) {
+            $mailbox = UserPrivateMessageMailbox::get($this->userInfo, UserPrivateMessageMailbox::MBTYPE_INBOX);
+            $messageData["box"] = $mailbox->getMailboxID();
 
-            $msg = UserPrivateMessage::getByID($messageId, $mailbox);
+            if ($this->request->query->has("msgID") && $this->request->query->getInt("msgID") > 0) {
+                $messageId = (int)$this->request->query->get("msgID");
 
-            if (!$msg) {
-                $errorList->add(t('Message not found.'));
-            } elseif (!$this->userInfo->canReadPrivateMessage($msg)) {
-                $errorList->add(t('Access Denied.'));
-            }
+                $msg = UserPrivateMessage::getByID($messageId, $mailbox);
 
-            if (!$errorList->has()) {
-                if ($this->validateUser($msg->getMessageRelevantUserID())) {
-                    $ui = $this->userInfoRepository->getByID($msg->getMessageRelevantUserID());
-
-                    $messageData["msgID"] = $msg->getMessageID();
-                    $messageData["msgSubject"] = t("Re: %s", $msg->getFormattedMessageSubject());
-
-                    $body = "\n\n\n" . $msg->getMessageDelimiter() . "\n";
-                    /** @noinspection PhpUnhandledExceptionInspection */
-                    $body .= t("From: %s\nDate Sent: %s\nSubject: %s", $msg->getMessageAuthorName(), $this->dateHelper->formatDateTime($msg->getMessageDateAdded(), true), $msg->getFormattedMessageSubject());
-                    $body .= "\n\n" . h($msg->getMessageBody());
-
-                    // append attachments to body
-                    $attachmentString = "";
-
-                    foreach ($msg->getAttachments() as $attachment) {
-                        $approvedFileVersion = $attachment->getApprovedVersion();
-                        if ($approvedFileVersion instanceof Version) {
-                            $attachmentString .= sprintf("%s\n", h($approvedFileVersion->getDownloadURL()));
-                        }
-                    }
-
-                    if (strlen($attachmentString) > 0) {
-                        $body .= "\n\n" . t("Attachments: %s\n", $attachmentString);
-                    }
-
-                    $messageData["msgBody"] = $body;
-
-                    $messageData["uID"] = $msg->getMessageRelevantUserID();
-                    $messageData["uName"] = $ui->getUserName();
-
-                    // mark as read
-                    $msg->markAsRead();
-                } else {
-                    $errorList->add(t("The user doesn’t want to receive messages."));
+                if (!$msg) {
+                    $errorList->add(t('Message not found.'));
+                } elseif (!$this->userInfo->canReadPrivateMessage($msg)) {
+                    $errorList->add(t('Access Denied.'));
                 }
-            }
-        } else if ($this->request->query->has("uID") && $this->request->query->getInt("uID") > 0) {
-            $uID = $this->request->query->getInt('uID');
-            $recipient = $this->userInfoRepository->getByID($uID);
 
-            if (!$recipient instanceof UserInfo) {
-                $errorList->add(t("The user doesn't exists."));
-            //} else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
-            //    $errorList->add(t("The user doesn’t want to receive messages."));
-            } else {
-                $messageData["uID"] = $uID;
-                $messageData["uName"] = $recipient->getUserName();
+                if (!$errorList->has()) {
+                    if ($this->validateUser($msg->getMessageRelevantUserID())) {
+                        $ui = $this->userInfoRepository->getByID($msg->getMessageRelevantUserID());
+
+                        $messageData["msgID"] = $msg->getMessageID();
+                        $messageData["msgSubject"] = t("Re: %s", $msg->getFormattedMessageSubject());
+
+                        $body = "\n\n\n" . $msg->getMessageDelimiter() . "\n";
+                        /** @noinspection PhpUnhandledExceptionInspection */
+                        $body .= t("From: %s\nDate Sent: %s\nSubject: %s", $msg->getMessageAuthorName(), $this->dateHelper->formatDateTime($msg->getMessageDateAdded(), true), $msg->getFormattedMessageSubject());
+                        $body .= "\n\n" . h($msg->getMessageBody());
+
+                        // append attachments to body
+                        $attachmentString = "";
+
+                        foreach ($msg->getAttachments() as $attachment) {
+                            $approvedFileVersion = $attachment->getApprovedVersion();
+                            if ($approvedFileVersion instanceof Version) {
+                                $attachmentString .= sprintf("%s\n", h($approvedFileVersion->getDownloadURL()));
+                            }
+                        }
+
+                        if (strlen($attachmentString) > 0) {
+                            $body .= "\n\n" . t("Attachments: %s\n", $attachmentString);
+                        }
+
+                        $messageData["msgBody"] = $body;
+
+                        $messageData["uID"] = $msg->getMessageRelevantUserID();
+                        $messageData["uName"] = $ui->getUserName();
+
+                        // mark as read
+                        $msg->markAsRead();
+                    } else {
+                        $errorList->add(t("The user doesn’t want to receive messages."));
+                    }
+                }
+            } else if ($this->request->query->has("uID") && $this->request->query->getInt("uID") > 0) {
+                $uID = $this->request->query->getInt('uID');
+                $recipient = $this->userInfoRepository->getByID($uID);
+
+                if (!$recipient instanceof UserInfo) {
+                    $errorList->add(t("The user doesn't exists."));
+                    //} else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
+                    //    $errorList->add(t("The user doesn’t want to receive messages."));
+                } else {
+                    $messageData["uID"] = $uID;
+                    $messageData["uName"] = $recipient->getUserName();
+                }
             }
         }
 
