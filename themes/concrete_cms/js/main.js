@@ -703,33 +703,43 @@ if (window.self === window.top) {
 
       $("iframe").css("height", scrollHeight + padding * 2 + 'px');
       setTimeout(function () {
+        $("body").removeClass("loading");
+        $(".modal-backdrop").css("opacity", 0.9);
         $("#login-register-modal").css("opacity", 1);
       }, 200);
     };
 
     window.hideIframe = function () {
       $("#login-register-modal").css("opacity", 0);
+      $("body").addClass("loading");
+      $(".modal-backdrop").css("opacity", 0);
     };
 
     window.closeIframe = function (forceReload) {
+      $("body").removeClass("loading");
+      $(".modal-backdrop").css("opacity", 0.9);
       $("#login-register-modal").modal("hide").remove();
 
       if (forceReload) {
+        window.scrollTo(0, 0);
         window.location.reload();
       }
     };
 
     window.displayLoginPopup = function (url) {
+      $("body").addClass("loading");
       var $modal = $("<div/>").addClass("modal h-100 d-flex flex-column justify-content-center my-0").attr("role", "dialog").attr("tabindex", "-1").attr("id", "login-register-modal").css("opacity", 0).append($("<div/>").attr("role", "document").addClass("modal-dialog").append($("<div/>").addClass("modal-content").append($("<div/>").addClass("modal-body").append($("<iframe/>").attr("src", url).attr("scrolling", "no").attr("frameborder", "0").on("load", function () {
         $(window).trigger("resize"); // trigger resize event to resize the iframe (see above)
 
         $("#login-register-modal").css("opacity", 1);
+        $("body").removeClass("loading");
       })))));
       $(".ccm-page").append($modal);
       $modal.modal({
         backdrop: 'static',
         keyboard: false
       });
+      $(".modal-backdrop").css("opacity", 0);
     };
 
     if ($(this).attr("href").substr($(this).attr("href").length - 6) === "/login" || $(this).attr("href").substr($(this).attr("href").length - 9) === "/register" || $(this).hasClass("ccm-login-popup")) {

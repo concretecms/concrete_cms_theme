@@ -12903,7 +12903,7 @@ a.close.disabled {
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #ffffff;
 }
 
 .modal-backdrop.fade {
@@ -12911,7 +12911,7 @@ a.close.disabled {
 }
 
 .modal-backdrop.show {
-  opacity: 0.5;
+  opacity: 0.9;
 }
 
 .modal-header {
@@ -22185,11 +22185,6 @@ div.ccm-page .container-masthead-image-text h1 {
 
 body.loading #ccm-loading-screen {
   display: block !important;
-}
-
-body.loading .ccm-page {
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
 }
 
 body #ccm-loading-screen {
