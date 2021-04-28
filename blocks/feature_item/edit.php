@@ -47,7 +47,7 @@ $editor = $app->make(EditorInterface::class);
     <?php echo $form->text("linkText", $linkText); ?>
 
     <?php echo $form->label("linkURL", t('Link URL')); ?>
-    <?php echo $form->url("linkURL", $linkURL); ?>
+    <?php echo $form->text("linkURL", $linkURL); ?>
 
     <p class="help-block">
         <?php echo t("Leave the link fields empty if you don't want to add a link."); ?>

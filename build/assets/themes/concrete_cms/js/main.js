@@ -221,7 +221,10 @@ if (window.self === window.top) {
         window.resizeIframe = function (scrollHeight) {
             let padding = 30; // add some padding
             $("iframe").css("height", (scrollHeight + padding * 2) + 'px');
-            $("#login-register-modal").css("opacity", 1);
+
+            setTimeout(function () {
+                $("#login-register-modal").css("opacity", 1);
+            }, 200);
         };
 
         window.hideIframe = function() {
@@ -239,7 +242,8 @@ if (window.self === window.top) {
         };
 
         if ($(this).attr("href").substr($(this).attr("href").length - 6) === "/login" ||
-            $(this).attr("href").substr($(this).attr("href").length - 9) === "/register") {
+            $(this).attr("href").substr($(this).attr("href").length - 9) === "/register" ||
+            $(this).hasClass("ccm-login-popup")) {
 
             e.preventDefault();
 
