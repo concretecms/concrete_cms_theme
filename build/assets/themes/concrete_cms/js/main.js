@@ -241,12 +241,7 @@ if (window.self === window.top) {
             }
         };
 
-        if ($(this).attr("href").substr($(this).attr("href").length - 6) === "/login" ||
-            $(this).attr("href").substr($(this).attr("href").length - 9) === "/register" ||
-            $(this).hasClass("ccm-login-popup")) {
-
-            e.preventDefault();
-
+        window.displayLoginPopup = function (url) {
             let $modal = $("<div/>")
                 .addClass("modal h-100 d-flex flex-column justify-content-center my-0")
                 .attr("role", "dialog")
@@ -258,7 +253,7 @@ if (window.self === window.top) {
                         $("<div/>").addClass("modal-content").append(
                             $("<div/>").addClass("modal-body").append(
                                 $("<iframe/>")
-                                    .attr("src", $a.attr("href") + "?ajax")
+                                    .attr("src", url)
                                     .attr("scrolling", "no")
                                     .attr("frameborder", "0")
                                     .on("load", function() {
@@ -271,11 +266,20 @@ if (window.self === window.top) {
                 );
 
             $(".ccm-page").append($modal);
-
+            
             $modal.modal({
                 backdrop: 'static',
                 keyboard: false
             });
+        };
+
+        if ($(this).attr("href").substr($(this).attr("href").length - 6) === "/login" ||
+            $(this).attr("href").substr($(this).attr("href").length - 9) === "/register" ||
+            $(this).hasClass("ccm-login-popup")) {
+
+            e.preventDefault();
+
+            window.displayLoginPopup($a.attr("href") + "?ajax");
 
             return false;
         }

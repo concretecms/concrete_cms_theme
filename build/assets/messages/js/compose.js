@@ -39,14 +39,18 @@ export default (options) => {
         },
         success: (data) => {
             if (data.error) {
-                for (let i = 0; i < data.errors.length; i++) {
-                    let errorMessage = data.errors[i];
+                if (data.messageData.requireLogin) {
+                    window.displayLoginPopup(CCM_DISPATCHER_FILENAME + "/login?ajax")
+                } else {
+                    for (let i = 0; i < data.errors.length; i++) {
+                        let errorMessage = data.errors[i];
 
-                    alert({
-                        text: errorMessage,
-                        stack: stackBottomModal,
-                        type: 'error'
-                    });
+                        alert({
+                            text: errorMessage,
+                            stack: stackBottomModal,
+                            type: 'error'
+                        });
+                    }
                 }
             } else {
                 let id = Math.random().toString(36).substr(2, 9);
