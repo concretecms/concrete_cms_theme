@@ -22,18 +22,32 @@ $hamburger-hover-opacity: 1.0;
 &.ccm-dark-mode {
 
   header {
+    height: 60px;
     background-color: theme-color('dark-blue-secondary');
+
+    #ccm-sub-nav {
+      top: 60px;
+    }
 
     #ccm-mobile-search-btn {
       color: theme-color('gray');
     }
 
+    .navbar {
+      height: 60px;
+
+      #ccm-desktop-nav > .nav > .nav-item {
+        margin-top: 25px;
+      }
+    }
+
     #ccm-sub-nav {
-      background-color: theme-color('dark-blue-quaternary');
+      background-color: rgb(1, 125, 221);
       border-top: 1px solid theme-color('dark-blue-quaternary');
 
       h3 {
         color: theme-color('white');
+        text-transform: uppercase !important;
       }
 
       nav {

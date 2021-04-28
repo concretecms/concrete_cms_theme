@@ -78,6 +78,7 @@ div.ccm-page {
   @import "./alerts";
   @import "./badges";
   @import "./footer";
+  @import "./dark_mode";
 
   /* Pages */
   @import "./pages/home";
@@ -88,6 +89,7 @@ div.ccm-page {
   /* Dialogs */
   @import "./dialogs/showcase_items";
 }
+
 
 /* Imported Pages without .ccm-page wrapper */
 @import "./pages/blog";

@@ -34,3 +34,92 @@
 .col-content blockquote {
   margin-top: 15px;
 }
+
+.large-text {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+.white-container {
+  background-color: theme-color('white');
+  padding: 20.5px;
+  height: 100%;
+  margin-bottom: 20px;
+  display: block;
+
+  .page-title {
+    padding-bottom: 23px;
+    border-bottom: 1px solid rgb(246, 246, 246);
+    font-size: 20px;
+    color: rgb(47, 48, 50);
+    line-height: 28px;
+    font-weight: bold;
+    font-family: "Open Sans";
+    margin-bottom: 23px;
+    padding-left: 22px;
+    padding-right: 22px;
+    margin-top: 9.5px;
+  }
+
+  .nav {
+    margin-left: 22px;
+    margin-right: 22px;
+
+    li {
+      a {
+        font-family: "Open Sans";
+        font-size: 18px;
+        line-height: 45px;
+        color: rgb(1, 125, 221);
+        font-weight: 600;
+        word-break: break-word;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    text-align: left;
+  }
+}
+
+.hover-container {
+  padding: 40px;
+  height: 100%;
+  border: 1px solid transparent;
+  margin-bottom: 20px;
+
+  img {
+    margin-bottom: 15px;
+    max-width: 100px;
+    height: auto;
+  }
+
+  h4 {
+    color: rgb(25, 25, 26) !important;
+    font-size: 16px !important;
+    line-height: 26px !important;
+    font-weight: 700 !important;
+  }
+
+  p {
+    color: rgb(25, 25, 26) !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    font-weight: 400 !important;
+  }
+
+  &:hover {
+    border: 1px solid rgb(219, 219, 219);
+    background-color: rgb(250, 250, 250);
+  }
+}
+
+.last-container {
+  margin-bottom: -15px;
+}

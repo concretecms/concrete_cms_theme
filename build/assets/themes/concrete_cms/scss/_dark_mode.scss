@@ -1,0 +1,222 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+&.ccm-dark-mode {
+  background-color: rgb(246, 246, 246) !important;
+
+  h1 {
+    font-family: "Open Sans";
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 94px;
+    color: rgb(75, 75, 75);
+  }
+
+  header .navbar {
+    font-family: "Open Sans";
+  }
+
+  @include media-breakpoint-up(lg) {
+    header .navbar #ccm-desktop-nav > .nav > .nav-item > a {
+      text-transform: none !important;
+      font-weight: 400 !important;
+      font-size: 16px !important;
+    }
+
+
+    &.ccm-page.page-type-developer-document .col-sidebar .nav li a,
+    &.ccm-page.page-type-editor-document .col-sidebar .nav li a {
+      font-weight: bold;
+      line-height: 44px;
+      color: rgb(1, 118, 208);
+    }
+  }
+
+  header #ccm-sub-nav nav ul li a {
+    opacity: .9;
+  }
+
+  header #ccm-sub-nav h3 {
+    text-transform: uppercase !important;
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  main,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
+    font-family: 'Open Sans', sans-serif !important;
+  }
+
+  .login-page main h1 {
+    font-size: 29px !important;
+    line-height: 40px !important;
+    color: #4c4f56 !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    width: 424px !important;
+    margin: 11px auto auto !important;
+  }
+
+  main {
+    h1, .h1 {
+      font-size: 64px !important;
+      font-weight: 300 !important;
+      line-height: 94px !important;
+      color: rgb(75, 75, 75) !important;
+      font-family: "Open Sans" !important;
+    }
+
+    h2, .h2 {
+      font-size: 54px !important;
+      font-weight: 300 !important;
+      line-height: 74px !important;
+      color: rgb(75, 75, 75) !important;
+      font-family: "Open Sans" !important;
+    }
+
+    @media (max-width: 768px) {
+      h1, .h1 {
+        font-size: 34px !important;
+        line-height: 74px !important;
+      }
+
+      h2, .h2 {
+        font-size: 32px !important;
+        line-height: 72px !important;
+      }
+    }
+  }
+
+
+  .col-sidebar .recent-tutorials {
+    background-color: white;
+    padding: 30px;
+  }
+
+  main {
+    margin-top: -15px;
+    margin-bottom: 15px;
+  }
+
+  .latest-video h4 {
+    font-size: 18px !important;
+    line-height: 22px !important;
+  }
+
+  .latest-video h4 .small {
+    padding-top: 17px;
+    font-size: 14px;
+  }
+
+
+  main .recent-tutorial-page-name {
+    font-family: "Noto Sans" !important;
+    color: rgb(1, 118, 208) !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 22px !important;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  main h5 {
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    line-height: 28px !important;
+    color: rgb(47, 48, 50) !important;
+    margin-bottom: 20px !important;
+    display: block;
+    width: 100%;
+  }
+
+  main a, main a:hover {
+    color: rgb(1, 118, 208);
+  }
+
+  .recent-tutorial-author {
+    margin-right: 35px;
+  }
+
+  .recent-tutorial-author,
+  .recent-tutorial-date {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgb(100, 100, 106);
+    display: inline-block;
+    margin-right: 35px;
+  }
+
+  .recent-tutorial-author a {
+    font-weight: bold;
+  }
+
+  .col-content p,
+  .col-content ul,
+  .col-content ol,
+  .col-content h1,
+  .col-content h2,
+  .col-content h3,
+  .col-content h4,
+  .col-content h5,
+  .col-content h6 {
+    font-size: 18px;
+    line-height: 38px;
+  }
+
+  .recent-tutorial-description {
+    margin-top: 14px;
+    margin-bottom: 25px;
+  }
+
+  .latest-video {
+    margin-bottom: 40px;
+  }
+
+  .ccm-page.page-type-tutorial .recent-tutorials .recent-tutorial .recent-tutorial-description {
+    font-size: 16px !important;
+    margin-bottom: 50px !important;
+  }
+
+  .ccm-block-likes-this-wrapper p {
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(75, 75, 75);
+  }
+
+  .tutorial-search-form .bootstrap-select .btn {
+    border: none !important;
+    height: 44px !important;
+    line-height: 33px !important;
+  }
+
+  .tutorial-search-form .bootstrap-select .filter-option-inner-inner::after {
+    right: 13px !important;
+    top: 15px !important;
+    color: rgb(102, 102, 102) !important;
+  }
+
+  div.ccm-page.ccm-dark-mode header #ccm-sub-nav nav ul li.active a, div.ccm-page.ccm-dark-mode header #ccm-sub-nav nav ul li:hover a {
+    font-weight: bold;
+  }
+
+  .tutorial .page-name {
+    line-height: 38px !important;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .no-breadcrumb + main {
+    margin-top: 15px !important;
+  }
+}

@@ -5,6 +5,10 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+.modal-content {
+  border: 0 !important;
+}
+
 &.ccm-dark-mode {
   #login-register-modal {
     .modal-dialog {

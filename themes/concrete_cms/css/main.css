@@ -22362,6 +22362,12 @@ div.ccm-page {
    * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
    * @author     Fabian Bitter (fabian@bitter.de)
    */
+  /**
+   * @project:   ConcreteCMS Theme
+   *
+   * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+   * @author     Fabian Bitter (fabian@bitter.de)
+   */
   /* Pages */
   /**
    * @project:   ConcreteCMS Theme
@@ -22514,22 +22520,36 @@ div.ccm-page .hamburger--spin.is-active .hamburger-inner::after {
 }
 
 div.ccm-page.ccm-dark-mode header {
+  height: 60px;
   background-color: #222533;
   /* Desktop */
   /* Tablet + Mobile */
+}
+
+div.ccm-page.ccm-dark-mode header #ccm-sub-nav {
+  top: 60px;
 }
 
 div.ccm-page.ccm-dark-mode header #ccm-mobile-search-btn {
   color: #828282;
 }
 
+div.ccm-page.ccm-dark-mode header .navbar {
+  height: 60px;
+}
+
+div.ccm-page.ccm-dark-mode header .navbar #ccm-desktop-nav > .nav > .nav-item {
+  margin-top: 25px;
+}
+
 div.ccm-page.ccm-dark-mode header #ccm-sub-nav {
-  background-color: #1D1F2B;
+  background-color: #017ddd;
   border-top: 1px solid #1D1F2B;
 }
 
 div.ccm-page.ccm-dark-mode header #ccm-sub-nav h3 {
   color: #ffffff;
+  text-transform: uppercase !important;
 }
 
 div.ccm-page.ccm-dark-mode header #ccm-sub-nav nav ul li.active a,
@@ -23950,6 +23970,97 @@ div.ccm-page .col-content blockquote {
   margin-top: 15px;
 }
 
+div.ccm-page .large-text {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 768px) {
+  div.ccm-page .large-text {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+div.ccm-page .white-container {
+  background-color: #ffffff;
+  padding: 20.5px;
+  height: 100%;
+  margin-bottom: 20px;
+  display: block;
+}
+
+div.ccm-page .white-container .page-title {
+  padding-bottom: 23px;
+  border-bottom: 1px solid #f6f6f6;
+  font-size: 20px;
+  color: #2f3032;
+  line-height: 28px;
+  font-weight: bold;
+  font-family: "Open Sans";
+  margin-bottom: 23px;
+  padding-left: 22px;
+  padding-right: 22px;
+  margin-top: 9.5px;
+}
+
+div.ccm-page .white-container .nav {
+  margin-left: 22px;
+  margin-right: 22px;
+}
+
+div.ccm-page .white-container .nav li a {
+  font-family: "Open Sans";
+  font-size: 18px;
+  line-height: 45px;
+  color: #017ddd;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 768px) {
+  div.ccm-page .white-container {
+    text-align: left;
+  }
+}
+
+div.ccm-page .hover-container {
+  padding: 40px;
+  height: 100%;
+  border: 1px solid transparent;
+  margin-bottom: 20px;
+}
+
+div.ccm-page .hover-container img {
+  margin-bottom: 15px;
+  max-width: 100px;
+  height: auto;
+}
+
+div.ccm-page .hover-container h4 {
+  color: #19191a !important;
+  font-size: 16px !important;
+  line-height: 26px !important;
+  font-weight: 700 !important;
+}
+
+div.ccm-page .hover-container p {
+  color: #19191a !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-weight: 400 !important;
+}
+
+div.ccm-page .hover-container:hover {
+  border: 1px solid #dbdbdb;
+  background-color: #fafafa;
+}
+
+div.ccm-page .last-container {
+  margin-bottom: -15px;
+}
+
 div.ccm-page .breadcrumb {
   font-size: 16px;
   line-height: 40px;
@@ -24003,6 +24114,28 @@ div.ccm-page .card-text h6 {
   div.ccm-page .card-text h6 {
     font-size: 18px;
   }
+}
+
+div.ccm-page.ccm-dark-mode .nav-tabs {
+  border-bottom: 1px solid #dfdede !important;
+  padding-bottom: 6px;
+}
+
+div.ccm-page.ccm-dark-mode .nav-tabs > li.active > a,
+div.ccm-page.ccm-dark-mode .nav-tabs > li.active > a:focus,
+div.ccm-page.ccm-dark-mode .nav-tabs > li.active > a:hover {
+  border: none !important;
+  border-bottom: none !important;
+  font-weight: 700 !important;
+  color: #1b1b1b !important;
+}
+
+div.ccm-page.ccm-dark-mode .nav-tabs > li > a,
+div.ccm-page.ccm-dark-mode .nav-tabs > li > a:hover {
+  border: none;
+  border-bottom: none;
+  color: #64646a;
+  font-weight: 400;
 }
 
 div.ccm-page main .nav:not(.nav-tabs) li {
@@ -24226,6 +24359,223 @@ div.ccm-page footer .footer-legal p {
   div.ccm-page footer h4.page-title[aria-expanded=true]::after {
     content: "\F077";
   }
+}
+
+div.ccm-page.ccm-dark-mode {
+  background-color: #f6f6f6 !important;
+}
+
+div.ccm-page.ccm-dark-mode h1 {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 94px;
+  color: #4b4b4b;
+}
+
+div.ccm-page.ccm-dark-mode header .navbar {
+  font-family: "Open Sans";
+}
+
+@media (min-width: 992px) {
+  div.ccm-page.ccm-dark-mode header .navbar #ccm-desktop-nav > .nav > .nav-item > a {
+    text-transform: none !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+  }
+
+  div.ccm-page.ccm-dark-mode.ccm-page.page-type-developer-document .col-sidebar .nav li a,
+  div.ccm-page.ccm-dark-mode.ccm-page.page-type-editor-document .col-sidebar .nav li a {
+    font-weight: bold;
+    line-height: 44px;
+    color: #0176d0;
+  }
+}
+
+div.ccm-page.ccm-dark-mode header #ccm-sub-nav nav ul li a {
+  opacity: 0.9;
+}
+
+div.ccm-page.ccm-dark-mode header #ccm-sub-nav h3 {
+  text-transform: uppercase !important;
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 14px;
+}
+
+div.ccm-page.ccm-dark-mode main,
+div.ccm-page.ccm-dark-mode h1,
+div.ccm-page.ccm-dark-mode h2,
+div.ccm-page.ccm-dark-mode h3,
+div.ccm-page.ccm-dark-mode h4,
+div.ccm-page.ccm-dark-mode h5,
+div.ccm-page.ccm-dark-mode h6 {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+div.ccm-page.ccm-dark-mode .login-page main h1 {
+  font-size: 29px !important;
+  line-height: 40px !important;
+  color: #4c4f56 !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  width: 424px !important;
+  margin: 11px auto auto !important;
+}
+
+div.ccm-page.ccm-dark-mode main h1,
+div.ccm-page.ccm-dark-mode main .h1 {
+  font-size: 64px !important;
+  font-weight: 300 !important;
+  line-height: 94px !important;
+  color: #4b4b4b !important;
+  font-family: "Open Sans" !important;
+}
+
+div.ccm-page.ccm-dark-mode main h2,
+div.ccm-page.ccm-dark-mode main .h2 {
+  font-size: 54px !important;
+  font-weight: 300 !important;
+  line-height: 74px !important;
+  color: #4b4b4b !important;
+  font-family: "Open Sans" !important;
+}
+
+@media (max-width: 768px) {
+  div.ccm-page.ccm-dark-mode main h1,
+  div.ccm-page.ccm-dark-mode main .h1 {
+    font-size: 34px !important;
+    line-height: 74px !important;
+  }
+
+  div.ccm-page.ccm-dark-mode main h2,
+  div.ccm-page.ccm-dark-mode main .h2 {
+    font-size: 32px !important;
+    line-height: 72px !important;
+  }
+}
+
+div.ccm-page.ccm-dark-mode .col-sidebar .recent-tutorials {
+  background-color: white;
+  padding: 30px;
+}
+
+div.ccm-page.ccm-dark-mode main {
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+div.ccm-page.ccm-dark-mode .latest-video h4 {
+  font-size: 18px !important;
+  line-height: 22px !important;
+}
+
+div.ccm-page.ccm-dark-mode .latest-video h4 .small {
+  padding-top: 17px;
+  font-size: 14px;
+}
+
+div.ccm-page.ccm-dark-mode main .recent-tutorial-page-name {
+  font-family: "Noto Sans" !important;
+  color: #0176d0 !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 22px !important;
+  margin-bottom: 12px;
+  display: block;
+}
+
+div.ccm-page.ccm-dark-mode main h5 {
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  line-height: 28px !important;
+  color: #2f3032 !important;
+  margin-bottom: 20px !important;
+  display: block;
+  width: 100%;
+}
+
+div.ccm-page.ccm-dark-mode main a,
+div.ccm-page.ccm-dark-mode main a:hover {
+  color: #0176d0;
+}
+
+div.ccm-page.ccm-dark-mode .recent-tutorial-author {
+  margin-right: 35px;
+}
+
+div.ccm-page.ccm-dark-mode .recent-tutorial-author,
+div.ccm-page.ccm-dark-mode .recent-tutorial-date {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #64646a;
+  display: inline-block;
+  margin-right: 35px;
+}
+
+div.ccm-page.ccm-dark-mode .recent-tutorial-author a {
+  font-weight: bold;
+}
+
+div.ccm-page.ccm-dark-mode .col-content p,
+div.ccm-page.ccm-dark-mode .col-content ul,
+div.ccm-page.ccm-dark-mode .col-content ol,
+div.ccm-page.ccm-dark-mode .col-content h1,
+div.ccm-page.ccm-dark-mode .col-content h2,
+div.ccm-page.ccm-dark-mode .col-content h3,
+div.ccm-page.ccm-dark-mode .col-content h4,
+div.ccm-page.ccm-dark-mode .col-content h5,
+div.ccm-page.ccm-dark-mode .col-content h6 {
+  font-size: 18px;
+  line-height: 38px;
+}
+
+div.ccm-page.ccm-dark-mode .recent-tutorial-description {
+  margin-top: 14px;
+  margin-bottom: 25px;
+}
+
+div.ccm-page.ccm-dark-mode .latest-video {
+  margin-bottom: 40px;
+}
+
+div.ccm-page.ccm-dark-mode .ccm-page.page-type-tutorial .recent-tutorials .recent-tutorial .recent-tutorial-description {
+  font-size: 16px !important;
+  margin-bottom: 50px !important;
+}
+
+div.ccm-page.ccm-dark-mode .ccm-block-likes-this-wrapper p {
+  font-weight: 700;
+  font-size: 16px;
+  color: #4b4b4b;
+}
+
+div.ccm-page.ccm-dark-mode .tutorial-search-form .bootstrap-select .btn {
+  border: none !important;
+  height: 44px !important;
+  line-height: 33px !important;
+}
+
+div.ccm-page.ccm-dark-mode .tutorial-search-form .bootstrap-select .filter-option-inner-inner::after {
+  right: 13px !important;
+  top: 15px !important;
+  color: #666666 !important;
+}
+
+div.ccm-page.ccm-dark-mode div.ccm-page.ccm-dark-mode header #ccm-sub-nav nav ul li.active a,
+div.ccm-page.ccm-dark-mode div.ccm-page.ccm-dark-mode header #ccm-sub-nav nav ul li:hover a {
+  font-weight: bold;
+}
+
+div.ccm-page.ccm-dark-mode .tutorial .page-name {
+  line-height: 38px !important;
+  margin-bottom: 8px;
+  display: block;
+}
+
+div.ccm-page.ccm-dark-mode .no-breadcrumb + main {
+  margin-top: 15px !important;
 }
 
 div.ccm-page.ccm-dark-mode .section-features {
@@ -24708,6 +25058,10 @@ div.ccm-page .get-started .btn-secondary {
     justify-content: center !important;
     display: flex !important;
   }
+}
+
+div.ccm-page .modal-content {
+  border: 0 !important;
 }
 
 div.ccm-page.ccm-dark-mode #login-register-modal .modal-dialog .modal-content .modal-body .login-page {

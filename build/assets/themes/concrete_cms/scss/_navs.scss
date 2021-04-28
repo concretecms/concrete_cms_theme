@@ -5,6 +5,30 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+&.ccm-dark-mode {
+  .nav-tabs {
+    border-bottom: 1px solid rgb(223, 222, 222) !important;
+    padding-bottom: 6px;
+  }
+
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:focus,
+  .nav-tabs > li.active > a:hover {
+    border: none !important;
+    border-bottom: none !important;
+    font-weight: 700 !important;
+    color: rgb(27, 27, 27) !important;
+  }
+
+  .nav-tabs > li > a,
+  .nav-tabs > li > a:hover {
+    border: none;
+    border-bottom: none;
+    color: rgb(100, 100, 106);
+    font-weight: 400;
+  }
+}
+
 main {
   .nav:not(.nav-tabs) {
     li {
@@ -56,6 +80,7 @@ main {
       }
     }
   }
+
   // pulling this in mainly for less shorthand
   &.nav-justified {
 
