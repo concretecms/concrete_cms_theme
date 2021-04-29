@@ -22,9 +22,9 @@
 
   @include media-breakpoint-up(lg) {
     header .navbar #ccm-desktop-nav > .nav > .nav-item > a {
-      text-transform: none !important;
-      font-weight: 400 !important;
-      font-size: 16px !important;
+      text-transform: none;
+      font-weight: 400;
+      font-size: 16px;
     }
 
 
@@ -41,7 +41,7 @@
   }
 
   header #ccm-sub-nav h3 {
-    text-transform: uppercase !important;
+    text-transform: uppercase;
     font-family: "Poppins";
     font-weight: 700;
     font-size: 14px;
@@ -54,63 +54,62 @@
   h4,
   h5,
   h6{
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Open Sans', sans-serif;
   }
 
   .login-page main h1 {
-    font-size: 29px !important;
-    line-height: 40px !important;
-    color: #4c4f56 !important;
-    font-weight: 600 !important;
-    text-transform: none !important;
-    width: 424px !important;
-    margin: 11px auto auto !important;
+    font-size: 29px;
+    line-height: 40px;
+    color: #4c4f56;
+    font-weight: 600;
+    text-transform: none;
+    width: 424px;
+    margin: 11px auto auto;
   }
 
   main {
     h1, .h1 {
-      font-size: 64px !important;
-      font-weight: 300 !important;
-      line-height: 94px !important;
-      color: rgb(75, 75, 75) !important;
-      font-family: "Open Sans" !important;
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 94px;
+      color: rgb(75, 75, 75);
+      font-family: "Open Sans";
     }
 
     h2, .h2 {
-      font-size: 54px !important;
-      font-weight: 300 !important;
-      line-height: 74px !important;
-      color: rgb(75, 75, 75) !important;
-      font-family: "Open Sans" !important;
+      font-size: 54px;
+      font-weight: 300;
+      line-height: 74px;
+      color: rgb(75, 75, 75);
+      font-family: "Open Sans";
     }
 
     @media (max-width: 768px) {
       h1, .h1 {
-        font-size: 34px !important;
-        line-height: 74px !important;
+        font-size: 34px;
+        line-height: 74px;
       }
 
       h2, .h2 {
-        font-size: 32px !important;
-        line-height: 72px !important;
+        font-size: 32px;
+        line-height: 72px;
       }
     }
   }
 
+  .btn {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
 
   .col-sidebar .recent-tutorials {
     background-color: white;
     padding: 30px;
   }
 
-  main {
-    margin-top: -15px;
-    margin-bottom: 15px;
-  }
-
   .latest-video h4 {
-    font-size: 18px !important;
-    line-height: 22px !important;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .latest-video h4 .small {
@@ -120,21 +119,21 @@
 
 
   main .recent-tutorial-page-name {
-    font-family: "Noto Sans" !important;
-    color: rgb(1, 118, 208) !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    line-height: 22px !important;
+    font-family: "Noto Sans";
+    color: rgb(1, 118, 208);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
     margin-bottom: 12px;
     display: block;
   }
 
   main h5 {
-    font-weight: 700 !important;
-    font-size: 20px !important;
-    line-height: 28px !important;
-    color: rgb(47, 48, 50) !important;
-    margin-bottom: 20px !important;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: rgb(47, 48, 50);
+    margin-bottom: 20px;
     display: block;
     width: 100%;
   }
@@ -184,8 +183,8 @@
   }
 
   .ccm-page.page-type-tutorial .recent-tutorials .recent-tutorial .recent-tutorial-description {
-    font-size: 16px !important;
-    margin-bottom: 50px !important;
+    font-size: 16px;
+    margin-bottom: 50px;
   }
 
   .ccm-block-likes-this-wrapper p {
@@ -195,15 +194,15 @@
   }
 
   .tutorial-search-form .bootstrap-select .btn {
-    border: none !important;
-    height: 44px !important;
-    line-height: 33px !important;
+    border: none;
+    height: 44px;
+    line-height: 33px;
   }
 
   .tutorial-search-form .bootstrap-select .filter-option-inner-inner::after {
-    right: 13px !important;
-    top: 15px !important;
-    color: rgb(102, 102, 102) !important;
+    right: 13px;
+    top: 15px;
+    color: rgb(102, 102, 102);
   }
 
   div.ccm-page.ccm-dark-mode header #ccm-sub-nav nav ul li.active a, div.ccm-page.ccm-dark-mode header #ccm-sub-nav nav ul li:hover a {
@@ -211,12 +210,12 @@
   }
 
   .tutorial .page-name {
-    line-height: 38px !important;
+    line-height: 38px;
     margin-bottom: 8px;
     display: block;
   }
 
   .no-breadcrumb + main {
-    margin-top: 15px !important;
+    margin-top: 15px;
   }
 }
