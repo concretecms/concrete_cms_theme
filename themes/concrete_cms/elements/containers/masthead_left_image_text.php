@@ -16,7 +16,7 @@ use Concrete\Core\Area\ContainerArea;
         <div class="col-md-8 align-self-center">
             <div class="pl-md-5">
             <?php
-            $area = new ContainerArea($container, 'Headline');
+            $area = new ContainerArea($container, 'Content');
             $area->display($c);
             ?>
             </div>
