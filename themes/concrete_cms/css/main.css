@@ -22147,6 +22147,57 @@ div.ccm-page .container-masthead-image-text h1 {
   color: white !important;
 }
 
+.case-study-landing-header .content {
+  margin-bottom: 15px;
+}
+
+.case-study-landing-header .content h1,
+.case-study-landing-header .content h2,
+.case-study-landing-header .content h3,
+.case-study-landing-header .content h4,
+.case-study-landing-header .content h5,
+.case-study-landing-header .content h6 {
+  font-size: 59px;
+  font-weight: 700;
+  color: #0176d0;
+  line-height: 61px;
+  font-family: "Poppins";
+  margin-top: 0;
+}
+
+.case-study-landing-header .content p {
+  line-height: 37px;
+  font-size: 25px;
+  color: #0a4757;
+}
+
+/* Mobile Style */
+
+@media only screen and (max-width: 768px) {
+  .image-slider {
+    order: 0;
+  }
+
+  .content {
+    order: 1;
+  }
+
+  .content h1,
+  .content h2,
+  .content h3,
+  .content h4,
+  .content h5,
+  .content h6 {
+    font-size: 24px !important;
+    line-height: 28px !important;
+  }
+
+  .content p {
+    line-height: 26px !important;
+    font-size: 16px !important;
+  }
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

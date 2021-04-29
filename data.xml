@@ -34,5 +34,6 @@
         <container handle="two_column_light_gray" name="Two Column Light Gray" icon="two_column.png" package=""/>
         <container handle="two_column_dark_gray" name="Two Column Dark Gray" icon="two_column.png" package=""/>
         <container handle="two_column_blue" name="Two Column Blue" icon="two_column.png" package=""/>
+        <container handle="case_study_landing_header" name="Case Study Landing Header" icon="two_column.png" package=""/>
     </containers>
 </concrete5-cif>
