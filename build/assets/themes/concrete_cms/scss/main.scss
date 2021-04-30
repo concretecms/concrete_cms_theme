@@ -30,6 +30,7 @@
 @import "./features/account/messages";
 
 // Containers
+@import "./containers/section";
 @import "./containers/masthead-image-text";
 @import "./containers/feature-list-section";
 @import "./containers/two-column";
@@ -82,7 +83,6 @@ div.ccm-page {
   @import "./dark_mode";
 
   /* Pages */
-  @import "./pages/home";
   @import "./pages/messages";
   @import "./pages/get_started";
   @import "./pages/login";

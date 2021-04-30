@@ -41,6 +41,7 @@ $dark-blue-quaternary: #1D1F2B;
 $lead-font-size: 29px;
 $lead-font-weight: 600;
 
+
 // ---- Map those to theme conventions
 $theme-colors: (
         'accent': $accent,
@@ -82,7 +83,7 @@ $link-hover-decoration: none !default;
 
 $body-bg: $light-gray;
 $headings-color: theme-color('text');
-$headings-font-family: "Poppins";
+$headings-font-family: "Noto Sans";
 $label-color: theme-color('text');
 $font-family-base: 'Noto Sans';
 $alert-border-radius: 0 !default;
