@@ -6,6 +6,56 @@
     <blocktypes>
         <blocktype handle="feature_item" package="concrete_cms_theme"/>
     </blocktypes>
+    <pagetemplates>
+        <pagetemplate icon="full.png" name="Case Study" handle="case_study" package="" internal=""/>
+    </pagetemplates>
+    <attributekeys>
+        <attributekey handle="developer_name" name="Developer Name" package="concrete_cms_marketing" searchable="1"
+                      indexed="1" type="text"
+                      category="collection"/>
+        <attributekey handle="developer_url" name="Developer URL" package="concrete_cms_marketing" searchable="1"
+                      indexed="1" type="text"
+                      category="collection"/>
+        <attributekey handle="site_name" name="Site Name" package="concrete_cms_marketing" searchable="1" indexed="1"
+                      type="text"
+                      category="collection"/>
+        <attributekey handle="site_url" name="Site URL" package="concrete_cms_marketing" searchable="1" indexed="1"
+                      type="text"
+                      category="collection"/>
+    </attributekeys>
+    <pagetypes>
+        <pagetype name="Case Study" handle="case_study" package="concrete_cms_theme" launch-in-composer="0"
+                  is-frequently-added="1">
+            <pagetemplates type="all" default="case_study"/>
+            <target handle="all" package="" form-factor=""/>
+            <composer>
+                <formlayout>
+                    <set name="Basics" description="">
+                        <control custom-template="" required="1" custom-label="Page Name" description=""
+                                 type="core_page_property" handle="name"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="description"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="url_slug"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="page_template"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="publish_target"/>
+                        <control custom-template="" custom-label="" type="collection_attribute" handle="site_name"/>
+                        <control custom-template="" custom-label="" type="collection_attribute" handle="site_url"/>
+                        <control custom-template="" custom-label="" type="collection_attribute" handle="developer_name"/>
+                        <control custom-template="" custom-label="" type="collection_attribute" handle="developer_url"/>
+                    </set>
+                </formlayout>
+                <output>
+                    <pagetemplate handle="case_study">
+                        <page name="" path="" public-date="2017-04-16 12:13:18" filename="" pagetype="case_study"
+                              template="blank" user="admin" description="" package="" root="true"/>
+                    </pagetemplate>
+                </output>
+            </composer>
+        </pagetype>
+    </pagetypes>
     <attributekeys>
         <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
                       searchable="1"
@@ -35,6 +85,10 @@
         <container handle="two_column_light_gray" name="Two Column Light Gray" icon="two_column.png" package=""/>
         <container handle="two_column_dark_gray" name="Two Column Dark Gray" icon="two_column.png" package=""/>
         <container handle="two_column_blue" name="Two Column Blue" icon="two_column.png" package=""/>
+        <container handle="three_column_white" name="Three Column White" icon="three_column.png" package=""/>
+        <container handle="three_column_light_gray" name="Three Column Light Gray" icon="three_column.png" package=""/>
+        <container handle="three_column_dark_gray" name="Three Column Dark Gray" icon="three_column.png" package=""/>
+        <container handle="three_column_blue" name="Three Column Blue" icon="three_column.png" package=""/>
         <container handle="case_study_landing_header" name="Case Study Landing Header" icon="two_column.png" package=""/>
         <container handle="section_light_gray" name="Light Gray Single Column" icon="two_column.png" package=""/>
         <container handle="section_white" name="White Single Column" icon="two_column.png" package=""/>

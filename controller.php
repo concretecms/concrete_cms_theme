@@ -26,14 +26,14 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.2.1';
+    protected $pkgVersion = '0.2.3';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
     ];
     protected $pkgContentSwapFiles = [
-        "content_Swap_templates/marketing.xml" => "Marketing",
-        "content_Swap_templates/community.xml" => "Community"
+        "content_swap_templates/marketing.xml" => "Marketing",
+        "content_swap_templates/community.xml" => "Community"
     ];
 
     public function getPackageDescription()
@@ -52,8 +52,6 @@ class Controller extends Package
         $serviceProvider = $this->app->make(ServiceProvider::class);
         $serviceProvider->register();
     }
-
-
 
     public function testForUninstall()
     {
