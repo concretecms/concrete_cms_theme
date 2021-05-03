@@ -23,5 +23,9 @@ class Manager extends CoreManager
         return new ConcreteCMSView();
     }
 
+    protected function createSimplePaginationDriver()
+    {
+        return new SimplePaginationView();
+    }
 
 }

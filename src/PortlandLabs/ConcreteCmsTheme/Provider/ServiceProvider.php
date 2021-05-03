@@ -19,11 +19,14 @@ use Concrete\Core\Package\PackageService;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Page\Theme\ThemeRouteCollection;
 use Concrete\Core\Routing\Router;
+use Concrete\Core\Search\Pagination\View\ManagerServiceProvider as CorePaginationManager;
 use Concrete\Package\ConcreteCmsTheme\Controller;
 use PortlandLabs\ConcreteCmsTheme\API\OAuth\Controller as OAuthController;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Messages;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Middleware\FractalNegotiatorMiddleware;
 use PortlandLabs\ConcreteCmsTheme\Navigation\HeaderNavigationFactory;
+use PortlandLabs\ConcreteCmsTheme\Search\Pagination\View\ManagerServiceProvider;
+use PortlandLabs\ConcreteCmsTheme\Search\Pagination\View\PagerManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use PortlandLabs\ConcreteCmsTheme\Search\Pagination\View\Manager;
 
@@ -104,6 +107,11 @@ class ServiceProvider extends Provider
         $this->app->bind('manager/view/pagination', function ($app) {
             return new Manager($app);
         });
+        $this->app['manager/view/pagination/pager'] = $this->app->share(function ($app) {
+            return new PagerManager($app);
+        });
+
+        $this->app->bind(CorePaginationManager::class, ManagerServiceProvider::class);
     }
 
     private function overrideOAuthController()

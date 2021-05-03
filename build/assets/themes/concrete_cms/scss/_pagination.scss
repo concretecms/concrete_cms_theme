@@ -10,25 +10,28 @@ div.ccm-pagination-wrapper {
 }
 
 .pagination {
-  >li {
+  > li {
     &.active {
       span {
         background: none;
         color: #548627;
       }
     }
+
     &.next {
       &.disabled {
         a, span {
           color: #b3beb8;
         }
       }
+
       a {
         border-right: 1px solid $pagination-border-color;;
         border-top-right-radius: 25px;
         border-bottom-right-radius: 25px;
         padding-right: 25px;
       }
+
       span {
         border-right: 1px solid $pagination-border-color;
         border-top-right-radius: 25px;
@@ -36,18 +39,21 @@ div.ccm-pagination-wrapper {
         padding-right: 25px;
       }
     }
+
     &.prev {
       &.disabled {
         a, span {
           color: #b3beb8;
         }
       }
+
       span {
         border-left: 1px solid $pagination-border-color;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
         padding-left: 25px;
       }
+
       a {
         border-left: 1px solid $pagination-border-color;
         border-left: 1px solid $pagination-border-color;
@@ -56,10 +62,12 @@ div.ccm-pagination-wrapper {
         padding-left: 25px;
       }
     }
-    >a {
+
+    > a {
       &:hover {
         background: none;
       }
+
       font-size: 14px;
       border-left: 0;
       border-right: 0;
@@ -67,6 +75,7 @@ div.ccm-pagination-wrapper {
       padding-bottom: 12px;
       border-color: $pagination-border-color;
     }
+
     > span {
       font-size: 14px;
       border-left: 0;
@@ -84,11 +93,51 @@ we should get rid of the custom pagination I've added in the ServiceProvider.
 
 .ccm-search-results-pagination {
   display: flex;
+
   nav {
     margin-left: auto;
 
     > span, a {
       margin-left: 10px;
     }
+  }
+}
+
+
+.simple-pagination {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+  float: right;
+}
+
+.simple-pagination li {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 38px;
+  color: rgb(1, 118, 208);
+  font-family: "Noto Sans";
+  margin: 5px;
+}
+
+.simple-pagination li.active,
+.simple-pagination li a:hover {
+  color: rgb(181, 181, 181) !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .simple-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
   }
 }
