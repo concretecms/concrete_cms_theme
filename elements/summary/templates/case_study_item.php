@@ -14,7 +14,7 @@ use Concrete\Core\Entity\File\Version;
 use Concrete\Core\Entity\Package;
 use Concrete\Core\Package\PackageService;
 use Concrete\Core\Support\Facade\Application;
-use Concrete\Package\ConcreteCmsMarketing\Controller;
+use Concrete\Package\ConcreteCmsTheme\Controller;
 
 /** @var File|null $thumbnail */
 /** @var string $link */
