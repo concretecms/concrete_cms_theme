@@ -1,0 +1,68 @@
+
+.case-study-list-view h2 {
+  font-weight: 700 !important;
+  font-size: 32px !important;
+  line-height: 38px !important;
+  font-family: "Poppins" !important;
+  color: rgb(83, 83, 84);
+  margin-bottom: 21px;
+}
+
+.case-study-list-view .col-md-4 {
+  margin-bottom: 30px;
+}
+
+.case-study-item {
+  border: 2px solid  #ffffff;
+  padding: 25px 23px 16px 19px;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.case-study-item:hover {
+  border-color: rgba(1, 125, 221, 0.5);
+}
+
+.case-study-item .thumbnail {
+  display: block;
+  width: 100%;
+  margin-bottom: 28px;
+  max-height: 464px;
+  overflow: hidden;
+}
+
+.case-study-item .thumbnail img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-study-item h3.title {
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 22px !important;
+  font-family: "Poppins" !important;
+  color: rgb(1, 118, 208);
+}
+
+.case-study-item .description {
+  font-size: 16px !important;
+  line-height: 26px !important;
+  font-weight: 400 !important;
+  font-family: "Noto Sans" !important;
+  color: rgb(25, 25, 26);
+}
+
+/* Mobile Style */
+@media only screen and (max-width: 768px) {
+  .case-study-list-view h2 {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: rgb(47, 48, 50);
+  }
+
+  .case-study-item {
+    border: 2px solid transparent;
+    padding: 10px 10px 29px;
+  }
+}

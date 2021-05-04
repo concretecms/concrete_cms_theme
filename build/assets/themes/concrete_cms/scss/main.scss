@@ -34,6 +34,7 @@
 @import "./containers/masthead-image-text";
 @import "./containers/feature-list-section";
 @import "./containers/two-column";
+@import "./containers/case-study-header";
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -84,6 +85,8 @@ div.ccm-page {
   /* Pages */
   @import "./pages/messages";
   @import "./pages/get_started";
+  @import "./pages/case_study_detail";
+  @import "./pages/case_study_list_view";
   @import "./pages/login";
 
   /* Dialogs */

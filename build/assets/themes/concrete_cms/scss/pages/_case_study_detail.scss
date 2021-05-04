@@ -1,0 +1,145 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+&.page-type-case-study {
+  background-color: #ffffff;
+}
+
+.case-study-detail {
+
+  .case-study-header {
+    hr {
+      margin-top: 24px;
+      margin-bottom: 24px;
+      border-color: rgb(224, 224, 224);
+    }
+
+    img {
+      margin-bottom: 42px;
+    }
+
+    .case-study-project-name {
+      color: rgb(83, 83, 84);
+      font-size: 42px;
+      line-height: 48px;
+      font-family: "Poppins";
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 0;
+    }
+
+    .developer, .site {
+      line-height: 24px;
+      color: rgb(25, 25, 26);
+      font-size: 14px;
+      text-align: right;
+
+
+      /* Tablet + Mobile */
+      @include media-breakpoint-down(md) {
+        text-align: left;
+      }
+
+      a {
+        font-weight: 700;
+        color: rgb(1, 125, 221);
+      }
+    }
+  }
+
+  .case-study-body {
+    color: rgb(25, 25, 26);
+
+    p {
+      line-height: 28px;
+    }
+
+    h3 {
+      margin-top: 15px;
+      color: rgb(124, 128, 136);
+      font-size: 18px;
+      line-height: 22px;
+      font-family: "Poppins";
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgb(224, 224, 224);
+      margin-bottom: 10px;
+    }
+
+    .column-section-container {
+
+      .column-section-title {
+        h1, h2, h3, h4, h5, h6 {
+          color: rgb(124, 128, 136);
+          font-size: 18px;
+          line-height: 22px;
+          font-family: "Poppins";
+          font-weight: 700;
+          text-transform: uppercase;
+          border: none;
+          margin-bottom: 50px;
+        }
+      }
+
+      .col-md-4 {
+        h1, h2, h3, h4, h5, h6 {
+          color: rgb(1, 118, 208);
+          font-size: 80px;
+          line-height: 22px;
+          letter-spacing: -4.05;
+          font-family: "Poppins";
+          font-weight: 700;
+          text-transform: uppercase;
+          margin-bottom: 40px;
+          max-width: 260px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        p {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 26px;
+          color: rgb(76, 79, 86);
+          max-width: 260px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 50px;
+        }
+
+        &:last-child {
+          p {
+            margin-bottom: 0;
+          }
+        }
+
+
+        /* Tablet + Mobile */
+        @include media-breakpoint-down(md) {
+          h1, h2, h3, h4, h5, h6 {
+            font-size: 60px;
+            letter-spacing: -3.04;
+            line-height: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  .case-study-footer {
+    margin-top: 50px;
+
+    h2 {
+      color: rgb(124, 128, 136);
+      font-size: 24px !important;
+      line-height: 28px !important;
+      font-family: "Poppins";
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -17,7 +17,9 @@ use Concrete\Core\Database\Connection\Connection;
 use Concrete\Core\Http\Request;
 use Concrete\Core\Package\Package;
 use Concrete\Core\Page\Page;
+use Concrete\Core\Page\PageList;
 use Concrete\Core\Page\Single;
+use Concrete\Core\Page\Summary\Template\Populator;
 use Concrete\Theme\Concrete\PageTheme;
 use Concrete\Theme\Elemental\PageTheme as ElementalPageTheme;
 use PortlandLabs\ConcreteCmsTheme\Provider\ServiceProvider;
@@ -26,14 +28,14 @@ class Controller extends Package
 {
     protected $pkgHandle = 'concrete_cms_theme';
     protected $appVersionRequired = '9.0';
-    protected $pkgVersion = '0.2.0';
+    protected $pkgVersion = '0.2.3';
     protected $pkgAllowsFullContentSwap = true;
     protected $pkgAutoloaderRegistries = [
         'src/PortlandLabs/ConcreteCmsTheme' => 'PortlandLabs\ConcreteCmsTheme',
     ];
     protected $pkgContentSwapFiles = [
-        "content_Swap_templates/marketing.xml" => "Marketing",
-        "content_Swap_templates/community.xml" => "Community"
+        "content_swap_templates/marketing.xml" => "Marketing",
+        "content_swap_templates/community.xml" => "Community"
     ];
 
     public function getPackageDescription()
@@ -52,8 +54,6 @@ class Controller extends Package
         $serviceProvider = $this->app->make(ServiceProvider::class);
         $serviceProvider->register();
     }
-
-
 
     public function testForUninstall()
     {
@@ -79,6 +79,20 @@ class Controller extends Package
         }
     }
 
+    private function postInstall()
+    {
+        /*
+         * This is required to update the available page templates
+         */
+        /** @var Populator $populator */
+        $populator = $this->app->make(Populator::class);
+        /** @var PageList $pageList */
+        $pageList = $this->app->make(PageList::class);
+        foreach ($pageList->getResults() as $page) {
+            $populator->updateAvailableSummaryTemplates($page);
+        }
+    }
+
     public function upgrade()
     {
 
@@ -97,6 +111,8 @@ class Controller extends Package
         $pkgID = $this->getPackageEntity()->getPackageID();
         $db = $this->app->make(Connection::class);
         $db->update('Pages', ['pkgID' => $pkgID], ['cFilename' => '/members/directory.php']);
+
+        $this->postInstall();
     }
 
     public function install()
@@ -127,6 +143,8 @@ class Controller extends Package
         $pkgID = $pkg->getPackageID();
         $db = $this->app->make(Connection::class);
         $db->update('Pages', ['pkgID' => $pkgID], ['cFilename' => '/members/directory.php']);
+
+        $this->postInstall();
 
         return $pkg;
     }

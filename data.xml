@@ -5,7 +5,456 @@
     </themes>
     <blocktypes>
         <blocktype handle="feature_item" package="concrete_cms_theme"/>
+        <blocktype handle="image_with_quote" package="concrete_cms_theme"/>
     </blocktypes>
+    <pagetemplates>
+        <pagetemplate icon="full.png" name="Case Study" handle="case_study" package="" internal=""/>
+    </pagetemplates>
+    <attributekeys>
+        <attributekey handle="developer_name" name="Developer Name" package="concrete_cms_marketing" searchable="1"
+                      indexed="1" type="text"
+                      category="collection"/>
+        <attributekey handle="developer_url" name="Developer URL" package="concrete_cms_marketing" searchable="1"
+                      indexed="1" type="text"
+                      category="collection"/>
+        <attributekey handle="site_name" name="Site Name" package="concrete_cms_marketing" searchable="1" indexed="1"
+                      type="text"
+                      category="collection"/>
+        <attributekey handle="site_url" name="Site URL" package="concrete_cms_marketing" searchable="1" indexed="1"
+                      type="text"
+                      category="collection"/>
+    </attributekeys>
+    <pagetypes>
+        <pagetype name="Case Study" handle="case_study" package="concrete_cms_theme" launch-in-composer="0"
+                  is-frequently-added="1">
+            <pagetemplates type="all" default="case_study"/>
+            <target handle="all" package="" form-factor=""/>
+            <composer>
+                <formlayout>
+                    <set name="Basics" description="">
+                        <control custom-template="" required="1" custom-label="Page Name" description=""
+                                 type="core_page_property" handle="name"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="description"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="url_slug"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="page_template"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="publish_target"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="site_name"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="site_url"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="developer_name"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="developer_url"/>
+                    </set>
+                    <set name="Basics" description="">
+                        <control custom-template="" required="1" custom-label="Page Name" description=""
+                                 type="core_page_property" handle="name"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="description"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="url_slug"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="page_template"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="publish_target"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="site_name"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="site_url"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="developer_name"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="developer_url"/>
+                    </set>
+                </formlayout>
+                <output>
+                    <pagetemplate handle="case_study">
+                        <page name="" path="" public-date="2021-05-03 14:38:51" filename="" pagetype="case_study"
+                              template="case_study" user="admin" description="" package="" root="true">
+                            <area name="Main">
+                                <blocks>
+                                    <block type="content" name="" mc-block-id="5d4810a2">
+                                        <style>
+                                            <backgroundColor/>
+                                            <backgroundRepeat>no-repeat</backgroundRepeat>
+                                            <backgroundSize>auto</backgroundSize>
+                                            <backgroundPosition>0% 0%</backgroundPosition>
+                                            <borderWidth/>
+                                            <borderColor/>
+                                            <borderStyle/>
+                                            <borderRadius/>
+                                            <baseFontSize/>
+                                            <alignment/>
+                                            <textColor/>
+                                            <linkColor/>
+                                            <paddingTop/>
+                                            <paddingBottom>30px</paddingBottom>
+                                            <paddingLeft/>
+                                            <paddingRight/>
+                                            <marginTop/>
+                                            <marginBottom/>
+                                            <marginLeft/>
+                                            <marginRight/>
+                                            <rotate/>
+                                            <boxShadowHorizontal/>
+                                            <boxShadowVertical/>
+                                            <boxShadowBlur/>
+                                            <boxShadowSpread/>
+                                            <boxShadowColor/>
+                                            <customClass/>
+                                            <customID/>
+                                            <customElementAttribute/>
+                                            <hideOnExtraSmallDevice/>
+                                            <hideOnSmallDevice/>
+                                            <hideOnMediumDevice/>
+                                            <hideOnLargeDevice/>
+                                        </style>
+                                        <data table="btContentLocal">
+                                            <record>
+                                                <content><![CDATA[<p class="large-text">The ITV brand is a global powerhouse and as a result, the ITV Media (ITV&#39;s commercial advertising arm) site was attracting the wrong audience.</p>
+
+<p>Visitors to the site were landing there expecting to watch programs via the ITV Hub, leading to a high bounce rate and a confusing customer experience. Rawnet worked with the team at ITV Media for a number of years now, making them the ideal partner to help them overcome their challenges and drive the brand forward.</p>
+]]></content>
+                                            </record>
+                                        </data>
+                                    </block>
+                                    <block type="image_with_quote" name="" custom-container-settings="0"
+                                           mc-block-id="52350aee">
+                                        <data table="btImageWithQuote">
+                                            <record>
+                                                <fID><![CDATA[23]]></fID>
+                                                <name><![CDATA[Tom Shepherd]]></name>
+                                                <background><![CDATA[light-gray]]></background>
+                                                <alignment><![CDATA[right]]></alignment>
+                                                <quote>
+                                                    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.]]></quote>
+                                            </record>
+                                        </data>
+                                    </block>
+                                    <block type="content" name="" mc-block-id="0848bdbc">
+                                        <style>
+                                            <backgroundColor/>
+                                            <backgroundRepeat>no-repeat</backgroundRepeat>
+                                            <backgroundSize>auto</backgroundSize>
+                                            <backgroundPosition>0% 0%</backgroundPosition>
+                                            <borderWidth/>
+                                            <borderColor/>
+                                            <borderStyle/>
+                                            <borderRadius/>
+                                            <baseFontSize/>
+                                            <alignment/>
+                                            <textColor/>
+                                            <linkColor/>
+                                            <paddingTop>30px</paddingTop>
+                                            <paddingBottom/>
+                                            <paddingLeft/>
+                                            <paddingRight/>
+                                            <marginTop/>
+                                            <marginBottom/>
+                                            <marginLeft/>
+                                            <marginRight/>
+                                            <rotate/>
+                                            <boxShadowHorizontal/>
+                                            <boxShadowVertical/>
+                                            <boxShadowBlur/>
+                                            <boxShadowSpread/>
+                                            <boxShadowColor/>
+                                            <customClass/>
+                                            <customID/>
+                                            <customElementAttribute/>
+                                            <hideOnExtraSmallDevice/>
+                                            <hideOnSmallDevice/>
+                                            <hideOnMediumDevice/>
+                                            <hideOnLargeDevice/>
+                                        </style>
+                                        <data table="btContentLocal">
+                                            <record>
+                                                <content><![CDATA[<h3>Digital Strategy</h3>
+
+<p>Rawnet started with their strategy team, who embedded themselves into the ITV Media business to gain a deep understanding of their core challenges through a series of workshops, interviews &amp; surveys. The goal was to define a plan of recommended digital changes to overcome ITV Media&#39;s challenges, assist continued commercial growth and take full advantage of future opportunities in the market.</p>
+
+<p>From that, they discovered that one of ITV Media&rsquo;s business KPIs was to expand the client portfolio via SMEs and reduce the reliance on securing budgets from the &lsquo;big brands&rsquo;.</p>
+
+<p>However, SME target customers looking on the ITV Media website were faced with an offering that was too daunting. It didn&rsquo;t look affordable or accessible, and was a barrier to conversion for mid-sized brands.</p>
+
+<p>It became clear that refinements to the ITV Media proposition were necessary in order to drive the brand forward, both in terms of attracting a wider portfolio of clients &amp; reducing frustration for visitors looking for the ITV Hub.</p>
+
+<p>They worked with ITV Media to develop a really clear value proposition, communicating their service offerings in a manner that resonated with their target audience.</p>
+
+<h3>ITV Media&#39;s New Proposition</h3>
+
+<p>The structure of the site was optimized so that the right content was seen in the right place. They removed their catalog of programs from the site, as that&rsquo;s what itv.com is for, and instead used specific programs as case studies to showcase the amazing advertising successes ITV Media&rsquo;s customers have had. This helped to reduce confusion, improve the customer experience, and drive better quality leads.</p>
+
+<h3>ITV Media&#39;s New Proposition</h3>
+
+<p>The structure of the site was optimized so that the right content was seen in the right place. They removed their catalog of programs from the site, as that&rsquo;s what itv.com is for, and instead used specific programs as case studies to showcase the amazing advertising successes ITV Media&rsquo;s customers have had. This helped to reduce confusion, improve the customer experience, and drive better quality leads.</p>
+]]></content>
+                                            </record>
+                                        </data>
+                                    </block>
+                                    <block type="core_container" name="" mc-block-id="ef51944f">
+                                        <container handle="three_column_light_gray">
+                                            <containerarea name="Title">
+                                                <block type="content" name="" mc-block-id="301cb87e">
+                                                    <data table="btContentLocal">
+                                                        <record>
+                                                            <content><![CDATA[<h3 style="text-align: center;">The data doesn&rsquo;t lie</h3>
+]]></content>
+                                                        </record>
+                                                    </data>
+                                                </block>
+                                            </containerarea>
+                                            <containerarea name="Column One">
+                                                <block type="content" name="" mc-block-id="5a0d7b4b">
+                                                    <data table="btContentLocal">
+                                                        <record>
+                                                            <content><![CDATA[<h4 style="text-align: center;">18%</h4>
+
+<p style="text-align: center;"><strong>Increase in brochure requests</strong></p>
+]]></content>
+                                                        </record>
+                                                    </data>
+                                                </block>
+                                            </containerarea>
+                                            <containerarea name="Column Two">
+                                                <block type="content" name="" mc-block-id="a33b10c7">
+                                                    <data table="btContentLocal">
+                                                        <record>
+                                                            <content><![CDATA[<h4 style="text-align: center;">18%</h4>
+
+<p style="text-align: center;"><strong>Increase in brochure requests</strong></p>
+]]></content>
+                                                        </record>
+                                                    </data>
+                                                </block>
+                                            </containerarea>
+                                            <containerarea name="Column Three">
+                                                <block type="content" name="" mc-block-id="0277674f">
+                                                    <data table="btContentLocal">
+                                                        <record>
+                                                            <content><![CDATA[<h4 style="text-align: center;">18%</h4>
+
+<p style="text-align: center;"><strong>Increase in brochure requests</strong></p>
+]]></content>
+                                                        </record>
+                                                    </data>
+                                                </block>
+                                            </containerarea>
+                                        </container>
+                                    </block>
+                                    <block type="image_with_quote" name="" custom-container-settings="0"
+                                           mc-block-id="77ff18b8">
+                                        <style>
+                                            <backgroundColor/>
+                                            <backgroundRepeat>no-repeat</backgroundRepeat>
+                                            <backgroundSize>auto</backgroundSize>
+                                            <backgroundPosition>0% 0%</backgroundPosition>
+                                            <borderWidth/>
+                                            <borderColor/>
+                                            <borderStyle/>
+                                            <borderRadius/>
+                                            <baseFontSize/>
+                                            <alignment/>
+                                            <textColor/>
+                                            <linkColor/>
+                                            <paddingTop>50px</paddingTop>
+                                            <paddingBottom/>
+                                            <paddingLeft/>
+                                            <paddingRight/>
+                                            <marginTop/>
+                                            <marginBottom/>
+                                            <marginLeft/>
+                                            <marginRight/>
+                                            <rotate/>
+                                            <boxShadowHorizontal/>
+                                            <boxShadowVertical/>
+                                            <boxShadowBlur/>
+                                            <boxShadowSpread/>
+                                            <boxShadowColor/>
+                                            <customClass/>
+                                            <customID/>
+                                            <customElementAttribute/>
+                                            <hideOnExtraSmallDevice/>
+                                            <hideOnSmallDevice/>
+                                            <hideOnMediumDevice/>
+                                            <hideOnLargeDevice/>
+                                        </style>
+                                        <data table="btImageWithQuote">
+                                            <record>
+                                                <fID><![CDATA[23]]></fID>
+                                                <name><![CDATA[Tom Shepherd]]></name>
+                                                <background><![CDATA[white]]></background>
+                                                <alignment><![CDATA[left]]></alignment>
+                                                <quote>
+                                                    <![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et.]]></quote>
+                                            </record>
+                                        </data>
+                                    </block>
+                                    <block type="content" name="" mc-block-id="d3c8e6fb">
+                                        <style>
+                                            <backgroundColor/>
+                                            <backgroundRepeat>no-repeat</backgroundRepeat>
+                                            <backgroundSize>auto</backgroundSize>
+                                            <backgroundPosition>0% 0%</backgroundPosition>
+                                            <borderWidth/>
+                                            <borderColor/>
+                                            <borderStyle/>
+                                            <borderRadius/>
+                                            <baseFontSize/>
+                                            <alignment/>
+                                            <textColor/>
+                                            <linkColor/>
+                                            <paddingTop>30px</paddingTop>
+                                            <paddingBottom/>
+                                            <paddingLeft/>
+                                            <paddingRight/>
+                                            <marginTop/>
+                                            <marginBottom/>
+                                            <marginLeft/>
+                                            <marginRight/>
+                                            <rotate/>
+                                            <boxShadowHorizontal/>
+                                            <boxShadowVertical/>
+                                            <boxShadowBlur/>
+                                            <boxShadowSpread/>
+                                            <boxShadowColor/>
+                                            <customClass/>
+                                            <customID/>
+                                            <customElementAttribute/>
+                                            <hideOnExtraSmallDevice/>
+                                            <hideOnSmallDevice/>
+                                            <hideOnMediumDevice/>
+                                            <hideOnLargeDevice/>
+                                        </style>
+                                        <data table="btContentLocal">
+                                            <record>
+                                                <content><![CDATA[<h3>About Rawnet</h3>
+
+<p>Their investigative process alongside their creativity and technical expertise make them a valuable partner, not just another digital supplier. They are solely dedicated to creating long term positive impact for their clients.</p>
+
+<p><strong>Their approach to partnerships</strong><br />
+They pride themselves on their approach, calling it The 5 Ds. A fast-paced, yet detailed immersion into their client&#39;s business allows their team to understand objectives and customer requirements.</p>
+
+<p>Equipped with this knowledge they&#39;re able to provide quality, scalable solutions to help meet objectives and ensure our clients are fit for the future.</p>
+
+<p><strong>Creating a long-term, positive impact</strong></p>
+
+<ul>
+	<li>They don&rsquo;t do campaigns. They don&rsquo;t simply &lsquo;redesign&rsquo; a website with a new set of features.</li>
+	<li>Everything they do moves their client one step closer to being an industry leader.</li>
+	<li>They only take on projects that can create a positive, measurable, everlasting change.</li>
+</ul>
+
+<p><strong>Contact Rawnet</strong><br />
+Partner Page: <a href="#">www.concrete5.org/rawnet</a><br />
+Website: <a href="#">www.rawnet.com</a></p>
+]]></content>
+                                            </record>
+                                        </data>
+                                    </block>
+                                    <block type="core_stack_display" name="" mc-block-id="51a1771a">
+                                        <style>
+                                            <backgroundColor/>
+                                            <backgroundRepeat>no-repeat</backgroundRepeat>
+                                            <backgroundSize>auto</backgroundSize>
+                                            <backgroundPosition>0% 0%</backgroundPosition>
+                                            <borderWidth/>
+                                            <borderColor/>
+                                            <borderStyle/>
+                                            <borderRadius/>
+                                            <baseFontSize/>
+                                            <alignment/>
+                                            <textColor/>
+                                            <linkColor/>
+                                            <paddingTop>50px</paddingTop>
+                                            <paddingBottom>50px</paddingBottom>
+                                            <paddingLeft/>
+                                            <paddingRight/>
+                                            <marginTop/>
+                                            <marginBottom/>
+                                            <marginLeft/>
+                                            <marginRight/>
+                                            <rotate/>
+                                            <boxShadowHorizontal/>
+                                            <boxShadowVertical/>
+                                            <boxShadowBlur/>
+                                            <boxShadowSpread/>
+                                            <boxShadowColor/>
+                                            <customClass/>
+                                            <customID/>
+                                            <customElementAttribute/>
+                                            <hideOnExtraSmallDevice/>
+                                            <hideOnSmallDevice/>
+                                            <hideOnMediumDevice/>
+                                            <hideOnLargeDevice/>
+                                        </style>
+                                        <stack><![CDATA[case_study_cta]]></stack>
+                                    </block>
+                                </blocks>
+                            </area>
+                        </page>
+                    </pagetemplate>
+                    <pagetemplate handle="full">
+                        <page name="" path="" public-date="2021-05-03 14:39:07" filename="" pagetype="case_study"
+                              template="full" user="admin" description="" package="" root="true"/>
+                    </pagetemplate>
+                    <pagetemplate handle="left_sidebar">
+                        <page name="" path="" public-date="2021-05-03 17:10:50" filename="" pagetype="case_study"
+                              template="left_sidebar" user="admin" description="" package="" root="true"/>
+                    </pagetemplate>
+                    <pagetemplate handle="right_sidebar">
+                        <page name="" path="" public-date="2021-05-03 17:10:50" filename="" pagetype="case_study"
+                              template="right_sidebar" user="admin" description="" package="" root="true"/>
+                    </pagetemplate>
+                </output>
+            </composer>
+        </pagetype>
+    </pagetypes>
+    <stacks>
+        <stack name="case_study_cta" path="/case-study-cta">
+            <area name="Main">
+                <blocks>
+                    <block type="content" name="">
+                        <data table="btContentLocal">
+                            <record>
+                                <content><![CDATA[<h2 class="highlight" style="text-align: center;">Build your website in minutes.</h2>
+
+<p class="lead" style="text-align: center;">Try Concrete today and get inspired to bring your ideas to life.</p>
+
+<p class="large-text" style="text-align: center;">&nbsp;</p>
+
+<p style="text-align: center;"><a class="btn btn-primary btn-lg" href="#">Free Consultation</a></p>
+]]></content>
+                            </record>
+                        </data>
+                    </block>
+                </blocks>
+            </area>
+        </stack>
+    </stacks>
+    <thumbnailtypes>
+        <thumbnailtype name="Case Study Thumbnail" handle="case_study_thumbnail" width="672" height="464"
+                       sizingMode="exact"/>
+    </thumbnailtypes>
+    <summarytemplates>
+        <template handle="case_study_item" name="Case Study Item"
+                  icon="blank.png" package="concrete_cms_theme">
+            <categories>
+                <category handle="page"/>
+            </categories>
+            <fields>
+                <field required="1">title</field>
+                <field required="1">link</field>
+                <field required="0">thumbnail</field>
+                <field>description</field>
+            </fields>
+        </template>
+    </summarytemplates>
     <attributekeys>
         <attributekey handle="enable_dark_mode" name="Enable Dark Mode" package="concrete_cms_theme"
                       searchable="1"
@@ -35,6 +484,11 @@
         <container handle="two_column_light_gray" name="Two Column Light Gray" icon="two_column.png" package=""/>
         <container handle="two_column_dark_gray" name="Two Column Dark Gray" icon="two_column.png" package=""/>
         <container handle="two_column_blue" name="Two Column Blue" icon="two_column.png" package=""/>
+        <container handle="three_column_white" name="Three Column White" icon="three_column.png" package=""/>
+        <container handle="three_column_light_gray" name="Three Column Light Gray" icon="three_column.png" package=""/>
+        <container handle="three_column_dark_gray" name="Three Column Dark Gray" icon="three_column.png" package=""/>
+        <container handle="three_column_blue" name="Three Column Blue" icon="three_column.png" package=""/>
+        <container handle="case_study_landing_header" name="Case Study Landing Header" icon="two_column.png" package=""/>
         <container handle="section_light_gray" name="Light Gray Single Column" icon="two_column.png" package=""/>
         <container handle="section_white" name="White Single Column" icon="two_column.png" package=""/>
         <container handle="section_dark_gray" name="Dark Gray Single Column" icon="two_column.png" package=""/>

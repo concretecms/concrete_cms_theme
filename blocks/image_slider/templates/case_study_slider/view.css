@@ -1,0 +1,29 @@
+.ccm-page .case-study-slider {
+    margin-top: 0 !important;
+}
+
+.ccm-page .case-study-slider .rslides_tabs {
+    padding-top: 4px;
+}
+
+.ccm-page .case-study-slider .rslides_tabs li a {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+    border-radius: 30px;
+}
+
+.ccm-page .case-study-slider .ccm-image-slider {
+    height: auto;
+}
+
+/* Mobile Style */
+@media only screen and (max-width: 768px) {
+    .ccm-page .case-study-slider .rslides_tabs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
