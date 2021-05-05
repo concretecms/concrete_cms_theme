@@ -12,10 +12,6 @@ div.ccm-page {
       color: $blue;
     }
 
-    @include media-breakpoint-up(sm) {
-      padding-left: 30px; // make the left image exactly flush with the logo
-    }
-
     @include media-breakpoint-down(sm) {
 
       margin-top: 1em;

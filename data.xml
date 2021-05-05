@@ -477,6 +477,7 @@ Website: <a href="#">www.rawnet.com</a></p>
         </page>
     </singlepages>
     <containers>
+        <container handle="masthead_larger_left_image_text" name="Masthead Left Image (Large) with Text" icon="feature.png" package=""/>
         <container handle="masthead_left_image_text" name="Masthead Left Image with Text" icon="feature.png" package=""/>
         <container handle="masthead_right_image_text" name="Masthead Right Image with Text" icon="feature.png" package=""/>
         <container handle="feature_list_section" name="Feature List Section" icon="left_list.png" package=""/>
