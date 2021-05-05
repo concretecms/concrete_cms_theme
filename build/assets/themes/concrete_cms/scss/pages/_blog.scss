@@ -1,9 +1,8 @@
-/**
- * @project:   ConcreteCMS Theme
- *
- * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
- * @author     Fabian Bitter (fabian@bitter.de)
- */
+.page-template-blog-entry, .page-template-blog-category {
+  main {
+    margin-top: 15px;
+  }
+}
 
 .page-template-blog-entry .ccm-search-block-blog-header h4,
 .page-template-blog-category .ccm-search-block-blog-header h4 {
