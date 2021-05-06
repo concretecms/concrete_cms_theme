@@ -14,26 +14,26 @@
     background-repeat: no-repeat;
 
     .ccm-image-slider {
-      height: 580px;
+      /* height: 580px; */
       overflow: hidden;
 
       .rslides {
 
         li {
           list-style-type: none;
-          height: 580px;
+          /* height: 580px; */
 
           .ccm-image {
             position: absolute;
             width: 100%;
             top: 0;
             right: 0;
-            height: 580px;
+            /* height: 580px; */
             z-index: 2;
 
             img {
               position: absolute;
-              height: 580px;
+              /* height: 580px; */
               padding: 50px 0 50px 50px;
               width: auto;
               z-index: 0;
@@ -45,7 +45,7 @@
             position: absolute;
             width: 100%;
             top: 0;
-            height: 580px;
+            /* height: 580px; */
             z-index: 2;
 
             h2, p {
@@ -179,7 +179,7 @@
   background-repeat: repeat;
 
   .ccm-image-slider {
-    height: 580px;
+    /* height: 580px; */
     overflow: hidden;
 
     .rslides {
@@ -188,7 +188,7 @@
         list-style-type: none;
 
         .image-wrapper {
-          height: 580px;
+          /* height: 580px; */
           overflow: hidden;
           position: relative;
 
@@ -206,7 +206,7 @@
           img {
             position: absolute;
             min-width: 100%;
-            min-height: 580px;
+            /* height: 580px; */
             width: auto;
             z-index: 0;
           }
