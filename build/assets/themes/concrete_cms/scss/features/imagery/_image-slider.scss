@@ -183,7 +183,7 @@
   background-repeat: repeat;
 
   .ccm-image-slider {
-    /* height: 580px; */
+    height: 580px;
     overflow: hidden;
 
     .rslides {
@@ -192,7 +192,7 @@
         list-style-type: none;
 
         .image-wrapper {
-          /* height: 580px; */
+          height: 580px;
           overflow: hidden;
           position: relative;
 
@@ -210,7 +210,7 @@
           img {
             position: absolute;
             min-width: 100%;
-            /* min-height: 580px; */
+            min-height: 580px;
             width: auto;
             z-index: 0;
           }
