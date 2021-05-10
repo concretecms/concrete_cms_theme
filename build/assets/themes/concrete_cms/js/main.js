@@ -361,3 +361,12 @@ $(function () {
 $("#ccm-upload-avatar, #ccm-upload-header-image").on("submit", function () {
     $("body").addClass("loading");
 });
+
+/*
+ * Language Switcher JS
+ */
+
+$(".ccm-page .ccm-block-switch-language-flags-dropdown select").change(function () {
+    debugger;
+    window.location.href = $(this).data("action").replace("--language--", $(this).find("option:selected").val())
+});
