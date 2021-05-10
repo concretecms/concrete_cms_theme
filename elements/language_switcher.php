@@ -65,7 +65,13 @@ $activeLanguage = $al->getCollectionID();
         <div class="ccm-block-switch-language-flags-dropdown">
 
             <div class="ccm-block-switch-language-flags-icon">
-                <?php echo $ih->getSectionFlagIcon($c) ?>
+                <?php
+                if (Section::getBySectionOfSite($c) !== null) {
+                    echo $ih->getSectionFlagIcon($c);
+                } else {
+                    echo $ih->getSectionFlagIcon(Page::getByID(Page::getHomePageID()));
+                }
+                ?>
             </div>
 
             <?php echo $form->select(
