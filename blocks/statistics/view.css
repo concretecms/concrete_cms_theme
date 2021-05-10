@@ -1,0 +1,32 @@
+.ccm-page .ccm-statistics-item .figure {
+    color: rgb(1, 118, 208) !important;
+    font-size: 80px;
+    line-height: 22px;
+    letter-spacing: -4.05;
+    font-family: "Poppins";
+    font-weight: 700;
+    text-transform: uppercase;
+    max-width: 260px;
+    text-align: center !important;
+    display: block;
+    margin: 20px auto 40px;
+}
+
+.ccm-page .ccm-statistics-item .legend {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: rgb(76, 79, 86) !important;
+    max-width: 260px;
+    margin: 0 auto 50px;
+    text-align: center !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .ccm-page .ccm-statistics-item .figure {
+        font-size: 60px;
+        letter-spacing: -3.04;
+        line-height: 22px;
+    }
+}

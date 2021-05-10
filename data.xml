@@ -6,6 +6,7 @@
     <blocktypes>
         <blocktype handle="feature_item" package="concrete_cms_theme"/>
         <blocktype handle="image_with_quote" package="concrete_cms_theme"/>
+        <blocktype handle="statistics" package="concrete_cms_theme"/>
     </blocktypes>
     <pagetemplates>
         <pagetemplate icon="full.png" name="Case Study" handle="case_study" package="" internal=""/>
