@@ -73,6 +73,18 @@
     max-width: 399px;
 }
 
+.ccm-page .image-with-quote .background {
+    position: absolute;
+    left: calc(100vw * -1);
+    right: calc(100vw * -1);
+    height: 100%;
+    z-index: 0;
+}
+
+.ccm-page .image-with-quote .container {
+    z-index: 1;
+}
+
 /* Mobile Style */
 @media only screen and (max-width: 768px) {
     .ccm-page .image-with-quote {
@@ -124,7 +136,7 @@
 }
 
 /* Color style rules */
-.ccm-page .image-with-quote.blue {
+.ccm-page .image-with-quote.blue .background {
     background-color: #017DDD;
 }
 
@@ -133,11 +145,11 @@
     color: #ffffff;
 }
 
-.ccm-page .image-with-quote.white {
+.ccm-page .image-with-quote.white .background {
     background-color: #ffffff;
 }
 
-.ccm-page .image-with-quote.dark-gray {
+.ccm-page .image-with-quote.dark-gray .background {
     background-color: #3B3B3B;
 }
 
@@ -146,6 +158,6 @@
     color: #ffffff;
 }
 
-.ccm-page .image-with-quote.light-gray {
+.ccm-page .image-with-quote.light-gray .background {
     background-color: rgb(246, 248, 250);
 }
