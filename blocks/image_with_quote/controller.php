@@ -17,6 +17,7 @@ use Concrete\Core\Form\Service\Validation;
 class Controller extends BlockController
 {
     protected $btTable = "btImageWithQuote";
+    protected $btIgnorePageThemeGridFrameworkContainer = true;
 
     // Background options
     const BACKGROUND_WHITE = 'white';
