@@ -6,7 +6,19 @@
             <unsigned/>
             <key/>
         </field>
-        <field name="figure" type="string" size="255"/>
-        <field name="legend" type="string" size="255"/>
+        <field name="title" type="string" size="255"/>
+    </table>
+
+    <table name="btStatisticsEntries">
+        <field name="id" type="integer">
+            <unsigned/>
+            <autoincrement/>
+            <key/>
+        </field>
+        <field name="bID" type="integer">
+            <unsigned/>
+        </field>
+        <field name="label" type="string" size="255"/>
+        <field name="value" type="string" size="255"/>
     </table>
 </schema>
