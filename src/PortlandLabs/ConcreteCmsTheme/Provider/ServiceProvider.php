@@ -76,6 +76,12 @@ class ServiceProvider extends Provider
         $this->registerThemePaths();
         $this->registerNavigations();
         $this->changeAvatarIcon();
+        $this->changeLanguageSwitcherRoutes();
+    }
+
+    private function changeLanguageSwitcherRoutes()
+    {
+        $this->router->register("/ccm/language_switcher/switch_language/{currentPageID}/{sectionID}", "\Concrete\Block\SwitchLanguage\Controller::action_switch_language");
     }
 
     private function changeAvatarIcon()

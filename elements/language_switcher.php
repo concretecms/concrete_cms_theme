@@ -80,7 +80,7 @@ $activeLanguage = $al->getCollectionID();
                     $activeLanguage,
                     [
                         'data-select' => 'multilingual-switch-language',
-                        'data-action' => (string)Url::to($c, 'switch_language', $c->getCollectionID(), '--language--')
+                        'data-action' => (string)Url::to('/ccm/language_switcher/', 'switch_language', $c->getCollectionID(), '--language--')
                     ]
                 ) ?>
             </div>
