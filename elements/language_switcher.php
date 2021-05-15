@@ -53,38 +53,39 @@ foreach ($ml as $m) {
 }
 
 $activeLanguage = $al->getCollectionID();
-
 ?>
 
-<div class="ccm-block-switch-language-flags">
-    <div class="ccm-block-switch-language-flags-label">
-        <?php echo $label ?>
+<?php if (count($languages) > 1) { ?>
+    <div class="ccm-block-switch-language-flags">
+        <div class="ccm-block-switch-language-flags-label">
+            <?php echo $label ?>
+        </div>
+
+        <form method="post">
+            <div class="ccm-block-switch-language-flags-dropdown">
+
+                <div class="ccm-block-switch-language-flags-icon">
+                    <?php
+                    if (Section::getBySectionOfSite($c) !== null) {
+                        echo $ih->getSectionFlagIcon($c);
+                    } else {
+                        echo $ih->getSectionFlagIcon(Page::getByID(Page::getHomePageID()));
+                    }
+                    ?>
+                </div>
+
+                <?php echo $form->select(
+                    'language',
+                    $languages,
+                    $activeLanguage,
+                    [
+                        'data-select' => 'multilingual-switch-language',
+                        'data-action' => (string)Url::to('/ccm/language_switcher/', 'switch_language', $c->getCollectionID(), '--language--')
+                    ]
+                ) ?>
+            </div>
+        </form>
     </div>
 
-    <form method="post">
-        <div class="ccm-block-switch-language-flags-dropdown">
-
-            <div class="ccm-block-switch-language-flags-icon">
-                <?php
-                if (Section::getBySectionOfSite($c) !== null) {
-                    echo $ih->getSectionFlagIcon($c);
-                } else {
-                    echo $ih->getSectionFlagIcon(Page::getByID(Page::getHomePageID()));
-                }
-                ?>
-            </div>
-
-            <?php echo $form->select(
-                'language',
-                $languages,
-                $activeLanguage,
-                [
-                    'data-select' => 'multilingual-switch-language',
-                    'data-action' => (string)Url::to($c, 'switch_language', $c->getCollectionID(), '--language--')
-                ]
-            ) ?>
-        </div>
-    </form>
-</div>
-
-<div class="clearfix"></div>
+    <div class="clearfix"></div>
+<?php } ?>

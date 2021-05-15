@@ -61,6 +61,4 @@ $defaultImageUrl = $pkg->getRelativePath() . "/images/default_thumbnail_small.jp
             </div>
         </div>
     </div>
-
-    <div class="background"></div>
 </div>

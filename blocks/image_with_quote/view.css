@@ -73,14 +73,6 @@
     max-width: 399px;
 }
 
-.ccm-page .image-with-quote .background {
-    position: absolute;
-    left: calc(100vw * -1);
-    right: calc(100vw * -1);
-    height: 100%;
-    z-index: 0;
-}
-
 .ccm-page .image-with-quote .container {
     z-index: 1;
 }
@@ -136,7 +128,7 @@
 }
 
 /* Color style rules */
-.ccm-page .image-with-quote.blue .background {
+.ccm-page .image-with-quote.blue {
     background-color: #017DDD;
 }
 
@@ -145,11 +137,11 @@
     color: #ffffff;
 }
 
-.ccm-page .image-with-quote.white .background {
+.ccm-page .image-with-quote.white {
     background-color: #ffffff;
 }
 
-.ccm-page .image-with-quote.dark-gray .background {
+.ccm-page .image-with-quote.dark-gray {
     background-color: #3B3B3B;
 }
 
@@ -158,6 +150,6 @@
     color: #ffffff;
 }
 
-.ccm-page .image-with-quote.light-gray .background {
+.ccm-page .image-with-quote.light-gray {
     background-color: rgb(246, 248, 250);
 }
