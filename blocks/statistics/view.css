@@ -1,48 +1,49 @@
 .ccm-page .ccm-statistics-container {
-    background-color: rgb(246, 248, 250);
+    background-color: rgb(246, 248, 250) !important;
 }
 
 .ccm-page .ccm-statistics-title {
-    font-family: 'Poppins';
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    color: rgb(124, 128, 136);
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 57px;
-    margin-bottom: 65px;
+    font-family: 'Poppins' !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 22px !important;
+    color: rgb(124, 128, 136) !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    margin-top: 57px !important;
+    margin-bottom: 65px !important;
 }
 
 .ccm-page .ccm-statistics-item .value {
     color: rgb(1, 118, 208) !important;
-    font-size: 80px;
-    line-height: 22px;
-    letter-spacing: -4.05;
-    font-family: "Poppins";
-    font-weight: 700;
-    text-transform: uppercase;
-    max-width: 260px;
+    font-size: 80px !important;
+    line-height: 22px !important;
+    letter-spacing: -4.05px !important;
+    font-family: "Poppins" !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    max-width: 260px !important;
     text-align: center !important;
-    display: block;
-    margin: 20px auto 40px;
+    display: block !important;
+    margin: 20px auto 40px !important;
+    border-bottom: none   !important;
 }
 
 .ccm-page .ccm-statistics-item .label {
-    display: block;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 26px;
+    display: block !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 26px !important;
     color: rgb(76, 79, 86) !important;
-    max-width: 260px;
-    margin: 0 auto 50px;
+    max-width: 260px !important;
+    margin: 0 auto 50px !important;
     text-align: center !important;
 }
 
 @media only screen and (max-width: 768px) {
     .ccm-page .ccm-statistics-item .value {
-        font-size: 60px;
-        letter-spacing: -3.04;
-        line-height: 22px;
+        font-size: 60px !important;
+        letter-spacing: -3.04 !important;
+        line-height: 22px !important;
     }
 }
