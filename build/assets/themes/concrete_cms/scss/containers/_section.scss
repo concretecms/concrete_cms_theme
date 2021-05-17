@@ -74,7 +74,28 @@ div.ccm-page {
     }
   }
 
-  &.ccm-dark-mode {
+  // Sometimes people include image sliders in the content section, and we need to make sure that in these cases
+  // we do NOT use the 580px default height. Ideally we wouldn't have this set at 580px and we'd use specific
+  // stylings to set it to 580px instead of the other way around, but we've tweaked the styles enough so that thye
+  // look nice and I don't want to have to redo all of them and potentially break things that are already working like
+  // the home pages of the .com and .org sites.
+  .ccm-image-slider {
+    height: auto;
+    .rslides {
+      li {
+        height: auto;
+        .image-wrapper {
+          height: auto;
+          .ccm-image {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+
+    &.ccm-dark-mode {
     section.content-section {
 
       &.column-section-container-dark-gray {
