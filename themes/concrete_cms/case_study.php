@@ -141,11 +141,13 @@ $relatedCaseStudies = $pagination->getCurrentPageResults();
     </div>
 
     <div class="case-study-footer">
-        <?php
-        $a = new Area('Case Study Footer');
-        $a->enableGridContainer();
-        $a->display($c);
-        ?>
+        <div class="case-study-custom-footer">
+            <?php
+            $a = new Area('Case Study Footer');
+            $a->enableGridContainer();
+            $a->display($c);
+            ?>
+        </div>
 
         <?php if (count($relatedCaseStudies) > 0) { ?>
             <div class="case-study-list-view">

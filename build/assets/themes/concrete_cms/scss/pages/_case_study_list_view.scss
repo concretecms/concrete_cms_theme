@@ -66,3 +66,14 @@
     padding: 10px 10px 29px;
   }
 }
+
+/* Make case study page smaller */
+.case-study-header {
+  max-width: 980px;
+  margin: auto;
+}
+
+.case-study-body .container,
+.case-study-custom-footer .container {
+  max-width: 980px;
+}
