@@ -137,18 +137,17 @@ $relatedCaseStudies = $pagination->getCurrentPageResults();
         $a = new Area('Main');
         $a->enableGridContainer();
         $a->display($c);
-
-        // Render additional areas if required
-        for ($i = 1; $i <= (int)$c->getAttribute('main_area_number'); $i++) {
-            $a = new Area('Main ' . $i);
-            $a->enableGridContainer();
-            $a->display($c);
-        }
         ?>
     </div>
 
-    <?php if (count($relatedCaseStudies) > 0) { ?>
-        <div class="case-study-footer">
+    <div class="case-study-footer">
+        <?php
+        $a = new Area('Case Study Footer');
+        $a->enableGridContainer();
+        $a->display($c);
+        ?>
+
+        <?php if (count($relatedCaseStudies) > 0) { ?>
             <div class="case-study-list-view">
                 <div class="container">
                     <div class="row">
@@ -168,8 +167,8 @@ $relatedCaseStudies = $pagination->getCurrentPageResults();
                     </div>
                 </div>
             </div>
-        </div>
-    <?php } ?>
+        <?php } ?>
+    </div>
 </main>
 
 <?php
