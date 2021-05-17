@@ -451,7 +451,7 @@ Website: <a href="#">www.rawnet.com</a></p>
                                             <hideOnMediumDevice/>
                                             <hideOnLargeDevice/>
                                         </style>
-                                        <stack><![CDATA[case_study_cta]]></stack>
+                                        <stack><![CDATA[Case Study CTA]]></stack>
                                     </block>
                                 </blocks>
                             </area>
@@ -496,10 +496,10 @@ Website: <a href="#">www.rawnet.com</a></p>
         </template>
     </summarytemplates>
     <stacks>
-        <stack name="case_study_cta" path="/case-study-cta">
+        <stack name="Case Study CTA" path="/case-study-cta">
             <area name="Main">
                 <blocks>
-                    <block type="content" name="">
+                    <block type="content" name="Case Study > Free Consultation">
                         <data table="btContentLocal">
                             <record>
                                 <content><![CDATA[<h2 class="highlight" style="text-align: center;">Build your website in minutes.</h2>
