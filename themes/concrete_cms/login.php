@@ -49,6 +49,16 @@ if (isset($authType) && $authType) {
     $activeAuths = AuthenticationType::getList(true, true);
 }
 
+// Scan for an enabled auth type with the handle "external_concrete"
+$externalAuth = null;
+/** @var AuthenticationType $auth */
+foreach ($activeAuths as $auth) {
+    if ($auth->getAuthenticationTypeHandle() === 'external_concrete5') {
+        $externalAuth = $auth;
+        break;
+    }
+}
+
 if (!isset($authTypeElement)) {
     $authTypeElement = null;
 }
@@ -65,6 +75,65 @@ $loggedIn = !$hasRequiredAttributes && isset($user) && $user->isRegistered();
 /** @noinspection PhpUnhandledExceptionInspection */
 $this->inc('elements/header_minimal.php');
 
+if ($externalAuth) {
+    ?>
+
+    <div class="login-page">
+        <main>
+            <div class="fluid-container">
+                <div class="login-wrapper">
+                    <div class="login-container">
+
+                        <div class="row">
+                            <div class="col-md col-sm-12 ccm-logo-column">
+                                <img src="<?php echo $this->getThemePath() . "/images/logo.svg"; ?>"
+                                     alt="<?php echo h(t("concreteCMS Logo")); ?>" class="ccm-logo">
+                            </div>
+
+                            <div class="col-md col-sm-12">
+                                <h1 class="ccm-title">
+                                    <?php echo t("Welcome to our community. Join Concrete now. It’s free!"); ?>
+                                </h1>
+                            </div>
+                        </div>
+
+                        <div class="container login-content">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <?php
+                                    if ($loggedIn) { ?>
+                                        <div class="text-center">
+                                            <h2>
+                                                <?php echo t('You are already logged in.'); ?>
+                                            </h2>
+
+                                            <?php echo $navHelper->getLogInOutLink(); ?>
+                                        </div>
+
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                        Logging in...
+                                        <script>
+                                            setTimeout(function() {
+                                                <?php /** @see \Concrete\Authentication\ExternalConcrete5\Controller::setData */ ?>
+                                                window.location = "<?= \URL::resolve(['/ccm/system/authentication/oauth2/external_concrete5/attempt_auth']) ?>"
+                                            }, 500);
+                                        </script>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <?php
+} else {
 ?>
 
 <div class="login-page">
@@ -163,6 +232,9 @@ $this->inc('elements/header_minimal.php');
         </div>
     </main>
 </div>
+<?php
+}
+?>
 
 <section class="additional-content">
     <?php
