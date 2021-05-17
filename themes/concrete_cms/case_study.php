@@ -62,11 +62,6 @@ $showPagination = false;
 $pagination = $pageList->getPagination();
 $relatedCaseStudies = $pagination->getCurrentPageResults();
 
-if ($pagination->haveToPaginate()) {
-    $showPagination = true;
-    $pagination = $pagination->renderDefaultView();
-}
-
 ?>
 
 <main class="case-study-detail">
@@ -170,17 +165,6 @@ if ($pagination->haveToPaginate()) {
                             </div>
                         <?php } ?>
                     </div>
-
-                    <?php if ($showPagination) { ?>
-                        <div class="container">
-                            <?php
-                            /** @noinspection PhpDeprecationInspection */
-                            $pagination = $pageList->getPagination();
-                            $pages = $pagination->getCurrentPageResults();
-                            echo $pagination->renderView("simple_pagination");
-                            ?>
-                        </div>
-                    <?php } ?>
                 </div>
             </div>
         </div>
