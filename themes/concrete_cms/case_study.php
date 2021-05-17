@@ -52,6 +52,7 @@ $thumbnail = $c->getAttribute("thumbnail");
 $pageList->filterByPageTypeHandle("case_study");
 $pageList->getQueryObject()
     ->andWhere("p.cID != :ownPageId")
+    ->orderBy('RAND()')
     ->setParameter("ownPageId", $c->getCollectionID());
 
 $pageList->setItemsPerPage(3);
