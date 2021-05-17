@@ -77,8 +77,8 @@ $theme-colors: (
         'dark-blue-quaternary': $dark-blue-quaternary
 );
 
-$link-color: theme-color('secondary');
-$link-hover-color: theme-color('secondary');
+$link-color: theme-color('accent');
+$link-hover-color: theme-color('accent');
 $link-hover-decoration: none !default;
 
 $body-bg: $light-gray;

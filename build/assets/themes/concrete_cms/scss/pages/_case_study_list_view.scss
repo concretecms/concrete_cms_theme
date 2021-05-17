@@ -13,14 +13,14 @@
 }
 
 .case-study-item {
-  border: 2px solid  #ffffff;
+  border: 1px solid  #ffffff;
   padding: 25px 23px 16px 19px;
   height: 100%;
   background-color: #ffffff;
 }
 
 .case-study-item:hover {
-  border-color: rgba(1, 125, 221, 0.5);
+  border-color: $accent;
 }
 
 .case-study-item .thumbnail {
@@ -62,7 +62,18 @@
   }
 
   .case-study-item {
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     padding: 10px 10px 29px;
   }
+}
+
+/* Make case study page smaller */
+.case-study-header {
+  max-width: 980px;
+  margin: auto;
+}
+
+.case-study-body .container,
+.case-study-custom-footer .container {
+  max-width: 980px;
 }

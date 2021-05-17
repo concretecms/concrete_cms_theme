@@ -52,6 +52,7 @@ $thumbnail = $c->getAttribute("thumbnail");
 $pageList->filterByPageTypeHandle("case_study");
 $pageList->getQueryObject()
     ->andWhere("p.cID != :ownPageId")
+    ->orderBy('RAND()')
     ->setParameter("ownPageId", $c->getCollectionID());
 
 $pageList->setItemsPerPage(3);
@@ -61,11 +62,6 @@ $showPagination = false;
 /** @noinspection PhpDeprecationInspection */
 $pagination = $pageList->getPagination();
 $relatedCaseStudies = $pagination->getCurrentPageResults();
-
-if ($pagination->haveToPaginate()) {
-    $showPagination = true;
-    $pagination = $pagination->renderDefaultView();
-}
 
 ?>
 
@@ -141,18 +137,19 @@ if ($pagination->haveToPaginate()) {
         $a = new Area('Main');
         $a->enableGridContainer();
         $a->display($c);
-
-        // Render additional areas if required
-        for ($i = 1; $i <= (int)$c->getAttribute('main_area_number'); $i++) {
-            $a = new Area('Main ' . $i);
-            $a->enableGridContainer();
-            $a->display($c);
-        }
         ?>
     </div>
 
-    <?php if (count($relatedCaseStudies) > 0) { ?>
-        <div class="case-study-footer">
+    <div class="case-study-footer">
+        <div class="case-study-custom-footer">
+            <?php
+            $a = new Area('Case Study Footer');
+            $a->enableGridContainer();
+            $a->display($c);
+            ?>
+        </div>
+
+        <?php if (count($relatedCaseStudies) > 0) { ?>
             <div class="case-study-list-view">
                 <div class="container">
                     <div class="row">
@@ -170,21 +167,10 @@ if ($pagination->haveToPaginate()) {
                             </div>
                         <?php } ?>
                     </div>
-
-                    <?php if ($showPagination) { ?>
-                        <div class="container">
-                            <?php
-                            /** @noinspection PhpDeprecationInspection */
-                            $pagination = $pageList->getPagination();
-                            $pages = $pagination->getCurrentPageResults();
-                            echo $pagination->renderView("simple_pagination");
-                            ?>
-                        </div>
-                    <?php } ?>
                 </div>
             </div>
-        </div>
-    <?php } ?>
+        <?php } ?>
+    </div>
 </main>
 
 <?php

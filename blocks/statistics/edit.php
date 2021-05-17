@@ -84,9 +84,9 @@ $form = $app->make(Form::class);
         </div>
 
         <a href="javascript:void(0);"
-           class="ccm-remote-entry btn btn-secondary"
+           class="ccm-remove-entry btn btn-secondary"
            data-entry-id="<%=entry.id%>">
-            <?php echo t("Remote Entry"); ?>
+            <?php echo t("Remove Entry"); ?>
         </a>
     </div>
 </script>
