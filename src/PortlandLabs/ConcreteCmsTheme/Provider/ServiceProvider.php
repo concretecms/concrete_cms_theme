@@ -71,7 +71,6 @@ class ServiceProvider extends Provider
         $this->registerPageSelectorRedirect();
         $this->registerAPI();
         $this->registerAssetLocalizations();
-        $this->overrideOAuthController();
         $this->registerPagination();
         $this->registerThemePaths();
         $this->registerNavigations();
@@ -118,17 +117,6 @@ class ServiceProvider extends Provider
         });
 
         $this->app->bind(CorePaginationManager::class, ManagerServiceProvider::class);
-    }
-
-    private function overrideOAuthController()
-    {
-        /*
-         * It is required to override the OAuth controller to manipulate the login view
-         */
-        /** @noinspection PhpParamsInspection */
-        $this->router->post('/oauth/2.0/token', [OAuthController::class, 'token']);
-        /** @noinspection PhpParamsInspection */
-        $this->router->all('/oauth/2.0/authorize', [OAuthController::class, 'authorize']);
     }
 
     private function registerPageSelectorRedirect()

@@ -5,9 +5,9 @@ defined('C5_EXECUTE') or die('Access Denied.');
 use Concrete\Core\Permission\Checker;
 
 /**
- * @var $navigation \Concrete\Core\Navigation\Navigation
+ * @var $headerNavigation \Concrete\Core\Navigation\Navigation
  */
-$items = $navigation->getItems();
+$items = $headerNavigation->getItems();
 
 ?>
 
@@ -57,63 +57,50 @@ $items = $navigation->getItems();
     }
 
     // add user icon
-    $user = new User();
-    $accountPage = Page::getByPath('/account');
-
-    if ($user->isRegistered()) {
-        echo '<li class="d-none d-lg-block nav-item">';
-        echo '<a href="javascript:void(0);" title="' . h(t("Profile")) . '" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="ccm-account-dropdown"><i class="fas fa-user"></i></a>';
-
-        echo '<div class="dropdown-menu dropdown-menu-right" aria-labelledby="ccm-account-dropdown">';
-
-        $children = $accountPage->getCollectionChildrenArray(true);
-
-        foreach ($children as $cID) {
-            $nc = Page::getByID($cID, 'ACTIVE');
-            $ncp = new Checker($nc);
-
-            if ($ncp->canRead() && (!$nc->getAttribute('exclude_nav'))) {
-                echo '<a class="dropdown-item" href="' . (string) \URL::to($nc) . '">' . $nc->getCollectionName() . '</a>';
-            }
-        }
-
-        echo '<a class="dropdown-item" href="' . (string) \URL::to('/members/profile', $user->getUserID()) . '">' . t("View Public Profile") . '</a>';
-
-        echo '<div class="dropdown-divider"></div>';
-        echo '<a class="dropdown-item" href="' . (string) \URL::to('/login', 'do_logout', $token->generate('do_logout')) . '">' . t("Sign Out") . '</a>';
-        echo '</div>';
-        echo '</li>';
-
-
-        echo '<li class="d-block d-lg-none nav-item">';
-        echo '<a href="javascript:void(0);" title="' . h(t("Profile")) . '" class="nav-link dropdown-toggle" data-toggle="dropdown" >' . t("Account") . '<span class="caret"></span></a>';
-
-        echo '<ul class="dropdown-menu">';
-
-        $children = $accountPage->getCollectionChildrenArray(true);
-
-        foreach ($children as $cID) {
-            $nc = Page::getByID($cID, 'ACTIVE');
-            $ncp = new Checker($nc);
-
-            if ($ncp->canRead() && (!$nc->getAttribute('exclude_nav'))) {
-                echo '<li class="nav-item"><a class="nav-link" href="' . (string) \URL::to($nc) . '">' . $nc->getCollectionName() . '</a></li>';
-            }
-        }
-
-        echo '<li class="nav-item"><a class="nav-link" href="' . (string) \URL::to('/members/profile', $user->getUserID()) . '">' . t("View Public Profile") . '</a></li>';
-        echo '<li class="nav-item"><a class="nav-link" href="' . (string) \URL::to('/login', 'do_logout', $token->generate('do_logout')) . '">' . t("Sign Out") . '</a></li>';
-        echo '</ul>';
-    } else {
-        echo '<li class="d-none d-lg-block nav-item">';
-        echo '<a href="' . (string) \URL::to('/login') . '" title="' . h(t("Sign In")) . '" class="nav-link"><i class="fas fa-user"></i></a>';
-        echo '</li>';
-        echo '<li class="d-block d-lg-none nav-item">';
-        echo '<a href="' . (string) \URL::to('/login') . '" title="' . h(t("Sign In")) . '" class="nav-link">' . t("Login") . '</a>';
-        echo '</li>';
-    }
     ?>
-</ul>
 
+    <?php
+    /** @var \Concrete\Core\Navigation\NavigationInterface $accountNavigation */
+    foreach($accountNavigation->getItems() as $item) {
 
+        $listClasses = ['nav-item'];
+        if ($item->isActive() || $item->isActiveParent()) {
+            $listClasses[] = 'active';
+        }
+        if (count($item->getChildren()) > 0) {
+            $listClasses[] = 'dropdown';
+        }
+
+        $name = h($item->getName());
+        if (in_array($item->getUrl(), ['/account/welcome', '/login'])) {
+            $name = '<i class="fa fa-user" title="' . $name . '"></i>';
+        }
+        ?>
+        <li class="<?=implode($listClasses, ' ')?>">
+            <a href="<?=$item->getURL()?>" class="nav-link">
+                <?= $name ?>
+            </a>
+
+            <?php
+            $children = $item->getChildren();
+            $count = count($children);
+            if ($count > 0) { ?>
+                <ul class="dropdown-menu">
+                    <?php foreach($item->getChildren() as $key => $child) {
+                        // Last child gets a divider
+                        if ($key === $count - 1) {
+                            echo '<li class="dropdown-divider"></li>';
+                        }
+                        ?>
+                        <li class="nav-item">
+                            <a href="<?=$child->getUrl()?>" target="_self" class="nav-link">
+                                <?=h($child->getName())?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            <?php } ?>
+
+        </li>
+    <?php } ?>
 </ul>

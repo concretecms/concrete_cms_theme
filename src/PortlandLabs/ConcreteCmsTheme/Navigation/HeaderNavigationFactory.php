@@ -7,33 +7,22 @@ use Concrete\Core\Application\ApplicationAwareTrait;
 use Concrete\Core\Navigation\Item\Item;
 use Concrete\Core\Navigation\Modifier\FlatChildrenModifier;
 use Concrete\Core\Navigation\Navigation;
+use Concrete\Core\Navigation\NavigationInterface;
 use Concrete\Core\Navigation\NavigationModifier;
 use PortlandLabs\ConcreteCmsTheme\Navigation\Modifier\SiteUrlPlaceholderModifier;
 
-class HeaderNavigationFactory implements ApplicationAwareInterface
+class HeaderNavigationFactory implements ApplicationAwareInterface, NavigationFactoryInterface
 {
 
     use ApplicationAwareTrait;
+    use NavigationFactoryTrait;
 
     const SECTION_SUPPORT = 'support';
     const SECTION_COMMUNITY = 'community';
 
-    /**
-     * @var string|null
-     */
-    protected $activeSection;
-
-    /**
-     * @param string|null $activeSection
-     */
-    public function setActiveSection(string $activeSection): void
+    public function createNavigation(): NavigationInterface
     {
-        $this->activeSection = $activeSection;
-    }
-
-    public function createNavigation()
-    {
-        $activeSection = isset($this->activeSection) ? $this->activeSection : null;
+        $activeSection = $this->activeSection;
 
         $navigation = new Navigation();
         $navigation->add(new Item('{{marketing}}/about', t('About'), false, false, [
