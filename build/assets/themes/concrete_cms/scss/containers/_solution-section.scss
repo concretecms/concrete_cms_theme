@@ -1,0 +1,40 @@
+div.ccm-page {
+  section.section-solution {
+
+    background-color: rgb(239, 242, 246);
+    padding-top: 4em;
+    padding-bottom: 4em;
+    height: 100%;
+    font-size: 18px;
+    line-height: 1.8em;
+
+    p {
+      margin-bottom: 1.5em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Poppins';
+      font-weight: 700;
+      margin-bottom: 0.8em;
+      text-transform: uppercase;
+    }
+
+    &.section-white {
+      background-color: theme-color('white');
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 3em;
+      padding-bottom: 3em;
+
+      div.col-md-6:first-child {
+        padding-bottom: 1em;
+      }
+    }
+
+  }
+}
