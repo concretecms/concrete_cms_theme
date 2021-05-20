@@ -26,8 +26,24 @@ div.ccm-page {
     .content-section-title {
       h1, h2, h3, h4, h5 {
         text-align: center;
-        font-weight: 400;
+        font-weight: 700;
         margin-bottom: 0.5em;
+        // Note, we might have to remove this and the Poppins font if we really need to have the Open Sans
+        // font sometimes and poppins sometimes within this title area.
+        // Note, I changed this from font-weight: 400, and no Poppins/uppercase in order to make the solutions dark
+        // gray section work. If this has unintended consequences just revert this line and make the heading be
+        // styled by manually applying .highlight.
+        font-family: 'Poppins';
+        text-transform: uppercase;
+      }
+    }
+
+    // Note, I added this entire section in order to make the dark gray solution section in the comps look nice.
+    // if this has unintended consequences remove this and figure something else out.
+    .content-section-column {
+      p {
+        font-size: 18px;
+        line-height: 1.8em;
       }
     }
 

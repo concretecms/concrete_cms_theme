@@ -65,6 +65,7 @@
         </page>
     </singlepages>
     <containers>
+        <container handle="masthead_larger_right_image_text" name="Masthead Right Image (Large) with Text" icon="feature.png" package=""/>
         <container handle="masthead_larger_left_image_text" name="Masthead Left Image (Large) with Text" icon="feature.png" package=""/>
         <container handle="masthead_left_image_text" name="Masthead Left Image with Text" icon="feature.png" package=""/>
         <container handle="masthead_right_image_text" name="Masthead Right Image with Text" icon="feature.png" package=""/>
@@ -83,5 +84,7 @@
         <container handle="section_dark_gray" name="Dark Gray Single Column" icon="two_column.png" package=""/>
         <container handle="section_accent" name="Accent Single Column" icon="two_column.png" package=""/>
         <container handle="section_two_column" name="Two Column Section" icon="two_column.png" package=""/>
+        <container handle="solution_section_white" name="Solution Section White" icon="two_column.png" package=""/>
+        <container handle="solution_section_light_gray" name="Solution Section Light Gray" icon="two_column.png" package=""/>
     </containers>
 </concrete5-cif>
