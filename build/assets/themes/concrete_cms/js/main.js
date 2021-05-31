@@ -359,6 +359,16 @@ $(function () {
 });
 
 $("#ccm-upload-avatar, #ccm-upload-header-image").on("submit", function () {
+    /*
+     * This is important because to checkbox attribute type is using the post
+     * values when it's a post request.
+     *
+     * When we don't pass the data from the main form all checkboxes are rendered empty.
+     */
+
+    $("#ccm-edit-profile-form input[type=checkbox]").clone().appendTo($(this));
+
+    // Display the loading screen
     $("body").addClass("loading");
 });
 
