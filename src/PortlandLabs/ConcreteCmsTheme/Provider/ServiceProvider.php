@@ -20,7 +20,9 @@ use Concrete\Core\Page\Page;
 use Concrete\Core\Page\Theme\ThemeRouteCollection;
 use Concrete\Core\Routing\Router;
 use Concrete\Core\Search\Pagination\View\ManagerServiceProvider as CorePaginationManager;
+use Concrete\Core\Support\Facade\Url;
 use Concrete\Package\ConcreteCmsTheme\Controller;
+use GuzzleHttp\Psr7\Uri;
 use PortlandLabs\ConcreteCmsTheme\API\OAuth\Controller as OAuthController;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Messages;
 use PortlandLabs\ConcreteCmsTheme\API\V1\Middleware\FractalNegotiatorMiddleware;
@@ -86,7 +88,10 @@ class ServiceProvider extends Provider
 
     private function changeAvatarIcon()
     {
-        $this->config->set("concrete.icons.user_avatar.default", $this->pkg->getRelativePath() . "/images/avatar_none.png");
+        $avatarPath = $this->pkg->getRelativePath() . "/images/avatar_none.png";
+        $avatarUrl = new Uri((string)Url::to("/"));
+        $avatarUrl = (string)$avatarUrl->withPath($avatarPath);
+        $this->config->set("concrete.icons.user_avatar.default", $avatarUrl);
     }
 
     private function registerNavigations()
