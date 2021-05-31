@@ -26,8 +26,24 @@ div.ccm-page {
     .content-section-title {
       h1, h2, h3, h4, h5 {
         text-align: center;
-        font-weight: 400;
+        font-weight: 700;
         margin-bottom: 0.5em;
+        // Note, we might have to remove this and the Poppins font if we really need to have the Open Sans
+        // font sometimes and poppins sometimes within this title area.
+        // Note, I changed this from font-weight: 400, and no Poppins/uppercase in order to make the solutions dark
+        // gray section work. If this has unintended consequences just revert this line and make the heading be
+        // styled by manually applying .highlight.
+        font-family: 'Poppins';
+        text-transform: uppercase;
+      }
+    }
+
+    // Note, I added this entire section in order to make the dark gray solution section in the comps look nice.
+    // if this has unintended consequences remove this and figure something else out.
+    .content-section-column {
+      p {
+        font-size: 18px;
+        line-height: 1.8em;
       }
     }
 
@@ -72,9 +88,31 @@ div.ccm-page {
       }
 
     }
+
+    // Sometimes people include image sliders in the content section, and we need to make sure that in these cases
+    // we do NOT use the 580px default height. Ideally we wouldn't have this set at 580px and we'd use specific
+    // stylings to set it to 580px instead of the other way around, but we've tweaked the styles enough so that thye
+    // look nice and I don't want to have to redo all of them and potentially break things that are already working like
+    // the home pages of the .com and .org sites.
+    .ccm-image-slider {
+      height: auto;
+      .rslides {
+        li {
+          height: auto;
+          .image-wrapper {
+            height: auto;
+            .ccm-image {
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+
+
   }
 
-  &.ccm-dark-mode {
+    &.ccm-dark-mode {
     section.content-section {
 
       &.column-section-container-dark-gray {

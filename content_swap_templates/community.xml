@@ -451,7 +451,7 @@ Website: <a href="#">www.rawnet.com</a></p>
                                             <hideOnMediumDevice/>
                                             <hideOnLargeDevice/>
                                         </style>
-                                        <stack><![CDATA[case_study_cta]]></stack>
+                                        <stack><![CDATA[Case Study CTA]]></stack>
                                     </block>
                                 </blocks>
                             </area>
@@ -495,28 +495,6 @@ Website: <a href="#">www.rawnet.com</a></p>
             </fields>
         </template>
     </summarytemplates>
-    <stacks>
-        <stack name="case_study_cta" path="/case-study-cta">
-            <area name="Main">
-                <blocks>
-                    <block type="content" name="">
-                        <data table="btContentLocal">
-                            <record>
-                                <content><![CDATA[<h2 class="highlight" style="text-align: center;">Build your website in minutes.</h2>
-
-<p class="lead" style="text-align: center;">Try Concrete today and get inspired to bring your ideas to life.</p>
-
-<p class="large-text" style="text-align: center;">&nbsp;</p>
-
-<p style="text-align: center;"><a class="btn btn-primary btn-lg" href="#">Free Consultation</a></p>
-]]></content>
-                            </record>
-                        </data>
-                    </block>
-                </blocks>
-            </area>
-        </stack>
-    </stacks>
     <pagetemplates>
         <pagetemplate icon="full.png" name="Full" handle="full" package="" internal=""/>
         <pagetemplate icon="full.png" name="Case Study" handle="case_study" package="" internal=""/>

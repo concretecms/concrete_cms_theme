@@ -35,6 +35,7 @@
 @import "./containers/feature-list-section";
 @import "./containers/two-column";
 @import "./containers/case-study-header";
+@import "./containers/solution-section";
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -95,3 +96,4 @@ div.ccm-page {
 
 /* Pages and page types */
 @import "./pages/blog";
+@import "./pages/solutions";

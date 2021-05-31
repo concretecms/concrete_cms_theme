@@ -25,28 +25,6 @@
                       type="text"
                       category="collection"/>
     </attributekeys>
-    <stacks>
-        <stack name="case_study_cta" path="/case-study-cta">
-            <area name="Main">
-                <blocks>
-                    <block type="content" name="">
-                        <data table="btContentLocal">
-                            <record>
-                                <content><![CDATA[<h2 class="highlight" style="text-align: center;">Build your website in minutes.</h2>
-
-<p class="lead" style="text-align: center;">Try Concrete today and get inspired to bring your ideas to life.</p>
-
-<p class="large-text" style="text-align: center;">&nbsp;</p>
-
-<p style="text-align: center;"><a class="btn btn-primary btn-lg" href="#">Free Consultation</a></p>
-]]></content>
-                            </record>
-                        </data>
-                    </block>
-                </blocks>
-            </area>
-        </stack>
-    </stacks>
     <thumbnailtypes>
         <thumbnailtype name="Case Study Thumbnail" handle="case_study_thumbnail" width="672" height="464"
                        sizingMode="exact"/>
@@ -87,6 +65,7 @@
         </page>
     </singlepages>
     <containers>
+        <container handle="masthead_larger_right_image_text" name="Masthead Right Image (Large) with Text" icon="feature.png" package=""/>
         <container handle="masthead_larger_left_image_text" name="Masthead Left Image (Large) with Text" icon="feature.png" package=""/>
         <container handle="masthead_left_image_text" name="Masthead Left Image with Text" icon="feature.png" package=""/>
         <container handle="masthead_right_image_text" name="Masthead Right Image with Text" icon="feature.png" package=""/>
@@ -105,5 +84,7 @@
         <container handle="section_dark_gray" name="Dark Gray Single Column" icon="two_column.png" package=""/>
         <container handle="section_accent" name="Accent Single Column" icon="two_column.png" package=""/>
         <container handle="section_two_column" name="Two Column Section" icon="two_column.png" package=""/>
+        <container handle="solution_section_white" name="Solution Section White" icon="two_column.png" package=""/>
+        <container handle="solution_section_light_gray" name="Solution Section Light Gray" icon="two_column.png" package=""/>
     </containers>
 </concrete5-cif>
