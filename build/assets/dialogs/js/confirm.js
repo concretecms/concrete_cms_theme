@@ -34,6 +34,13 @@ export default (options) => {
 
     let $modalDialog = $container.find("#ccm-confirm-dialog-" + id);
 
+    $modalDialog.find(".btn-secondary").click((e) => {
+        e.preventDefault();
+        $modalDialog.modal('hide');
+        $modalDialog.remove();
+        return false;
+    });
+
     $html.find(".btn-primary").click(() => {
         $modalDialog.modal("hide");
         $modalDialog.remove();
