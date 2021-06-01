@@ -19,6 +19,7 @@ use Concrete\Core\Entity\Attribute\Set;
 use Concrete\Core\Entity\File\Version;
 use Concrete\Core\Error\UserMessageException;
 use Concrete\Core\File\Import\FileImporter;
+use Concrete\Core\Http\Request;
 use Concrete\Core\Http\Response;
 use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\User\Avatar\AvatarService;
@@ -142,6 +143,8 @@ class EditProfile extends AccountPageController
                 $this->error->add(t("You need to select a valid file."));
             }
         }
+
+        $this->view();
     }
 
     /**
