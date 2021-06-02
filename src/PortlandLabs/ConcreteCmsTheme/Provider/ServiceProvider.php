@@ -89,8 +89,7 @@ class ServiceProvider extends Provider
     private function changeAvatarIcon()
     {
         $avatarPath = $this->pkg->getRelativePath() . "/images/avatar_none.png";
-        $avatarUrl = new Uri((string)Url::to("/"));
-        $avatarUrl = (string)$avatarUrl->withPath($avatarPath);
+        $avatarUrl = $_ENV['URL_SITE_COMMUNITY'] . $avatarPath;
         $this->config->set("concrete.icons.user_avatar.default", $avatarUrl);
     }
 
