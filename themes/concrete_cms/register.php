@@ -15,6 +15,7 @@ use Concrete\Core\Entity\Attribute\Key\UserKey;
 use Concrete\Core\Captcha\CaptchaInterface;
 use Concrete\Core\Form\Service\Form;
 use Concrete\Core\Http\Request;
+use Concrete\Core\Page\Stack\Stack;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Support\Facade\Url;
@@ -88,16 +89,10 @@ $renderer->setContext(new FrontendFormContext());
                                 <div class="col">
                                     <?php switch ($registerSuccess) { ?>
 <?php case 'registered': ?>
-                                            <p>
-                                                <strong>
-                                                    <?php echo $successMsg; ?>
-                                                </strong>
-
-                                                <br/><br/>
-                                                <a href="<?php echo $view->url('/'); ?>">
-                                                    <?php echo t('Return to Home'); ?>
-                                                </a>
-                                            </p>
+                                            <?php
+                                                $stack = Stack::getByName("Register Complete");
+                                                $stack->display();
+                                            ?>
 
                                             <?php break; ?>
 
