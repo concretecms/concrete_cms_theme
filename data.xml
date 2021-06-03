@@ -3,6 +3,9 @@
     <themes>
         <theme handle="concrete_cms" package="concrete_cms_theme" activated="1"/>
     </themes>
+    <stacks>
+        <stack name="Register Complete" path="/register-complete" />
+    </stacks>
     <blocktypes>
         <blocktype handle="feature_item" package="concrete_cms_theme"/>
         <blocktype handle="image_with_quote" package="concrete_cms_theme"/>

@@ -57,6 +57,7 @@
       line-height: 22px;
       font-weight: 700;
       margin-bottom: 15px;
+      text-transform: uppercase;
     }
   }
 
@@ -88,10 +89,15 @@
 
   .profile-username {
     margin-top: 100px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 
     h1 {
       display: inline;
+      color: #2F3032;
+      font-size: 59px;
+      line-height: 40px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
     .profile-user-actions {
@@ -105,11 +111,19 @@
   }
 
   .profile-website {
-    margin-bottom: 25px;
+    color: RGB(1, 118, 208);
+    line-height: 22px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Noto Sans";
+    margin-bottom: 15px;
   }
 
   .profile-description {
     margin-bottom: 25px;
+    color: RGB(153, 153, 153);
+    font-size: 16px;
+    line-height: 26px;
   }
 
   .profile-user-actions {
