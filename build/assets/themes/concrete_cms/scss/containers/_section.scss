@@ -51,6 +51,14 @@ div.ccm-page {
       display: block;
       margin: auto;
       text-align: center;
+
+      img {
+        display: block;
+        max-height: 50px;
+        width: auto;
+        margin: auto;
+        margin-bottom: 15px;
+      }
     }
 
     section {
@@ -82,8 +90,6 @@ div.ccm-page {
 
         img {
           max-width: 100px;
-          max-height: 100px;
-          width: auto;
         }
       }
 
