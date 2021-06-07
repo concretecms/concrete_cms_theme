@@ -143,7 +143,7 @@ export default (options) => {
                     $("[data-message-id=" + data.messageData.msgID + "]").removeClass("unread");
                 }
 
-                $modalDialog.find(".btn-secondary").click((e) => {
+                $modalDialog.find(".btn-secondary, .close").click((e) => {
                     e.preventDefault();
                     $modalDialog.modal('hide');
                     $modalDialog.remove();
