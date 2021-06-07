@@ -10,6 +10,7 @@ div.ccm-page {
       text-transform: uppercase;
       margin-bottom: 0.3em; // add a little more space between heading and lead
       color: $blue;
+      word-break: break-word;
     }
 
     @include media-breakpoint-down(sm) {
