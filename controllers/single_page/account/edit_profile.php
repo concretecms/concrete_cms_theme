@@ -13,19 +13,27 @@ namespace Concrete\Package\ConcreteCmsTheme\Controller\SinglePage\Account;
 use Concrete\Core\Attribute\Category\CategoryService;
 use Concrete\Core\Attribute\Category\UserCategory;
 use Concrete\Core\Attribute\Controller;
+use Concrete\Core\Config\Repository\Repository;
 use Concrete\Core\Entity\Attribute\Category;
 use Concrete\Core\Entity\Attribute\Key\UserKey;
 use Concrete\Core\Entity\Attribute\Set;
 use Concrete\Core\Entity\File\Version;
+use Concrete\Core\Error\ErrorList\ErrorList;
 use Concrete\Core\Error\UserMessageException;
 use Concrete\Core\File\Import\FileImporter;
 use Concrete\Core\Http\Request;
 use Concrete\Core\Http\Response;
+use Concrete\Core\Routing\RedirectResponse;
+use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\User\Avatar\AvatarService;
 use Concrete\Core\User\Command\UpdateUserAvatarCommand;
+use Concrete\Core\User\User;
 use Concrete\Core\User\UserInfo;
 use Concrete\Core\Validation\CSRF\Token;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Psr7\Uri;
 use PortlandLabs\ConcreteCmsTheme\Page\Controller\AccountPageController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Exception;
@@ -34,6 +42,67 @@ use Exception;
 
 class EditProfile extends AccountPageController
 {
+
+    public function edit_forums_settings()
+    {
+        $currentUser = new User();
+        $app = Application::getFacadeApplication();
+        /** @var Repository $config */
+        $config = $app->make(Repository::class);
+        $errorList = new ErrorList();
+        $discourseEndpoint = $config->get("concrete_cms_community.discourse.endpoint");
+        $discourseApiKey = $config->get("concrete_cms_community.discourse.api_key");
+        $baseUrl = new Uri($discourseEndpoint);
+        $client = new Client();
+        $discourseUsername = "";
+
+        $apiUrl = $baseUrl
+            ->withPath(
+                sprintf(
+                    "/u/by-external/%s.json",
+                    (string)$currentUser->getUserID()
+                )
+            );
+
+        try {
+            $response = $client->request("GET", $apiUrl, [
+                "headers" => [
+                    "Api-Key" => $discourseApiKey
+                ]
+            ]);
+
+            if ($response->getStatusCode() === Response::HTTP_OK) {
+                $rawResponse = $response->getBody()->getContents();
+                $json = json_decode($rawResponse, true);
+
+                if (isset($json["user"]["username"])) {
+                    $discourseUsername = $json["user"]["username"];
+                } else {
+                    $errorList->add(t("Error while looking up the user details. Invalid payload."));
+                }
+            } else {
+                $errorList->add(t("Error while looking up the user details. Invalid status code."));
+            }
+
+        } catch (GuzzleException $e) {
+            $errorList->add(t("Error while looking up the user details. Internal server error."));
+        }
+
+        if (!$errorList->has()) {
+            $redirectUrl = (string)$baseUrl
+                ->withPath(
+                    sprintf(
+                        "/u/%s/preferences/email",
+                        $discourseUsername
+                    )
+                );
+
+            return new RedirectResponse($redirectUrl, Response::HTTP_TEMPORARY_REDIRECT);
+        } else {
+            $this->set('error', $errorList);
+            $this->view();
+        }
+    }
 
     public function remove_avatar()
     {
