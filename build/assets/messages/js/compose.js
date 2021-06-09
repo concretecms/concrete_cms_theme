@@ -181,6 +181,10 @@ export default (options) => {
                                     type: 'success'
                                 });
 
+                                setTimeout(function () {
+                                    window.location.href = CCM_DISPATCHER_FILENAME + "/account/messages";
+                                }, 3000);
+
                                 $modalDialog.modal('hide');
                                 $html.remove();
                             }
