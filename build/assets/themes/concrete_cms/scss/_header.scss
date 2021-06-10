@@ -37,7 +37,54 @@ $hamburger-hover-opacity: 1.0;
       height: 60px;
 
       #ccm-desktop-nav > .nav > .nav-item {
-        margin-top: 25px;
+        margin-top: 0;
+
+        &.dropdown:hover {
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+
+          & > .nav-link {
+            background: theme-color('white') !important;
+            color: #222533 !important;
+            transition: all 500ms;
+          }
+
+          & > ul.dropdown-menu {
+            opacity: 1;
+
+            overflow-y: hidden;
+            max-height: 500px; /* approximate max height */
+
+            transition-property: max-height;
+            transition-duration: 5s;
+            transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+          }
+        }
+
+        &::before, &::after {
+          display: none !important;
+        }
+
+        &.active {
+          & > a::after {
+            bottom: -7px;
+          }
+        }
+
+        & > .nav-link {
+          margin: 0;
+        }
+
+        & > ul.dropdown-menu {
+          margin-top: 0;
+          box-shadow: none;
+          max-height: 0;
+          transition: none;
+
+          &.show {
+            max-height: 500px; /* approximate max height */
+          }
+        }
       }
     }
 
@@ -153,10 +200,24 @@ $hamburger-hover-opacity: 1.0;
 
     /* Tablet + Mobile */
     @include media-breakpoint-down(md) {
+
+
       .navbar {
         background-color: theme-color('dark-blue-secondary');
 
+        #ccm-desktop-nav > .nav > .nav-item {
+          &.dropdown:hover {
+            box-shadow: none !important;
+
+            & > .nav-link {
+              color: theme-color('white') !important;
+              background: transparent !important;
+            }
+          }
+        }
+
         .nav-item {
+
           & > a {
             color: theme-color('white');
 
@@ -168,6 +229,11 @@ $hamburger-hover-opacity: 1.0;
           &.active {
             & > a {
               color: theme-color('white');
+            }
+
+            .dropdown-menu {
+              max-height: 500px !important;
+              display: block;
             }
           }
         }
@@ -196,6 +262,11 @@ $hamburger-hover-opacity: 1.0;
       }
     }
   }
+}
+
+
+&:not(.ccm-dark-mode) {
+
 }
 
 header {
