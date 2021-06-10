@@ -32,6 +32,9 @@ class FooterNavigationFactory implements ApplicationAwareInterface
             new Item('{{marketing_org}}/roadmap', t('Roadmap')),
             new Item('{{marketing_org}}/governance', t('Governance')),
             new Item('{{marketing_org}}/security', t('Security')),
+            new Item('{{marketing}}/about/partners', t('Partners')),
+            new Item('{{marketing}}/about/legal/terms-use', t('Terms of Use')),
+            new Item('{{marketing}}/about/legal/privacy-policy', t('Privacy Policy'))
         ]));
         $navigation->add(new Item('{{marketing}}/get-started', t('Get Started'), false, false, [
             new Item('{{marketing}}/get-started/try', t('Try it Now!')),
@@ -43,6 +46,7 @@ class FooterNavigationFactory implements ApplicationAwareInterface
             new Item('{{marketplace}}/addons', t('Add-Ons')),
             new Item('{{marketplace}}/starting-points', t('Starting Points')),
             new Item('{{documentation}}/marketplace-installation', t('Installation Help')),
+            new Item('{{marketing}}/about/legal/refund-policy', t('Refund Policy')),
         ]));
         $navigation->add(new Item('{{marketing}}/support', t('Support'), false, false, [
             new Item('{{documentation}}', t('Documentation')),
