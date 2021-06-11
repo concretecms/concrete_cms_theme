@@ -128,3 +128,21 @@
 .last-container {
   margin-bottom: -15px;
 }
+
+div.ccm-page.page-template-left-sidebar h1 {
+  font-weight: 300;
+  color: #017ddd;
+  margin-top: 15px;
+}
+
+div.ccm-page .breadcrumb {
+  font-size: 0.813rem;
+}
+
+div.ccm-page.page-template-left-sidebar main .nav:not(.nav-tabs) li {
+  line-height: 3.375rem;
+}
+
+div.ccm-page.page-template-left-sidebar main {
+  line-height: 2.25rem;
+}
