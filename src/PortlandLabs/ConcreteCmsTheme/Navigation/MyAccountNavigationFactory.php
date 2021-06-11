@@ -37,12 +37,18 @@ class MyAccountNavigationFactory implements NavigationFactoryInterface
 
     private function loggedInMenu(): NavigationInterface
     {
+        $marketplaceUrl = (new UrlManager())->getMarketplaceUrl();
+
         $navigation = new Navigation();
         $navigation->add(new Item('/account/welcome', t('Profile'), false, $this->activeSection === 'community', [
             new Item('/account/edit_profile', t('Edit Profile')),
             new Item('/account/avatar', t('Profile Picture')),
             new Item('/account/messages', t('Private Messages')),
             new Item('/members/profile/' . $this->user->getUserID(), t('View Public Profile')),
+
+            new Item($marketplaceUrl . '/profile/bank', t('Purchase History')),
+            new Item($marketplaceUrl . '/profile/projects', t('Projects')),
+
             new Item('/login/do_logout/' . $this->token->generate('do_logout'), t('Sign Out')),
         ]));
 
