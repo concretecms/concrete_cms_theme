@@ -88,7 +88,7 @@ $items = $headerNavigation->getItems();
                 <ul class="dropdown-menu">
                     <?php foreach($item->getChildren() as $key => $child) {
                         // Last child gets a divider
-                        if ($key === $count - 1) {
+                        if ($key === $count - 1 || $key === $count - 3) {
                             echo '<li class="dropdown-divider"></li>';
                         }
                         ?>
