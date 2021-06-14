@@ -27,26 +27,33 @@ class HeaderNavigationFactory implements ApplicationAwareInterface, NavigationFa
         $navigation = new Navigation();
         $navigation->add(new Item('{{marketing}}/about', t('About'), false, false, [
             new Item('{{marketing}}/about/features', t('Features')),
-            new Item('{{marketing}}/about/blog', t('Blog')),
             new Item('{{marketing}}/about/case-studies', t('Case Studies')),
-            new Item('{{marketing}}/about/governance', t('Governance')),
-            new Item('{{marketing_org}}', t('Open Source')),
+            new Item('{{marketing}}/about/solutions', t('Solutions')),
+            new Item('{{marketing}}/about/blog', t('Blog')),
+            new Item('{{marketing}}/about/contact-us', t('Contact')),
         ]));
         $navigation->add(new Item('{{marketing}}/get-started', t('Get Started'), false, false, [
-            new Item('{{marketing}}/get-started/try', t('Try it Now!')),
+            new Item('{{marketing}}/about/solutions', t('Solutions')),
+            new Item('{{marketing}}/hosting', t('Hosting')),
             new Item('{{marketing_org}}/download', t('Download')),
-            new Item('{{marketing}}/installation', t('Installation')),
+            new Item('{{documentation}}/developers/introduction/installation', t('Installation')),
         ]));
-        $navigation->add(new Item('{{marketplace}}', t('Extensions'), false, false));
+        $navigation->add(new Item('{{marketing}}/extensions', t('Extensions'), false, false, [
+            new Item('{{marketplace}}/marketplace/addons', t('Add-ons')),
+            new Item('{{marketplace}}/marketplace/themes', t('Themes')),
+            new Item('{{marketing}}/extensions/related-projects', t('Related Projects')),
+            new Item('{{marketing}}/extensions/translate', t('Translations')),
+        ]));
         $navigation->add(new Item('{{marketing}}/support', t('Support'), false, $activeSection === 'support', [
+            new Item('{{marketing}}/support/hiring-help', t('Hiring Help')),
             new Item('{{documentation}}', t('Documentation')),
-            new Item('{{training}}', t('Training & Certification')),
-            new Item('{{gigs}}', t('Hire Help')),
-        ]));
-        $navigation->add(new Item('{{community}}', t('Community'), false, $activeSection === 'community', [
             new Item('{{forums}}', t('Forums')),
-            new Item('{{community}}/members', t('Members')),
-            new Item('{{translate}}', t('Translate Concrete')),
+            new Item('{{marketing}}/support/training-certification', t('Training & Certification')),
+        ]));
+        $navigation->add(new Item('{{marketing}}/community', t('Community'), false, $activeSection === 'community', [
+            new Item('{{forums}}', t('Forums')),
+            new Item('{{community}}/members/directory', t('Search Members')),
+            new Item('{{marketing}}/extensions/translate', t('Translate')),
         ]));
 
         $modifier = new NavigationModifier();

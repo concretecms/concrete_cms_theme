@@ -182,6 +182,12 @@ $profileFormRenderer->setContext(new FrontendFormContext());
                                         $view->render();
                                         ?>
                                     <?php } ?>
+
+                                    <div class="offset-sm-4" style="margin-bottom: 25px">
+                                        <a href="<?php echo Url::to("/account/edit_profile", "edit_forums_settings");?>" target="_blank">
+                                            <?php echo t("Forum Email Settings"); ?>
+                                        </a>
+                                    </div>
                                 </div>
                             <?php } ?>
                         </div>

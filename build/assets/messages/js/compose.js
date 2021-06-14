@@ -143,7 +143,7 @@ export default (options) => {
                     $("[data-message-id=" + data.messageData.msgID + "]").removeClass("unread");
                 }
 
-                $modalDialog.find(".btn-secondary").click((e) => {
+                $modalDialog.find(".btn-secondary, .close").click((e) => {
                     e.preventDefault();
                     $modalDialog.modal('hide');
                     $modalDialog.remove();
@@ -180,6 +180,10 @@ export default (options) => {
                                     stack: stackBottomModal,
                                     type: 'success'
                                 });
+
+                                setTimeout(function () {
+                                    window.location.href = CCM_DISPATCHER_FILENAME + "/account/messages";
+                                }, 3000);
 
                                 $modalDialog.modal('hide');
                                 $html.remove();

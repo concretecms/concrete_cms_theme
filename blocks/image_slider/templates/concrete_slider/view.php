@@ -72,11 +72,11 @@ if ($c->isEditMode()) {
 
     <div class="ccm-image-slider-container ccm-block-image-slider-<?= $navigationTypeText; ?>">
         <div class="ccm-image-slider">
-            <div class="ccm-image-slider-inner">
+            <div class="ccm-image-slider-inner container">
 
                 <?php if (count($rows) > 0) {
                     ?>
-                    <ul class="rslides" id="ccm-image-slider-<?php echo $bID; ?>">
+                    <ul class="rslides container" id="ccm-image-slider-<?php echo $bID; ?>">
                         <?php foreach ($rows as $row) {
                             ?>
                             <li>

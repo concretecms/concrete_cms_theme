@@ -14,8 +14,8 @@ class UrlManager
 {
 
     private $defaultUrls = [
-        'MARKETING_COMMERCIAL' => 'https://www.concretecms.com',
-        'MARKETING_OPENSOURCE' => 'https://www.concretecms.org',
+        'MARKETING_COMMERCIAL' => 'https://marketing.concretecms.com',
+        'MARKETING_OPENSOURCE' => 'https://opensource.concretecms.org',
         'MARKETPLACE' => 'https://marketplace.concretecms.com',
         'DOCUMENTATION' => 'https://documentation.concretecms.org',
         'TRAINING' => 'https://training.concretecms.com',

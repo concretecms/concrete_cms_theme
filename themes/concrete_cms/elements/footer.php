@@ -73,7 +73,9 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
 
             <div class="col-sm">
                 <div class="footer-legal">
-                    <?php echo t("PortlandLabs %sⒸ", date("Y")); ?>
+                    <p>
+                        <?php echo t("PortlandLabs %sⒸ", date("Y")); ?>
+                    </p>
                 </div>
             </div>
         </div>
