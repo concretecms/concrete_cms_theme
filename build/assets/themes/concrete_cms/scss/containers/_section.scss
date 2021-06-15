@@ -54,11 +54,8 @@ div.ccm-page {
       text-align: center;
 
       img {
-        display: block;
-        max-height: 50px;
-        width: auto;
-        margin: auto;
-        margin-bottom: 15px;
+        max-height: 120px;
+        max-width: 200px;
       }
     }
 
@@ -82,15 +79,12 @@ div.ccm-page {
 
     @include media-breakpoint-down(sm) {
       .ccm-brand {
-        display: block;
-        width: 100px;
-        height: auto;
         margin-top: 15px;
         margin-bottom: 15px;
         position: relative;
 
         img {
-          max-width: 100px;
+          max-width: 200px;
         }
       }
 

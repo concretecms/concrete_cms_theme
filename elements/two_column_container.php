@@ -13,6 +13,14 @@ if ($color == 'white') {
 } else if ($color == 'dark_gray') {
     $containerColorClass = 'column-section-container-dark-gray';
 }
+
+if (!isset($leftColumnClass)) {
+    $leftColumnClass = 'col-md-6 my-auto';
+}
+if (!isset($rightColumnClass)) {
+    $rightColumnClass = 'col-md-6 my-auto';
+}
+
 ?>
 <div class="column-section-container <?=$containerColorClass?>">
     <div class="container">
@@ -31,13 +39,13 @@ if ($color == 'white') {
         // h-100, my-auto comes from new-499
         ?>
         <div class="row h-100">
-            <div class="col-md-6 my-auto">
+            <div class="<?=$leftColumnClass?>">
                 <?php
                 $area = new ContainerArea($container, 'Column One');
                 $area->display($c);
                 ?>
             </div>
-            <div class="col-md-6 my-auto">
+            <div class="<?=$rightColumnClass?>">
                 <?php
                 $area = new ContainerArea($container, 'Column Two');
                 $area->display($c);

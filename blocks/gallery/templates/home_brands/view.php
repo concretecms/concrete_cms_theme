@@ -47,7 +47,7 @@ if (!$images && $page && $page->isEditMode()) { ?>
                     $downloadLink = $fileVersion->getForceDownloadURL();
                 }
                 ?>
-                <div class="col-sm mx-auto">
+                <div class="col-md mx-auto">
                     <div class="ccm-brand">
                         <?php echo $tag ?>
                     </div>
