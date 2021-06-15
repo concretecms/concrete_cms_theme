@@ -13,6 +13,7 @@
     </blocktypes>
     <pagetemplates>
         <pagetemplate icon="full.png" name="Case Study" handle="case_study" package="" internal=""/>
+        <pagetemplate icon="full.png" name="Full Text" handle="full_text" package="" internal=""/>
     </pagetemplates>
     <attributekeys>
         <attributekey handle="developer_name" name="Developer Name" package="concrete_cms_marketing" searchable="1"

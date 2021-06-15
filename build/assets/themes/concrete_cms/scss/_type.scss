@@ -38,41 +38,61 @@ p.lead-alt {
 // -------------------------
 
 h1 {
-  font-weight: 700;
-  font-size: 59px;
-  letter-spacing: -0.8;
-  line-height: 61px;
-  margin-top: 30px;
+  // updated per design review feedback: new-498
+  font-weight: normal;
+  font-size: 3.688rem;
+  letter-spacing: 0;
+  color: $blue;
+  line-height: 3.813rem;
 }
 
 h2 {
-  font-weight: 700;
-  font-size: 42px;
-  line-height: 48px;
+  // updated per design review feedback: new-498
+  font-weight: normal;
+  font-size: 2.25rem;
+  letter-spacing: 0;
+  color: #343F46;
+  line-height: 2.75rem;
 }
 
 h3 {
+  // updated per design review feedback: new-498
+  font-family: "Poppins";
   font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  color: #2F3032;
+  line-height: 1.75rem;
 }
 
 h4 {
+  // updated per design review feedback: new-498
+  font-family: "Poppins";
   font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.125rem;
+  letter-spacing: 0;
+  color: #2F3032;
+  line-height: 1.5rem;
 }
 
 h5 {
+  // updated per design review feedback: new-498
+  font-family: "Poppins";
   font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  color: $blue;
+  line-height: 1.375rem;
 }
 
 h6 {
+  // updated per design review feedback: new-498
+  font-family: "Poppins";
   font-weight: 700;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  color: $blue;
+  line-height: 1.375rem;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -90,17 +110,6 @@ h1, h2, h3, h4, h5, h6,
   .page-title {
     font-family: "Poppins";
     color: theme-color('accent');
-  }
-}
-
-.page-template-left-sidebar {
-  h1 {
-    font-family: "Noto Sans";
-    font-size: 59px;
-    color: #017DDD;
-    line-height: 64px;
-    margin-top: 0;
-    padding-bottom: 20px;
   }
 }
 
