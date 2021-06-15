@@ -10,7 +10,7 @@ $accent: #017DDD;
 $secondary: #0099ff;
 $light-gray: #F6F8FA;
 $border: #979797;
-$text: #4C4F56;
+$text: #19191A; // news-498
 $white: #ffffff;
 $dark-gray: #3B3B3B;
 $gray: #828282;
@@ -82,6 +82,7 @@ $link-hover-color: theme-color('accent');
 $link-hover-decoration: none !default;
 
 $body-bg: $light-gray;
+$body-color: theme-color('text');
 $headings-color: theme-color('text');
 $headings-font-family: "Noto Sans";
 $label-color: theme-color('text');

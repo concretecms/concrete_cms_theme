@@ -116,3 +116,11 @@ h1, h2, h3, h4, h5, h6,
 .lead {
   color: #4C4F56;
 }
+
+p {
+  big {
+    letter-spacing: 0;
+    font-size: 1.375rem; // news-498
+    line-height: 30px; // new-498
+  }
+}
