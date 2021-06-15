@@ -27,15 +27,17 @@ if ($color == 'white') {
                 </div>
             </div>
         <?php }
+
+        // h-100, my-auto comes from new-499
         ?>
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row h-100">
+            <div class="col-md-6 my-auto">
                 <?php
                 $area = new ContainerArea($container, 'Column One');
                 $area->display($c);
                 ?>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 my-auto">
                 <?php
                 $area = new ContainerArea($container, 'Column Two');
                 $area->display($c);
