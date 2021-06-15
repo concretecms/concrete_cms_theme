@@ -314,7 +314,7 @@ class EditProfile extends AccountPageController
         }
 
         if (!$this->error->has()) {
-            $data['uEmail'] = $email;
+            $data['uName'] = $username;
 
             /** @noinspection PhpParamsInspection */
             $ui->saveUserAttributesForm($aks);

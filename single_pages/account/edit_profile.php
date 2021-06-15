@@ -123,7 +123,15 @@ $profileFormRenderer->setContext(new FrontendFormContext());
                                     <?php echo $form->label('uEmail', t('Email'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                     <div class="col-sm-8">
-                                        <?php echo $form->text('uEmail', $profile->getUserEmail()); ?>
+                                        <?php echo $form->text('uEmail', $profile->getUserEmail(), ["readonly" => "readonly"]); ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <?php echo $form->label('uName', t('Username'), ["class" => "col-sm-4 col-form-label"]); ?>
+
+                                    <div class="col-sm-8">
+                                        <?php echo $form->text('uName', $profile->getUserName()); ?>
                                     </div>
                                 </div>
 
