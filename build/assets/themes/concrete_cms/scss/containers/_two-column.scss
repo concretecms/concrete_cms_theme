@@ -1,8 +1,8 @@
 div.ccm-page {
   .column-section-container {
 
-    padding-top: 70px; // new-499
-    padding-bottom: 70px; // new-499
+    padding-top: 35px; // new-499
+    padding-bottom: 35px; // new-499
 
     .column-section-title {
 
@@ -12,7 +12,7 @@ div.ccm-page {
         margin-bottom: 0.9em;
         padding-bottom: 0.5em;
         line-height: 1.2em;
-        color: #19191A; // new-499, features index
+        color: #535354; // new-503
         border-bottom-color: rgb(224, 224, 224); // light gray
       }
     }
@@ -21,17 +21,13 @@ div.ccm-page {
       font-family: "Poppins";
       font-weight: 700 !important; // I hate the !important here; new-499
       text-transform: uppercase;
+      color: $blue; // new-499
     }
 
     h1 {
       font-size: 2.625rem; // new-499
       letter-spacing: 0; // new-499
       line-height: 48px; // new-499
-    }
-
-    .ccm-image-block {
-      margin-top: -35px; // new-499
-      margin-bottom: -35px; // new-499
     }
 
     big {
@@ -50,13 +46,6 @@ div.ccm-page {
 
       h1, h2, h3, h4, h5 {
         border-bottom-color: rgb(224, 224, 224);
-        color: $blue; // new-499
-      }
-
-      .column-section-title {
-        h1, h2, h3, h4, h5 {
-          color: #19191A; // new-499, features index
-        }
       }
 
     }

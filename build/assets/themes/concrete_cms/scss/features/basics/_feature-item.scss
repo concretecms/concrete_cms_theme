@@ -5,11 +5,11 @@ div.ccm-feature-item {
     display: flex;
 
     .ccm-feature-image-wrapper {
-      flex: 0 0 190px;
+      flex: 0 0 175px; //new-503
 
       .ccm-feature-image {
         width: 100%;
-        max-width: 150px;
+        max-width: 130px; //new-503
         height: auto;
         margin: 0 0 0 0;
       }
@@ -34,11 +34,11 @@ div.ccm-feature-item {
 
     .ccm-feature-title {
       font-weight: 700;
-      font-size: 22px;
+      font-size: 1.375rem;
       line-height: 30px;
       color: rgb(0, 0, 0);
       text-transform: none !important;
-      letter-spacing: 1px;
+      font-family: "Noto Sans";
     }
 
     .ccm-feature-description, .ccm-feature-description * {
