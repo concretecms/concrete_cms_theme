@@ -35,29 +35,33 @@ $defaultImageUrl = $pkg->getRelativePath() . "/images/default_thumbnail_small.jp
 
 <div class="image-with-quote <?php echo h($alignment); ?> <?php echo h($background); ?>">
     <div class="container">
-        <div class="image">
-            <?php
-            $imageUrl = null;
+        <div class="row">
+            <div class="image">
+                <?php
+                $imageUrl = null;
 
-            if ($image instanceof File) {
-                $imageApprovedVersion = $image->getApprovedVersion();
+                if ($image instanceof File) {
+                    $imageApprovedVersion = $image->getApprovedVersion();
 
-                if ($imageApprovedVersion instanceof Version) {
-                    $imageUrl = $imageApprovedVersion->getURL();
+                    if ($imageApprovedVersion instanceof Version) {
+                        $imageUrl = $imageApprovedVersion->getURL();
+                    }
                 }
-            }
-            ?>
+                ?>
 
-            <img src="<?php echo $imageUrl ?? $defaultImageUrl; ?>" alt="<?php echo h($name); ?>"/>
-        </div>
-
-        <div class="content">
-            <div class="quote">
-                <?php echo $quote; ?>
+                <img src="<?php echo $imageUrl ?? $defaultImageUrl; ?>" alt="<?php echo h($name); ?>"/>
             </div>
 
-            <div class="name">
-                <?php echo $name; ?>
+            <div class="content my-auto">
+                <div class="text">
+                    <div class="quote">
+                        <?php echo $quote; ?>
+                    </div>
+
+                    <div class="name">
+                        <?php echo $name; ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

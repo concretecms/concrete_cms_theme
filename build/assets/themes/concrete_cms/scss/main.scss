@@ -97,3 +97,7 @@ div.ccm-page {
 /* Pages and page types */
 @import "./pages/blog";
 @import "./pages/solutions";
+
+/* Custom blocks */
+@import "./blocks/image-with-quote";
+@import "./blocks/statistics";

@@ -15,6 +15,7 @@ defined('C5_EXECUTE') or die('Access denied');
 ?>
 
 <div class="ccm-statistics-container">
+    <hr>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -37,16 +38,17 @@ defined('C5_EXECUTE') or die('Access denied');
             <?php foreach ($entries as $entry) { ?>
                 <div class="<?php echo $columnClass; ?>">
                     <div class="ccm-statistics-item">
-                        <h3 class="value">
+                        <div class="value">
                             <?php echo $entry["value"]; ?>
-                        </h3>
+                        </div>
 
-                        <p class="label">
+                        <div class="label">
                             <?php echo $entry["label"]; ?>
-                        </p>
+                        </div>
                     </div>
                 </div>
             <?php } ?>
         </div>
     </div>
+    <hr>
 </div>
