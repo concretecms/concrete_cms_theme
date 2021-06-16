@@ -87,13 +87,13 @@ $relatedCaseStudies = $pagination->getCurrentPageResults();
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-7 col-sm-12">
                     <h1 class="case-study-project-name">
                         <?php echo $c->getCollectionName(); ?>
                     </h1>
                 </div>
 
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-5 col-sm-12">
                     <div class="float-md-right float-lg-right float-xl-right float-sm-left float-xs-left">
                         <div class="developer">
                             <?php if (strlen($developerUrl) > 0) { ?>
