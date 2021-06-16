@@ -1,0 +1,115 @@
+// All of this added in NEW-494
+div.ccm-page {
+
+  div.image-with-quote {
+
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    // Set up grid
+    div.image {
+      @include make-col-ready();
+      @include media-breakpoint-up(md) {
+        @include make-col(5);
+      }
+    }
+
+    div.content {
+      @include make-col-ready();
+      @include media-breakpoint-up(md) {
+        @include make-col(5);
+      }
+    }
+
+    // Image
+    div.image {
+      img {
+        min-height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    }
+
+    // Quote
+    div.content {
+      div.quote {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 15px; // new-502, make it sit flush with the column
+          width: 60px; // new-502
+          height: 50px; // new-502
+          background-image: url('../features/testimonials/fa-fa-quote-left.png'); // new-502
+          background-repeat: no-repeat; //new-502
+          background-size: 60px 50px; // new-502
+          opacity: 0.2; //new-502
+        }
+
+        font-size: 1.375rem;
+        font-weight: bold;
+
+      }
+
+      div.text {
+        padding-left: 15px;
+        padding-top: 20px;
+      }
+
+      div.name {
+        font-weight: bold;
+        margin-top: 20px;
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+    }
+
+    // Ordering and first item offset
+    @include media-breakpoint-up(md) {
+      &.left {
+        div.content {
+          order: 0;
+          @include make-col-offset(1);
+        }
+
+        div.image {
+          order: 1;
+        }
+      }
+      &.right {
+        div.image {
+          @include make-col-offset(1);
+        }
+      }
+    }
+
+    /* Color style rules */
+    &.blue {
+      background-color: rgb(1, 98, 173);
+
+      * {
+        color: theme-color('white');
+      }
+    }
+
+    &.white {
+      background-color: theme-color('white');
+    }
+
+    &.dark-gray {
+      background-color: #3C3D3E;
+      * {
+        color: theme-color('white');
+      }
+    }
+
+    &.light-gray {
+      background-color: rgb(250, 250, 250); // light gray
+    }
+
+  }
+
+}

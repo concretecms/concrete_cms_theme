@@ -7,13 +7,24 @@ div.ccm-page {
 
     h1 {
       font-family: "Poppins";
+      font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 0.3em; // add a little more space between heading and lead
+      letter-spacing: 0;
+      line-height: 3.375rem;
+      margin-bottom: 0.938rem; // add a little more space between heading and lead
       color: $blue;
-      word-break: break-word;
+      font-size: 3.375rem;
     }
 
-    @include media-breakpoint-down(sm) {
+    h2 {
+      font-family: "Noto Sans";
+      font-size: 1.625rem;
+      color: #4C4F56;
+      letter-spacing: 0;
+      line-height: 2.5rem;
+    }
+
+    @include media-breakpoint-down(md) {
 
       margin-top: 1em;
       margin-bottom: 1em;
@@ -23,10 +34,20 @@ div.ccm-page {
         font-size: 24px;
         margin-bottom: 0;
         line-height: 1.5em;
+        margin-top: 20px; // add some space between image and header
+      }
+
+      h2 {
+        // note: this hasn't been specified in gary's comps so I'm just going to turn it into basic styles
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 1.8em;
       }
 
       img {
-        max-height: 200px;
+        /*
+        max-height: 200px; // removed due to slack convo: https://portlandlabs.slack.com/archives/CBA4QV8AF/p1623869570037500
+         */
         display: block;
         margin-left: auto;
         margin-right: auto;

@@ -33,26 +33,20 @@ if (!$images && $page && $page->isEditMode()) { ?>
 ?>
 
 <div class="ccm-brands">
-    <div class="container h-100">
-        <div class="row align-items-center h-100">
-            <?php
-            /** @var File $image */
-            foreach ($images as $image) {
-                $tag = (new Image($image['file']))->getTag();
-                $tag->addClass('gallery-w-100 gallery-h-auto');
-                $size = $image['displayChoices']['size']['value'] ?? null;
-                $downloadLink = null;
-                $fileVersion = $image['file']->getApprovedVersion();
-                if ($includeDownloadLink && $fileVersion instanceof Version) {
-                    $downloadLink = $fileVersion->getForceDownloadURL();
-                }
-                ?>
-                <div class="col-sm mx-auto">
-                    <div class="ccm-brand">
-                        <?php echo $tag ?>
-                    </div>
-                </div>
-            <?php } ?>
+    <?php
+    /** @var File $image */
+    foreach ($images as $image) {
+        $tag = (new Image($image['file']))->getTag();
+        $tag->addClass('gallery-w-100 gallery-h-auto');
+        $size = $image['displayChoices']['size']['value'] ?? null;
+        $downloadLink = null;
+        $fileVersion = $image['file']->getApprovedVersion();
+        if ($includeDownloadLink && $fileVersion instanceof Version) {
+            $downloadLink = $fileVersion->getForceDownloadURL();
+        }
+        ?>
+        <div class="ccm-brand">
+            <?php echo $tag ?>
         </div>
-    </div>
+    <?php } ?>
 </div>
