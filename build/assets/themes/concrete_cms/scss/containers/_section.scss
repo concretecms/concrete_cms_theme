@@ -48,6 +48,32 @@ div.ccm-page {
       }
     }
 
+    .ccm-brands {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      .ccm-brand {
+        margin-left: 35px;
+        margin-right: 35px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        img {
+          max-width: 200px;
+        }
+
+      }
+    }
+
+    /*
     .ccm-brand {
       display: block;
       margin: auto;
@@ -58,7 +84,7 @@ div.ccm-page {
         max-width: 200px;
       }
     }
-
+*/
     section {
 
       // Nested two column section typography
@@ -77,14 +103,34 @@ div.ccm-page {
 
     }
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
+      /*
       .ccm-brand {
         margin-top: 15px;
         margin-bottom: 15px;
         position: relative;
+        display: block;
 
         img {
           max-width: 200px;
+        }
+      }
+       */
+
+      .ccm-brands {
+        display: block;
+
+        .ccm-brand {
+
+          img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            max-width: 200px;
+          }
+
         }
       }
 
