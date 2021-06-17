@@ -16,3 +16,11 @@
     }
   }
 }
+
+div.breadcrumb-navigation {
+  nav {
+    // give extra margin when the breadcrumb appears at the top of the page
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}

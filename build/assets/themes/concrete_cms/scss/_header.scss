@@ -22,12 +22,12 @@ $hamburger-hover-opacity: 1.0;
 &.ccm-dark-mode {
 
   header {
-    height: 60px;
+    /* height: 60px; */
     background-color: theme-color('dark-blue-secondary');
 
-    #ccm-sub-nav {
+    /*#ccm-sub-nav {
       top: 60px;
-    }
+    }*/
 
     #ccm-mobile-search-btn {
       color: theme-color('gray');
@@ -95,6 +95,7 @@ $hamburger-hover-opacity: 1.0;
       h3 {
         color: theme-color('white');
         text-transform: uppercase !important;
+        margin-bottom: 0;
       }
 
       nav {
@@ -270,9 +271,9 @@ $hamburger-hover-opacity: 1.0;
 }
 
 header {
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   background-color: theme-color('white');
-  height: 80px;
+  /* height: 80px; */
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
   position: relative;
 
@@ -307,12 +308,14 @@ header {
   #ccm-sub-nav {
     background-color: theme-color('white');
     box-shadow: 0 8px 4px -4px rgb(0 0 0 / 5%);
+    /*
     height: 40px;
     position: absolute;
     top: 80px;
     left: 0;
     width: 100%;
     z-index: 100;
+     */
     border-top: 1px solid theme-color('card-border');
 
     h3 {

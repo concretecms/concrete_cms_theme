@@ -35,7 +35,7 @@ $this->inc('elements/header.php');
                 $a->display($c);
                 ?>
             </div>
-            <div class="col-lg-8 col-lg-offset-1 col-sm-8">
+            <div class="col-lg-8 col-lg-offset-1 col-sm-8 col-content">
                 <?php
                 $a = new Area('Blog Post Header');
                 $a->setAreaGridMaximumColumns(12);
