@@ -24,17 +24,8 @@ $this->inc('elements/header.php');
 <main>
     <div class="mt-5 mb-5">
         <?php
-        $a = new Area('Page Header');
-        if ($c->isEditMode() || $a->getTotalBlocksInArea($c) > 0) { ?>
-            <div class="row">
-                <div class="col-sm-12">
-                    <?php
-                    $a->display($c);
-                    ?>
-                </div>
-            </div>
-        <?php } ?>
-        <?php
+        $view->inc('elements/page_header.php');
+
         $a = new Area('Main');
         $a->enableGridContainer();
         $a->display($c);
