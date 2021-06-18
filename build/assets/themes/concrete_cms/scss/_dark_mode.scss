@@ -8,13 +8,16 @@
 &.ccm-dark-mode {
   background-color: rgb(246, 246, 246) !important;
 
+  /*
   h1 {
+     * commented out in new-496
     font-family: "Open Sans";
     font-weight: 300;
     font-size: 64px;
     line-height: 94px;
     color: rgb(75, 75, 75);
   }
+  */
 
   header .navbar {
     font-family: "Open Sans";
@@ -68,6 +71,8 @@
   }
 
   main {
+    /*
+     * commented out in new-496
     h1, .h1 {
       font-size: 64px;
       font-weight: 300;
@@ -84,7 +89,10 @@
       font-family: "Open Sans";
     }
 
+     */
     @media (max-width: 768px) {
+      /*
+     * commented out in new-496
       h1, .h1 {
         font-size: 34px;
         line-height: 74px;
@@ -94,6 +102,7 @@
         font-size: 32px;
         line-height: 72px;
       }
+       */
     }
   }
 

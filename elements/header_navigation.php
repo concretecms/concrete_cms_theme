@@ -71,10 +71,7 @@ $items = $headerNavigation->getItems();
             $listClasses[] = 'dropdown';
         }
 
-        $name = h($item->getName());
-        if (in_array($item->getUrl(), ['/account/welcome', '/login'])) {
-            $name = '<i class="fa fa-user" title="' . $name . '"></i>';
-        }
+        $name = $item->getName();
         ?>
         <li class="<?=implode($listClasses, ' ')?>">
             <a href="<?=$item->getURL()?>" class="nav-link">

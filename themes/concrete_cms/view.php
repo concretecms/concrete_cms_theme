@@ -25,7 +25,7 @@ $this->inc('elements/header.php');
 
 ?>
 
-<main>
+<main class="<?=$c->getCollectionHandle()?>">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -39,14 +39,9 @@ $this->inc('elements/header.php');
                 ], "concrete_cms_theme"); ?>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <?php
-                $a = new Area('Page Header');
-                $a->display($c);
-                ?>
-            </div>
-        </div>
+        <?php
+        $view->inc('elements/page_header.php');
+        ?>
         <div class="row">
             <div class="col-sm-12">
                 <?php

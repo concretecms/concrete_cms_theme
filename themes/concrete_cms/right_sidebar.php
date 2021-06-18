@@ -22,15 +22,10 @@ $this->inc('elements/header.php');
 ?>
 
 <main>
+    <?php
+    $view->inc('elements/page_header.php');
+    ?>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <?php
-                $a = new Area('Page Header');
-                $a->display($c);
-                ?>
-            </div>
-        </div>
         <div class="row">
             <div class="col-sm-8  col-content">
                 <?php

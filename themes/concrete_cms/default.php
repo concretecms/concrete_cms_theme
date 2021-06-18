@@ -22,15 +22,9 @@ $this->inc('elements/header.php');
 ?>
 
 <main>
-    <div class="row">
-        <div class="col-sm-12">
-            <?php
-            $a = new Area('Page Header');
-            $a->display($c);
-            ?>
-        </div>
-    </div>
     <?php
+    $view->inc('elements/page_header.php');
+
     $a = new Area('Main');
     $a->enableGridContainer();
     $a->display($c);

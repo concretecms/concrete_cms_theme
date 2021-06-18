@@ -84,6 +84,11 @@
         <container handle="two_column_48_dark_gray" name="Two Column (1/3 &amp; 2/3) Dark Gray" icon="two_column.png" package=""/>
         <container handle="two_column_48_blue" name="Two Column (1/3 &amp; 2/3) Blue" icon="two_column.png" package=""/>
 
+        <container handle="two_column_top_align_white" name="Two Column (Top Align) White" icon="two_column.png" package=""/>
+        <container handle="two_column_top_align_light_gray" name="Two Column (Top Align) Light Gray" icon="two_column.png" package=""/>
+        <container handle="two_column_top_align_dark_gray" name="Two Column (Top Align) Dark Gray" icon="two_column.png" package=""/>
+        <container handle="two_column_top_align_blue" name="Two Column (Top Align) Blue" icon="two_column.png" package=""/>
+
         <container handle="three_column_white" name="Three Column White" icon="three_column.png" package=""/>
         <container handle="three_column_light_gray" name="Three Column Light Gray" icon="three_column.png" package=""/>
         <container handle="three_column_dark_gray" name="Three Column Dark Gray" icon="three_column.png" package=""/>
