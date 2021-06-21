@@ -19,8 +19,8 @@
   }
 
   .page-header {
-    padding-top: 20px;
     h1.page-title {
+      margin-top: 20px; /* add extra padding when the page title block is added inside page header, for things like My Account */
       font-size: 36px;
       line-height: 1.2em;
     }
