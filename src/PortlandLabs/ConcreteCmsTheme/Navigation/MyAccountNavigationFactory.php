@@ -35,7 +35,7 @@ class MyAccountNavigationFactory implements NavigationFactoryInterface, Applicat
 
     public function createNavigation(): NavigationInterface
     {
-        $navigation =  $this->user->checkLogin() ? $this->loggedInMenu() : $this->loggedOutMenu();
+        $navigation =  $this->user->isRegistered() ? $this->loggedInMenu() : $this->loggedOutMenu();
         $modifier = new NavigationModifier();
         $modifier->addModifier($this->app->make(SiteUrlPlaceholderModifier::class));
         return $modifier->process($navigation);
