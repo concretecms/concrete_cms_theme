@@ -21,13 +21,24 @@
     font-size: 14px;
     line-height: 1;
     border-bottom-color: RGB(216, 216, 216);
+
+    div {
+      // any dropdowns or anything else weird we default back
+      font-family: "Noto Sans";
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 1.5;
+
+      label.control-label {
+        font-weight: 700;
+        color: RGB(76, 79, 86);
+      }
+    }
   }
 
 }
 
 .card-text {
-
-  padding: 1.25rem;
 
   h1, h2, h3, h4, h5, h6 {
     color: theme-color('card-headlines');
