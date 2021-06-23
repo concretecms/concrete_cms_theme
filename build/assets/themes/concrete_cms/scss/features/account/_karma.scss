@@ -7,10 +7,23 @@
 
 .karma-page {
 
+  .card-header {
+    i {
+      font-size: 18px;
+    }
+
+    div.dropdown {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+    }
+  }
+
   .karma-entry {
     .row {
       .profile-picture {
-        width: 100px;
+        /* this looks weird in the current karma, so I'm going to use basic col instead of hard coding widths here. NEW-534 */
+        /* width: 100px; */
 
         .profile-image {
           margin: 0 10px;
@@ -45,7 +58,7 @@
           font-weight: 700;
           text-transform: none;
           padding: 0;
-          margin: 7px 0 0;
+          margin: 9px 0;
           font-family: "Noto Sans";
         }
 
@@ -80,6 +93,30 @@
   }
 
   .karma-totals {
+
+    .row {
+      margin-bottom: 1.2em;
+    }
+    .karma-total-action {
+      font-size: 14px;
+    }
+
+    .karma-total-amount {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .karma-total-all-amount {
+      font-size: 28px;
+      color: theme-color('legal');
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+      font-weight: 400;
+      font-family: "Noto Sans";
+    }
+
+    /*
     p {
       span {
         display: inline-block;
@@ -115,6 +152,7 @@
         }
       }
     }
+  */
   }
 
   .karma-request {
