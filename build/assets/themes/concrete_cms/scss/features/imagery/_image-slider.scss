@@ -183,7 +183,8 @@
   .ccm-image-slider {
     height: 580px;
     overflow: hidden;
-    background: linear-gradient(90deg , rgba(255,255,255,1) 0%, transparent 100%);
+    // NEW-539: No idea why we even have these gradients.
+    //background: linear-gradient(90deg , rgba(255,255,255,1) 0%, transparent 100%);
 
     /* Homepage Image areas - 1440 */
     @media only screen and (min-width: 1200px) {
@@ -273,7 +274,8 @@
             right: 0;
             bottom: 0;
             top: 0;
-            background-image: linear-gradient(to right, theme-color('white'), rgba(255, 255, 255, 0));
+            // NEW-539: No idea why we even have these gradients.
+            //background-image: linear-gradient(to right, theme-color('white'), rgba(255, 255, 255, 0));
             opacity: 0.8;
             z-index: 1;
           }
