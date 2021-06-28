@@ -21,6 +21,8 @@
   font-weight: bold !important;
   outline: none !important;
   box-shadow: none !important;
+  height: 60px; // new-567
+  line-height: 40px; // make the buttons be in the middle, NEW-567
 
   &:hover,
   &:focus,
