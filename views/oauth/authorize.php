@@ -128,6 +128,18 @@ if (!isset($authTypeParams)) {
                                             </div>
                                         <?php } ?>
 
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">
+                                                &nbsp;
+                                            </label>
+
+                                            <div class="col-sm-9 text-right">
+                                                <a href="https://community.concretecms.com/login/concrete/forgot_password" class="btn-link">
+                                                    <?php echo t("Forgot Password"); ?>
+                                                </a>
+                                            </div>
+                                        </div>
+
                                         <div class="float-right">
 
                                             <a href="<?php echo (string)Url::to("/"); ?>" class="btn btn-secondary">
