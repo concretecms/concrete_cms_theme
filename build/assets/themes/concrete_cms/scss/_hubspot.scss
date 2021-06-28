@@ -1,0 +1,71 @@
+/**
+ * @project:   ConcreteCMS Theme
+ *
+ * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
+ * @author     Fabian Bitter (fabian@bitter.de)
+ */
+
+.hbspt-form label strong {
+  font-weight: 400;
+}
+
+.hbspt-form input[type="text"], .hbspt-form textarea, .hbspt-form input[type="email"], .hbspt-form input[type="tel"] {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: hsla(0, 0%, 59.2%, .3);
+  border-radius: 4px !important;
+  display: block;
+  width: 100% !important;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  margin-bottom: 1rem;
+}
+
+.hbspt-form input[type="submit"] {
+  margin-top: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 10px 30px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 20px;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  background-color: #017ddd;
+  border-color: #017ddd;
+  color: #fff !important;
+  font-weight: 700 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  display: inline-block;
+}
+
+.hbspt-form textarea {
+  height: auto !important;
+}
+
+.hbspt-form ul {
+  list-style-type: none !important;
+  padding-left: 0 !important;
+}
+
+.hbspt-form input[type=checkbox] {
+  -webkit-appearance: auto !important;
+  -moz-appearance: auto !important;
+  appearance: auto !important;
+  background: transparent !important;
+  position: static !important;
+  margin-right: 7px !important;
+  margin-top: 0 !important;
+}

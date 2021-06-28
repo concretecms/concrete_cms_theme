@@ -80,7 +80,7 @@ if (!isset($authTypeParams)) {
 
                         <div class="col-md col-sm-12">
                             <h1 class="ccm-title">
-                                <?php echo t("Welcome to our community.  Join Concrete now. It’s free!"); ?>
+                                <?php echo t("Welcome to our community. Join Concrete now. It's free!"); ?>
                             </h1>
                         </div>
                     </div>
@@ -127,6 +127,18 @@ if (!isset($authTypeParams)) {
                                                 </div>
                                             </div>
                                         <?php } ?>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">
+                                                &nbsp;
+                                            </label>
+
+                                            <div class="col-sm-9 text-right">
+                                                <a href="<?=$_ENV['URL_SITE_COMMUNITY']?>/login/concrete/forgot_password" class="btn-link">
+                                                    <?php echo t("Forgot Password"); ?>
+                                                </a>
+                                            </div>
+                                        </div>
 
                                         <div class="float-right">
 

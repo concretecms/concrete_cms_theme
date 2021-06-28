@@ -61,14 +61,14 @@ echo $view->url($resultTarget) ?>" method="get" class="ccm-search-block-form">
         <?php } elseif ($request->query->has("search_paths") && is_array($request->query->get("search_paths"))) { ?>
             <?php foreach ($request->query->get("search_paths") as $search_path) { ?>
                 <?php if (is_string($search_path)) { ?>
-                    <?php echo $form->hidden("search_paths[]", $search_path); ?>
+                    <?php echo $form->hidden("search_paths[]", htmlentities($search_path, ENT_COMPAT, APP_CHARSET)); ?>
                 <?php } ?>
             <?php } ?>
         <?php } ?>
 
         <div class="ccm-search-input">
             <div class="input-group">
-                <?php echo $form->text("query", $query, ["class" => "ccm-search-block-text form-control", "placeholder" => t("Enter your search term here...")]); ?>
+                <?php echo $form->text("query", htmlentities($query, ENT_COMPAT, APP_CHARSET), ["class" => "ccm-search-block-text form-control", "placeholder" => t("Enter your search term here...")]); ?>
 
                 <div class="input-group-append">
                     <button type="submit">

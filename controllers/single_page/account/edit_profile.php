@@ -85,7 +85,7 @@ class EditProfile extends AccountPageController
             }
 
         } catch (GuzzleException $e) {
-            $errorList->add(t("Error while looking up the user details. Internal server error."));
+            $errorList->add(t("You need to create a user account first at forums.concretecms.org."));
         }
 
         if (!$errorList->has()) {
@@ -99,6 +99,7 @@ class EditProfile extends AccountPageController
 
             return new RedirectResponse($redirectUrl, Response::HTTP_TEMPORARY_REDIRECT);
         } else {
+            $this->error = $errorList;
             $this->set('error', $errorList);
             $this->view();
         }
