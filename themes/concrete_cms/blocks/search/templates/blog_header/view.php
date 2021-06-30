@@ -18,7 +18,7 @@ if ($query === '') {
 }
 ?><input name="query" type="text" value="<?=htmlentities($query, ENT_COMPAT, APP_CHARSET)?>" class="form-control" /><?php
 if (isset($buttonText) && ($buttonText !== '')) {
-    ?> <input name="submit" type="submit" value="<?=h($buttonText)?>" class="btn btn-default btn-sm ccm-search-block-submit" /><?php
+    ?> <input name="submit" type="submit" value="<?=h($buttonText)?>" class="btn btn-default ccm-search-block-submit" /><?php
 }
 ?>
         </form>
