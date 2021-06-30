@@ -21,48 +21,9 @@
 }
 
 .form-check {
-  margin-left: 0 !important;
-
-
   .form-check-label {
     width: calc(100% - 30px);
   }
-}
-
-input[type=checkbox] {
-  appearance: none;
-  background: transparent;
-  position: relative;
-}
-
-input[type=checkbox] + label::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: center;
-  display: block;
-  pointer-events: none;
-  opacity: 1;
-  font-family: 'Font Awesome 5 Free';
-  color: theme-color('text');
-  content: "\f0c8";
-  outline: none !important;
-}
-
-input[type=checkbox]:checked + label::after {
-  content: "\f14a";
-  color: theme-color('accent');
-}
-
-input[type=checkbox],
-input[type=checkbox] + label::after {
-  width: 22px;
-  height: 22px;
-  font-size: 16px;
-  line-height: 16px;
-  vertical-align: middle;
-  margin-top: 4px;
-  outline: none !important;
 }
 
 .form-check {
