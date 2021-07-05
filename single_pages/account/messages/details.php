@@ -57,7 +57,7 @@ $dateHelper = $app->make(Date::class);
             <div class="row">
                 <div class="col-md col-sm-12">
                     <h2 class="message-subject">
-                        <?php echo $msg->getMessageSubject(); ?>
+                        <?php echo h($msg->getMessageSubject()); ?>
                     </h2>
                 </div>
 
@@ -78,19 +78,15 @@ $dateHelper = $app->make(Date::class);
             <div class="row">
                 <div class="col">
                     <div class="message-user-info">
-                        <?php if ($userInfo) { ?>
-                            <a href="<?php echo h((string)Url::to("/members/profile", $userInfo->getUserID())); ?>"
-                               class="message-user-avatar">
-                                <?php echo $userInfo->getUserAvatar()->output(); ?>
-                            </a>
+                        <a href="<?php echo h((string)Url::to("/members/profile", $userInfo->getUserID())); ?>"
+                           class="message-user-avatar">
+                            <?php echo $userInfo->getUserAvatar()->output(); ?>
+                        </a>
 
-                            <a href="<?php echo h((string)Url::to("/members/profile", $userInfo->getUserID())); ?>"
-                               class="message-user-name">
-                                <?php echo $userInfo->getUserName(); ?>
-                            </a>
-                        <?php } else { ?>
-                            <?=t('Deleted User')?>
-                        <?php } ?>
+                        <a href="<?php echo h((string)Url::to("/members/profile", $userInfo->getUserID())); ?>"
+                           class="message-user-name">
+                            <?php echo $userInfo->getUserName(); ?>
+                        </a>
                     </div>
                 </div>
 
@@ -113,9 +109,11 @@ $dateHelper = $app->make(Date::class);
 
             <div class="row">
                 <div class="col">
-                    <div class="message-body">
-                        <?php echo $msg->getMessageBody(); ?>
-                    </div>
+                    <pre class="message-body" style="font-family:'Noto Sans', 'sans-serif'"><?php
+                        // Don't put a newline between the pre tags and the php opening/closing tags or it will add
+                        // spaces
+                        echo h($msg->getMessageBody());
+                    ?></pre>
 
                     <?php if (count($msg->getAttachments()) > 0) { ?>
                         <div class="message-attachments">
