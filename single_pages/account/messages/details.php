@@ -78,15 +78,22 @@ $dateHelper = $app->make(Date::class);
             <div class="row">
                 <div class="col">
                     <div class="message-user-info">
-                        <a href="<?php echo h((string)Url::to("/members/profile", $userInfo->getUserID())); ?>"
-                           class="message-user-avatar">
-                            <?php echo $userInfo->getUserAvatar()->output(); ?>
-                        </a>
+                        <?php
+                        if ($userInfo) { ?>
+                            <a href="<?php echo h((string)Url::to("/members/profile", $userInfo->getUserID())); ?>"
+                               class="message-user-avatar">
+                                <?php echo $userInfo->getUserAvatar()->output(); ?>
+                            </a>
 
-                        <a href="<?php echo h((string)Url::to("/members/profile", $userInfo->getUserID())); ?>"
-                           class="message-user-name">
-                            <?php echo $userInfo->getUserName(); ?>
-                        </a>
+                            <a href="<?php echo h((string)Url::to("/members/profile", $userInfo->getUserID())); ?>"
+                               class="message-user-name">
+                                <?php echo $userInfo->getUserName(); ?>
+                            </a>
+                        <?php
+                        } else {
+                            echo t('Deleted User');
+                        }
+                        ?>
                     </div>
                 </div>
 
