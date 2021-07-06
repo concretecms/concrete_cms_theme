@@ -61,7 +61,9 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
 
                     <?php
                     /** @noinspection PhpUnhandledExceptionInspection */
-                    View::element("language_switcher", ["label" => t("Language:")],"concrete_cms_theme");
+                    if ($_ENV['SHOW_LANGUAGE_SWITCHER'] ?? false) {
+                        View::element("language_switcher", ["label" => t("Language:")], "concrete_cms_theme");
+                    }
                     //$a = new GlobalArea('Footer Language Switcher');
                     //$a->display($c);
                     ?>
