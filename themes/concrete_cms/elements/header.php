@@ -74,11 +74,11 @@ $subnavElement = Element::get('sub_nav_custom');
                     <div class="navbar-brand">
                         <div class="header-site-title">
                             <?php if ($enableDarkMode) { ?>
-                                <a href="<?=(string) $marketingUrl?>">
+                                <a href="<?=(string) $opensourceUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
                                 </a>
                             <?php } else { ?>
-                                <a href="<?=(string) $opensourceUrl?>">
+                                <a href="<?=(string) $marketingUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
                                 </a>
                             <?php } ?>
