@@ -16,6 +16,7 @@ use Concrete\Core\View\View;
 use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Config\Repository\Repository;
+use PortlandLabs\ConcreteCmsTheme\Navigation\UrlManager;
 
 /** @var View $view */
 
