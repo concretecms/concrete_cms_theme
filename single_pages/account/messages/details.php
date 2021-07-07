@@ -116,7 +116,7 @@ $dateHelper = $app->make(Date::class);
 
             <div class="row">
                 <div class="col">
-                    <pre class="message-body text-wrap" style="font-family:'Noto Sans', 'sans-serif'"><?php
+                    <pre class="message-body" style="font-family:'Noto Sans', 'sans-serif';white-space:pre-wrap;"><?php
                         // Don't put a newline between the pre tags and the php opening/closing tags or it will add
                         // spaces
                         echo h($msg->getMessageBody());
