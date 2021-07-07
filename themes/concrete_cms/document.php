@@ -47,28 +47,18 @@ $this->inc('elements/header.php');
                     $a->display($c);
                 }
                 ?>
-
-                <?php
-                $c = Page::getCurrentPage();
-                /** @noinspection PhpParamsInspection */
-                $area = Area::get($c, "Main");
-                $bt = BlockType::getByHandle("likes_this");
-                /** @noinspection PhpUndefinedMethodInspection */
-                $bt->controller->setAreaObject($area);
-                $bt->render("view");
-                ?>
             </div>
 
             <div class="col-sm-4 col-sidebar">
                 <?php
-                $bt = BlockType::getByHandle("autonav");
-                $bt->controller->displayPages = 'custom';
-                $bt->controller->orderBy = 'display_asc';
-                $bt->controller->displayPagesCID = Page::getByPath("/developers")->getCollectionID();
-                $bt->controller->displaySubPages = 'relevant';
-                $bt->controller->displaySubPageLevels = 'all';
-                $bt->controller->displaySubPageLevelsNum = 0;
-                $bt->render("templates/docs_sidebar/view");
+                $a = new Area('Sidebar');
+                $a->display($c);
+
+                $stack = Stack::getByName('Thumbs');
+                if ($stack) {
+                    $stack->display();
+                }
+
                 ?>
             </div>
         </div>
