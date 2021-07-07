@@ -14,6 +14,7 @@ use Concrete\Core\Attribute\Category\CategoryService;
 use Concrete\Core\Attribute\Category\UserCategory;
 use Concrete\Core\Attribute\Controller;
 use Concrete\Core\Config\Repository\Repository;
+use Concrete\Core\Encryption\PasswordHasher;
 use Concrete\Core\Entity\Attribute\Category;
 use Concrete\Core\Entity\Attribute\Key\UserKey;
 use Concrete\Core\Entity\Attribute\Set;
@@ -31,12 +32,14 @@ use Concrete\Core\User\Command\UpdateUserAvatarCommand;
 use Concrete\Core\User\User;
 use Concrete\Core\User\UserInfo;
 use Concrete\Core\Validation\CSRF\Token;
+use Concrete\Core\Validator\PasswordValidatorServiceProvider;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Uri;
 use PortlandLabs\ConcreteCmsTheme\Page\Controller\AccountPageController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Exception;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /** @noinspection PhpInconsistentReturnPointsInspection */
 
@@ -256,6 +259,7 @@ class EditProfile extends AccountPageController
         }
 
         $this->set('unassignedAttributes', $unassignedAttributes);
+        $this->set('updatePasswordAction', $this->action('update_password'));
     }
 
     /**
@@ -323,6 +327,69 @@ class EditProfile extends AccountPageController
 
             return $this->responseFactory->redirect((string)Url::to('/account/edit_profile', 'save_complete'), Response::HTTP_TEMPORARY_REDIRECT);
         }
+    }
+
+    public function update_password(): JsonResponse
+    {
+        $code = Response::HTTP_OK;
+        $field = [];
+        $requirements = [];
+
+        $newPassword = $this->post('password');
+        $newPasswordRepeat = $this->post('password2');
+        $currentPassword = $this->post('currentPassword');
+        $token = $this->post('ccm_token');
+
+        // Validate CSRF
+        $tokenValidator = $this->app->make(Token::class);
+        if (!$tokenValidator->validate('update_password', $token)) {
+            $this->error->add(t('Invalid token provided, refresh and try again.'));
+            $code = Response::HTTP_UNAUTHORIZED;
+        }
+
+        // Make sure the passwords match
+        if (!$this->error->has() && $newPassword !== $newPasswordRepeat) {
+            $field[] = 'password';
+            $field[] = 'password2';
+            $this->error->add(t('The new passwords do not match.'));
+            $code = Response::HTTP_BAD_REQUEST;
+        }
+
+        // Validate against password requirements
+        $validator = $this->app->make('validator/password');
+        if (!$validator->isValid($newPassword)) {
+            $field[] = 'password';
+            $field[] = 'password2';
+            $requirements = $validator->getRequirementStrings();
+
+            $this->error->add('Password doesn\'t meet requirements.');
+
+            $code = Response::HTTP_BAD_REQUEST;
+        }
+
+        // Make sure the given password matches the stored password hash
+        if (!$this->error->has()) {
+            $user = $this->app->make(User::class);
+            $userInfo = $user->getUserInfoObject();
+            $hasher = $this->app->make(PasswordHasher::class);
+            if (!$user->isRegistered() || !$hasher->checkPassword($currentPassword, $userInfo->getUserPassword())) {
+                $field[] = 'currentPassword';
+                $this->error->add('Invalid password.');
+                $code = Response::HTTP_UNAUTHORIZED;
+            }
+        }
+
+        $result = ['error' => false, 'message' => [], 'fields' => [], 'requirements' => array_unique($requirements)];
+        if ($this->error->has()) {
+            $result['error'] = true;
+            $result['message'] = $this->error->jsonSerialize()['errors'];
+            $result['fields'] = array_unique($field);
+        } else {
+            // Update the user's password
+            $userInfo->changePassword($newPassword);
+        }
+
+        return new JsonResponse($result, $code);
     }
 
 }
