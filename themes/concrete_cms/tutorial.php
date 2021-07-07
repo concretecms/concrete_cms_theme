@@ -47,16 +47,6 @@ $this->inc('elements/header.php');
                     $a->display($c);
                 }
                 ?>
-
-                <?php
-                $c = Page::getCurrentPage();
-                /** @noinspection PhpParamsInspection */
-                $area = Area::get($c, "Main");
-                $bt = BlockType::getByHandle("likes_this");
-                /** @noinspection PhpUndefinedMethodInspection */
-                $bt->controller->setAreaObject($area);
-                $bt->render("view");
-                ?>
             </div>
 
             <div class="col-sm-4 col-sidebar">
@@ -66,7 +56,14 @@ $this->inc('elements/header.php');
                 $bt->controller->set("maxNumber", 3);
                 $bt->controller->set("sortByOptions", "newest");
                 $bt->render("view");
+
+                $stack = Stack::getByName('Thumbs');
+                if ($stack) {
+                    $stack->display();
+                }
+
                 ?>
+
             </div>
         </div>
 
