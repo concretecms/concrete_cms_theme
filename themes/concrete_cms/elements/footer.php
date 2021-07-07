@@ -16,6 +16,7 @@ use Concrete\Core\View\View;
 use Concrete\Core\Support\Facade\Url;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Config\Repository\Repository;
+use PortlandLabs\ConcreteCmsTheme\Navigation\UrlManager;
 
 /** @var View $view */
 
@@ -23,6 +24,10 @@ $app = Application::getFacadeApplication();
 /** @var Repository $config */
 $config = Site::getSite()->getConfigRepository();
 $u = new User();
+
+$manager = $app->make(UrlManager::class);
+$marketingUrl = $manager->getMarketingUrl();
+$opensourceUrl = $manager->getMarketingOrgUrl();
 
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page? $c->getAttribute("enable_dark_mode") : false);
 ?>
@@ -38,12 +43,15 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
         <div class="row">
             <div class="col-sm">
                 <div class="footer-site-title">
-                    <a href="<?=(string) $marketingUrl?>">
-                        <?php if ($enableDarkMode) { ?>
+                    <?php if ($enableDarkMode) { ?>
+                        <a href="<?=(string) $opensourceUrl?>">
                             <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
-                        <?php } else { ?>
+                        </a>
+                    <?php } else { ?>
+                        <a href="<?=(string) $marketingUrl?>">
                             <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
-                        <?php } ?>
+                        </a>
+                    <?php } ?>
                     </a>
                 </div>
             </div>
@@ -53,7 +61,9 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
 
                     <?php
                     /** @noinspection PhpUnhandledExceptionInspection */
-                    View::element("language_switcher", ["label" => t("Language:")],"concrete_cms_theme");
+                    if ($_ENV['SHOW_LANGUAGE_SWITCHER'] ?? false) {
+                        View::element("language_switcher", ["label" => t("Language:")], "concrete_cms_theme");
+                    }
                     //$a = new GlobalArea('Footer Language Switcher');
                     //$a->display($c);
                     ?>
