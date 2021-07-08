@@ -89,6 +89,8 @@
       /* Tablet + Mobile */
       @include media-breakpoint-only(md) {
         .rslides {
+          padding: 25px !important;
+          height: auto !important;
           li {
             .ccm-image {
               height: 412px !important;
@@ -128,7 +130,7 @@
 
           .ccm-image {
             position: relative !important;
-            display: block !important;
+            display: none !important;
             height: auto !important;
             width: 100% !important;
 
