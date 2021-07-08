@@ -348,22 +348,10 @@ class EditProfile extends AccountPageController
         }
 
         // Make sure the passwords match
-        if (!$this->error->has() && $newPassword !== $newPasswordRepeat) {
+        if ($newPassword !== $newPasswordRepeat) {
             $field[] = 'password';
             $field[] = 'password2';
             $this->error->add(t('The new passwords do not match.'));
-            $code = Response::HTTP_BAD_REQUEST;
-        }
-
-        // Validate against password requirements
-        $validator = $this->app->make('validator/password');
-        if (!$validator->isValid($newPassword)) {
-            $field[] = 'password';
-            $field[] = 'password2';
-            $requirements = $validator->getRequirementStrings();
-
-            $this->error->add('Password doesn\'t meet requirements.');
-
             $code = Response::HTTP_BAD_REQUEST;
         }
 
@@ -371,16 +359,27 @@ class EditProfile extends AccountPageController
         if (!$this->error->has()) {
             $user = $this->app->make(User::class);
             $userInfo = $user->getUserInfoObject();
-            $hasher = $this->app->make(PasswordHasher::class);
-            if (!$user->isRegistered() || !$hasher->checkPassword($currentPassword, $userInfo->getUserPassword())) {
-                $field[] = 'currentPassword';
-                $this->error->add('Invalid password.');
-                $code = Response::HTTP_UNAUTHORIZED;
+
+            // Validate against password requirements
+            $validator = $this->app->make('validator/password');
+            if (!$validator->isValidFor($newPassword, $userInfo, $this->error)) {
+                $field[] = 'password';
+                $field[] = 'password2';
+                $code = Response::HTTP_BAD_REQUEST;
+            }
+
+            if (!$this->error->has()) {
+                $hasher = $this->app->make(PasswordHasher::class);
+                if (!$user->isRegistered() || !$hasher->checkPassword($currentPassword, $userInfo->getUserPassword())) {
+                    $field[] = 'currentPassword';
+                    $this->error->add('Invalid password.');
+                    $code = Response::HTTP_UNAUTHORIZED;
+                }
             }
         }
 
         $result = ['error' => false, 'message' => [], 'fields' => [], 'requirements' => array_unique($requirements)];
-        if ($this->error->has()) {
+        if ($code !== 200 || $this->error->has()) {
             $result['error'] = true;
             $result['message'] = $this->error->jsonSerialize()['errors'];
             $result['fields'] = array_unique($field);

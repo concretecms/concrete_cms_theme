@@ -273,7 +273,7 @@ $profileFormRenderer->setContext(new FrontendFormContext());
                 if (message) {
                     if (typeof message === 'object') {
                         for (let text of message) {
-                            error.append($(document.createElement('span')).text(text));
+                            error.append($(document.createElement('span')).addClass('d-block').text(text));
                         }
                         error.removeClass('d-none')
                     } else {
