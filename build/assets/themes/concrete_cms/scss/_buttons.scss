@@ -11,10 +11,6 @@
   }
 }
 
-.btn-sm {
-  border-radius: 2px !important;
-}
-
 .btn, .btn-secondary {
   @include button-variant($btn-default-background-color, $btn-default-border-color);
   color: theme-color('accent') !important;
@@ -23,6 +19,14 @@
   box-shadow: none !important;
   height: 60px; // new-567
   line-height: 40px; // make the buttons be in the middle, NEW-567
+
+  &.btn-sm {
+    /* cs-31: edit profile buttons on view profile, the tiny buttons, looked terrible */
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height: inherit;
+    line-height: inherit;
+  }
 
   &:hover,
   &:focus,

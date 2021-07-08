@@ -30,7 +30,9 @@ $searchPage = Page::getByID($searchPageId);
 $excludeBreadcrumb = $c->isHomePage() || strpos($c->getCollectionPath(), '/account') === 0 || $c->getPageController()->get("exclude_breadcrumb") || $c->getAttribute("exclude_breadcrumb");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
 
-$marketingUrl = $app->make(UrlManager::class)->getMarketingUrl();
+$manager = $app->make(UrlManager::class);
+$marketingUrl = $manager->getMarketingUrl();
+$opensourceUrl = $manager->getMarketingOrgUrl();
 
 $subnavElement = Element::get('sub_nav_custom');
 
@@ -71,13 +73,15 @@ $subnavElement = Element::get('sub_nav_custom');
                 <div class="navbar-inner">
                     <div class="navbar-brand">
                         <div class="header-site-title">
-                            <a href="<?=(string) $marketingUrl?>">
-                                <?php if ($enableDarkMode) { ?>
+                            <?php if ($enableDarkMode) { ?>
+                                <a href="<?=(string) $opensourceUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
-                                <?php } else { ?>
+                                </a>
+                            <?php } else { ?>
+                                <a href="<?=(string) $marketingUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
-                                <?php } ?>
-                            </a>
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
 

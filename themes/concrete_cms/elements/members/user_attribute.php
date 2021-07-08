@@ -34,9 +34,9 @@ defined('C5_EXECUTE') or die("Access Denied.");
                 echo "<br>";
             }
         } else if ($attribute instanceof AddressValue) {
-            echo nl2br($attribute->getValue());
+            echo nl2br(h($attribute->getValue()));
         } else {
-            echo nl2br((string)$attribute);
+            echo nl2br(h((string) $attribute));
         }
         ?>
     </p>

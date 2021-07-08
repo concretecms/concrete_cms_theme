@@ -201,9 +201,9 @@ $profileFormRenderer->setContext(new FrontendFormContext());
                         </div>
 
                         <div class="float-right">
-                            <a href="javascript:void(0);" class="btn btn-secondary" id="ccm-change-password">
+                            <button type='button' data-toggle="modal" data-target="#passwordchange" class="btn btn-secondary" id="ccm-change-password">
                                 <?php echo t("Change Password"); ?>
-                            </a>
+                            </button>
 
                             <button type="submit" class="btn btn-primary">
                                 <?php echo t("Save Changes"); ?>
@@ -218,11 +218,117 @@ $profileFormRenderer->setContext(new FrontendFormContext());
     </div>
 </div>
 
+<div class="modal" id="passwordchange" tabindex="-1" role="dialog">
+    <div class="modal-dialog shadow" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= $updatePasswordAction ?>">
+                <?= $token->output('update_password', true); ?>
+                <div class="alert alert-warning d-none"></div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input required type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword" autocomplete="current-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">New Password</label>
+                        <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="New Password" name="password" autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Repeat Password</label>
+                        <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Repeat Password" name="password2" autocomplete="new-password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-role="submit">Change Password</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script>
     (function ($) {
         $(function () {
             $("input[type=file]").change(function () {
                 $(this).closest("form").submit();
+                showError('', [])
+            });
+
+            const container = $('#passwordchange');
+            const error = container.find('.alert');
+            const showSuccess = function(message) {
+                error.addClass('alert-success').removeClass('alert-warning')
+                error.text(message).removeClass('d-none')
+            }
+
+            const showError = function(message, requirements) {
+                error.html('')
+                error.removeClass('alert-success').addClass('alert-warning')
+                if (message) {
+                    if (typeof message === 'object') {
+                        for (let text of message) {
+                            error.append($(document.createElement('span')).addClass('d-block').text(text));
+                        }
+                        error.removeClass('d-none')
+                    } else {
+                        error.text(message).removeClass('d-none')
+                    }
+
+                    let ul = $(document.createElement('ul')).addClass('mb-0');
+                    for (let text of requirements) {
+                        ul.append($(document.createElement('li')).text(text));
+                    }
+                    error.append(ul)
+                } else {
+                    error.text('').addClass('d-none')
+                }
+            }
+
+            const handleResult = function(result) {
+                console.log(result)
+                if (result.error) {
+                    showError(result.message, result.requirements)
+
+                    container.find('.is-invalid').removeClass('is-invalid')
+                    for (let field of result.fields) {
+                        container.find('[name=' + field + ']').addClass('is-invalid');
+                    }
+                } else {
+                    showSuccess('Password updated successfully.');
+                    container.find('input').not('[name=ccm_token]').val('');
+                }
+            }
+
+            container.on('shown.bs.modal', function () {
+                container.find('[name=currentPassword]').trigger('focus');
+                container.find('input').not('[name=ccm_token]').val('');
+            });
+
+            container.find('[data-role=submit]').click(function() {
+                const form = $(this).closest('form')
+                const data = form.serializeArray();
+
+                showError('', [])
+                container.find('.is-invalid').removeClass('is-invalid')
+                $.post(form.attr('action'), data, null, 'json').then(function(result) {
+                    if (typeof result === 'object') {
+                        handleResult(result)
+                    } else {
+                        showError('Unknown error: Invalid response.')
+                    }
+                }, function(response, type, reason) {
+                    if (typeof response.responseJSON === 'object') {
+                        handleResult(response.responseJSON)
+                    } else {
+                        showError('Unknown error: ' + reason)
+                    }
+                })
             });
         });
     })(jQuery);

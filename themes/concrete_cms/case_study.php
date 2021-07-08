@@ -98,7 +98,7 @@ $relatedCaseStudies = $pagination->getCurrentPageResults();
                         <div class="developer">
                             <?php if (strlen($developerUrl) > 0) { ?>
                                 <?php /** @noinspection HtmlUnknownTarget */
-                                echo t("Developer by %s", sprintf(
+                                echo t("Developed by %s", sprintf(
                                     "<a href=\"%s\" rel='nofollow'>%s</a>",
                                     $developerUrl,
                                     $developerName

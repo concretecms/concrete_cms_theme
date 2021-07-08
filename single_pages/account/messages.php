@@ -178,7 +178,6 @@ $token = $app->make(Token::class);
                         <tbody>
                         <?php if (is_array($messages)) { ?>
                             <?php foreach ($messages as $msg) { ?>
-                                <?php $profileURL = $msg->getMessageRelevantUserObject()->getUserPublicProfileURL(); ?>
                                 <tr class="<?php echo $msg->isMessageUnread() ? "unread" : ""; ?>"
                                     data-message-id="<?php echo h($msg->getMessageID()); ?>">
                                     <td>
