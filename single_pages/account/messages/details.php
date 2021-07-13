@@ -32,14 +32,6 @@ $dateHelper = $app->make(Date::class);
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2 class="highlight">
-                    <?php echo t("Message Details"); ?>
-                </h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
                 <a href="<?php echo h((string)Url::to("/account/messages")); ?>"
                    class="btn btn-secondary">
                     <?php if ($mailbox->getMailboxID() === UserPrivateMessageMailbox::MBTYPE_INBOX) { ?>
