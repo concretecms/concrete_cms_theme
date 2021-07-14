@@ -182,5 +182,6 @@ class ServiceProvider extends Provider
     protected function registerAssetLocalizations()
     {
         $this->router->get('/community/js', 'PortlandLabs\ConcreteCmsTheme\Controller\Frontend\AssetsLocalization::getCommunityJavascript');
+        $this->router->get('/ccm/assets/localization/core/js', 'PortlandLabs\ConcreteCmsTheme\Controller\Frontend\AssetsLocalization::getCoreJavascript');
     }
 }

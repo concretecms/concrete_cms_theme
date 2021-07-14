@@ -16,10 +16,24 @@ use Concrete\Core\Http\ResponseFactoryInterface;
 class AssetsLocalization extends Controller
 {
 
+    const CACHE_OPTIONS = [
+        'max_age' => 2592000,
+        'public' => true,
+    ];
+
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * /ccm/assets/localization/core/js route
      */
-    public function getCommunityJavascript()
+    public function getCoreJavascript(): Response
+    {
+        $controller = app(\Concrete\Controller\Frontend\AssetsLocalization::class);
+        return $controller->getCoreJavascript()->setCache(self::CACHE_OPTIONS);
+    }
+
+    /**
+     * /community/js route
+     */
+    public function getCommunityJavascript(): Response
     {
         /** @noinspection PhpComposerExtensionStubsInspection */
         $content = 'var ccmi18n_community = ' . json_encode([
@@ -78,6 +92,6 @@ class AssetsLocalization extends Controller
                 'Content-Type' => 'application/javascript; charset=' . APP_CHARSET,
                 'Content-Length' => strlen($content),
             ]
-        );
+        )->setCache(self::CACHE_OPTIONS);
     }
 }
