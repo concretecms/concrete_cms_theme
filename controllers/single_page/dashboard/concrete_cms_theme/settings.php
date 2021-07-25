@@ -27,6 +27,7 @@ class Settings extends DashboardSitePageController
     {
         $siteConfig = $this->getSite()->getConfigRepository();
         $this->set('enableDarkMode', $siteConfig->get('concrete_cms_theme.enable_dark_mode', false));
+        $this->set('searchPageId', $siteConfig->get('concrete_cms_theme.search_page_id'));
     }
 
     public function view()
@@ -41,6 +42,7 @@ class Settings extends DashboardSitePageController
         if ($this->request->getMethod() === "POST") {
             if ($this->token->validate("update_settings")) {
                 $siteConfig->save("concrete_cms_theme.enable_dark_mode", $this->request->request->has("enableDarkMode"));
+                $siteConfig->save("concrete_cms_theme.search_page_id", $this->request->request->get("searchPageId"));
                 return $responseFactory->redirect(Url::to("/dashboard/concrete_cms_theme/settings/updated"), Response::HTTP_TEMPORARY_REDIRECT);
             } else {
                 $this->error->add($this->token->getErrorMessage());

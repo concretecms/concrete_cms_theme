@@ -10,10 +10,12 @@
 defined('C5_EXECUTE') or die('Access denied');
 
 use Concrete\Core\Form\Service\Form;
+use Concrete\Core\Form\Service\Widget\PageSelector;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Validation\CSRF\Token;
 
 /** @var bool $enableDarkMode */
+/** @var int $searchPageId */
 /** @var Concrete\Core\Tree\Tree $tree */
 
 $app = Application::getFacadeApplication();
@@ -21,6 +23,8 @@ $app = Application::getFacadeApplication();
 $form = $app->make(Form::class);
 /** @var Token $token */
 $token = $app->make(Token::class);
+/** @var PageSelector $pageSelector */
+$pageSelector = $app->make(PageSelector::class);
 
 ?>
 
@@ -41,6 +45,11 @@ $token = $app->make(Token::class);
             <div class="help-block">
                 <?php echo t("If you enable this checkbox the entire theme will be rendered in the dark mode theme. If you want to enable the dark mode just for a specific page you can do so by setting a page attribute."); ?>
             </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $form->label("searchPageId", t("Search Page")); ?>
+            <?php echo $pageSelector->selectPage("searchPageId", $searchPageId); ?>
         </div>
     </fieldset>
 
