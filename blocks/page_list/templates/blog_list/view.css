@@ -1,0 +1,43 @@
+.blog-list-pages {
+    margin-top: 15px;
+}
+
+.blog-list-pages .blog-list-page-entry {
+    padding: 12px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    height: calc(100% - 15px);
+    display: flex;
+    flex-direction: column;
+    max-height: 370px;
+}
+
+.blog-list-pages .blog-list-page-entry .title {
+    font-size: 22px;
+}
+
+.blog-list-pages .blog-list-page-entry .date {
+    padding: 24px 0;
+    font-size: 12px;
+}
+
+.blog-list-pages .blog-list-page-entry .description {
+    flex: 1;
+    display: flex; /* if you remove this line it works on Safari */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.blog-list-pages .blog-list-page-entry .read-more {
+    flex: 0;
+}
+
+.blog-list-pages .blog-list-page-entry .btn {
+    margin-top: 24px;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .blog-list-pages .blog-list-page-entry {
+        max-height: none;
+    }
+}
