@@ -66,6 +66,14 @@ div.ccm-page {
           margin-right: 0;
         }
 
+        /* mobile view fix for grid layouts like used on the home page */
+        @media only screen and (max-width: 991px) {
+          &:first-child, &:last-child {
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+        }
+
         img {
           max-width: 200px;
         }
