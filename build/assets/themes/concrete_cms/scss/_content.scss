@@ -151,3 +151,11 @@ div.ccm-page.page-template-left-sidebar main .nav:not(.nav-tabs) li {
 div.ccm-page.page-template-left-sidebar main {
   line-height: 2.25rem;
 }
+
+/* mobile view fix for grid layouts like used on the home page */
+@media only screen and (max-width: 576px) {
+  .content-section-column .col-3 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}

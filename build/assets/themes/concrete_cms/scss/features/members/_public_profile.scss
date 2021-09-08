@@ -91,10 +91,17 @@
       display: inline;
       color: #2F3032;
       font-size: 59px;
-      line-height: 40px;
       font-weight: 700;
       text-transform: uppercase;
       font-family: Poppins;
+      line-height: 65px;
+      word-break: break-word;
+
+      @media screen and (max-width: 768px) {
+        /* smaller font settings on mobile */
+        font-size: 40px;
+        line-height: 47px;
+      }
     }
 
     .profile-user-actions {
