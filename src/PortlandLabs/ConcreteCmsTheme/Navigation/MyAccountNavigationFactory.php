@@ -50,7 +50,7 @@ class MyAccountNavigationFactory implements NavigationFactoryInterface, Applicat
             /** @var Connection $db */
             $db = $this->app->make(Connection::class);
 
-            $remoteId = $db->fetchFirstColumn('select binding from OauthUserMap where namespace="external_concrete5" and user_id=:user', [
+            $remoteId = $db->fetchOne('select binding from OauthUserMap where namespace="external_concrete5" and user_id=:user', [
                 ':user' => $this->user->getUserID()
             ]);
         } catch (\Throwable $e) {
