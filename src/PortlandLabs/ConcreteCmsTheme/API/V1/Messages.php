@@ -112,12 +112,12 @@ class Messages
                         $ui = $this->userInfoRepository->getByID($msg->getMessageRelevantUserID());
 
                         $messageData["msgID"] = $msg->getMessageID();
-                        $messageData["msgSubject"] = t("Re: %s", $msg->getFormattedMessageSubject());
+                        $messageData["msgSubject"] = t("Re: %s", $msg->getMessageSubject());
 
                         $body = "\n\n\n" . $msg->getMessageDelimiter() . "\n";
                         /** @noinspection PhpUnhandledExceptionInspection */
-                        $body .= t("From: %s\nDate Sent: %s\nSubject: %s", $msg->getMessageAuthorName(), $this->dateHelper->formatDateTime($msg->getMessageDateAdded(), true), $msg->getFormattedMessageSubject());
-                        $body .= "\n\n" . h($msg->getMessageBody());
+                        $body .= t("From: %s\nDate Sent: %s\nSubject: %s", $msg->getMessageAuthorName(), $this->dateHelper->formatDateTime($msg->getMessageDateAdded(), true), $msg->getMessageSubject());
+                        $body .= "\n\n" . $msg->getMessageBody();
 
                         // append attachments to body
                         $attachmentString = "";
