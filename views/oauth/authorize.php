@@ -161,7 +161,7 @@ if (!isset($authTypeParams)) {
                                             <div class="text-center sign-up-container">
                                                 <?php echo t("Don't have an account?"); ?>
 
-                                                <a href="<?php echo (string)Url::to('/register') ?>" class="btn-link">
+                                                <a href="<?php echo (string)Url::to('/register') ?>" class="btn btn-primary" style="margin-left: 15px;">
                                                     <?php echo t('Sign up'); ?>
                                                 </a>
                                             </div>
