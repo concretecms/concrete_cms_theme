@@ -209,7 +209,30 @@ if ($externalAuth) {
                                         <?php foreach ($activeAuths as $auth) { ?>
                                             <div data-handle="<?php echo $auth->getAuthenticationTypeHandle(); ?>"
                                                  class="authentication-type authentication-type-<?php echo $auth->getAuthenticationTypeHandle(); ?>">
-                                                <?php $auth->renderForm($authTypeElement ?: 'form', $authTypeParams ?: []); ?>
+                                                <?php
+                                                    if ($auth->getAuthenticationTypeHandle() ==="concrete" && ($authTypeElement === "form" || $authTypeElement === null)) {
+                                                        /*
+                                                         * This is a hacky but working way to just override the login form without overriding the concrete authentication type.
+                                                         * I already had overridden the entire concrete authentication type in the past but my changes was reverted back so i assume
+                                                         * there was a reasonable for that. That's why i decided to manipulate the form this way.
+                                                         *
+                                                         * All other solutions like working with str_replace are very ugly.
+                                                         */
+
+                                                        $params = array_merge($auth->controller->getSets(), [
+                                                            "auth" => $auth
+                                                        ]);
+
+                                                        if (is_array($authTypeParams)) {
+                                                            $params = array_merge($authTypeParams, $params);
+                                                        }
+
+                                                        /** @noinspection PhpUnhandledExceptionInspection */
+                                                        $this->inc("elements/login_form.php", $params);
+                                                    } else {
+                                                        $auth->renderForm($authTypeElement ?: 'form', $authTypeParams ?: []);
+                                                    }
+                                                ?>
                                             </div>
 
                                             <?php if ($i == 0 && count($activeAuths) > 1 && $config->get('concrete.user.registration.enabled')) { ?>
