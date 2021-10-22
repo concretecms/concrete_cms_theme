@@ -6,6 +6,7 @@ namespace PortlandLabs\ConcreteCmsTheme\Navigation;
 
 use Concrete\Core\Application\ApplicationAwareInterface;
 use Concrete\Core\Application\ApplicationAwareTrait;
+use Concrete\Core\Database\Connection\Connection;
 use Concrete\Core\Navigation\Item\Item;
 use Concrete\Core\Navigation\Navigation;
 use Concrete\Core\Navigation\NavigationInterface;
@@ -43,8 +44,26 @@ class MyAccountNavigationFactory implements NavigationFactoryInterface, Applicat
 
     private function loggedInMenu(): NavigationInterface
     {
+        $remoteId = null;
+
+        try {
+            /** @var Connection $db */
+            $db = $this->app->make(Connection::class);
+
+            $remoteId = $db->fetchFirstColumn('select binding where namespace="external_concrete5" and user_id=:user', [
+                ':user' => $this->user->getUserID()
+            ]);
+        } catch (\Throwable $e) {
+            // Ignore db errors.
+        }
+
+        $remoteId = $remoteId ?: $this->user->getUserID();
+        $urlHandler = $this->app->make(UrlManager::class);
+
+        $userIcon = $urlHandler->replacePlaceholderIfExists('<img style="max-height:1.9rem;border-radius:50%" src="{{community}}/application/files/avatars/' . (int) $remoteId . '.jpg" />');
+
         $navigation = new Navigation();
-        $navigation->add(new Item('{{community}}/members/profile', '<i class="fa fa-user" title="My Account"></i>', false, $this->activeSection === 'community', [
+        $navigation->add(new Item('{{community}}/members/profile', $userIcon, false, $this->activeSection === 'community', [
             new Item('{{community}}/members/profile/', t('My Profile')),
             new Item('{{community}}/account/messages', t('Private Messages')),
 
