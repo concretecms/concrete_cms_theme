@@ -22,6 +22,7 @@ use Concrete\Core\User\Avatar\EmptyAvatar;
 use Concrete\Core\User\UserInfo;
 use Concrete\Core\Validation\CSRF\Token;
 use Concrete\Core\Page\View\PageView;
+use HtmlObject\Element;
 use PortlandLabs\ConcreteCmsTheme\Attribute\Context\FrontendFormContext;
 
 /** @var UserKey[]|null $unassignedAttributes */
@@ -78,7 +79,10 @@ $profileFormRenderer->setContext(new FrontendFormContext());
                         if ($fileVersion instanceof Version) {
                             $hasHeaderImage = true;
 
-                            echo '<img src="' . $fileVersion->getURL() . '" alt="' . h(t("Header Image of %s", $profile->getUserName())) . '">';
+                            echo (string) new Element("div", null,[
+                                "class" => "image-container",
+                                "style" => "background-image: url('" . h($fileVersion->getURL()) . "');"
+                            ]);
                         }
                     }
                     ?>
