@@ -117,7 +117,7 @@ class ServiceProvider extends Provider
         $this->app->bind('manager/view/pagination', function ($app) {
             return new Manager($app);
         });
-        $this->app['manager/view/pagination/pager'] = $this->app->share(function ($app) {
+        $this->app->singleton('manager/view/pagination/pager', function ($app) {
             return new PagerManager($app);
         });
 
