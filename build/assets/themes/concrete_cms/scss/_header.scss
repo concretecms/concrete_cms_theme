@@ -19,6 +19,13 @@ $hamburger-hover-opacity: 1.0;
 
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
+// Align the account dropdown to 
+#ccm-desktop-nav ul.navbar-nav >li.nav-item:last-child > ul {
+  width: 234px;
+  margin-left: calc(-234px + 100%);
+}
+
+
 &.ccm-dark-mode {
 
   header {
