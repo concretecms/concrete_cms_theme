@@ -60,6 +60,21 @@ $subnavElement = Element::get('sub_nav_custom');
 </head>
 <body>
 
+<script class="disclosure" role="template" type='text/template'>
+    <div class='disclosure-container ccm-ui'>
+        <div class='disclosure'>
+            <div>
+                <p>
+                    This website stores cookies on your computer. These cookies are used to improve
+                    your website experience and provide more personalized services to you, both on this website and through
+                    other media. To find out more about the cookies we use, see our <a href='https://www.concretecms.com/about/legal/privacy-policy' target='_blank'>Privacy Policy</a>.
+                </p>
+            </div>
+            <button class='ack btn btn-primary '>Accept</button>
+        </div>
+    </div>
+</script>
+
 <div id="ccm-loading-screen" style="display: none">
     <div class="loading-wrapper">
         <div class="loader"></div>
