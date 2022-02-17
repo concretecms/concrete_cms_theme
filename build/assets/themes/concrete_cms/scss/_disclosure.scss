@@ -1,0 +1,81 @@
+@mixin do-animation($animation, $duration: 1s) {
+    animation: $animation $duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.disclosure-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.3);
+    z-index: 100000;
+
+    .disclosure {
+        @include do-animation('slide-top');
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        left:0;
+        bottom: -200px;
+        right:0;
+        height: auto;
+        background:#f0f0f0;
+        padding: 1rem 2rem;
+
+        p {
+            margin: 0
+        }
+
+        button {
+            margin-left: 1rem;
+        }
+    }
+
+    &.open {    
+        @include do-animation('fadein');
+    }
+    &.close {
+        @include do-animation('fadeout', .5s);
+    }
+
+
+    @media screen and (max-width: 768px) {
+        .disclosure {
+            flex-direction: column;
+
+            button {
+                margin-top: 1rem;
+                align-self: flex-end;
+            }
+        }
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        bottom: -200px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
