@@ -52,7 +52,7 @@ class FooterNavigationFactory implements ApplicationAwareInterface
             new Item('{{forums}}', t('Forums')),
             new Item('{{marketing}}/support/training-certification', t('Training & Certification')),
         ]));
-        $navigation->add(new Item('{{marketing}}/community', t('Community'), false, $activeSection === 'community', [
+        $navigation->add(new Item('{{marketing}}/community', t('Community'), false, false, [
             new Item('{{forums}}', t('Forums')),
             new Item('{{community}}/members/directory', t('Search Members')),
             new Item('{{marketing}}/extensions/translate', t('Translate')),
