@@ -24,7 +24,7 @@ $items = $headerNavigation->getItems();
         }
 
         ?>
-        <li class="<?=implode($listClasses, ' ')?>">
+        <li class="<?=implode(' ', $listClasses)?>">
             <a href="<?=$item->getURL()?>" class="nav-link">
                 <?=h($item->getName())?>
             </a>
@@ -73,7 +73,7 @@ $items = $headerNavigation->getItems();
 
         $name = $item->getName();
         ?>
-        <li class="<?=implode($listClasses, ' ')?>">
+        <li class="<?=implode(' ', $listClasses)?>">
             <a href="<?=$item->getURL()?>" class="nav-link">
                 <?= $name ?>
             </a>
