@@ -10,6 +10,7 @@
 
 namespace Concrete\Package\ConcreteCmsTheme\Controller\SinglePage\Account;
 
+use Concrete\Core\Antispam\Service;
 use Concrete\Core\Attribute\Category\CategoryService;
 use Concrete\Core\Attribute\Category\UserCategory;
 use Concrete\Core\Attribute\Controller;
@@ -305,6 +306,8 @@ class EditProfile extends AccountPageController
         /** @var UserKey[] $aks */
         $aks = $userCategory->getEditableInProfileList();
 
+        $toTest = [];
+
         foreach ($aks as $uak) {
             /** @var Controller $controller */
             $controller = $uak->getController();
@@ -315,6 +318,20 @@ class EditProfile extends AccountPageController
             if (!$response->isValid()) {
                 $error = $response->getErrorObject();
                 $this->error->add($error);
+            } elseif (in_array($uak->getAttributeTypeHandle(), ['textarea', 'text'])) {
+                $toTest[] = [$uak->getAttributeKeyName(), $controller->post('value')];
+            }
+        }
+
+        if ($toTest) {
+            $toTest = array_filter(array_map(fn($test) => trim($test[1]) ? "{$test[1]}" : null, $toTest));
+
+            /** @var Service $antispam */
+            $antispam = $this->app->make(Service::class);
+            $notSpam = $antispam->check(implode("\n\n", $toTest), 'signup', ['user' => $ui]);
+
+            if (!$notSpam) {
+                $this->error->add('Unable to save, profile flagged as spam.');
             }
         }
 
