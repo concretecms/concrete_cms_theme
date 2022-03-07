@@ -24,15 +24,15 @@ $app = Application::getFacadeApplication();
 $token = $app->make(Token::class);
 /** @var Repository $config */
 $config = Site::getSite()->getConfigRepository();
+$site = Site::getSite();
 
-$searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
-$searchPage = Page::getByID($searchPageId);
 $excludeBreadcrumb = $c->isHomePage() || strpos($c->getCollectionPath(), '/account') === 0 || $c->getPageController()->get("exclude_breadcrumb") || $c->getAttribute("exclude_breadcrumb");
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
 
 $manager = $app->make(UrlManager::class);
 $marketingUrl = $manager->getMarketingUrl();
 $opensourceUrl = $manager->getMarketingOrgUrl();
+$searchPageUrl = $manager->getSearchPageUrl($site);
 
 $subnavElement = Element::get('sub_nav_custom');
 
@@ -100,12 +100,10 @@ $subnavElement = Element::get('sub_nav_custom');
                         </div>
                     </div>
 
-                    <?php if ($searchPage instanceof Page && !$searchPage->isError()) { ?>
-                        <a href="<?php echo (string)Url::to($searchPage); ?>" class="d-block d-lg-none"
-                           id="ccm-mobile-search-btn">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    <?php } ?>
+                    <a href="<?=$searchPageUrl?>" class="d-block d-lg-none"
+                       id="ccm-mobile-search-btn">
+                        <i class="fas fa-search"></i>
+                    </a>
 
                     <button id="ccm-toggle-mobile-nav"
                             class="hamburger hamburger--spin navbar-toggler d-block d-lg-none"

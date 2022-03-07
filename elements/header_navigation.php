@@ -47,14 +47,11 @@ $items = $headerNavigation->getItems();
     <?php
 
     // add search icon
-    $searchPageId = (int) Config::get("concrete_cms_theme.search_page_id");
-    $searchPage = Page::getByID($searchPageId);
-
-    if ($searchPage instanceof Page && !$searchPage->isError()) {
-        echo '<li class="d-none d-lg-block nav-item">';
-        echo '<a href="' . (string) \URL::to($searchPage) . '" title="' . h(t("Search")) . '" class="nav-link"><i class="fas fa-search"></i></a>';
-        echo '</li>';
-    }
+    $urlManager = app(\PortlandLabs\ConcreteCmsTheme\Navigation\UrlManager::class);
+    $searchPageUrl = $urlManager->getSearchPageUrl(Site::getSite());
+    echo '<li class="d-none d-lg-block nav-item">';
+    echo '<a href="' . $searchPageUrl . '" title="' . h(t("Search")) . '" class="nav-link"><i class="fas fa-search"></i></a>';
+    echo '</li>';
 
     // add user icon
     ?>
