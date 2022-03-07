@@ -2,6 +2,8 @@
 
 namespace PortlandLabs\ConcreteCmsTheme\Navigation;
 
+use Concrete\Core\Entity\Site\Site;
+use Concrete\Core\Page\Page;
 use League\Url\Url;
 
 /**
@@ -66,6 +68,21 @@ class UrlManager
     {
         $type = str_replace(['get_', '_url'], '', snake_case($method));
         return $this->getEnvironmentUrl($this->placeholders[$type]);
+    }
+
+    public function getSearchPageUrl(Site $site)
+    {
+        $config = $site->getConfigRepository();
+        $marketingUrl = $this->getMarketingUrl();
+        $searchPageId = (int)$config->get("concrete_cms_theme.search_page_id");
+        $searchPageUrl = $marketingUrl . '/search';
+        if ($searchPageId) {
+            $searchPage = Page::getByID($searchPageId);
+            if ($searchPage instanceof Page && !$searchPage->isError()) {
+                $searchPageUrl = $searchPage->getCollectionLink();
+            }
+        }
+        return $searchPageUrl;
     }
 
     public function replacePlaceholderIfExists(string $url): string
