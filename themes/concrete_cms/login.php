@@ -53,7 +53,8 @@ if (isset($authType) && $authType) {
 $externalAuth = null;
 /** @var AuthenticationType $auth */
 foreach ($activeAuths as $auth) {
-    if ($auth->getAuthenticationTypeHandle() === 'external_concrete5') {
+    $handle = $auth->getAuthenticationTypeHandle();
+    if ($handle === 'external_concrete5' || $handle === 'external_concrete') {
         $externalAuth = $auth;
         break;
     }
@@ -118,7 +119,7 @@ if ($externalAuth) {
                                         <script>
                                             setTimeout(function() {
                                                 <?php /** @see \Concrete\Authentication\ExternalConcrete5\Controller::setData */ ?>
-                                                window.location = "<?= \URL::resolve(['/ccm/system/authentication/oauth2/external_concrete5/attempt_auth']) ?>"
+                                                window.location = "<?= \URL::resolve(['/ccm/system/authentication/oauth2/' . $externalAuth->getAuthenticationTypeHandle() . '/attempt_auth']) ?>"
                                             }, 500);
                                         </script>
                                         <?php
