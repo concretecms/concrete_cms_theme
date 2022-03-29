@@ -89,7 +89,7 @@ if ($c->isEditMode()) {
                                     <?php
                                     $f = File::getByID($row['fID']); ?>
                                     <?php if (is_object($f)) {
-                                        $tag = Core::make('html/image', [$f, false])->getTag();
+                                        $tag = Core::make('html/image', ['f' => $f, 'options' => false])->getTag();
                                         if ($row['title']) {
                                             $tag->alt(h($row['title']));
                                         } else {
