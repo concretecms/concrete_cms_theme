@@ -7,6 +7,15 @@
 
 .bootstrap-select {
   display: block !important;
+
+  .status {
+    font-size: 16px;
+
+    &.no-results {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  }
 }
 
 .form-control {
@@ -55,5 +64,25 @@
     content: "\F0DD";
     color: #828282;
     font-size: 21px;
+  }
+}
+
+div.ccm-ui ,
+.bootstrap-select {
+  .no-results {
+    font-size: 0.9rem;
+  }
+
+  .no-results.ccm-enhanced-select-input-add-new-term,
+  .no-results.ccm-ajax-enhanced-select-input-add-new-term {
+    cursor: pointer;
+  }
+}
+
+.bootstrap-select {
+  .ccm-enhanced-select {
+    &.dropdown-toggle::after {
+      margin-left: 0;
+    }
   }
 }
