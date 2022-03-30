@@ -198,14 +198,6 @@ $(window).resize(function () {
 }).trigger("resize");
 
 /*
- * Create fancy checkboxes
- */
-
-$(".ccm-page .form-group select").each(function() {
-    $(this).wrap($("<div/>").addClass("fancy-select"));
-});
-
-/*
  * Add support for video popups (lightbox)
  */
 
@@ -215,6 +207,13 @@ $(function () {
         mainClass: 'mfp-fade',
         preloader: true
     })
+
+    // Fix CS-581
+    // This is not ideal. This is Bootstrap 4 markup, but Bootstrap Select in this version of Concrete doesn't
+    // understand `form-select`, so it limits these controls to 220px. So let's add `form-control` to these
+    // DIVs to make them full width. Eventually we can remove this
+    $('div.bootstrap-select').not('.form-control').addClass('form-control')
+
 });
 
 $("#ccm-upload-avatar, #ccm-upload-header-image").on("submit", function () {
