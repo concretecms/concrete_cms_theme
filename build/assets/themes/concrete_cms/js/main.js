@@ -6,13 +6,17 @@
  */
 
 // Import the frontend foundation for themes.
-import '@concretecms/bedrock/assets/bedrock/js/frontend';
+// We're using bs4 in this theme so let's not use this yet.
+//import '@concretecms/bedrock/assets/bedrock/js/frontend';
+
+import VueManager from '@concretecms/bedrock/assets/cms/js/vue/Manager'
+VueManager.bindToWindow(window)
 
 // Feature support
-import '@concretecms/bedrock/assets/account/js/frontend';
-import '@concretecms/bedrock/assets/calendar/js/frontend';
-import '@concretecms/bedrock/assets/navigation/js/frontend';
-import '@concretecms/bedrock/assets/conversations/js/frontend';
+//import '@concretecms/bedrock/assets/account/js/frontend';
+//import '@concretecms/bedrock/assets/calendar/js/frontend';
+//import '@concretecms/bedrock/assets/navigation/js/frontend';
+//import '@concretecms/bedrock/assets/conversations/js/frontend';
 import '@concretecms/bedrock/assets/imagery/js/frontend';
 import {alert, Stack, defaultModules} from '@pnotify/core';
 import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';

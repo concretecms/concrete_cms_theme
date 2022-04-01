@@ -36,7 +36,8 @@ mix.webpackConfig({
 
 mix.setResourceRoot('../');
 mix.setPublicPath('../themes/concrete_cms/');
-mix.copy('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', '../themes/concrete_cms/js/bootstrap4.js');
+mix.copy('node_modules/bootstrap/js/dist/util.js', '../themes/concrete_cms/js/bootstrap4/util.js');
+mix.copy('node_modules/bootstrap/js/dist/alert.js', '../themes/concrete_cms/js/bootstrap4/alert.js');
 
 mix
     .sass('assets/themes/concrete_cms/scss/main.scss', '../themes/concrete_cms/css')
