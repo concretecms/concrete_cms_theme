@@ -100,6 +100,8 @@ View::element('footer_required');
 <!--suppress HtmlUnknownTarget -->
 <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4/util.js"></script>
 <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4/alert.js"></script>
+<script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4/tooltip.js"></script>
+<script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4/modal.js"></script>
 <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/main.js"></script>
 <script>
     $(window).ready(function () {

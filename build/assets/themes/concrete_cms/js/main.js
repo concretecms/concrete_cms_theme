@@ -8,6 +8,8 @@
 // Import the frontend foundation for themes.
 // We're using bs4 in this theme so let's not use this yet.
 //import '@concretecms/bedrock/assets/bedrock/js/frontend';
+import '@concretecms/bedrock/assets/bedrock/js/frontend/locations/country-data-link'
+import '@concretecms/bedrock/assets/bedrock/js/frontend/locations/country-stateprovince-link'
 
 import VueManager from '@concretecms/bedrock/assets/cms/js/vue/Manager'
 VueManager.bindToWindow(window)
