@@ -98,6 +98,7 @@ View::element('footer_required');
 ?>
 <script src="<?php echo (string)Url::to("/community/js"); ?>"></script>
 <!--suppress HtmlUnknownTarget -->
+<script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4.js"></script>
 <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/main.js"></script>
 <script>
     $(window).ready(function () {

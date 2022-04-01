@@ -20,9 +20,10 @@ class PageTheme extends Theme implements ThemeProviderInterface
 
     public function registerAssets()
     {
-        parent::registerAssets();
-
-        $this->requireAsset('core/cms');
+        $this->requireAsset('font-awesome');
+        $this->requireAsset('jquery');
+        $this->requireAsset('vue');
+        $this->requireAsset('moment');
     }
 
     public function getThemeName()
