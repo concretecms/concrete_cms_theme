@@ -52,26 +52,30 @@ div.ccm-page {
 
     &.column-section-container-blue {
       background-color: rgb(1, 98, 173);
+      color: rgb(255, 255, 255);
 
       h1, h2, h3, h4, h5 {
         border-bottom-color: rgba(224, 224, 224, 0.3);
+        color: rgb(255, 255, 255);
       }
 
-      * {
-        color: rgb(255, 255, 255) !important;
+      p, ol, ul, li {
+        color: rgb(255, 255, 255);
       }
 
     }
 
     &.column-section-container-dark-gray {
       background-color: #3C3D3E;
+      color: rgb(255, 255, 255);
 
       h1, h2, h3, h4, h5 {
         border-bottom-color: rgba(224, 224, 224, 0.3);
+        color: rgb(255, 255, 255);
       }
 
-      * {
-        color: rgb(255, 255, 255) !important;
+      p, ol, ul, li {
+        color: rgb(255, 255, 255);
       }
 
     }

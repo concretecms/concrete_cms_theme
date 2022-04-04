@@ -115,18 +115,11 @@ $token = $app->make(Token::class);
                     <table class="table message-table">
                         <thead>
                         <tr>
-                            <th>
-                                <div class="dropdown ccm-dropdown">
-                                    <button class="dropdown-toggle checkbox-wrapper" type="button"
+                            <th class="checkbox-wrapper"><div class="dropdown"><button class="dropdown-toggle" type="button"
                                             id="ccm-message-bulk-action"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <input type="checkbox" name="msgAll" id="ccm-select-all-messages"/> &nbsp;
-                                        <label for="ccm-select-all-messages">
-                                            &nbsp;
-                                        </label>
-                                    </button>
-
-                                    <div class="dropdown-menu" aria-labelledby="ccm-message-bulk-action">
+                                    </button><div class="dropdown-menu" aria-labelledby="ccm-message-bulk-action">
                                         <a class="dropdown-item" href="javascript:void(0);"
                                            id="ccm-messages-bulk-action-select-all">
                                             <?php echo t("Select All"); ?>
@@ -153,9 +146,7 @@ $token = $app->make(Token::class);
                                            data-action="delete">
                                             <?php echo t("Delete"); ?>
                                         </a>
-                                    </div>
-                                </div>
-                            </th>
+                                    </div></div></th>
 
                             <th>
                                 <?php if (Mailbox::MBTYPE_SENT == $mailbox->getMailboxID()) { ?>
@@ -169,7 +160,7 @@ $token = $app->make(Token::class);
                                 <?php echo t('Subject'); ?>
                             </th>
 
-                            <th class="text-right">
+                            <th>
                                 <?php echo t('Sent At'); ?>
                             </th>
                         </tr>
@@ -180,8 +171,8 @@ $token = $app->make(Token::class);
                             <?php foreach ($messages as $msg) { ?>
                                 <tr class="<?php echo $msg->isMessageUnread() ? "unread" : ""; ?>"
                                     data-message-id="<?php echo h($msg->getMessageID()); ?>">
-                                    <td>
-                                        <div class="checkbox-wrapper">
+                                    <td class="checkbox-wrapper">
+                                        <div>
                                             <input type="checkbox"
                                                    name="msg[]"
                                                    value="<?php echo (int)$msg->getMessageID(); ?>"
@@ -204,7 +195,7 @@ $token = $app->make(Token::class);
                                         </a>
                                     </td>
 
-                                    <td class="text-right">
+                                    <td>
                                         <?php /** @noinspection PhpUnhandledExceptionInspection */
                                         echo $dh->formatDateTime($msg->getMessageDateAdded(), true); ?>
                                     </td>

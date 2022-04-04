@@ -19,46 +19,21 @@
   }
 }
 
-.message-table .ccm-dropdown {
-  left: 0;
-}
-
-.message-table .ccm-dropdown input[type=checkbox] + label::after {
-  margin-left: 15px;
-}
-
-.message-table .dropdown-menu {
-  margin-top: -9px !important;
-}
-
 .messages .message-table thead th {
   min-width: 50px;
-}
-
-#ccm-message-bulk-action {
-  width: 70px;
 }
 
 #ccm-message-bulk-action::after {
   position: absolute;
   top: 23px;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
 }
 
 #ccm-message-bulk-action label {
   position: absolute;
   left: 0;
-}
-
-.messages .message-table thead .checkbox-wrapper {
-  padding-top: 12px !important;
-}
-
-.messages .message-table tbody .checkbox-wrapper {
-  margin-top: 12px !important;
-}
-
-.messages .message-table tr:first-child td {
-  padding-top: 0px !important;
 }
 
 .message-details {
