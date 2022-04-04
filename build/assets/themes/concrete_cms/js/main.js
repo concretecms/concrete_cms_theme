@@ -10,6 +10,9 @@
 //import '@concretecms/bedrock/assets/bedrock/js/frontend';
 import '@concretecms/bedrock/assets/bedrock/js/frontend/locations/country-data-link'
 import '@concretecms/bedrock/assets/bedrock/js/frontend/locations/country-stateprovince-link'
+import _ from 'underscore'
+import 'bootstrap-select'
+import 'ajax-bootstrap-select'
 
 import VueManager from '@concretecms/bedrock/assets/cms/js/vue/Manager'
 VueManager.bindToWindow(window)
