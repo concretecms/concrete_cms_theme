@@ -61,17 +61,24 @@ $token = $app->make(Token::class);
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md col-sm-12">
-                <div class="d-block d-md-none">
-                    <div class="float-right">
-                        <a href="javascript:void(0);" class="btn btn-primary send-message">
-                            <?php echo t("Send Message"); ?>
-                        </a>
+        <?php
+        $permissions = new Permissions($c);
+        if (!$permissions->canViewToolbar()) {
+            // Hide the button if we have the ability to see the toolbar, because then that means we'll have
+            // BS4/BS5 conflicts and this won't work anyway.
+            ?>
+            <div class="row">
+                <div class="col-md col-sm-12">
+                    <div class="d-block d-md-none">
+                        <div class="float-right">
+                            <a href="javascript:void(0);" class="btn btn-primary send-message">
+                                <?php echo t("Send Message"); ?>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php } ?>
 
         <div class="row">
             <div class="col-md col-sm-12">
@@ -92,15 +99,19 @@ $token = $app->make(Token::class);
                 </ul>
             </div>
 
-            <div class="col-md col-sm-12">
-                <div class="d-none d-md-block">
-                    <div class="float-right">
-                        <a href="javascript:void(0);" class="btn btn-primary send-message">
-                            <?php echo t("Send Message"); ?>
-                        </a>
+            <?php
+            if (!$permissions->canViewToolbar()) {
+                ?>
+                <div class="col-md col-sm-12">
+                    <div class="d-none d-md-block">
+                        <div class="float-right">
+                            <a href="javascript:void(0);" class="btn btn-primary send-message">
+                                <?php echo t("Send Message"); ?>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
 
         <div class="clearfix"></div>
@@ -116,8 +127,8 @@ $token = $app->make(Token::class);
                         <thead>
                         <tr>
                             <th class="checkbox-wrapper"><div class="dropdown"><button class="dropdown-toggle" type="button"
-                                            id="ccm-message-bulk-action"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                       id="ccm-message-bulk-action"
+                                                                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <input type="checkbox" name="msgAll" id="ccm-select-all-messages"/> &nbsp;
                                     </button><div class="dropdown-menu" aria-labelledby="ccm-message-bulk-action">
                                         <a class="dropdown-item" href="javascript:void(0);"
@@ -234,8 +245,8 @@ $token = $app->make(Token::class);
             (function ($) {
                 $(function () {
                     window.sendPrivatePrivate(<?php /** @noinspection PhpComposerExtensionStubsInspection */echo json_encode([
-                        "receiver" => $receiverId
-                    ]); ?>);
+                                                                                                                                 "receiver" => $receiverId
+                                                                                                                             ]); ?>);
                 });
             })(jQuery);
         </script>
