@@ -34,7 +34,20 @@ $this->inc('elements/header.php');
         </div>
 
         <div class="row">
-            <div class="col-sm-8  col-content">
+            <div class="col-sm-4 col-sidebar order-md-0 order-1">
+                <?php
+                $a = new Area('Sidebar');
+                $a->display($c);
+
+                $stack = Stack::getByName('Thumbs');
+                if ($stack) {
+                    $stack->display();
+                }
+
+                ?>
+            </div>
+
+            <div class="col-sm-8  col-content order-md-1 order-0">
                 <?php
                 $a = new Area('Main');
                 $a->enableGridContainer();
@@ -49,18 +62,6 @@ $this->inc('elements/header.php');
                 ?>
             </div>
 
-            <div class="col-sm-4 col-sidebar">
-                <?php
-                $a = new Area('Sidebar');
-                $a->display($c);
-
-                $stack = Stack::getByName('Thumbs');
-                if ($stack) {
-                    $stack->display();
-                }
-
-                ?>
-            </div>
         </div>
 
         <div class="row">
