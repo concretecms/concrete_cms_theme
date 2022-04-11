@@ -60,6 +60,9 @@ $subnavElement = Element::get('sub_nav_custom');
 </head>
 <body>
 
+<?php
+$view->inc('elements/stage_warning.php');
+?>
 <script class="disclosure" role="template" type='text/template'>
     <div class='disclosure-container ccm-ui'>
         <div class='disclosure'>
