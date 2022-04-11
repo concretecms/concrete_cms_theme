@@ -272,8 +272,9 @@ window.addEventListener('load', () => {
             setTimeout(() => disclosure.remove(), 500)
 
             // Set a 100 year cookie
-            const sld = window.location.hostname.split('.').slice(-2).join('.')
-            setCookie('ccm_cdd=1;path=/;samesite=lax;domain=.' + sld + ';max-age=' + (31536000 * 100))
+            const chunks = window.location.hostname.split('.')
+            const sld = chunks.length >= 3 ? `.${chunks.splice(-2).join('.')}` : chunks.join('.');
+            setCookie(`ccm_cdd=1;path=/;samesite=lax;domain=${sld};max-age=${31536000 * 100}`)
         })
     }
 })
