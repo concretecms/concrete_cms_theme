@@ -5,7 +5,46 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
-@import "~@concretecms/bedrock/assets/bedrock/scss/frontend";
+//@import "~@concretecms/bedrock/assets/bedrock/scss/frontend";
+// AE: We're currently importing a relatively ancient version of Bedrock. I don't want to update Bedrock
+// right now because that's gonna require us changing the theme to Bootstrap 5. However, I need to change the
+// "_theme-grid.scss" SASS partial because it's out of date and actually breaking with the core making layouts
+// not work well with the site. So in the meantime, I'm going to copy the entire contents of bedrock/scss/_frontend.css
+// above into this file, EXCEPT the _theme-grid.scss import. Then I'm going to manually set the import to what
+// it's supposed to be.
+// @TODO – upgrade to the latest Bedrock, to Bootstrap5, and remove all this and reinstate the previous approach.
+
+// 01. Bootstrap Functions go first.
+@import '~bootstrap/scss/functions';
+
+// 02. Bootstrap overrides, have to be done BEFORE bootstrap.
+@import './bootstrap-overrides';
+
+// 03. Bootstrap Variables
+@import '~bootstrap/scss/variables';
+
+// 04. Theme variables, some of which can now be based on bootstrap variable/constants/
+@import './variables';
+@import '~@fortawesome/fontawesome-free/scss/variables';
+
+// 05. Utilities
+@import '~@concretecms/bedrock/assets/bedrock/scss/utilities';
+
+// 06. Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// 07. Theme Grid
+// This file ensures that the layout tools work with this theme grid
+div#ccm-theme-grid-temp,
+div#ccm-theme-grid-edit-mode-row-wrapper {
+  div.row {
+    position: relative; // This is necessary in order for the javascript to correctly use jquery position() calls
+  }
+}
+
+// AE: End my custom version of assets/bedrock/scss/_frontend.scss
+
+
 @import "~notosans-fontface/scss/notosans-fontface";
 @import "~typeface-open-sans/index.css";
 @import "~@openfonts/poppins_all/index.css";
