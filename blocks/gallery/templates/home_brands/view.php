@@ -37,7 +37,9 @@ if (!$images && $page && $page->isEditMode()) { ?>
     /** @var File $image */
     foreach ($images as $image) {
         $tag = (new Image($image['file']))->getTag();
-        $tag->addClass('gallery-w-100 gallery-h-auto');
+        if (is_object($tag)) {
+            $tag->addClass('gallery-w-100 gallery-h-auto');
+        }
         $size = $image['displayChoices']['size']['value'] ?? null;
         $downloadLink = null;
         $fileVersion = $image['file']->getApprovedVersion();
