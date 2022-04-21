@@ -37,18 +37,17 @@ if (!$images && $page && $page->isEditMode()) { ?>
     /** @var File $image */
     foreach ($images as $image) {
         $tag = (new Image($image['file']))->getTag();
-        if (is_object($tag)) {
-            $tag->addClass('gallery-w-100 gallery-h-auto');
-            $size = $image['displayChoices']['size']['value'] ?? null;
-            $downloadLink = null;
-            $fileVersion = $image['file']->getApprovedVersion();
-            if ($includeDownloadLink && $fileVersion instanceof Version) {
-                $downloadLink = $fileVersion->getForceDownloadURL();
-            }
+        if (!is_object($tag)) { continue; }
+        $tag->addClass('gallery-w-100 gallery-h-auto');
+        $size = $image['displayChoices']['size']['value'] ?? null;
+        $downloadLink = null;
+        $fileVersion = $image['file']->getApprovedVersion();
+        if ($includeDownloadLink && $fileVersion instanceof Version) {
+            $downloadLink = $fileVersion->getForceDownloadURL();
+        }
         ?>
         <div class="ccm-brand">
             <?php echo $tag ?>
         </div>
-    <?php }
-    } ?>
+    <?php } ?>
 </div>
