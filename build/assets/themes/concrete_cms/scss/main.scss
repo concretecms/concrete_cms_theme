@@ -43,9 +43,8 @@ div#ccm-theme-grid-edit-mode-row-wrapper {
 }
 
 // AE: End my custom version of assets/bedrock/scss/_frontend.scss
+@import "./fonts/notosans";
 
-
-@import "~notosans-fontface/scss/notosans-fontface";
 @import "~typeface-open-sans/index.css";
 @import "~@openfonts/poppins_all/index.css";
 @import '~@pnotify/core/dist/PNotify.css';
