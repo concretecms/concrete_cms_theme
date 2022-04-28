@@ -21,6 +21,7 @@ use Concrete\Core\Html\Image;
 $page = $controller->getCollectionObject();
 $images = $images ?? [];
 
+
 if (!$images && $page && $page->isEditMode()) { ?>
     <div class="ccm-edit-mode-disabled-item">
         <?php echo t('Empty Gallery Block.') ?>
@@ -41,6 +42,16 @@ if (!$images && $page && $page->isEditMode()) { ?>
             continue;
         }
         $tag->addClass('gallery-w-100 gallery-h-auto');
+
+        if ($image['file'] instanceof File) {
+            $imageWidth = (int) $image['file']->getAttribute('width');
+            $imageHeight = (int) $image['file']->getAttribute('height');
+            if ($imageWidth || $imageHeight) {
+                $tag->setAttribute('width', "{$imageWidth}px");
+                $tag->setAttribute('height', "{$imageHeight}px");
+            }
+        }
+
         $size = $image['displayChoices']['size']['value'] ?? null;
         $downloadLink = null;
         $fileVersion = $image['file']->getApprovedVersion();
