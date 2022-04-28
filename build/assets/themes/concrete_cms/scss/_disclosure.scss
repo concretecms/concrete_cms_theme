@@ -54,10 +54,10 @@
 
 @keyframes slide-top {
     0% {
-        bottom: -200px;
+        transform: translate(0, 0);
     }
     100% {
-        bottom: 0;
+        transform: translate(0, -200px);
     }
 }
 
