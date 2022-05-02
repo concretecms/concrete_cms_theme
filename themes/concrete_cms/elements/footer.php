@@ -96,7 +96,7 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
 /** @noinspection PhpUnhandledExceptionInspection */
 View::element('footer_required');
 ?>
-<script src="<?php echo (string)Url::to("/community/js"); ?>"></script>
+<script src="<?php echo (string)Url::to("/community/js"); ?>" defer></script>
 <!--suppress HtmlUnknownTarget -->
 <?php
 if (!$c->isEditMode()) {
@@ -105,9 +105,9 @@ if (!$c->isEditMode()) {
     // in the dialog don't work? Not sure why that is but rather than go down that rabbit hole let's just disable
     // the BS4 JS in edit mode.
 ?>
-    <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4.js"></script>
+    <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4.js" defer></script>
 <?php } ?>
-<script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/main.js"></script>
+<script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/main.js" defer></script>
 <script>
     $(window).ready(function () {
         if (window.self !== window.top) {
