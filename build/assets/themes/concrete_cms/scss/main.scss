@@ -54,8 +54,10 @@ div#ccm-theme-grid-edit-mode-row-wrapper {
 
 // Feature support - comes outside div.ccm-page
 @import "./features/basics/basics";
-@import "./features/calendar/calendar";
-@import "./features/conversations/conversations";
+/* CS-668 */
+/* AE: I don't believe this is currently being used, and it's adding a lot to the CSS */
+/* @import "./features/calendar/calendar"; */
+/* @import "./features/conversations/conversations"; */
 @import "./features/faq/faq";
 @import "./features/imagery/imagery";
 @import "./features/navigation/navigation";
@@ -84,7 +86,9 @@ div#ccm-theme-grid-edit-mode-row-wrapper {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@import "./loading-screen";
+/* CS-668 */
+/* AE: I don't believe this is currently being used, and it's adding a lot to the CSS */
+/* @import "./loading-screen"; */
 
 div.ccm-page {
   // AE: Do we really need these next four items? Keeping for now...
@@ -136,7 +140,9 @@ div.ccm-page {
 
   /* Pages */
   @import "./pages/messages";
-  @import "./pages/get_started";
+  /* CS-668 */
+  /* AE: I don't believe this is currently being used, and it's adding a lot to the CSS */
+  /* @import "./pages/get_started"; */
   @import "./pages/case_study_detail";
   @import "./pages/case_study_list_view";
   @import "./pages/login";
