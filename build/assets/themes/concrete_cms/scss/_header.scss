@@ -19,11 +19,21 @@ $hamburger-hover-opacity: 1.0;
 
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
-// Align the account dropdown to 
+// Align the account dropdown to the left
 #ccm-desktop-nav ul.navbar-nav >li.nav-item:last-child > ul {
   width: 234px;
   margin-left: calc(-234px + 100%);
 }
+
+// Prevent dropdowns from interfering with eachother
+#ccm-desktop-nav ul.navbar-nav > li.nav-item > ul.dropdown-menu {
+  pointer-events: none;
+}
+
+#ccm-desktop-nav ul.navbar-nav > li.nav-item:hover > ul.dropdown-menu {
+  pointer-events: auto;
+}
+
 
 
 &.ccm-dark-mode {
