@@ -20,6 +20,7 @@ use Concrete\Core\User\PrivateMessage\PrivateMessageList;
 use Concrete\Core\User\UserInfo;
 use Concrete\Core\Validation\CSRF\Token;
 use Concrete\Core\View\View;
+use PortlandLabs\ConcreteCmsTheme\Navigation\UrlManager;
 
 /** @var int $msgID */
 /** @var UserInfo $recipient */
@@ -45,6 +46,8 @@ $userInterface = $app->make(UserInterface::class);
 $form = $app->make(Form::class);
 /** @var Token $token */
 $token = $app->make(Token::class);
+
+$marketingUrl = app(UrlManager::class)->getMarketingUrl();
 
 ?>
 
@@ -82,6 +85,11 @@ $token = $app->make(Token::class);
 
         <div class="row">
             <div class="col-md col-sm-12">
+
+                <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-right btn btn-sm">
+                    <?=t('Report Inappropriate Content')?>
+                </a>
+
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link <?php echo $mailbox->getMailboxID() == $inbox->getMailboxID() ? "active" : ""; ?>"
