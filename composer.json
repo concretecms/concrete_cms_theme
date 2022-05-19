@@ -1,5 +1,5 @@
 {
-  "name": "concrete5/concrete_cms_theme",
+  "name": "concretecms/concrete_cms_theme",
   "description": "Package that contains the official ConcreteCMS Theme.",
   "minimum-stability": "dev",
   "type": "concrete5-package",
