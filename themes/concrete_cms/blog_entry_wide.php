@@ -85,7 +85,7 @@ if ($parent->getCollectionTypeHandle() == 'blog_category') {
             </div>
 
             <div class="row">
-                <div class="col-md-7 col-sm-12">
+                <div class="col">
                     <h1 class="blog-entry-title">
                         <?php
                         echo $c->getCollectionName(); ?>
@@ -127,7 +127,7 @@ if ($parent->getCollectionTypeHandle() == 'blog_category') {
             $ctaUrl = $c->getAttribute('blog_entry_call_to_action_url');
             if ($ctaUrl && $ctaText && !$c->isEditMode()) { ?>
             <div class="container">
-                <div class="d-flex align-items-center">
+                <div class="d-md-flex mb-3 align-items-center">
                     <div class="mr-5">
                         <?php $a->display($c); ?>
                     </div>
