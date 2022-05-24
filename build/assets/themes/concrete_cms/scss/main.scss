@@ -143,6 +143,7 @@ div.ccm-page {
   /* CS-668 */
   /* AE: I don't believe this is currently being used, and it's adding a lot to the CSS */
   /* @import "./pages/get_started"; */
+  @import "./pages/blog_entry_wide";
   @import "./pages/case_study_detail";
   @import "./pages/case_study_list_view";
   @import "./pages/login";
