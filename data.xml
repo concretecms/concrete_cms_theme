@@ -13,6 +13,7 @@
     </blocktypes>
     <pagetemplates>
         <pagetemplate icon="full.png" name="Case Study" handle="case_study" package="" internal=""/>
+        <pagetemplate icon="full.png" name="Blog Entry (Wide)" handle="blog_entry_wide" package="" internal=""/>
         <pagetemplate icon="full.png" name="Full Text" handle="full_text" package="" internal=""/>
     </pagetemplates>
     <attributekeys>
@@ -27,6 +28,12 @@
                       category="collection"/>
         <attributekey handle="site_url" name="Site URL" package="concrete_cms_marketing" searchable="1" indexed="1"
                       type="text"
+                      category="collection"/>
+        <attributekey handle="blog_entry_call_to_action_text" name="Blog Entry CTA Text" package="concrete_cms_marketing" searchable="1"
+                      indexed="1" type="text"
+                      category="collection"/>
+        <attributekey handle="blog_entry_call_to_action_url" name="Blog Entry CTA URL" package="concrete_cms_marketing" searchable="1"
+                      indexed="1" type="text"
                       category="collection"/>
     </attributekeys>
     <thumbnailtypes>

@@ -1,28 +1,29 @@
 /**
- * @project:   ConcreteCMS Theme
- *
- * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
- * @author     Fabian Bitter (fabian@bitter.de)
+ * This template has been copied from the case study detail, with some alterations made.
+ * Its purpose is to create a more attractive blog entry.
  */
 
-&.page-template-blog-entry-wide {
-  background-color: #ffffff;
-}
+.blog-entry-wide {
 
-.case-study-detail {
-
-  .case-study-header {
+  .blog-entry-header {
     hr {
       margin-top: 24px;
       margin-bottom: 24px;
       border-color: rgb(224, 224, 224);
     }
 
+    a {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
     img {
       margin-bottom: 42px;
     }
 
-    .case-study-project-name {
+    .blog-entry-title {
       color: rgb(83, 83, 84);
       font-size: 42px;
       line-height: 48px;
@@ -32,30 +33,25 @@
       margin-top: 0;
     }
 
-    .developer, .site {
-      line-height: 24px;
-      color: rgb(25, 25, 26);
-      font-size: 14px;
-      text-align: right;
-
-
-      /* Tablet + Mobile */
-      @include media-breakpoint-down(md) {
-        text-align: left;
-      }
-
-      a {
-        font-weight: 700;
-        color: rgb(1, 125, 221);
-      }
+    .page-author {
+      color: #b3b3b2;
+      font-style: italic;
     }
+
   }
 
-  .case-study-body {
+  .blog-entry-body {
     color: rgb(25, 25, 26);
 
     p {
       line-height: 28px;
+    }
+
+    // Make the Main area a little bigger than the others.
+    .col-content-main {
+      p {
+        font-size: 1.375rem;
+      }
     }
 
     h3 {
@@ -130,7 +126,10 @@
     }
   }
 
-  .case-study-footer {
+  .blog-entry-footer {
+    background-color: #f7f7f7;
+    margin-top: 2rem;
+    padding: 2rem 0 2rem 0;
 
     h2 {
       color: rgb(124, 128, 136);
@@ -140,5 +139,32 @@
       font-weight: 700;
       text-transform: uppercase;
     }
+  }
+}
+
+// Make wide blog entry smaller
+/* Make case study page smaller */
+.blog-entry-header {
+  max-width: 980px;
+  margin: auto;
+}
+
+.blog-entry-body .container {
+  max-width: 980px;
+}
+
+.blog-entry-related-item {
+  border: 1px solid  #ffffff;
+  padding: 25px 23px 16px 19px;
+  height: 100%;
+  background-color: #ffffff;
+
+  h3 {
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 22px !important;
+    font-family: "Poppins" !important;
+    color: rgb(1, 118, 208);
+    text-transform: uppercase;
   }
 }
