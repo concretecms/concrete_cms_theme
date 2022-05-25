@@ -29,7 +29,6 @@ $site = Site::getSite();
 $excludeBreadcrumb = false;
 if ($c->isHomePage() ||
     strpos($c->getCollectionPath(), '/account') === 0 ||
-    $c->getPageTemplateHandle() === 'blog_entry_wide' ||
     $c->getPageController()->get("exclude_breadcrumb") ||
     $c->getAttribute("exclude_breadcrumb")) {
 
