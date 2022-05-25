@@ -26,7 +26,15 @@ $token = $app->make(Token::class);
 $config = Site::getSite()->getConfigRepository();
 $site = Site::getSite();
 
-$excludeBreadcrumb = $c->isHomePage() || strpos($c->getCollectionPath(), '/account') === 0 || $c->getPageController()->get("exclude_breadcrumb") || $c->getAttribute("exclude_breadcrumb");
+$excludeBreadcrumb = false;
+if ($c->isHomePage() ||
+    strpos($c->getCollectionPath(), '/account') === 0 ||
+    $c->getPageTemplateHandle() === 'blog_entry_wide' ||
+    $c->getPageController()->get("exclude_breadcrumb") ||
+    $c->getAttribute("exclude_breadcrumb")) {
+
+    $excludeBreadcrumb = true;
+}
 $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
 
 $manager = $app->make(UrlManager::class);

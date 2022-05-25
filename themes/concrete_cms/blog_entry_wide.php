@@ -126,12 +126,12 @@ if ($parent->getCollectionTypeHandle() == 'blog_category') {
             $ctaText = $c->getAttribute('blog_entry_call_to_action_text');
             $ctaUrl = $c->getAttribute('blog_entry_call_to_action_url');
             if ($ctaUrl && $ctaText && !$c->isEditMode()) { ?>
-            <div class="container">
+            <div class="container mb-md-0 mb-4">
                 <div class="d-md-flex mb-3 align-items-center">
                     <div class="mr-5">
                         <?php $a->display($c); ?>
                     </div>
-                    <div class="ml-auto">
+                    <div class="mt-md-0 mt-3 ml-auto">
                         <a href="<?=$ctaUrl?>" target="_blank" class="text-nowrap btn btn-primary"><?=$ctaText?></a>
                     </div>
                 </div>
