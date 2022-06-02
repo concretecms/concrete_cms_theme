@@ -1,0 +1,127 @@
+.infrastructure-container {
+    margin-bottom: 100px;
+}
+
+.infrastructure-page__title,
+.devops-page__title {
+    color: #017DDD;
+    font-size: 2.25rem;
+    line-height: 64px;
+    text-transform: uppercase;
+}
+
+.card-infrastructure,
+.card-devops {
+    border-radius: .25rem;
+    border: .25rem solid transparent;
+    &__title {
+        color: #2F3032 !important;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+    }
+    &__cost {
+        font-size: 3.75rem;
+        color: #017DDD;
+        line-height: 28px
+    }
+    &__cost-period {
+        font-size: 1.25rem;
+    }
+    &:hover {
+        background-color: #F6F8FA;
+        border-radius: .25rem;
+        border: .25rem solid #017DDD;
+        cursor: pointer;
+    }
+    &__choose-button {
+        display: block;
+        color: #19191A !important;
+        font-size: 0.875rem;
+        height: auto;
+        line-height: 24px;
+        margin: 0 auto;
+        margin-top: 18px;
+        padding-bottom: 8px;
+        padding-top: 8px;
+        width: 167px;
+        &--selected,
+        &--selected:hover {
+            color: #FFFFFF !important;
+            background-color: #017DDD !important;
+        }
+    }
+    &__choose-button-text {
+        display: none;
+        &--selected {
+            display: contents;
+        }
+    }
+}
+
+.card-infrastructure {
+    min-width: 280px;
+    .card-body,
+    .card-footer {
+        background: transparent;
+    }
+    &__footer {
+        padding: 0;
+        padding-bottom: 50px;
+        background-color: transparent;
+        border-top: none;
+    }
+
+    &__cost {
+        padding-top: 55px;
+        padding-bottom: 60px;
+
+    }
+
+    &__content table {
+        border: 0;
+        padding-top: 12px;
+        border-top: 1px solid #9797972C;
+        width: 100%;
+        tr {
+            &:nth-of-type(1) td {
+                padding-top: 7px;
+            }
+            td {
+                border: none;
+                padding-bottom: 10px;
+                vertical-align: top;
+                &:nth-of-type(1) {
+                    width: 66%;
+                }
+                &:nth-of-type(2n) {
+                    font-weight: bold;
+                }
+            }
+        }
+        &:nth-of-type(1) {
+            border: none;
+        }
+        &:nth-of-type(1) tr:nth-of-type(1) td {
+            padding-top: 0;
+        }
+    }
+}
+
+.card-devops {
+    &__title {
+        font-size: 1.25rem;
+    }
+    &__description {
+        font-weight: 700;
+        color: #017DDD;
+    }
+    &__footer {
+        padding: 0;
+        background-color: transparent;
+        border-top: none;
+    }
+    &__cost--desktop {
+        padding-top: 55px;
+        padding-bottom: 60px;
+    }
+}
