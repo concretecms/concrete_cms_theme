@@ -1,4 +1,5 @@
-.infrastructure-container {
+.infrastructure-container,
+.devops-container {
     margin-bottom: 100px;
 }
 
@@ -32,6 +33,17 @@
         border-radius: .25rem;
         border: .25rem solid #017DDD;
         cursor: pointer;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        a[class$="__choose-button"] {
+            color: #FFFFFF !important;
+            background-color: #017DDD !important;
+        }
+        span[class$="__choose-button-text"] {
+            display: none;
+        }
+        span[class$="__choose-button-text--selected"] {
+            display: contents;
+        }
     }
     &__choose-button {
         display: block;
@@ -44,16 +56,11 @@
         padding-bottom: 8px;
         padding-top: 8px;
         width: 167px;
-        &--selected,
-        &--selected:hover {
-            color: #FFFFFF !important;
-            background-color: #017DDD !important;
-        }
-    }
-    &__choose-button-text {
-        display: none;
-        &--selected {
+        &-text {
             display: contents;
+            &--selected {
+                display: none;
+            }
         }
     }
 }
@@ -123,5 +130,99 @@
     &__cost--desktop {
         padding-top: 55px;
         padding-bottom: 60px;
+    }
+}
+
+main.hosting-inquiry .page-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Poppins';
+    line-height: 1.75rem;
+}
+
+.hosting-inquiry-form {
+    margin-bottom: 90px;
+    margin-top: 50px;
+    &__form {
+        fieldset {
+            margin-bottom: 40px;
+            legend {
+                font-size: 0.875rem;
+                font-weight: 700;
+                line-height: 22px;
+                font-family: 'Poppins';
+                text-transform: uppercase;
+            }
+            div.mb-3 label {
+                font-size: 0.875rem;
+                font-weight: 700;
+                margin-bottom: 0;
+                + span.text-muted.small {
+                    display: none;
+                }
+            }
+            > fieldset.mb-3 legend {
+                display: none;
+            }
+        }
+    }
+    &__submit-button {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+
+@media (min-width: 992px) {
+    main.hosting-inquiry .page-header h1 {
+        font-size: 2.625rem;
+        line-height: 3rem;
+    }
+    .hosting-inquiry-form {
+        background: #FFFFFF;
+        border-radius: 0px 0px 4px 0px;
+        padding: 40px 20px 70px 20px;
+        margin-bottom: 90px;
+        margin-top: 50px;
+        &__form > div.ccm-dashboard-express-form {
+            display: flex;
+            > fieldset { 
+                padding-right: 25px;
+                flex-direction: column;
+                flex: 1;
+                padding-left: 20px;
+                div.mb-3 {
+                    display: flex;
+                    > * {
+                        flex: 7;
+                    }
+                    label {
+                        padding-left: 30px;
+                        text-align: right;
+                        font-size: 0.875rem;
+                        padding-right: 13px;
+                        padding-top: 5px;
+                        flex: 4;
+                    }
+                }
+            }
+        }
+        &__submit-button {
+            justify-content: flex-end;
+            padding-right: 40px;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .hosting-inquiry-form__form div.ccm-dashboard-express-form > fieldset div.mb-3 {
+        > * {
+            flex: 2;        
+        }
+        label {
+            flex: 1;
+        }
     }
 }

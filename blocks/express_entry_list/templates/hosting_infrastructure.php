@@ -69,11 +69,6 @@ if ($entity) {
     </div>
     <script type="text/javascript" >
      $(".card-infrastructure")
-         .hover(function () {
-             $(this)
-                 .find("a.card-infrastructure__choose-button")
-                 .toggleClass("card-infrastructure__choose-button--selected");
-         })
          .on("click", function (e) {
              $target = $(e.target);
              if (!$target.hasClass("card-infrastructure__choose-button--selected")) {
