@@ -34,7 +34,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
                 <div class="alert alert-danger">
                     <?= $error->output(); ?>
                 </div>
-            <?php
+                <?php
             }
             ?>
 
@@ -58,8 +58,9 @@ defined('C5_EXECUTE') or die('Access Denied.');
                         <div><?php $captcha->display(); ?></div>
                         <div><?php $captcha->showInput(); ?></div>
                     </div>
-                <?php
-                } ?>
+                    <?php
+                }
+                ?>
 
                 <div class="form-actions hosting-inquiry-form__submit-button">
                     <button type="submit" name="Submit" class="btn btn-primary"><?= t($submitLabel) ?></button>
