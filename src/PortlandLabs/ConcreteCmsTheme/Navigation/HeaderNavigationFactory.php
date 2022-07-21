@@ -24,7 +24,7 @@ class HeaderNavigationFactory implements ApplicationAwareInterface, NavigationFa
     {
         $activeSection = $this->activeSection;
         // Determine if this navigation menu is for the concretecms.org site or not
-        $enableDarkMode = \Core::make('site')->getSite()->getConfigRepository()->get("concrete_cms_theme.enable_dark_mode");
+        $enableDarkMode = $this->app->make('site')->getSite()->getConfigRepository()->get("concrete_cms_theme.enable_dark_mode");
 
         $navigation = new Navigation();
         // About
