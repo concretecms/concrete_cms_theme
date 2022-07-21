@@ -29,7 +29,7 @@ class HeaderNavigationFactory implements ApplicationAwareInterface, NavigationFa
         $navigation = new Navigation();
         // About
         if ($enableDarkMode) {
-            // About menu for sites with light mode theme enabled
+            // About menu for sites with dark mode theme enabled
             $navigationAboutMenu = [
                 new Item('{{marketing_org}}/vision', t('Vision')),
                 new Item('{{marketing_org}}/security', t('Security')),
