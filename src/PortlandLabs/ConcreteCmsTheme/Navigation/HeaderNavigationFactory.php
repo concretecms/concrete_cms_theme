@@ -24,21 +24,12 @@ class HeaderNavigationFactory implements ApplicationAwareInterface, NavigationFa
     {
         $activeSection = $this->activeSection;
         // Determine if this navigation menu is for the concretecms.org site or not
-        $siteTarget = $_ENV['URL_SITE_MARKETING_OPENSOURCE'];
-        $siteDetected = \Core::make('site')->getSite()->getSiteCanonicalURL();
-        // remove trailing slash if exists
-        if (strcmp('/', substr($siteDetected, -1)) === 0) {
-            $siteDetected = substr($siteDetected, 0, -1);
-        }
-        $siteIsMarketingOpensource = false;
-        if (strcmp($siteTarget, $siteDetected) === 0) {
-            $siteIsMarketingOpensource = true;
-        }
+        $enableDarkMode = $this->app->make('site')->getSite()->getConfigRepository()->get("concrete_cms_theme.enable_dark_mode");
 
         $navigation = new Navigation();
         // About
-        if ($siteIsMarketingOpensource) {
-            // About menu for concretecms.org
+        if ($enableDarkMode) {
+            // About menu for sites with dark mode theme enabled
             $navigationAboutMenu = [
                 new Item('{{marketing_org}}/vision', t('Vision')),
                 new Item('{{marketing_org}}/security', t('Security')),
@@ -49,7 +40,7 @@ class HeaderNavigationFactory implements ApplicationAwareInterface, NavigationFa
                 new Item('{{marketing_org}}/about/project-news', t('Project News')),
             ];
         } else {
-            // About menu for all other sites
+            // About menu for sites with light mode theme enabled
             $navigationAboutMenu = [
                 new Item('{{marketing}}/about/features', t('Features')),
                 new Item('{{marketing}}/about/reviews', t('Reviews')),
