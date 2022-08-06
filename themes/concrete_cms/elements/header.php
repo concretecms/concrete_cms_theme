@@ -128,7 +128,7 @@ $view->inc('elements/stage_warning.php');
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div id="ccm-desktop-nav" class="header-navigation ml-auto">
+                    <div id="ccm-desktop-nav" class="header-navigation ms-auto">
                         <?php
                         $element = Element::get('header_navigation', 'concrete_cms_theme');
                         $element->render();

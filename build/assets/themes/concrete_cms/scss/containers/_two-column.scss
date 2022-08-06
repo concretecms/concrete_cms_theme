@@ -42,7 +42,7 @@ div.ccm-page {
     background-color: rgb(247, 247, 247); // light gray
 
     &.column-section-container-white {
-      background-color: theme-color('white');
+      background-color: $white;
 
       h1, h2, h3, h4, h5 {
         border-bottom-color: rgb(224, 224, 224);

@@ -8,14 +8,14 @@ div.ccm-page {
     height: 100%;
 
     &.column-section-container-white {
-      background: theme-color('white');
+      background: $white;
     }
 
     &.column-section-container-dark-gray {
       background-color: rgb(37, 38, 38);
-      color: theme-color('white');
+      color: $white;
       h1, h2, h3, h4, h5 {
-        color: theme-color('white');
+        color: $white;
       }
     }
 
@@ -185,7 +185,7 @@ div.ccm-page {
         h2,
         p,
         .ccm-block-testimonial-text::before {
-          color: theme-color('white');
+          color: $white;
         }
 
         hr {
@@ -194,7 +194,7 @@ div.ccm-page {
 
         section {
           h1 {
-            color: theme-color('white');
+            color: $white;
           }
         }
       }

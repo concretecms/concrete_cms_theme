@@ -24,7 +24,7 @@ div.ccm-page {
     }
 
     &.section-white {
-      background-color: theme-color('white');
+      background-color: $white;
     }
 
     @include media-breakpoint-down(sm) {

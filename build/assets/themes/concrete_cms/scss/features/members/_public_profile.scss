@@ -22,7 +22,7 @@
     width: 100%;
     height: 480px;
     overflow: hidden;
-    background-color: theme-color('header-image-background');
+    background-color: $header-image-bg;
 
     .image-container {
       background-position: center;
@@ -80,7 +80,7 @@
     margin-top: -100px;
 
     strong {
-      color: theme-color('accent');
+      color: $accent;
     }
   }
 
@@ -144,7 +144,7 @@
     width: 100%;
 
     .title {
-      color: theme-color('text');
+      color: $text;
       line-height: 20px;
       font-weight: 700;
       font-size: 14px;
@@ -160,7 +160,7 @@
       width: 100%;
       padding-left: 1.25rem;
       padding-right: 1.25rem;
-      background-color: theme-color('white');
+      background-color: #fff;
 
       .badge-list {
         display: block;
@@ -195,7 +195,7 @@
       .hidden-achievements, .hidden-awards {
         display: block;
         float: left;
-        color: theme-color('accent');
+        color: $accent;
         line-height: 45px;
         font-size: 16px;
         font-weight: 700;
@@ -211,12 +211,12 @@
     }
 
     .certifications {
-      border-right: 1px solid theme-color('card-border');
+      border-right: 1px solid $card-border-color;
     }
 
     .certifications, .total-karma {
-      border-top: 1px solid theme-color('card-border');
-      background-color: theme-color('white');
+      border-top: 1px solid $card-border-color;
+      background-color: #fff;
       display: block;
       float: left;
       width: 50%;
@@ -229,7 +229,7 @@
       .value {
         font-size: 29px;
         line-height: 40px;
-        color: theme-color('text');
+        color: $text;
       }
     }
 

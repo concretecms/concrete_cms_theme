@@ -3,10 +3,10 @@
 
 <div class="ccm-search-block-blog-header d-flex">
     <?php if ($title) { ?>
-    <h4 class="mb-0" mr-auto><a href="<?=URL::to('/about/blog')?>"><?=$title?></a></h4>
+    <h4 class="mb-0 me-auto"><a href="<?=URL::to('/about/blog')?>"><?=$title?></a></h4>
     <?php } ?>
 
-    <div class="ml-auto form-inline">
+    <div class="ms-auto form-inline">
         <form action="<?=$view->url($resultTargetURL)?>" method="get" class="ccm-search-block-form">
         <?php
 if ($query === '') {

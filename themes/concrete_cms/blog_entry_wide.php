@@ -131,7 +131,7 @@ if ($parent->getCollectionTypeHandle() == 'blog_category') {
                     <div class="mr-5">
                         <?php $a->display($c); ?>
                     </div>
-                    <div class="mt-md-0 mt-3 ml-auto">
+                    <div class="mt-md-0 mt-3 ms-auto">
                         <a href="<?=$ctaUrl?>" target="_blank" class="text-nowrap btn btn-primary"><?=$ctaText?></a>
                     </div>
                 </div>

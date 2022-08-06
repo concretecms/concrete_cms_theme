@@ -54,15 +54,15 @@ main {
       border-left: none;
       border-right: none;
       border-bottom: 3px solid transparent;
-      color: theme-color('text');
+      color: $text;
       font-weight: bold;
 
       &:hover, &.active {
         border-top: none;
         border-left: none;
         border-right: none;
-        border-bottom: 3px solid theme-color('accent');
-        color: theme-color('accent');
+        border-bottom: 3px solid $accent;
+        color: $accent;
       }
     }
 
@@ -74,9 +74,9 @@ main {
         border-top: none;
         border-left: none;
         border-right: none;
-        border-bottom: 3px solid theme-color('accent');
+        border-bottom: 3px solid $accent;
         font-weight: bold;
-        color: theme-color('accent');
+        color: $accent;
       }
     }
   }
