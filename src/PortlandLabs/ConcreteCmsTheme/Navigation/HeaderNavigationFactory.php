@@ -19,6 +19,7 @@ class HeaderNavigationFactory implements ApplicationAwareInterface, NavigationFa
 
     const SECTION_SUPPORT = 'support';
     const SECTION_COMMUNITY = 'community';
+    const SECTION_EXTENSIONS = 'extensions';
 
     public function createNavigation(): NavigationInterface
     {
@@ -38,19 +39,19 @@ class HeaderNavigationFactory implements ApplicationAwareInterface, NavigationFa
             new Item('{{marketing_org}}/download', t('Download')),
             new Item('{{documentation}}/developers/introduction/installation', t('Installation')),
         ]));
-        $navigation->add(new Item('{{marketing}}/extensions', t('Extensions'), false, false, [
+        $navigation->add(new Item('{{marketing}}/extensions', t('Extensions'), $activeSection === self::SECTION_EXTENSIONS, false, [
             new Item('{{marketplace}}/marketplace/addons', t('Add-ons')),
             new Item('{{marketplace}}/marketplace/themes', t('Themes')),
             new Item('{{marketing}}/extensions/related-projects', t('Related Projects')),
             new Item('{{marketing}}/extensions/translate', t('Translations')),
         ]));
-        $navigation->add(new Item('{{marketing}}/support', t('Support'), false, $activeSection === 'support', [
+        $navigation->add(new Item('{{marketing}}/support', t('Support'), false, $activeSection === self::SECTION_COMMUNITY, [
             new Item('{{marketing}}/support/hiring-help', t('Hiring Help')),
             new Item('{{documentation}}', t('Documentation')),
             new Item('{{forums}}', t('Forums')),
             new Item('{{marketing}}/support/training-certification', t('Training & Certification')),
         ]));
-        $navigation->add(new Item('{{marketing}}/community', t('Community'), false, $activeSection === 'community', [
+        $navigation->add(new Item('{{marketing}}/community', t('Community'), false, $activeSection === self::SECTION_COMMUNITY, [
             new Item('{{forums}}', t('Forums')),
             new Item('{{community}}/members/directory', t('Search Members')),
             new Item('{{marketing}}/extensions/translate', t('Translate')),

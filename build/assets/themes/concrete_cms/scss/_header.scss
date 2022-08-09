@@ -335,21 +335,26 @@ header {
      */
     border-top: 1px solid $card-border-color;
 
+    div.col {
+      display: flex;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+
     h3 {
       font-family: "Poppins";
       text-transform: uppercase;
       float: left;
-      font-size: 12px;
-      line-height: 40px;
+      font-size: 0.75rem;
       color: $legal;
+      margin-bottom: 0;
     }
 
     nav {
-      float: right;
+      margin-left: auto;
 
       ul {
         display: block;
-        float: right;
         margin: 0;
         padding: 0;
         list-style: none;
@@ -369,9 +374,8 @@ header {
           }
 
           a {
+            text-decoration: none;
             font-family: "Noto Sans";
-            font-size: 14px;
-            line-height: 40px;
             color: $dark-gray;
           }
         }
