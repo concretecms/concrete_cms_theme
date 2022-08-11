@@ -25,7 +25,7 @@ $this->inc('elements/header.php');
 
 ?>
 
-<main class="<?=$c->getCollectionHandle()?>">
+<main class="<?=isset($c) && $c->getCollectionHandle()?>">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -40,7 +40,9 @@ $this->inc('elements/header.php');
             </div>
         </div>
         <?php
-        $view->inc('elements/page_header.php');
+        if (isset($c)) {
+            $view->inc('elements/page_header.php');
+        }
         ?>
         <div class="row">
             <div class="col-sm-12">
@@ -52,20 +54,22 @@ $this->inc('elements/header.php');
     </div>
 </main>
 
-<section class="additional-content">
-    <?php
-    $a = new Area('Main');
-    $a->enableGridContainer();
-    $a->display($c);
-
-    // Render additional areas if required
-    for ($i = 1; $i <= (int)$c->getAttribute('main_area_number'); $i++) {
-        $a = new Area('Main ' . $i);
+<?php if (isset($c)) { ?>
+    <section class="additional-content">
+        <?php
+        $a = new Area('Main');
         $a->enableGridContainer();
         $a->display($c);
-    }
-    ?>
-</section>
+
+        // Render additional areas if required
+        for ($i = 1; $i <= (int)$c->getAttribute('main_area_number'); $i++) {
+            $a = new Area('Main ' . $i);
+            $a->enableGridContainer();
+            $a->display($c);
+        }
+        ?>
+    </section>
+<?php } ?>
 
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */
