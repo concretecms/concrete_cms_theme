@@ -67,7 +67,7 @@ if (!isset($authTypeParams)) {
     }
 </style>
 
-<div class="login-page">
+<div class="concrete-cms-theme-login-page">
     <main>
         <div class="fluid-container">
             <div class="login-wrapper">
@@ -147,7 +147,7 @@ if (!isset($authTypeParams)) {
                                             </a>
 
                                             <button class="btn btn-primary">
-                                                <?php echo t('Sign in to %s', $client->getName()) ?>
+                                                <?php echo t('Sign in') ?>
                                             </button>
                                         </div>
 

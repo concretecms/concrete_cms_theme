@@ -29,7 +29,12 @@ $manager = $app->make(UrlManager::class);
 $marketingUrl = $manager->getMarketingUrl();
 $opensourceUrl = $manager->getMarketingOrgUrl();
 
-$enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page? $c->getAttribute("enable_dark_mode") : false);
+$enableDarkMode = false;
+if (isset($c)) {
+    $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page ? $c->getAttribute(
+            "enable_dark_mode"
+        ) : false);
+}
 ?>
 <footer>
     <div class="container">
@@ -75,7 +80,7 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
                     <div class="footer-social">
                         <?php
                         $a = new GlobalArea('Footer Social');
-                        $a->display($c);
+                        $a->display();
                         ?>
                     </div>
                 </div>
@@ -99,7 +104,11 @@ View::element('footer_required');
 <script src="<?php echo (string)Url::to("/community/js"); ?>" defer></script>
 <!--suppress HtmlUnknownTarget -->
 <?php
-if (!$c->isEditMode()) {
+$isEditMode = false;
+if (isset($c) && $c->isEditMode()) {
+    $isEditMode = true;
+}
+if (!$isEditMode) {
     // Bootstrap 4's JS (included for the theme purposes) conflicts with the BS5 JS that's in use for the core
     // functionality. Without this if statement you can't do things like add form blocks, etc... because the buttons
     // in the dialog don't work? Not sure why that is but rather than go down that rabbit hole let's just disable
