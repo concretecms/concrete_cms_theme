@@ -1,0 +1,228 @@
+.infrastructure-container,
+.devops-container {
+    margin-bottom: 100px;
+}
+
+.infrastructure-page__title,
+.devops-page__title {
+    color: #017DDD;
+    font-size: 2.25rem;
+    line-height: 64px;
+    text-transform: uppercase;
+}
+
+.card-infrastructure,
+.card-devops {
+    border-radius: .25rem;
+    border: .25rem solid transparent;
+    &__title {
+        color: #2F3032 !important;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+    }
+    &__cost {
+        font-size: 3.75rem;
+        color: #017DDD;
+        line-height: 28px
+    }
+    &__cost-period {
+        font-size: 1.25rem;
+    }
+    &:hover {
+        background-color: #F6F8FA;
+        border-radius: .25rem;
+        border: .25rem solid #017DDD;
+        cursor: pointer;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        a[class$="__choose-button"] {
+            color: #FFFFFF !important;
+            background-color: #017DDD !important;
+        }
+        span[class$="__choose-button-text"] {
+            display: none;
+        }
+        span[class$="__choose-button-text--selected"] {
+            display: contents;
+        }
+    }
+    &__choose-button {
+        display: block;
+        color: #19191A !important;
+        font-size: 0.875rem;
+        height: auto;
+        line-height: 24px;
+        margin: 0 auto;
+        margin-top: 18px;
+        padding-bottom: 8px;
+        padding-top: 8px;
+        width: 167px;
+        &-text {
+            display: contents;
+            &--selected {
+                display: none;
+            }
+        }
+    }
+}
+
+.card-infrastructure {
+    min-width: 280px;
+    .card-body,
+    .card-footer {
+        background: transparent;
+    }
+    &__footer {
+        padding: 0;
+        padding-bottom: 50px;
+        background-color: transparent;
+        border-top: none;
+    }
+
+    &__cost {
+        padding-top: 55px;
+        padding-bottom: 60px;
+
+    }
+
+    &__content table {
+        border: 0;
+        padding-top: 12px;
+        border-top: 1px solid #9797972C;
+        width: 100%;
+        tr {
+            &:nth-of-type(1) td {
+                padding-top: 7px;
+            }
+            td {
+                border: none;
+                padding-bottom: 10px;
+                vertical-align: top;
+                &:nth-of-type(1) {
+                    width: 66%;
+                }
+                &:nth-of-type(2n) {
+                    font-weight: bold;
+                }
+            }
+        }
+        &:nth-of-type(1) {
+            border: none;
+        }
+        &:nth-of-type(1) tr:nth-of-type(1) td {
+            padding-top: 0;
+        }
+    }
+}
+
+.card-devops {
+    &__title {
+        font-size: 1.25rem;
+    }
+    &__description {
+        font-weight: 700;
+        color: #017DDD;
+    }
+    &__footer {
+        padding: 0;
+        background-color: transparent;
+        border-top: none;
+    }
+    &__cost--desktop {
+        padding-top: 55px;
+        padding-bottom: 60px;
+    }
+}
+
+main.hosting-inquiry .page-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Poppins';
+    line-height: 1.75rem;
+}
+
+.hosting-inquiry-form {
+    margin-bottom: 90px;
+    margin-top: 50px;
+    &__form {
+        fieldset {
+            margin-bottom: 40px;
+            legend {
+                font-size: 0.875rem;
+                font-weight: 700;
+                line-height: 22px;
+                font-family: 'Poppins';
+                text-transform: uppercase;
+            }
+            div.mb-3 label {
+                font-size: 0.875rem;
+                font-weight: 700;
+                margin-bottom: 0;
+                + span.text-muted.small {
+                    display: none;
+                }
+            }
+            > fieldset.mb-3 legend {
+                display: none;
+            }
+        }
+    }
+    &__submit-button {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+
+@media (min-width: 992px) {
+    main.hosting-inquiry .page-header h1 {
+        font-size: 2.625rem;
+        line-height: 3rem;
+    }
+    .hosting-inquiry-form {
+        background: #FFFFFF;
+        border-radius: 0px 0px 4px 0px;
+        padding: 40px 20px 70px 20px;
+        margin-bottom: 90px;
+        margin-top: 50px;
+        &__form > div.ccm-dashboard-express-form {
+            display: flex;
+            > fieldset { 
+                padding-right: 25px;
+                flex-direction: column;
+                flex: 1;
+                padding-left: 20px;
+                div.mb-3 {
+                    display: flex;
+                    > * {
+                        flex: 7;
+                    }
+                    label {
+                        padding-left: 30px;
+                        text-align: right;
+                        font-size: 0.875rem;
+                        padding-right: 13px;
+                        padding-top: 5px;
+                        flex: 4;
+                    }
+                }
+            }
+        }
+        &__submit-button {
+            justify-content: flex-end;
+            padding-right: 40px;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .hosting-inquiry-form__form div.ccm-dashboard-express-form > fieldset div.mb-3 {
+        > * {
+            flex: 2;        
+        }
+        label {
+            flex: 1;
+        }
+    }
+}
