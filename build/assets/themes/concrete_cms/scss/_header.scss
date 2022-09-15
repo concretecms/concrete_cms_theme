@@ -354,26 +354,27 @@ header {
       margin-left: auto;
 
       ul {
-        display: block;
+        display: flex;
         margin: 0;
         padding: 0;
         list-style: none;
 
         li {
-          display: block;
+          display: flex;
           float: left;
           margin: 0;
           padding: 0;
           list-style: none;
           margin-left: 30px;
+          align-items: center;
 
           &.active, &:hover {
-            a {
+            a:not(.btn) {
               color: $accent;
             }
           }
 
-          a {
+          a:not(.btn) {
             text-decoration: none;
             font-family: "Noto Sans";
             color: $dark-gray;

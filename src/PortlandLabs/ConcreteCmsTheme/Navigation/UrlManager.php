@@ -25,6 +25,7 @@ class UrlManager
         'COMMUNITY' => 'https://community.concretecms.com',
         'FORUMS' => 'https://forums.concretecms.org',
         'TRANSLATE' => 'https://translate.concretecms.org',
+        'EXTENSIONS' => 'https://extensions.concretecms.com',
     ];
 
     private $placeholders = [
@@ -36,6 +37,7 @@ class UrlManager
         'gigs' => 'GIGS',
         'community' => 'COMMUNITY',
         'forums' => 'FORUMS',
+        'extensions' => 'EXTENSIONS',
         'translate' => 'TRANSLATE',
     ];
     
