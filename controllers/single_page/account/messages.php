@@ -75,8 +75,8 @@ class Messages extends AccountPageController
         $userInfoRepository = $this->app->make(UserInfoRepository::class);
         $ui = $userInfoRepository->getByID($u->getUserID());
 
-        $mailbox = UserPrivateMessageMailbox::get($ui, $mailboxId);
-        $msg = UserPrivateMessage::getByID($messageId, $mailbox);
+        $mailbox = UserPrivateMessageMailbox::get($ui, (int) $mailboxId);
+        $msg = UserPrivateMessage::getByID((int) $messageId, $mailbox);
 
         if ($msg instanceof UserPrivateMessage) {
             if ($ui->canReadPrivateMessage($msg)) {
@@ -109,7 +109,7 @@ class Messages extends AccountPageController
         $ui = $userInfoRepository->getByID($u->getUserID());
         $inbox = UserPrivateMessageMailbox::get($ui, UserPrivateMessageMailbox::MBTYPE_INBOX);
         $sent = UserPrivateMessageMailbox::get($ui, UserPrivateMessageMailbox::MBTYPE_SENT);
-        $mailbox = UserPrivateMessageMailbox::get($ui, $msgMailboxID);
+        $mailbox = UserPrivateMessageMailbox::get($ui, (int) $msgMailboxID);
 
         if ($mailbox instanceof Mailbox) {
             $messageList = $mailbox->getMessageList();
