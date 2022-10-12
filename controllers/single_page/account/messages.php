@@ -11,6 +11,7 @@
 
 namespace Concrete\Package\ConcreteCmsTheme\Controller\SinglePage\Account;
 
+use Concrete\Core\Error\UserMessageException;
 use Concrete\Core\Http\Response;
 use Concrete\Core\Http\ResponseFactory;
 use Concrete\Core\Page\Page;
@@ -20,6 +21,7 @@ use Concrete\Core\User\PrivateMessage\Mailbox as UserPrivateMessageMailbox;
 use Concrete\Core\User\PrivateMessage\PrivateMessage as UserPrivateMessage;
 use Concrete\Core\User\User;
 use Concrete\Core\User\UserInfoRepository;
+use Concrete\Core\Validation\CSRF\Token;
 use PortlandLabs\ConcreteCmsTheme\Page\Controller\AccountPageController;
 
 class Messages extends AccountPageController
@@ -30,9 +32,17 @@ class Messages extends AccountPageController
         $this->set('receiverId', $receiverId);
     }
 
-    public function delete($mailboxId = null, $messageId = null)
-    {/** @var ResponseFactory $responseFactory */
+    public function delete($mailboxId = null, $messageId = null, $token = null)
+    {
+        /** @var ResponseFactory $responseFactory */
         $responseFactory = $this->app->make(ResponseFactory::class);
+
+        /** @var Token $valt */
+        $valt = $this->app->make(Token::class);
+        if (!$valt->validate('message_delete_' . $messageId, $token)) {
+            throw new UserMessageException($valt->getErrorMessage());
+        }
+
         /** @var User $u */
         $u = $this->app->make(User::class);
         /** @var UserInfoRepository $userInfoRepository */
@@ -71,6 +81,13 @@ class Messages extends AccountPageController
         if ($msg instanceof UserPrivateMessage) {
             if ($ui->canReadPrivateMessage($msg)) {
                 $msg->markAsRead();
+
+                $this->set('deleteUrl', (string) Url::to(
+                    "/account/messages/delete",
+                    $mailbox->getMailboxID(),
+                    $msg->getMessageID(),
+                    $this->app->make(Token::class)->generate('message_delete_' . $msg->getMessageID())
+                ));
 
                 $this->set("mailbox", $mailbox);
                 $this->set("msg", $msg);
