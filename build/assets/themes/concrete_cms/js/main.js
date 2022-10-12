@@ -142,6 +142,7 @@ $(".bulk-action-item").click(function (e) {
         url: CCM_DISPATCHER_FILENAME + "/api/v1/messages/" + $(this).data("action"),
         method: "POST",
         data: {
+            ccm_token: $(this).data('token'),
             messageIds: messageIds,
             box: $("input[name='box']").val()
         },

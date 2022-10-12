@@ -150,19 +150,22 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
                                         </a>
 
                                         <a class="dropdown-item bulk-action-item disabled" href="javascript:void(0);"
-                                           data-action="read">
+                                           data-action="read"
+                                           data-token="<?= $token->generate('mark_read') ?>">
                                             <?php echo t("Mark as read"); ?>
                                         </a>
 
                                         <a class="dropdown-item bulk-action-item disabled" href="javascript:void(0);"
-                                           data-action="unread">
+                                           data-action="unread"
+                                           data-token="<?= $token->generate('mark_unread') ?>">
                                             <?php echo t("Mark as unread"); ?>
                                         </a>
 
                                         <div class="dropdown-divider"></div>
 
                                         <a class="dropdown-item bulk-action-item disabled" href="javascript:void(0);"
-                                           data-action="delete">
+                                           data-action="delete"
+                                           data-token="<?= $token->generate('delete_messages') ?>">
                                             <?php echo t("Delete"); ?>
                                         </a>
                                     </div></div></th>
