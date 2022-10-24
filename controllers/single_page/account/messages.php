@@ -119,6 +119,7 @@ class Messages extends AccountPageController
             $this->set('mailbox', $mailbox);
             $this->set('inbox', $inbox);
             $this->set('sent', $sent);
+            $this->set('currentPage', (int) $this->request('p'));
         } else {
             return $this->responseFactory->redirect((string)Url::to("/account/messages"), Response::HTTP_TEMPORARY_REDIRECT);
         }
