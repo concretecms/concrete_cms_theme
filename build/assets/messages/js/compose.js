@@ -5,11 +5,11 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
-import {alert, Stack, defaultModules} from '@pnotify/core';
-import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
+//import {alert, Stack, defaultModules} from '@pnotify/core';
+//import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
 
-defaultModules.set(PNotifyBootstrap4, {});
-
+//defaultModules.set(PNotifyBootstrap4, {});
+/*
 const stackBottomModal = new Stack({
     dir1: 'up',
     dir2: 'left',
@@ -21,7 +21,7 @@ const stackBottomModal = new Stack({
     overlayClose: false,
     context: $('body').get(0)
 });
-
+*/
 export default (options) => {
     let defaults = {
         receiver: '',
@@ -45,11 +45,14 @@ export default (options) => {
                     for (let i = 0; i < data.errors.length; i++) {
                         let errorMessage = data.errors[i];
 
+                        /*
                         alert({
                             text: errorMessage,
                             stack: stackBottomModal,
                             type: 'error'
                         });
+
+                         */
                     }
                 }
             } else {

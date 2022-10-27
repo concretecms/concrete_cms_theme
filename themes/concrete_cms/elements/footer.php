@@ -103,19 +103,7 @@ View::element('footer_required');
 ?>
 <script src="<?php echo (string)Url::to("/community/js"); ?>" defer></script>
 <!--suppress HtmlUnknownTarget -->
-<?php
-$isEditMode = false;
-if (isset($c) && $c->isEditMode()) {
-    $isEditMode = true;
-}
-if (!$isEditMode) {
-    // Bootstrap 4's JS (included for the theme purposes) conflicts with the BS5 JS that's in use for the core
-    // functionality. Without this if statement you can't do things like add form blocks, etc... because the buttons
-    // in the dialog don't work? Not sure why that is but rather than go down that rabbit hole let's just disable
-    // the BS4 JS in edit mode.
-?>
-    <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4.js" defer></script>
-<?php } ?>
+<script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap.js" defer></script>
 <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/main.js" defer></script>
 <script>
     $(window).ready(function () {
