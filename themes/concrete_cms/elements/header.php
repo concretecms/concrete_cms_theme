@@ -26,19 +26,15 @@ $token = $app->make(Token::class);
 $config = Site::getSite()->getConfigRepository();
 $site = Site::getSite();
 
-$excludeBreadcrumb = true;
-$enableDarkMode = false;
-if (isset($c)) {
-    if ($c->isHomePage() ||
-        strpos($c->getCollectionPath(), '/account') === 0 ||
-        $c->getPageController()->get("exclude_breadcrumb") ||
-        $c->getAttribute("exclude_breadcrumb")) {
-        $excludeBreadcrumb = true;
-    } else {
-        $excludeBreadcrumb = false;
-    }
-    $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
+$excludeBreadcrumb = false;
+if ($c->isHomePage() ||
+    strpos($c->getCollectionPath(), '/account') === 0 ||
+    $c->getPageController()->get("exclude_breadcrumb") ||
+    $c->getAttribute("exclude_breadcrumb")) {
+
+    $excludeBreadcrumb = true;
 }
+$enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") ||$c->getAttribute("enable_dark_mode");
 
 $manager = $app->make(UrlManager::class);
 $marketingUrl = $manager->getMarketingUrl();
@@ -97,13 +93,7 @@ $view->inc('elements/stage_warning.php');
     </div>
 </div>
 
-<?php
-$pageWrapperClass = 'ccm-page'; // We need this because our theme depends on it but sometimes this header is included in contexts that don't have access to the page object
-if (isset($c)) {
-    $pageWrapperClass = $c->getPageWrapperClass();
-}
-?>
-<div class="<?=$pageWrapperClass?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">
+<div class="<?php echo $c->getPageWrapperClass() ?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">
     <header class="<?php echo $excludeBreadcrumb ? "no-breadcrumb" : ""; ?> <?php $subnavElement->exists() ? "has-sub-nav" : ""; ?>">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -156,7 +146,7 @@ if (isset($c)) {
         ?>
     </header>
 
-    <?php if (!$excludeBreadcrumb && isset($c)) { ?>
+    <?php if (!$excludeBreadcrumb) { ?>
         <div class="container">
             <div class="row">
                 <div class="col">

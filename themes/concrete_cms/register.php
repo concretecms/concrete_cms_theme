@@ -52,7 +52,7 @@ $this->inc('elements/header_minimal.php');
 $renderer->setContext(new FrontendFormContext());
 ?>
 
-<div class="concrete-cms-theme-login-page">
+<div class="login-page">
     <main>
         <div class="fluid-container">
             <div class="login-wrapper">
