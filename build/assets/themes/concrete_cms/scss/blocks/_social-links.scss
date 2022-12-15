@@ -1,0 +1,13 @@
+div.ccm-page {
+  div.footer-social {
+    .ccm-block-social-links {
+      ul {
+        li {
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
