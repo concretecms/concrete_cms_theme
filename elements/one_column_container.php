@@ -3,6 +3,7 @@
 defined('C5_EXECUTE') or die('Access Denied.');
 
 use Concrete\Core\Area\ContainerArea;
+$color = $color ?? null;
 
 $containerColorClass = '';
 if (isset($color) && $color == 'white') {

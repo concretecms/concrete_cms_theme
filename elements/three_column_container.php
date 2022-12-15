@@ -5,6 +5,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
 use Concrete\Core\Area\ContainerArea;
 
 $containerColorClass = '';
+$color = $color ?? null;
 
 if ($color == 'white') {
     $containerColorClass = 'column-section-container-white';
