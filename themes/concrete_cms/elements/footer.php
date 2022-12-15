@@ -38,16 +38,32 @@ if (isset($c)) {
 ?>
 <footer>
     <div class="container">
-
-        <?php
-
-        $element = Element::get('footer_navigation', 'concrete_cms_theme');
-        $element->render();
-
-        ?>
         <div class="row">
-            <div class="col-sm">
-                <div class="footer-site-title">
+            <div class="col-lg">
+                <nav class="nav footer-nav-utility">
+                    <a class="nav-link" href="<?=$opensourceUrl?>/security"><?=t('Security')?></a>
+                    <a class="nav-link" href="<?=$marketingUrl?>/about/legal/terms-use"><?=t('Terms of Use')?></a>
+                    <a class="nav-link" href="<?=$marketingUrl?>/about/legal/privacy-policy"><?=t('Privacy Policy')?></a>
+                    <a class="nav-link" href="<?=$marketingUrl?>/about/contact-us"><?=t('Contact')?></a>
+                </nav>
+            </div>
+
+            <div class="col-lg">
+                <div class="text-center text-lg-end">
+                    <div class="footer-social">
+                        <?php
+                        $a = new GlobalArea('Footer Social');
+                        $a->display();
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg">
+                <div class="text-center text-lg-start footer-site-title">
                     <?php if ($enableDarkMode) { ?>
                         <a href="<?=(string) $opensourceUrl?>">
                             <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
@@ -61,41 +77,36 @@ if (isset($c)) {
                 </div>
             </div>
 
-            <div class="col-sm">
-                <div class="footer-language-switcher">
+            <div class="col-lg">
+                <div class="text-center text-lg-start">
+                    <div class="footer-language-switcher d-flex">
 
-                    <?php
-                    /** @noinspection PhpUnhandledExceptionInspection */
-                    if ($_ENV['SHOW_LANGUAGE_SWITCHER'] ?? false) {
-                        View::element("language_switcher", ["label" => t("Language:")], "concrete_cms_theme");
-                    }
-                    //$a = new GlobalArea('Footer Language Switcher');
-                    //$a->display($c);
-                    ?>
-                </div>
-            </div>
-
-            <div class="col-sm">
-                <div class="float-right">
-                    <div class="footer-social">
                         <?php
-                        $a = new GlobalArea('Footer Social');
-                        $a->display();
+                        /** @noinspection PhpUnhandledExceptionInspection */
+                        if ($_ENV['SHOW_LANGUAGE_SWITCHER'] ?? false) {
+                            View::element("language_switcher", ["label" => t("Language:")], "concrete_cms_theme");
+                        }
+                        //$a = new GlobalArea('Footer Language Switcher');
+                        //$a->display($c);
                         ?>
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm">
-                <div class="footer-legal">
-                    <p>
-                        <span class="sign">&copy;</span> <?php echo t("PortlandLabs %s-%s", 2008, date('Y')); ?>
-                    </p>
+            <div class="col-lg">
+                <div class="text-center text-lg-end">
+                    <div class="footer-legal">
+                        <p>
+                            <span class="sign">&copy;</span> <?php echo t("PortlandLabs %s-%s", 2008, date('Y')); ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </footer>
+
 </div>
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */

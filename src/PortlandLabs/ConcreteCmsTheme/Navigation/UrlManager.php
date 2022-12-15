@@ -2,6 +2,8 @@
 
 namespace PortlandLabs\ConcreteCmsTheme\Navigation;
 
+use Concrete\Core\Application\ApplicationAwareInterface;
+use Concrete\Core\Application\ApplicationAwareTrait;
 use Concrete\Core\Entity\Site\Site;
 use Concrete\Core\Page\Page;
 use League\Url\Url;
@@ -12,8 +14,10 @@ use League\Url\Url;
  * dev, stage and prod environments)
  */
 
-class UrlManager
+class UrlManager implements ApplicationAwareInterface
 {
+
+    use ApplicationAwareTrait;
 
     private $defaultUrls = [
         'MARKETING_COMMERCIAL' => 'https://marketing.concretecms.com',
@@ -40,7 +44,18 @@ class UrlManager
         'extensions' => 'EXTENSIONS',
         'translate' => 'TRANSLATE',
     ];
-    
+
+    public function isSite(string $site): bool
+    {
+        $currentSite = $this->app->make('site')->getSite();
+        $url = rtrim($this->getEnvironmentUrl($this->placeholders[$site]), '/');
+        $siteCanonicalUrl = rtrim($currentSite->getSiteCanonicalUrl(), '/');
+        if ($siteCanonicalUrl == $url) {
+            return true;
+        }
+        return false;
+    }
+
     protected function getEnvironmentUrl(string $site): string
     {
         $inspectVariable = strtoupper('URL_SITE_' . $site);

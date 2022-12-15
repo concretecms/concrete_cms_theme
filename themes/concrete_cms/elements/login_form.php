@@ -46,10 +46,14 @@ $dh = Core::make('helper/date');  /* @var $dh \Concrete\Core\Localization\Servic
 } ?>
     <?php if (isset($locales) && is_array($locales) && count($locales) > 0) {
         ?>
-        <div class="form-group">
-            <label for="USER_LOCALE" class="control-label"><?= t('Language'); ?></label>
-            <?= $form->select('USER_LOCALE', $locales); ?>
+
+        <div class="form-group row mb-3">
+            <div class="col-sm-3 col-form-label pt-0"><?=t('Language'); ?></div>
+            <div class="col-sm-9">
+                <?= $form->select('USER_LOCALE', $locales); ?>
+            </div>
         </div>
+
     <?php
     } ?>
     <div class="form-group row">
@@ -62,10 +66,10 @@ $dh = Core::make('helper/date');  /* @var $dh \Concrete\Core\Localization\Servic
 
     <?php if (Config::get('concrete.user.registration.enabled')) {
         ?>
-        <hr/>
-        <div class="text-center sign-up-container">
+        <hr class="mt-5">
+        <div class="text-center sign-up-container mt-5">
             <?=t("Don't have an account?"); ?>
-            <a href="<?=URL::to('/register'); ?>" class="btn btn-primary" style="margin-left: 15px"><?=t('Sign up'); ?></a>
+            <a href="<?=URL::to('/register'); ?>"><?=t('Sign up'); ?></a>
         </div>
     <?php
     } ?>

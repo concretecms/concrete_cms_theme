@@ -17,12 +17,14 @@ $hamburger-layer-color: $gray;
 $hamburger-active-layer-color: $gray;
 $hamburger-hover-opacity: 1.0;
 
+$dropdown-width: 270px;
+
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
 // Align the account dropdown to the left
 #ccm-desktop-nav ul.navbar-nav >li.nav-item:last-child > ul {
-  width: 234px;
-  margin-left: calc(-234px + 100%);
+  width: $dropdown-width;
+  margin-left: calc(-#{$dropdown-width} + 100%);
 }
 
 // Prevent dropdowns from interfering with eachother
@@ -512,7 +514,7 @@ header {
         & > ul.dropdown-menu {
 
           margin-top: -23px;
-          min-width: 234px;
+          min-width: $dropdown-width;
           transition: all 0.5s;
 
           max-height: 0;
@@ -574,7 +576,7 @@ header {
         }
 
         margin-top: -12px;
-        min-width: 234px;
+        min-width: $dropdown-width;
       }
     }
   }

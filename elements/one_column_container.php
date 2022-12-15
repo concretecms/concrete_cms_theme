@@ -16,10 +16,12 @@ if (isset($color) && $color == 'white') {
     <?php
     $titleArea = new ContainerArea($container, 'Title');
     if ($c->isEditMode() || $titleArea->getTotalBlocksInArea($c) > 0) { ?>
-        <div class="row">
-            <div class="col-12">
-                <div class="content-section-title">
-                    <?php $titleArea->display($c); ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content-section-title">
+                        <?php $titleArea->display($c); ?>
+                    </div>
                 </div>
             </div>
         </div>

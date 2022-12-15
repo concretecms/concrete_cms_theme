@@ -7,6 +7,11 @@
 
 &.ccm-dark-mode {
   footer {
+    .footer-nav-utility {
+      a.nav-link {
+        color: $white;
+      }
+    }
 
     background-color: $dark-blue-secondary;
 
@@ -127,7 +132,6 @@ footer {
       font-size: 14px;
       line-height: 40px;
       color: $legal;
-      text-align: right;
       margin-bottom: 0;
     }
   }
@@ -163,4 +167,46 @@ footer {
     }
 
   }
+
+  .footer-nav-utility {
+    margin-bottom: 1rem;
+    a.nav-link {
+      color: $black;
+      @include media-breakpoint-up(lg) {
+        align-items: center;
+        padding: 0;
+        display: flex;
+        &::after {
+          font-size: 12px;
+          content: "|";
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+        &:last-child {
+          &::after {
+            content: "";
+          }
+        }
+      }
+      &:hover {
+        color: $blue;
+        &::after {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .footer-nav-utility {
+      display: block;
+      a.nav-link {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+
 }
+
+
