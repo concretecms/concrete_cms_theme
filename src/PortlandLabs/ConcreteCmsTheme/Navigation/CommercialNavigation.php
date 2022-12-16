@@ -16,7 +16,7 @@ class CommercialNavigation extends Navigation
         $this->add(new Item('{{marketing}}/about', t('Why Concrete?'), false, false, [
             new Item('{{marketing}}/about/reviews', t('Reviews')),
             new Item('{{marketing}}/content-creators', t('For Content Creators')),
-            new Item('{{marketing}}/why-developers', t('For Developers')),
+            new Item('{{marketing}}/why-developers-love-concrete', t('For Developers')),
             new Item('{{marketing}}/about/features', t('Features')),
             new Item('{{marketing}}/about/case-studies ', t('Case Studies')),
             new Item('{{marketing}}/about/why-open-source', t('Open Source')),
