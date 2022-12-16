@@ -241,7 +241,7 @@ $renderer->setContext(new FrontendFormContext());
 
                                 <div class="row">
                                     <div class="col">
-                                        <div class="float-right">
+                                        <div class="float-end">
                                             <?php echo $form->hidden('rcID', isset($rcID) ? $rcID : ''); ?>
 
                                             <a href="<?php echo (string)Url::to("/"); ?>" class="btn btn-secondary">

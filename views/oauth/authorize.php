@@ -140,7 +140,7 @@ if (!isset($authTypeParams)) {
                                             </div>
                                         </div>
 
-                                        <div class="float-right">
+                                        <div class="float-end">
 
                                             <a href="<?php echo (string)Url::to("/"); ?>" class="btn btn-secondary">
                                                 <?php echo t("Cancel"); ?>

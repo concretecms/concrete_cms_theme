@@ -94,7 +94,7 @@ $relatedCaseStudies = $pagination->getCurrentPageResults();
                 </div>
 
                 <div class="col-md-5 col-sm-12">
-                    <div class="float-md-right float-lg-right float-xl-right float-sm-left float-xs-left">
+                    <div class="float-md-end float-lg-end float-xl-end float-sm-start float-xs-start">
                         <div class="developer">
                             <?php if (strlen($developerUrl) > 0) { ?>
                                 <?php /** @noinspection HtmlUnknownTarget */

@@ -128,7 +128,7 @@ if ($parent->getCollectionTypeHandle() == 'blog_category') {
             if ($ctaUrl && $ctaText && !$c->isEditMode()) { ?>
             <div class="container mb-md-0 mb-4">
                 <div class="d-md-flex mb-3 align-items-center">
-                    <div class="mr-5">
+                    <div class="me-5">
                         <?php $a->display($c); ?>
                     </div>
                     <div class="mt-md-0 mt-3 ms-auto">

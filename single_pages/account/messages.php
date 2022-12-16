@@ -73,7 +73,7 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
             <div class="row">
                 <div class="col-md col-sm-12">
                     <div class="d-block d-md-none">
-                        <div class="float-right">
+                        <div class="float-end">
                             <a href="javascript:void(0);" class="btn btn-primary send-message">
                                 <?php echo t("Send Message"); ?>
                             </a>
@@ -86,7 +86,7 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
         <div class="row">
             <div class="col-md col-sm-12">
 
-                <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-right btn btn-sm">
+                <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-end btn btn-sm">
                     <?=t('Report Inappropriate Content')?>
                 </a>
 
@@ -112,7 +112,7 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
                 ?>
                 <div class="col-md col-sm-12">
                     <div class="d-none d-md-block">
-                        <div class="float-right">
+                        <div class="float-end">
                             <a href="javascript:void(0);" class="btn btn-primary send-message">
                                 <?php echo t("Send Message"); ?>
                             </a>
