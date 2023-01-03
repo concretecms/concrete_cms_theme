@@ -103,7 +103,7 @@ if (!isset($authTypeParams)) {
                             <div class="row">
                                 <div class="col">
                                     <?php if (!$authorize) { ?>
-                                        <div class="form-group row">
+                                        <div class="mb-3 row">
                                             <?php echo $form->label("uName", $emailLogin ? t('Email Address') : t('Username'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                             <div class="col-sm-8">
@@ -111,7 +111,7 @@ if (!isset($authTypeParams)) {
                                             </div>
                                         </div>
 
-                                        <div class="form-group row">
+                                        <div class="mb-3 row">
                                             <?php echo $form->label('uPassword', t('Password'), ["class" => "col-sm-4 col-form-label"]) ?>
                                             <div class="col-sm-8">
                                                 <?php echo $form->password('uPassword') ?>
@@ -119,7 +119,7 @@ if (!isset($authTypeParams)) {
                                         </div>
 
                                         <?php if (isset($locales) && is_array($locales) && count($locales) > 0) { ?>
-                                            <div class="form-group row">
+                                            <div class="mb-3 row">
                                                 <?php echo $form->label('USER_LOCALE', t('Language'), ["class" => "col-sm-4 col-form-label"]) ?>
 
                                                 <div class="col-sm-8">
@@ -128,7 +128,7 @@ if (!isset($authTypeParams)) {
                                             </div>
                                         <?php } ?>
 
-                                        <div class="form-group row">
+                                        <div class="mb-3 row">
                                             <label class="col-sm-3 col-form-label">
                                                 &nbsp;
                                             </label>

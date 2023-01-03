@@ -39,7 +39,7 @@ $addressId = uniqid('ccm_attribute_address_', true);
 <div id="<?php echo $addressId; ?>"
      class="ccm-attribute-address-composer-wrapper ccm-attribute-address-<?php echo $key->getAttributeKeyID(); ?>">
 
-    <div class="form-group row">
+    <div class="mb-3 row">
         <?php echo $form->label($this->field('address1'), t('Address 1'), ["class" => "col-sm-4 col-form-label"]); ?>
 
         <div class="col-sm-8">
@@ -47,7 +47,7 @@ $addressId = uniqid('ccm_attribute_address_', true);
         </div>
     </div>
 
-    <div class="form-group row">
+    <div class="mb-3 row">
         <?php echo $form->label($this->field('address2'), t('Address 2'), ["class" => "col-sm-4 col-form-label"]); ?>
 
         <div class="col-sm-8">
@@ -55,7 +55,7 @@ $addressId = uniqid('ccm_attribute_address_', true);
         </div>
     </div>
 
-    <div class="form-group row">
+    <div class="mb-3 row">
         <?php echo $form->label($this->field('city'), t('City'), ["class" => "col-sm-4 col-form-label"]); ?>
 
         <div class="col-sm-8">
@@ -71,7 +71,7 @@ $addressId = uniqid('ccm_attribute_address_', true);
     }
     ?>
 
-    <div class="form-group row ccm-attribute-address-line ccm-attribute-address-country">
+    <div class="mb-3 row ccm-attribute-address-line ccm-attribute-address-country">
         <?php echo $form->label($this->field('country'), t('Country'), ["class" => "col-sm-4 col-form-label"]); ?>
 
         <div class="col-sm-8">
@@ -84,7 +84,7 @@ $addressId = uniqid('ccm_attribute_address_', true);
         </div>
     </div>
 
-    <div class="form-group row ccm-attribute-address-line ccm-attribute-address-state-province"
+    <div class="mb-3 row ccm-attribute-address-line ccm-attribute-address-state-province"
          data-countryfield="<?php echo $this->field('country'); ?>">
         <?php echo $form->label($this->field('state_province'), t('State/Province'), ["class" => "col-sm-4 col-form-label"]); ?>
 
@@ -93,7 +93,7 @@ $addressId = uniqid('ccm_attribute_address_', true);
         </div>
     </div>
 
-    <div class="form-group row ccm-attribute-address-line">
+    <div class="mb-3 row ccm-attribute-address-line">
         <?php echo $form->label($this->field('postal_code'), t('Postal Code'), ["class" => "col-sm-4 col-form-label"]); ?>
 
         <div class="col-sm-8">

@@ -56,7 +56,7 @@ $dh = Core::make('helper/date');  /* @var $dh \Concrete\Core\Localization\Servic
 
     <?php
     } ?>
-    <div class="form-group row">
+    <div class="mb-3 row">
         <div class="col-sm-12 text-end">
             <a href="<?= \URL::to('/'); ?>" class="btn btn-secondary"> <?= t('Cancel'); ?> </a>
             <button class="btn btn-primary"><?= t('Sign In'); ?></button>

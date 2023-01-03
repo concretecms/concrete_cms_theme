@@ -138,7 +138,7 @@ $renderer->setContext(new FrontendFormContext());
                                     <div class="col">
                                         <fieldset>
                                             <?php if ($displayUserName) { ?>
-                                                <div class="form-group row">
+                                                <div class="mb-3 row">
                                                     <?php echo $form->label('uName', t('Username'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                                     <div class="col-sm-8">
@@ -147,7 +147,7 @@ $renderer->setContext(new FrontendFormContext());
                                                 </div>
                                             <?php } ?>
 
-                                            <div class="form-group row">
+                                            <div class="mb-3 row">
                                                 <?php echo $form->label('uEmail', t('Email Address'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                                 <div class="col-sm-8">
@@ -155,7 +155,7 @@ $renderer->setContext(new FrontendFormContext());
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <div class="mb-3 row">
                                                 <?php echo $form->label('uPassword', t('Password'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                                 <div class="col-sm-8">
@@ -164,7 +164,7 @@ $renderer->setContext(new FrontendFormContext());
                                             </div>
 
                                             <?php if ($config->get('concrete.user.registration.display_confirm_password_field')) { ?>
-                                                <div class="form-group row">
+                                                <div class="mb-3 row">
                                                     <?php echo $form->label('uPasswordConfirm', t('Confirm Password'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                                     <div class="col-sm-8">
@@ -227,7 +227,7 @@ $renderer->setContext(new FrontendFormContext());
                                 <?php if ($config->get('concrete.user.registration.captcha')) { ?>
                                     <div class="row">
                                         <div class="col offset-sm-4">
-                                            <div class="form-group">
+                                            <div class="mb-3">
                                                 <?php echo $captcha->label(); ?>
 
                                                 <?php

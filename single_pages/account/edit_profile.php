@@ -123,7 +123,7 @@ $profileFormRenderer->setContext(new FrontendFormContext());
 
                         <div class="row">
                             <div class="col-sm">
-                                <div class="form-group row">
+                                <div class="mb-3 row">
                                     <?php echo $form->label('uEmail', t('Email'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                     <div class="col-sm-8">
@@ -131,7 +131,7 @@ $profileFormRenderer->setContext(new FrontendFormContext());
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
+                                <div class="mb-3 row">
                                     <?php echo $form->label('uName', t('Username'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                     <div class="col-sm-8">
@@ -140,7 +140,7 @@ $profileFormRenderer->setContext(new FrontendFormContext());
                                 </div>
 
                                 <?php if ($config->get('concrete.misc.user_timezones')) { ?>
-                                    <div class="form-group row">
+                                    <div class="mb-3 row">
                                         <?php echo $form->label('uTimezone', t('Time Zone'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                         <div class="col-sm-8">
@@ -150,7 +150,7 @@ $profileFormRenderer->setContext(new FrontendFormContext());
                                 <?php } ?>
 
                                 <?php if (is_array($locales) && count($locales)) { ?>
-                                    <div class="form-group row">
+                                    <div class="mb-3 row">
                                         <?php echo $form->label('uDefaultLanguage', t('Language'), ["class" => "col-sm-4 col-form-label"]); ?>
 
                                         <div class="col-sm-8">

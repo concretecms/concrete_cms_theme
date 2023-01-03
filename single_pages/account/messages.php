@@ -37,6 +37,14 @@ use PortlandLabs\ConcreteCmsTheme\Navigation\UrlManager;
 /** @var string $dateAdded */
 /** @var null|int $receiverId */
 
+if (!isset($receiverId)) {
+    $receiverId = null;
+}
+
+if (!isset($msgID)) {
+    $msgID = null;
+}
+
 $app = Application::getFacadeApplication();
 /** @var Date $dh */
 $dh = $app->make(Date::class);

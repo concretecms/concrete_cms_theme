@@ -5,11 +5,7 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
-//import {alert, Stack, defaultModules} from '@pnotify/core';
-//import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
-
-//defaultModules.set(PNotifyBootstrap4, {});
-/*
+import {alert, Stack, defaultModules} from '@pnotify/core';
 const stackBottomModal = new Stack({
     dir1: 'up',
     dir2: 'left',
@@ -21,7 +17,6 @@ const stackBottomModal = new Stack({
     overlayClose: false,
     context: $('body').get(0)
 });
-*/
 export default (options) => {
     let defaults = {
         receiver: '',
