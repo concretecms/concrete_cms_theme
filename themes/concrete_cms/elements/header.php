@@ -109,7 +109,7 @@ if (isset($c)) {
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="navbar-inner">
                     <div class="navbar-brand">
-                        <div class="header-site-title">
+                        <div class="header-site-title d-lg-none d-xl-block">
                             <?php if ($enableDarkMode) { ?>
                                 <a href="<?=(string) $opensourceUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
@@ -117,6 +117,17 @@ if (isset($c)) {
                             <?php } else { ?>
                                 <a href="<?=(string) $marketingUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                                </a>
+                            <?php } ?>
+                        </div>
+                        <div class="header-site-title-logo-only d-none d-lg-block d-xl-none">
+                            <?php if ($enableDarkMode) { ?>
+                                <a href="<?=(string) $opensourceUrl?>">
+                                    <img src="<?=$view->getThemePath()?>/images/logo_dark_mode.svg" alt="" class="img-fluid">
+                                </a>
+                            <?php } else { ?>
+                                <a href="<?=(string) $marketingUrl?>">
+                                    <img src="<?=$view->getThemePath()?>/images/logo.svg" alt="" class="img-fluid">
                                 </a>
                             <?php } ?>
                         </div>

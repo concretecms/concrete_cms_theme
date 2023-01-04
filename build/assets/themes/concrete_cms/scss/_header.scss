@@ -386,6 +386,14 @@ header {
     }
   }
 
+  .header-site-title-logo-only {
+    img {
+      width: 40px;
+      height: auto;
+    }
+  }
+
+
   /* Desktop */
   @include media-breakpoint-up(lg) {
 
@@ -582,7 +590,7 @@ header {
   }
 
   /* Tablet + Mobile */
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     height: 60px;
 
     #ccm-sub-nav {

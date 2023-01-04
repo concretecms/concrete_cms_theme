@@ -150,7 +150,9 @@
   }
 
   main a, main a:hover {
-    color: rgb(1, 118, 208);
+    &:not(.btn) {
+      color: rgb(1, 118, 208);
+    }
   }
 
   .recent-tutorial-author {
