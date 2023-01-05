@@ -23,18 +23,6 @@ $this->inc('elements/header_minimal.php');
             <div class="login-wrapper">
                 <div class="login-container">
                     <div class="row">
-                        <div class="col">
-                            <?php
-                            /** @noinspection PhpUnhandledExceptionInspection */
-                            View::element('system_errors', [
-                                'format' => 'block',
-                                'error' => isset($error) ? $error : null,
-                                'success' => isset($success) ? $success : null,
-                                'message' => isset($message) ? $message : null,
-                            ], "concrete_cms_theme"); ?>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md col-sm-12 ccm-logo-column">
                             <img src="<?php echo $this->getThemePath() . "/images/logo.svg"; ?>"
                                  alt="<?php echo h(t("concreteCMS Logo")); ?>" class="ccm-logo">
