@@ -1,0 +1,10 @@
+// This is not ideal - use float-start and float-end instead of flaot-right and float-left but at least
+// this will catch some legacy stuff and make things look nicer.
+
+.float-right {
+  float: right !important;
+}
+
+.float-left {
+  float: left !important;
+}
