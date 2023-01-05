@@ -31,7 +31,7 @@ class CommercialNavigation extends Navigation
         $this->add(new Item('{{marketing}}/applications', t('Applications'), false, false, [
             new Item('{{marketing}}/applications/web-content-management', t('Web Content Management')),
             new Item('{{marketing}}/about/applications/human-resources-portal', t('Human Resources Portals')),
-            new Item('{{marketing}}/solutions/internal-communications-intranet', t('Internal Communications Intranets')),
+            new Item('{{marketing}}/solutions/internal-communications-intranet', t('Intranets / Portals')),
             new Item('{{marketing}}/about/applications/digital-asset-management', t('Digital Asset Management')),
             new Item('{{marketing}}/applications/ecommerce', t('eCommerce')),
             new Item('{{marketing}}/solutions/multi-site', t('Multi-Site')),
@@ -47,7 +47,7 @@ class CommercialNavigation extends Navigation
             new Item('{{marketing}}/internationalization', t('Internationalization')),
         ]));
         $this->add(new Item('{{marketing}}/get-started', t('Get Started'), false, false, [
-            new Item('{{community}}/get-concrete-site', t('SaaS')),
+            new Item('{{community}}/get-concrete-site', t('Try it Now!')),
             new Item('{{marketing}}/hosting', t('DevOps Hosting')),
             new Item('{{marketing_org}}/download', t('Download Open Source')),
             new Item('{{marketing}}/demo', t('Sales Demo')),
