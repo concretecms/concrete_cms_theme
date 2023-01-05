@@ -23,7 +23,7 @@ use Concrete\Core\View\View;
 /** @noinspection PhpUnhandledExceptionInspection */
 $this->inc('elements/header.php');
 
-?>
+?>`
 
 <main class="<?=$c->getCollectionHandle()?>">
     <div class="container">

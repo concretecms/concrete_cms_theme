@@ -62,6 +62,12 @@ $modal-header-text-color: #ffffff;
 $header-image-bg: #e4e4e4;
 $table-head-bg: #E5EAEC;
 
+// table things.
+// these two came from the old site. I'm not actually sure this is great behavior, since table-bordered
+// results in tables without borders, but let's bring it back for the time being:
+$table-border-width: 0;
+$table-cell-padding: 10px 0 10px 0;
+
 $badge-counter-bg: #D11A15;
 $badge-text: #ffffff;
 
