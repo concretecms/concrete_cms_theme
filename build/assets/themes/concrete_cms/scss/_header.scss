@@ -339,8 +339,8 @@ header {
 
     div.col {
       display: flex;
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
+      padding-top: 0.35rem;
+      padding-bottom: 0.35rem;
     }
 
     h3 {
@@ -362,25 +362,23 @@ header {
         list-style: none;
 
         li {
-          display: flex;
-          float: left;
           margin: 0;
           padding: 0;
           list-style: none;
           margin-left: 30px;
           align-items: center;
 
-          &.active, &:hover {
-            a:not(.btn) {
-              color: $accent;
+          a {
+            text-decoration: none;
+            font-family: "Noto Sans";
+            font-size: 14px;
+            color: $dark-gray;
+
+            &:hover {
+              text-decoration: underline;
             }
           }
 
-          a:not(.btn) {
-            text-decoration: none;
-            font-family: "Noto Sans";
-            color: $dark-gray;
-          }
         }
       }
     }

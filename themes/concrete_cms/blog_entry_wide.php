@@ -110,7 +110,7 @@ if ($parent->getCollectionTypeHandle() == 'blog_category') {
                     </div>
                 <?php } ?>
                 <?php if (isset($category)) { ?>
-                    <div class="col-md-3 col-4 text-right">
+                    <div class="col-md-3 col-4 text-end">
                         <?=t('in')?> <a href="<?=$category->getCollectionLink()?>"><b><?=$category->getCollectionName()?></b></a>
                     </div>
                 <?php } ?>

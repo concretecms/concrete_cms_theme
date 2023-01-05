@@ -133,7 +133,7 @@ if (!isset($authTypeParams)) {
                                                 &nbsp;
                                             </label>
 
-                                            <div class="col-sm-9 text-right">
+                                            <div class="col-sm-9 text-end">
                                                 <a href="<?=($_ENV['URL_SITE_COMMUNITY'] ?? '')?>/login/concrete/forgot_password" class="btn-link">
                                                     <?php echo t("Forgot Password"); ?>
                                                 </a>

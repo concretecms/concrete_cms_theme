@@ -24,7 +24,8 @@ $btn-padding-y: .5rem;
 $btn-padding-x: 2rem;
 $btn-padding-y-lg: 1rem;
 $btn-padding-x-lg: 2.4rem;
-$btn-padding-x-sm: 1.25rem;
+$btn-padding-x-sm: 1rem;
+$btn-padding-y-sm: .25rem;
 $btn-font-size-lg: 1rem;
 
 // Cards
@@ -64,6 +65,12 @@ $table-head-bg: #E5EAEC;
 $badge-counter-bg: #D11A15;
 $badge-text: #ffffff;
 
+//** Modal backdrop background color
+$modal-backdrop-bg: #ffffff;
+$modal-backdrop-opacity: .9;
+$modal-header-border-color: #e5e5e5;
+$modal-footer-border-color: $modal-header-border-color;
+
 // Old things we used to define. Let's clean these up.
 
 /*
@@ -95,14 +102,6 @@ $modal-content-border-color: rgba(0, 0, 0, .2) !default;
 //** Modal content border color **for IE8**
 $modal-content-fallback-border-color: #999 !default;
 
-//** Modal backdrop background color
-$modal-backdrop-bg: #ffffff !default;
-//** Modal backdrop opacity
-$modal-backdrop-opacity: .9 !default;
-//** Modal header border color
-$modal-header-border-color: #e5e5e5 !default;
-//** Modal footer border color
-$modal-footer-border-color: $modal-header-border-color !default;
 */
 
 
