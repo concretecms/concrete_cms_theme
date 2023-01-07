@@ -1,4 +1,8 @@
-<?php defined('C5_EXECUTE') or die('Access Denied.'); ?>
+<?php defined('C5_EXECUTE') or die('Access Denied.');
+
+$title = $title ?? null;
+$query = $query ?? null;
+?>
 
 
 <div class="ccm-search-block-blog-header d-flex">

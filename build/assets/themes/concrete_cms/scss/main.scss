@@ -44,6 +44,7 @@ div#ccm-theme-grid-edit-mode-row-wrapper {
 
 // Cookie disclosure
 @import "./disclosure";
+@import "./type/font-smoothing";
 
 div.ccm-page {
 
@@ -85,6 +86,7 @@ div.ccm-page {
 @import "./pages/solutions";
 
 @import "./blocks/image-with-quote";
+@import "./blocks/three-wide-blog";
 @import "./blocks/statistics";
 @import "./blocks/social-links";
 @import "./legacy";
