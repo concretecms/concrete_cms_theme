@@ -140,7 +140,7 @@ if (isset($c)) {
 
                     <button id="ccm-toggle-mobile-nav"
                             class="hamburger hamburger--spin navbar-toggler d-block d-lg-none"
-                            type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>

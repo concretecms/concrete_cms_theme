@@ -11,9 +11,6 @@ use PortlandLabs\ConcreteCmsTheme\Theme\DocumentationProvider;
 
 class PageTheme extends Theme implements ThemeProviderInterface
 {
-    // AE: Technically we shouldn't be using this here, because this theme is based on Bootstrap 4
-    // and not Bootstrap 5, and this imports the BS5 grid framework. HOWEVER, since the Bootstrap 5
-    // and Bootstrap 4 grid frameworks are essentially the same, this is ok.
     use BedrockThemeTrait;
 
     public function getThemeName()
