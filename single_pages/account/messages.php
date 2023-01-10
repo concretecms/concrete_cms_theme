@@ -80,9 +80,16 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
                     <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-end me-3 btn btn-secondary btn-sm">
                         <?=t('Report Inappropriate Content')?>
                     </a>
+                    <?php
+                    // there's a problem with new message - the selectpicker is not working right with ajax
+                    // and i'm not sure how to fix it so instead i'm getting rid of the ability to launch a new
+                    // message except from the profile
+                    /*
+                    ?>
                     <a href="javascript:void(0);" class="float-end btn btn-primary send-message">
                         <?php echo t("Send Message"); ?>
                     </a>
+                    <?php */ ?>
                 </div>
 
 

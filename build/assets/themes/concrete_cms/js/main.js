@@ -1,14 +1,14 @@
 import '@concretecms/bedrock/assets/bedrock/js/frontend';
 
 import _ from 'underscore'
-//import 'bootstrap-select'
-//import 'ajax-bootstrap-select'
+import 'bootstrap-select/js/bootstrap-select'
+import 'ajax-bootstrap-select'
 
 import '@concretecms/bedrock/assets/imagery/js/frontend'
-//import {alert, Stack, defaultModules} from '@pnotify/core';
-//import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
-//defaultModules.set(PNotifyBootstrap4, {});
-/*
+import {alert, Stack, defaultModules} from '@pnotify/core';
+import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
+defaultModules.set(PNotifyBootstrap4, {});
+
 const stackBottomModal = new Stack({
     dir1: 'up',
     dir2: 'left',
@@ -19,7 +19,7 @@ const stackBottomModal = new Stack({
     modal: false,
     overlayClose: false,
     context: $('body').get(0)
-});*/
+});
 
 // Custom assets
 import composeMessage from '../../../messages/js/compose';
@@ -130,13 +130,11 @@ $(".bulk-action-item").click(function (e) {
             if (data.error) {
                 for (let i = 0; i < data.errors.length; i++) {
                     let errorMessage = data.errors[i];
-
-                    /*
                     alert({
                         text: errorMessage,
                         stack: stackBottomModal,
                         type: 'error'
-                    });*/
+                    });
                 }
             } else {
                 window.location = window.location.href.split("?")[0];

@@ -8,6 +8,7 @@
     "@concretecms/bedrock": "github:concrete5/bedrock#1.4.x",
     "@fontsource/noto-sans": "^4.5.9",
     "@openfonts/poppins_all": "^1.44.7",
+    "@pnotify/bootstrap4": "^5.2.0",
     "@vue/babel-preset-app": "^5.0.8",
     "hamburgers": "^1.1.3",
     "laravel-mix": "^6.0.49",

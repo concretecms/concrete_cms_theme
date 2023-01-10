@@ -6,6 +6,9 @@
  */
 
 import {alert, Stack, defaultModules} from '@pnotify/core';
+import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
+defaultModules.set(PNotifyBootstrap4, {});
+
 const stackBottomModal = new Stack({
     dir1: 'up',
     dir2: 'left',
@@ -39,15 +42,11 @@ export default (options) => {
                 } else {
                     for (let i = 0; i < data.errors.length; i++) {
                         let errorMessage = data.errors[i];
-
-                        /*
                         alert({
                             text: errorMessage,
                             stack: stackBottomModal,
                             type: 'error'
                         });
-
-                         */
                     }
                 }
             } else {
@@ -134,7 +133,8 @@ export default (options) => {
                 }
 
                 // Show the dialog
-                $modalDialog.modal();
+                const modal = new bootstrap.Modal('#' + $modalDialog.attr('id'))
+                modal.show()
 
                 if (typeof data.messageData.msgID !== "undefined" && parseInt(data.messageData.msgID) > 0) {
                     // Mark message as read also on client side

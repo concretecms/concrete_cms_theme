@@ -1119,7 +1119,7 @@
   dependencies:
     "@pnotify/core" "^5.2.0"
 
-"@pnotify/bootstrap4@5.2.0":
+"@pnotify/bootstrap4@^5.2.0", "@pnotify/bootstrap4@5.2.0":
   "integrity" "sha512-yjHCpUEAm64BrgGvrjL4+iPrwRkmVU5hL9khjruImFr29oXlA7dufzK1kIapFKNcUpLmu5izfcWHIfqf3rPBuQ=="
   "resolved" "https://registry.npmjs.org/@pnotify/bootstrap4/-/bootstrap4-5.2.0.tgz"
   "version" "5.2.0"
@@ -2077,20 +2077,20 @@
   "resolved" "git+https://git@github.com/concrete5/bootstrap-tourist.git#83778afc370f76b6eba42f4ee10ae734582627bb"
   "version" "0.3.5"
 
-"bootstrap@^3.4.1", "bootstrap@^4.4.1":
+"bootstrap@^3.4.1":
   "integrity" "sha512-yN5oZVmRCwe5aKwzRj6736nSmKDX7pLYwsXiCj/EYmo16hODaBiT4En5btW/jhBF/seV+XMx3aYwukYC3A49DA=="
   "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-3.4.1.tgz"
   "version" "3.4.1"
 
-"bootstrap@^4.1.3":
+"bootstrap@^4.1.3", "bootstrap@^4.4.0 || ^5.0.0", "bootstrap@^4.4.1", "bootstrap@>=3.0.0":
   "integrity" "sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ=="
   "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-4.6.2.tgz"
   "version" "4.6.2"
 
-"bootstrap@^4.4.0 || ^5.0.0", "bootstrap@^5.2.0", "bootstrap@>=3.0.0":
-  "integrity" "sha512-dEtzMTV71n6Fhmbg4fYJzQsw1N29hJKO1js5ackCgIpDcGid2ETMGC6zwSYw09v05Y+oRdQ9loC54zB1La3hHQ=="
-  "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.2.tgz"
-  "version" "5.2.2"
+"bootstrap@^5.2.0":
+  "integrity" "sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ=="
+  "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.3.tgz"
+  "version" "5.2.3"
 
 "brace-expansion@^1.1.7":
   "integrity" "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA=="

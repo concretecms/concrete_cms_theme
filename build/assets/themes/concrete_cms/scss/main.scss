@@ -17,10 +17,11 @@ div#ccm-theme-grid-edit-mode-row-wrapper {
 
 @import "~typeface-open-sans/index.css";
 @import "~@openfonts/poppins_all/index.css";
-//@import '~@pnotify/core/dist/PNotify.css';
-//@import '~@pnotify/bootstrap4/dist/PNotifyBootstrap4.css';
-//@import '~bootstrap-select/dist/css/bootstrap-select.css';
-//@import '~ajax-bootstrap-select/dist/css/ajax-bootstrap-select.min.css';
+@import '~bootstrap-select/sass/bootstrap-select.scss';
+@import '~ajax-bootstrap-select/dist/css/ajax-bootstrap-select.min.css';
+
+@import 'node_modules/@pnotify/core/dist/PNotify';
+@import 'node_modules/@pnotify/mobile/dist/PNotifyMobile';
 
 // Containers
 @import "./containers/section";
