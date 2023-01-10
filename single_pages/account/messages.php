@@ -72,31 +72,19 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
             </div>
         </div>
 
-        <?php
-        $permissions = new Permissions($c);
-        if (!$permissions->canViewToolbar()) {
-            // Hide the button if we have the ability to see the toolbar, because then that means we'll have
-            // BS4/BS5 conflicts and this won't work anyway.
-            ?>
-            <div class="row">
-                <div class="col-md col-sm-12">
-                    <div class="d-block d-md-none">
-                        <div class="float-end">
-                            <a href="javascript:void(0);" class="btn btn-primary send-message">
-                                <?php echo t("Send Message"); ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
 
         <div class="row">
             <div class="col-md col-sm-12">
 
-                <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-end btn btn-sm">
-                    <?=t('Report Inappropriate Content')?>
-                </a>
+                <div class="d-flex align-items-center float-md-end">
+                    <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-end me-3 btn btn-secondary btn-sm">
+                        <?=t('Report Inappropriate Content')?>
+                    </a>
+                    <a href="javascript:void(0);" class="float-end btn btn-primary send-message">
+                        <?php echo t("Send Message"); ?>
+                    </a>
+                </div>
+
 
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
@@ -115,19 +103,6 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
                 </ul>
             </div>
 
-            <?php
-            if (!$permissions->canViewToolbar()) {
-                ?>
-                <div class="col-md col-sm-12">
-                    <div class="d-none d-md-block">
-                        <div class="float-end">
-                            <a href="javascript:void(0);" class="btn btn-primary send-message">
-                                <?php echo t("Send Message"); ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
         </div>
 
         <div class="clearfix"></div>
