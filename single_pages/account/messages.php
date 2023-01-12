@@ -57,6 +57,12 @@ $token = $app->make(Token::class);
 
 $marketingUrl = app(UrlManager::class)->getMarketingUrl();
 
+$pagination = null;
+if ($messageList) {
+    $pagination = new \Pagerfanta\Pagerfanta(new Pagerfanta\Adapter\ArrayAdapter($messageList->get()));
+    $currentPage = max(1, min($pagination->getNbPages(), (int) $currentPage));
+    $pagination->setCurrentPage($currentPage);
+}
 ?>
 
 <div class="messages">
@@ -116,7 +122,7 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
 
         <div class="row">
             <div class="col">
-                <?php if (count($messages) === 0) { ?>
+                <?php if (!$pagination->getNbResults()) { ?>
                     <div class="alert alert-warning">
                         <?php echo t("This folder is empty."); ?>
                     </div>
@@ -140,19 +146,22 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
                                         </a>
 
                                         <a class="dropdown-item bulk-action-item disabled" href="javascript:void(0);"
-                                           data-action="read">
+                                           data-action="read"
+                                           data-token="<?= $token->generate('mark_read') ?>">
                                             <?php echo t("Mark as read"); ?>
                                         </a>
 
                                         <a class="dropdown-item bulk-action-item disabled" href="javascript:void(0);"
-                                           data-action="unread">
+                                           data-action="unread"
+                                           data-token="<?= $token->generate('mark_unread') ?>">
                                             <?php echo t("Mark as unread"); ?>
                                         </a>
 
                                         <div class="dropdown-divider"></div>
 
                                         <a class="dropdown-item bulk-action-item disabled" href="javascript:void(0);"
-                                           data-action="delete">
+                                           data-action="delete"
+                                           data-token="<?= $token->generate('delete_messages') ?>">
                                             <?php echo t("Delete"); ?>
                                         </a>
                                     </div></div></th>
@@ -176,8 +185,8 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
                         </thead>
 
                         <tbody>
-                        <?php if (is_array($messages)) { ?>
-                            <?php foreach ($messages as $msg) { ?>
+                        <?php if ($pagination) { ?>
+                            <?php foreach ($pagination->getCurrentPageResults() as $msg) { ?>
                                 <tr class="<?php echo $msg->isMessageUnread() ? "unread" : ""; ?>"
                                     data-message-id="<?php echo h($msg->getMessageID()); ?>">
                                     <td class="checkbox-wrapper">
@@ -220,19 +229,21 @@ $marketingUrl = app(UrlManager::class)->getMarketingUrl();
                         </tbody>
                     </table>
 
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <?php
+                            $template = new \Concrete\Core\Search\Pagination\View\ConcreteBootstrap4View();
+                            $baseUrl = \League\Url\Url::createFromServer($_SERVER);
+                            echo $template->render($pagination, function($page) use ($messageList, $baseUrl) {
+                                $baseUrl->getQuery()->modify(['p' => $page]);
+                                return (string) $baseUrl;
+                            });
+                            ?>
+                        </div>
+                    </div>
                     <?php
-                    $summary = $messageList->getSummary();
-                    $paginator = $messageList->getPagination(false, []);
-                    $paginator->classOff = "page-link";
-                    $paginator->classOn = "page-link";
-                    $paginator->classCurrent = "page-link";
-                    ?>
-                    <?php if ($summary->pages > 1) { ?>
-                        <ul class="pagination justify-content-center">
-                        <?php echo $paginator->getPages("li"); ?>
-                    <?php } ?>
-                    </ul>
-                <?php } ?>
+                }
+                ?>
             </div>
         </div>
     </div>

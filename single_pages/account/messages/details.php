@@ -19,6 +19,7 @@ use Concrete\Core\User\UserInfo;
 
 /** @var UserPrivateMessage $msg */
 /** @var UserPrivateMessageMailbox $mailbox */
+/** @var string $deleteUrl */
 
 /** @var UserInfo $userInfo */
 $userInfo = $msg->getMessageRelevantUserObject();
@@ -92,8 +93,7 @@ $dateHelper = $app->make(Date::class);
                 <div class="col">
                     <div class="message-actions d-none d-md-block">
                         <div class="float-end">
-                            <a href="<?php echo h((string)Url::to("/account/messages/delete", $mailbox->getMailboxID(), $msg->getMessageID())); ?>"
-                               class="btn btn-danger message-action">
+                            <a href="<?php echo h($deleteUrl) ?>" class="btn btn-danger message-action">
                                 <?php echo t("Delete"); ?>
                             </a>
 
@@ -142,7 +142,7 @@ $dateHelper = $app->make(Date::class);
                 <div class="col">
                     <div class="message-actions message-actions-mobile d-block d-md-none">
                         <div class="float-end">
-                            <a href="<?php echo h((string)Url::to("/account/messages/delete", $mailbox->getMailboxID(), $msg->getMessageID())); ?>"
+                            <a href="<?php echo h($deleteUrl) ?>"
                                class="btn btn-danger message-action">
                                 <?php echo t("Delete"); ?>
                             </a>

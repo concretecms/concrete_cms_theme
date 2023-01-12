@@ -29,12 +29,7 @@ $manager = $app->make(UrlManager::class);
 $marketingUrl = $manager->getMarketingUrl();
 $opensourceUrl = $manager->getMarketingOrgUrl();
 
-$enableDarkMode = false;
-if (isset($c)) {
-    $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page ? $c->getAttribute(
-            "enable_dark_mode"
-        ) : false);
-}
+$enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page? $c->getAttribute("enable_dark_mode") : false);
 ?>
 <footer>
     <div class="container">

@@ -251,20 +251,26 @@ class Messages
     {
         $response = new EditResponse();
         $errorList = new ErrorList();
+        $this->validation->setData($this->request->request->all());
+        $this->validation->addRequiredToken('delete_messages');
 
-        $messageIds = $this->request->request->get("messageIds", []);
-        $box = $this->request->request->get("box");
+        if ($this->validation->test()) {
+            $messageIds = $this->request->request->get("messageIds", []);
+            $box = $this->request->request->get("box");
 
-        $mailbox = UserPrivateMessageMailbox::get($this->userInfo, $box);
+            $mailbox = UserPrivateMessageMailbox::get($this->userInfo, $box);
 
-        foreach ($messageIds as $messageId) {
-            $msg = UserPrivateMessage::getByID($messageId, $mailbox);
+            foreach ($messageIds as $messageId) {
+                $msg = UserPrivateMessage::getByID($messageId, $mailbox);
 
-            if ($msg === false) {
-                $errorList->add(t("The given message id doesn't exists."));
-            } else {
-                $msg->delete();
+                if ($msg === false) {
+                    $errorList->add(t("The given message id doesn't exists."));
+                } else {
+                    $msg->delete();
+                }
             }
+        } else {
+            $errorList = $this->validation->getError();
         }
 
         $response->setError($errorList);
@@ -276,20 +282,26 @@ class Messages
     {
         $response = new EditResponse();
         $errorList = new ErrorList();
+        $this->validation->setData($this->request->request->all());
+        $this->validation->addRequiredToken('mark_read');
 
-        $messageIds = $this->request->request->get("messageIds", []);
-        $box = $this->request->request->get("box");
+        if ($this->validation->test()) {
+            $messageIds = $this->request->request->get("messageIds", []);
+            $box = $this->request->request->get("box");
 
-        $mailbox = UserPrivateMessageMailbox::get($this->userInfo, $box);
+            $mailbox = UserPrivateMessageMailbox::get($this->userInfo, $box);
 
-        foreach ($messageIds as $messageId) {
-            $msg = UserPrivateMessage::getByID($messageId, $mailbox);
+            foreach ($messageIds as $messageId) {
+                $msg = UserPrivateMessage::getByID($messageId, $mailbox);
 
-            if ($msg === false) {
-                $errorList->add(t("The given message id doesn't exists."));
-            } else {
-                $this->connection->executeQuery('update UserPrivateMessagesTo set msgIsUnread = 0 where msgID = ? and msgMailboxID = ? and uID = ?', array($msg->getMessageID(), $msg->msgMailboxID, $this->userInfo->getUserID()));
+                if ($msg === false) {
+                    $errorList->add(t("The given message id doesn't exists."));
+                } else {
+                    $this->connection->executeQuery('update UserPrivateMessagesTo set msgIsUnread = 0 where msgID = ? and msgMailboxID = ? and uID = ?', array($msg->getMessageID(), $msg->msgMailboxID, $this->userInfo->getUserID()));
+                }
             }
+        } else {
+            $errorList = $this->validation->getError();
         }
 
         $response->setError($errorList);
@@ -301,24 +313,29 @@ class Messages
     {
         $response = new EditResponse();
         $errorList = new ErrorList();
+        $this->validation->setData($this->request->request->all());
+        $this->validation->addRequiredToken('mark_unread');
 
-        $messageIds = $this->request->request->get("messageIds", []);
-        $box = $this->request->request->get("box");
+        if ($this->validation->test()) {
+            $messageIds = $this->request->request->get("messageIds", []);
+            $box = $this->request->request->get("box");
 
-        $mailbox = UserPrivateMessageMailbox::get($this->userInfo, $box);
+            $mailbox = UserPrivateMessageMailbox::get($this->userInfo, $box);
 
-        foreach ($messageIds as $messageId) {
-            $msg = UserPrivateMessage::getByID($messageId, $mailbox);
+            foreach ($messageIds as $messageId) {
+                $msg = UserPrivateMessage::getByID($messageId, $mailbox);
 
-            if ($msg === false) {
-                $errorList->add(t("The given message id doesn't exists."));
-            } else {
-                $this->connection->executeQuery('update UserPrivateMessagesTo set msgIsUnread = 1 where msgID = ? and msgMailboxID = ? and uID = ?', array($msg->getMessageID(), $msg->msgMailboxID, $this->userInfo->getUserID()));
+                if ($msg === false) {
+                    $errorList->add(t("The given message id doesn't exists."));
+                } else {
+                    $this->connection->executeQuery('update UserPrivateMessagesTo set msgIsUnread = 1 where msgID = ? and msgMailboxID = ? and uID = ?', array($msg->getMessageID(), $msg->msgMailboxID, $this->userInfo->getUserID()));
+                }
             }
+        } else {
+            $errorList = $this->validation->getError();
         }
 
         $response->setError($errorList);
-
         return new JsonResponse($response);
     }
 }
