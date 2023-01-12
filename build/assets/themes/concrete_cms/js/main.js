@@ -1,31 +1,12 @@
-/**
- * @project:   ConcreteCMS Theme
- *
- * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
- * @author     Fabian Bitter (fabian@bitter.de)
- */
+import '@concretecms/bedrock/assets/bedrock/js/frontend';
 
-// Import the frontend foundation for themes.
-// We're using bs4 in this theme so let's not use this yet.
-//import '@concretecms/bedrock/assets/bedrock/js/frontend';
-import '@concretecms/bedrock/assets/bedrock/js/frontend/locations/country-data-link'
-import '@concretecms/bedrock/assets/bedrock/js/frontend/locations/country-stateprovince-link'
 import _ from 'underscore'
-import 'bootstrap-select'
+import 'bootstrap-select/js/bootstrap-select'
 import 'ajax-bootstrap-select'
 
-import VueManager from '@concretecms/bedrock/assets/cms/js/vue/Manager'
-VueManager.bindToWindow(window)
-
-// Feature support
-//import '@concretecms/bedrock/assets/account/js/frontend';
-//import '@concretecms/bedrock/assets/calendar/js/frontend';
-//import '@concretecms/bedrock/assets/navigation/js/frontend';
-//import '@concretecms/bedrock/assets/conversations/js/frontend';
-import '@concretecms/bedrock/assets/imagery/js/frontend';
+import '@concretecms/bedrock/assets/imagery/js/frontend'
 import {alert, Stack, defaultModules} from '@pnotify/core';
 import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
-
 defaultModules.set(PNotifyBootstrap4, {});
 
 const stackBottomModal = new Stack({
@@ -150,7 +131,6 @@ $(".bulk-action-item").click(function (e) {
             if (data.error) {
                 for (let i = 0; i < data.errors.length; i++) {
                     let errorMessage = data.errors[i];
-
                     alert({
                         text: errorMessage,
                         stack: stackBottomModal,

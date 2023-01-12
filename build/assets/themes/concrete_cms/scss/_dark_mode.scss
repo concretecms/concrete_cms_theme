@@ -29,14 +29,6 @@
       font-weight: 400;
       font-size: 16px;
     }
-
-
-    &.ccm-page.page-type-developer-document .col-sidebar .nav li a,
-    &.ccm-page.page-type-editor-document .col-sidebar .nav li a {
-      font-weight: bold;
-      line-height: 44px;
-      color: rgb(1, 118, 208);
-    }
   }
 
   header #ccm-sub-nav nav ul li a {
@@ -137,6 +129,10 @@
     line-height: 22px;
     margin-bottom: 12px;
     display: block;
+    text-decoration: none;
+    &:hover {
+      color: #333;
+    }
   }
 
   main h5 {
@@ -147,10 +143,6 @@
     margin-bottom: 20px;
     display: block;
     width: 100%;
-  }
-
-  main a, main a:hover {
-    color: rgb(1, 118, 208);
   }
 
   .recent-tutorial-author {

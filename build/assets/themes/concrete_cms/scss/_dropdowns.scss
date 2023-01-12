@@ -7,11 +7,11 @@
 
 &.ccm-dark-mode {
   .dropdown-item {
-    color: theme-color('gray-tertiary');
+    color: $gray-tertiary;
 
     &:hover, &:active, &.active {
-      background-color: theme-color('dark-blue');
-      color: theme-color('white');
+      background-color: $dark-blue;
+      color: $white;
     }
   }
 }
@@ -38,8 +38,8 @@
   line-height: 41px;
 
   &:hover, &:active, &.active {
-    background-color: theme-color('accent');
-    color: theme-color('white');
+    background-color: $accent;
+    color: $white;
   }
 }
 
@@ -60,7 +60,7 @@
   }
 
   .dropdown-toggle:focus {
-    background-color: theme-color('white');
+    background-color: $white;
 
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
   }
@@ -74,7 +74,7 @@
       content: " ";
       width: calc(100% - 1px);
       height: 6px;
-      background-color: theme-color('white');
+      background-color: $white;
       position: absolute;
       top: -3px;
       left: 1px;

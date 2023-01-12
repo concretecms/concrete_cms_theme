@@ -13,16 +13,18 @@ $hamburger-layer-height: 3px;
 $hamburger-layer-spacing: 5px;
 $hamburger-types: (spin);
 
-$hamburger-layer-color: theme-color('gray');
-$hamburger-active-layer-color: theme-color('gray');
+$hamburger-layer-color: $gray;
+$hamburger-active-layer-color: $gray;
 $hamburger-hover-opacity: 1.0;
+
+$dropdown-width: 270px;
 
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
 // Align the account dropdown to the left
 #ccm-desktop-nav ul.navbar-nav >li.nav-item:last-child > ul {
-  width: 234px;
-  margin-left: calc(-234px + 100%);
+  width: $dropdown-width;
+  margin-left: calc(-#{$dropdown-width} + 100%);
 }
 
 // Prevent dropdowns from interfering with eachother
@@ -40,17 +42,18 @@ $hamburger-hover-opacity: 1.0;
 
   header {
     /* height: 60px; */
-    background-color: theme-color('dark-blue-secondary');
+    background-color: $dark-blue-secondary;
 
     /*#ccm-sub-nav {
       top: 60px;
     }*/
 
     #ccm-mobile-search-btn {
-      color: theme-color('gray');
+      color: $gray;
     }
 
     .navbar {
+      background-color: $dark-blue-secondary;
       height: 60px;
 
       #ccm-desktop-nav > .nav > .nav-item {
@@ -60,7 +63,7 @@ $hamburger-hover-opacity: 1.0;
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 
           & > .nav-link {
-            background: theme-color('white') !important;
+            background: $white !important;
             color: #222533 !important;
             transition: all 500ms;
           }
@@ -107,10 +110,10 @@ $hamburger-hover-opacity: 1.0;
 
     #ccm-sub-nav {
       background-color: rgb(1, 125, 221);
-      border-top: 1px solid theme-color('dark-blue-quaternary');
+      border-top: 1px solid $dark-blue-quaternary;
 
       h3 {
-        color: theme-color('white');
+        color: $white;
         text-transform: uppercase !important;
         margin-bottom: 0;
       }
@@ -121,13 +124,13 @@ $hamburger-hover-opacity: 1.0;
             &.active, &:hover {
               a {
                 opacity: 1;
-                color: theme-color('white');
+                color: $white;
               }
             }
 
             a {
               opacity: 0.7;
-              color: theme-color('white');
+              color: $white;
             }
           }
         }
@@ -140,26 +143,26 @@ $hamburger-hover-opacity: 1.0;
         #ccm-desktop-nav > .nav > .nav-item {
           &.dropdown {
             &::after {
-              background-color: theme-color('white') !important;
+              background-color: $white !important;
             }
           }
 
           &.dropdown.show, &.dropdown:hover {
-            background-color: theme-color('white') !important;
+            background-color: $white !important;
 
             & > a {
               opacity: 1;
-              color: theme-color('black') !important;
+              color: $black !important;
             }
           }
 
           & > a {
             opacity: 0.7;
-            color: theme-color('white');
+            color: $white;
 
             &:hover, &:active, &:focus {
               opacity: 1;
-              color: theme-color('black') !important;
+              color: $black !important;
             }
           }
 
@@ -167,17 +170,17 @@ $hamburger-hover-opacity: 1.0;
 
             &:hover, &:active, &:focus {
               opacity: 1;
-              color: theme-color('white') !important;
+              color: $white !important;
             }
           }
 
           &.active {
             & > a {
               opacity: 1;
-              color: theme-color('white') !important;
+              color: $white !important;
 
               &::after {
-                background-color: theme-color('white');
+                background-color: $white;
               }
             }
           }
@@ -185,15 +188,15 @@ $hamburger-hover-opacity: 1.0;
           & > ul.dropdown-menu {
             & > li.nav-item {
               &:hover, &.active, &:active {
-                background-color: theme-color('dark-blue');
+                background-color: $dark-blue;
 
                 & > a.nav-link {
-                  color: theme-color('white') !important;
+                  color: $white !important;
                 }
               }
 
               & > a.nav-link {
-                color: theme-color('gray-tertiary');
+                color: $gray-tertiary;
               }
             }
           }
@@ -201,34 +204,33 @@ $hamburger-hover-opacity: 1.0;
 
         #ccm-account-dropdown:focus,
         #ccm-account-dropdown[aria-expanded=true] {
-          background-color: theme-color('white');
+          background-color: $white;
 
           &::before {
-            background-color: theme-color('white');
+            background-color: $white;
           }
         }
 
         div[aria-labelledby='ccm-account-dropdown'] {
           &::before {
-            background-color: theme-color('white');
+            background-color: $white;
           }
         }
       }
     }
 
-    /* Tablet + Mobile */
-    @include media-breakpoint-down(md) {
-
+    @include media-breakpoint-down(lg) {
+      #ccm-desktop-nav {
+        background-color: $dark-blue-secondary;
+      }
 
       .navbar {
-        background-color: theme-color('dark-blue-secondary');
-
         #ccm-desktop-nav > .nav > .nav-item {
           &.dropdown:hover {
             box-shadow: none !important;
 
             & > .nav-link {
-              color: theme-color('white') !important;
+              color: $white !important;
               background: transparent !important;
             }
           }
@@ -237,16 +239,16 @@ $hamburger-hover-opacity: 1.0;
         .nav-item {
 
           & > a {
-            color: theme-color('white');
+            color: $white;
 
             &:hover, &:active, &:focus {
-              color: theme-color('white') !important;
+              color: $blue !important;
             }
           }
 
           &.active {
             & > a {
-              color: theme-color('white');
+              color: $white;
             }
 
             .dropdown-menu {
@@ -257,23 +259,22 @@ $hamburger-hover-opacity: 1.0;
         }
       }
 
-      #ccm-desktop-nav {
-        background-color: theme-color('dark-blue-secondary');
-      }
 
-      #navbarSupportedContent {
-        background-color: theme-color('white');
-      }
+    }
+
+    /* Tablet + Mobile */
+    @include media-breakpoint-down(md) {
+
 
       .dropdown-menu {
-        background: theme-color('dark-blue-quaternary') !important;
+        background: $dark-blue-quaternary !important;
 
         & > li.nav-item {
-          color: theme-color('white');
+          color: $white;
           opacity: 0.7;
 
           & > a.nav-link {
-            color: theme-color('white');
+            color: $white;
             opacity: 1;
           }
         }
@@ -289,7 +290,7 @@ $hamburger-hover-opacity: 1.0;
 
 header {
   /* margin-bottom: 15px; */
-  background-color: theme-color('white');
+  background-color: $white;
   /* height: 80px; */
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
   position: relative;
@@ -313,7 +314,7 @@ header {
   #ccm-mobile-search-btn {
     position: absolute;
     right: 59px;
-    color: theme-color('gray');
+    color: $gray;
     margin-top: 0;
     top: 8px;
   }
@@ -323,7 +324,7 @@ header {
   }
 
   #ccm-sub-nav {
-    background-color: theme-color('white');
+    background-color: $white;
     box-shadow: 0 8px 4px -4px rgb(0 0 0 / 5%);
     /*
     height: 40px;
@@ -333,51 +334,62 @@ header {
     width: 100%;
     z-index: 100;
      */
-    border-top: 1px solid theme-color('card-border');
+    border-top: 1px solid $card-border-color;
+
+    div.col {
+      display: flex;
+      padding-top: 0.35rem;
+      padding-bottom: 0.35rem;
+    }
 
     h3 {
       font-family: "Poppins";
       text-transform: uppercase;
       float: left;
-      font-size: 12px;
-      line-height: 40px;
-      color: theme-color('legal');
+      font-size: 0.75rem;
+      color: $legal;
+      margin-bottom: 0;
     }
 
     nav {
-      float: right;
+      margin-left: auto;
 
       ul {
-        display: block;
-        float: right;
+        display: flex;
         margin: 0;
         padding: 0;
         list-style: none;
 
         li {
-          display: block;
-          float: left;
           margin: 0;
           padding: 0;
           list-style: none;
           margin-left: 30px;
+          align-items: center;
 
-          &.active, &:hover {
-            a {
-              color: theme-color('accent');
+          a {
+            text-decoration: none;
+            font-family: "Noto Sans";
+            font-size: 14px;
+            color: $dark-gray;
+
+            &:hover {
+              text-decoration: underline;
             }
           }
 
-          a {
-            font-family: "Noto Sans";
-            font-size: 14px;
-            line-height: 40px;
-            color: theme-color('dark-gray');
-          }
         }
       }
     }
   }
+
+  .header-site-title-logo-only {
+    img {
+      width: 40px;
+      height: auto;
+    }
+  }
+
 
   /* Desktop */
   @include media-breakpoint-up(lg) {
@@ -437,7 +449,7 @@ header {
           &::after {
             content: " ";
             height: 15px;
-            background-color: theme-color('white') !important;
+            background-color: $white !important;
             position: absolute;
             right: 1px;
             bottom: 15px;
@@ -450,7 +462,7 @@ header {
         }
 
         &.dropdown.show, &.dropdown:hover {
-          background-color: theme-color('white') !important;
+          background-color: $white !important;
 
           &::before {
             opacity: 1;
@@ -463,7 +475,7 @@ header {
 
         & > a {
           font-family: "Poppins";
-          color: theme-color('gray');
+          color: $gray;
           text-transform: uppercase;
           font-weight: 600;
           font-size: 14px;
@@ -476,20 +488,20 @@ header {
 
           &:hover, &:active, &:focus {
             outline: none !important;
-            color: theme-color('accent') !important;
+            color: $accent !important;
           }
         }
 
         &.active {
           & > a {
-            color: theme-color('accent');
+            color: $accent;
 
             &::after {
               display: block;
               content: " ";
               position: absolute;
               height: 4px;
-              background-color: theme-color('accent');
+              background-color: $accent;
               bottom: -17px;
               width: 100%;
               left: 0;
@@ -507,7 +519,7 @@ header {
         & > ul.dropdown-menu {
 
           margin-top: -23px;
-          min-width: 234px;
+          min-width: $dropdown-width;
           transition: all 0.5s;
 
           max-height: 0;
@@ -518,10 +530,10 @@ header {
 
           & > li.nav-item {
             &:hover, &.active, &:active {
-              background-color: theme-color('accent');
+              background-color: $accent;
 
               & > a.nav-link {
-                color: theme-color('white') !important;
+                color: $white !important;
               }
             }
 
@@ -533,7 +545,7 @@ header {
               text-align: left;
               text-transform: none;
               padding: 4px 24px;
-              color: theme-color('legal');
+              color: $legal;
             }
           }
         }
@@ -548,7 +560,7 @@ header {
           content: " ";
           width: 50px;
           height: 15px;
-          background-color: theme-color('white');
+          background-color: $white;
           position: absolute;
           top: 0;
           right: 0;
@@ -562,20 +574,20 @@ header {
           content: " ";
           width: 50px;
           height: 20px;
-          background-color: theme-color('white');
+          background-color: $white;
           position: absolute;
           top: -11px;
           right: 0;
         }
 
         margin-top: -12px;
-        min-width: 234px;
+        min-width: $dropdown-width;
       }
     }
   }
 
   /* Tablet + Mobile */
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     height: 60px;
 
     #ccm-sub-nav {
@@ -620,7 +632,7 @@ header {
       position: fixed;
       left: 0;
       right: 0;
-      background-color: theme-color('white');
+      background-color: $white;
       padding-left: 0;
       padding-right: 0;
 
@@ -637,18 +649,18 @@ header {
           font-size: 30px;
           font-weight: 400;
           text-align: center;
-          color: theme-color('mobile-nav');
+          color: $mobile-nav;
           line-height: 70px;
 
           &:hover, &:active, &:focus {
             outline: none !important;
-            color: theme-color('accent') !important;
+            color: $accent !important;
           }
         }
 
         &.active {
           & > a {
-            color: theme-color('accent');
+            color: $accent;
           }
         }
       }
@@ -671,7 +683,7 @@ header {
     }
 
     #navbarSupportedContent {
-      background-color: theme-color('white');
+      background-color: $white;
       text-align: center;
       width: 100%;
       z-index: 1030; //this value is from variables.less -> @zindex-navbar-fixed

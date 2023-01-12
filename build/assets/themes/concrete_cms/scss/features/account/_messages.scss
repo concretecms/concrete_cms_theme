@@ -9,7 +9,7 @@
   margin-bottom: 15px;
   
   h1 {
-    color: theme-color('accent');
+    color: $accent;
   }
 
   .alert {
@@ -18,8 +18,8 @@
 
   .message-table {
     margin-top: 15px;
-    background-color: theme-color('white');
-    color: theme-color('text');
+    background-color: $white;
+    color: $text;
 
     .checkbox-wrapper {
       width: 80px;
@@ -27,7 +27,7 @@
     }
 
     thead {
-      background-color: theme-color('table-head-background-color');
+      background-color: $table-head-bg;
       text-transform: uppercase;
 
       button.dropdown-toggle {
@@ -49,7 +49,7 @@
 
 
     a {
-      color: theme-color('accent');
+      color: $accent;
     }
   }
 }

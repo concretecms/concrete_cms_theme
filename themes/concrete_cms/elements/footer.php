@@ -33,16 +33,32 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
 ?>
 <footer>
     <div class="container">
-
-        <?php
-
-        $element = Element::get('footer_navigation', 'concrete_cms_theme');
-        $element->render();
-
-        ?>
         <div class="row">
-            <div class="col-sm">
-                <div class="footer-site-title">
+            <div class="col-lg">
+                <nav class="nav footer-nav-utility">
+                    <a class="nav-link" href="<?=$opensourceUrl?>/security"><?=t('Security')?></a>
+                    <a class="nav-link" href="<?=$marketingUrl?>/about/legal/terms-use"><?=t('Terms of Use')?></a>
+                    <a class="nav-link" href="<?=$marketingUrl?>/about/legal/privacy-policy"><?=t('Privacy Policy')?></a>
+                    <a class="nav-link" href="<?=$marketingUrl?>/about/contact-us"><?=t('Contact')?></a>
+                </nav>
+            </div>
+
+            <div class="col-lg">
+                <div class="text-center text-lg-end">
+                    <div class="footer-social">
+                        <?php
+                        $a = new GlobalArea('Footer Social');
+                        $a->display();
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg">
+                <div class="text-center text-lg-start footer-site-title">
                     <?php if ($enableDarkMode) { ?>
                         <a href="<?=(string) $opensourceUrl?>">
                             <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
@@ -56,41 +72,36 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
                 </div>
             </div>
 
-            <div class="col-sm">
-                <div class="footer-language-switcher">
+            <div class="col-lg">
+                <div class="text-center text-lg-start">
+                    <div class="footer-language-switcher d-flex">
 
-                    <?php
-                    /** @noinspection PhpUnhandledExceptionInspection */
-                    if ($_ENV['SHOW_LANGUAGE_SWITCHER'] ?? false) {
-                        View::element("language_switcher", ["label" => t("Language:")], "concrete_cms_theme");
-                    }
-                    //$a = new GlobalArea('Footer Language Switcher');
-                    //$a->display($c);
-                    ?>
-                </div>
-            </div>
-
-            <div class="col-sm">
-                <div class="float-right">
-                    <div class="footer-social">
                         <?php
-                        $a = new GlobalArea('Footer Social');
-                        $a->display($c);
+                        /** @noinspection PhpUnhandledExceptionInspection */
+                        if ($_ENV['SHOW_LANGUAGE_SWITCHER'] ?? false) {
+                            View::element("language_switcher", ["label" => t("Language:")], "concrete_cms_theme");
+                        }
+                        //$a = new GlobalArea('Footer Language Switcher');
+                        //$a->display($c);
                         ?>
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm">
-                <div class="footer-legal">
-                    <p>
-                        <span class="sign">&copy;</span> <?php echo t("PortlandLabs %s-%s", 2008, date('Y')); ?>
-                    </p>
+            <div class="col-lg">
+                <div class="text-center text-lg-end">
+                    <div class="footer-legal">
+                        <p>
+                            <span class="sign">&copy;</span> <?php echo t("PortlandLabs %s-%s", 2008, date('Y')); ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </footer>
+
 </div>
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */
@@ -98,15 +109,6 @@ View::element('footer_required');
 ?>
 <script src="<?php echo (string)Url::to("/community/js"); ?>" defer></script>
 <!--suppress HtmlUnknownTarget -->
-<?php
-if (!$c->isEditMode()) {
-    // Bootstrap 4's JS (included for the theme purposes) conflicts with the BS5 JS that's in use for the core
-    // functionality. Without this if statement you can't do things like add form blocks, etc... because the buttons
-    // in the dialog don't work? Not sure why that is but rather than go down that rabbit hole let's just disable
-    // the BS4 JS in edit mode.
-?>
-    <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/bootstrap4.js" defer></script>
-<?php } ?>
 <script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/main.js" defer></script>
 <script>
     $(window).ready(function () {

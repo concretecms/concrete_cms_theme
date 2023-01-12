@@ -10,15 +10,17 @@ use Concrete\Core\Navigation\Navigation;
 use Concrete\Core\Navigation\NavigationModifier;
 use PortlandLabs\ConcreteCmsTheme\Navigation\Modifier\SiteUrlPlaceholderModifier;
 
+/**
+ * Class FooterNavigationFactory
+ * NOTE: This is no longer used. In CS-826 we removed the footer. However, I think it's nice to leave this code here
+ * in case we need it, so this is being done intentionally. Same with the footer_navigation controller and view.
+ * The only code I removed with the Element::get('footer_navigation')->render() code from the theme footer include.
+ */
 class FooterNavigationFactory implements ApplicationAwareInterface
 {
 
     use ApplicationAwareTrait;
 
-    /**
-     * @TODO - update this with the actual values. There are certain things we need in here due to the way that
-     * the footer nav works compared to the header. We need privacy policy, etc...
-     */
     public function createNavigation()
     {
         $navigation = new Navigation();

@@ -37,6 +37,14 @@ use PortlandLabs\ConcreteCmsTheme\Navigation\UrlManager;
 /** @var string $dateAdded */
 /** @var null|int $receiverId */
 
+if (!isset($receiverId)) {
+    $receiverId = null;
+}
+
+if (!isset($msgID)) {
+    $msgID = null;
+}
+
 $app = Application::getFacadeApplication();
 /** @var Date $dh */
 $dh = $app->make(Date::class);
@@ -70,31 +78,26 @@ if ($messageList) {
             </div>
         </div>
 
-        <?php
-        $permissions = new Permissions($c);
-        if (!$permissions->canViewToolbar()) {
-            // Hide the button if we have the ability to see the toolbar, because then that means we'll have
-            // BS4/BS5 conflicts and this won't work anyway.
-            ?>
-            <div class="row">
-                <div class="col-md col-sm-12">
-                    <div class="d-block d-md-none">
-                        <div class="float-right">
-                            <a href="javascript:void(0);" class="btn btn-primary send-message">
-                                <?php echo t("Send Message"); ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
 
         <div class="row">
             <div class="col-md col-sm-12">
 
-                <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-right btn btn-sm">
-                    <?=t('Report Inappropriate Content')?>
-                </a>
+                <div class="d-flex align-items-center float-md-end">
+                    <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-end me-3 btn btn-secondary btn-sm">
+                        <?=t('Report Inappropriate Content')?>
+                    </a>
+                    <?php
+                    // there's a problem with new message - the selectpicker is not working right with ajax
+                    // and i'm not sure how to fix it so instead i'm getting rid of the ability to launch a new
+                    // message except from the profile
+                    /*
+                    ?>
+                    <a href="javascript:void(0);" class="float-end btn btn-primary send-message">
+                        <?php echo t("Send Message"); ?>
+                    </a>
+                    <?php */ ?>
+                </div>
+
 
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
@@ -113,19 +116,6 @@ if ($messageList) {
                 </ul>
             </div>
 
-            <?php
-            if (!$permissions->canViewToolbar()) {
-                ?>
-                <div class="col-md col-sm-12">
-                    <div class="d-none d-md-block">
-                        <div class="float-right">
-                            <a href="javascript:void(0);" class="btn btn-primary send-message">
-                                <?php echo t("Send Message"); ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
         </div>
 
         <div class="clearfix"></div>

@@ -16,7 +16,7 @@ use Concrete\Core\Attribute\Form\Control\View\View;
 ?>
 
 <?php if ($view->supportsLabel()) { ?>
-    <div class="form-group row">
+    <div class="mb-3 row">
         <?php if ($view->supportsLabel()) { ?>
             <label class="col-sm-4 col-form-label" for="<?php echo $view->getControlID() ?>">
                 <?php echo $view->getLabel() ?>

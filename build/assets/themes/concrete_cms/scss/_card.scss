@@ -13,7 +13,7 @@
   .card-header {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: theme-color('white');
+    background-color: $white;
     text-transform: uppercase;
     color: RGB(47, 48, 50);
     font-weight: 700;
@@ -41,7 +41,7 @@
 .card-text {
 
   h1, h2, h3, h4, h5, h6 {
-    color: theme-color('card-headlines');
+    color: $card-headings-color;
     font-weight: 700;
     font-size: 20px;
 

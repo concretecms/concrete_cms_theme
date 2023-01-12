@@ -6,20 +6,20 @@
  */
 
 .alert.alert-new-badge {
-  background-color: theme-color('accent');
-  background: linear-gradient(90deg, theme-color('accent'), darken(theme-color('accent'), 10%));
-  color: theme-color('white');
+  background-color: $accent;
+  background: linear-gradient(90deg, $accent, darken($accent, 10%));
+  color: white;
   box-shadow: 0 0 5px 0 rgb(0 0 0 / 5%);
   padding: 25px 0;
 
   .close {
-    color: theme-color('white');
+    color: white;
     opacity: 1;
     outline: none;
 
     span {
       text-shadow: none;
-      color: theme-color('white');
+      color: $white;
       opacity: 1;
     }
   }

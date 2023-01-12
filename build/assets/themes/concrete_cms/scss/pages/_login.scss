@@ -16,7 +16,7 @@
 
         .modal-body {
           .login-page {
-            background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%);
+            background: linear-gradient(180deg, $dark-blue-secondary 0%, $dark-blue-tertiary 50%);
 
             h1, h2, h3, h4, h5, h6, label,
             input[type=checkbox]::before,
@@ -26,7 +26,7 @@
             .help-block,
             p, .scopes,
             h2 {
-              color: theme-color('white') !important;
+              color: $white !important;
             }
           }
         }
@@ -35,7 +35,7 @@
   }
 
   .login-page {
-    background: linear-gradient(180deg, theme-color('dark-blue-secondary') 0%, theme-color('dark-blue-tertiary') 50%) !important;
+    background: linear-gradient(180deg, $dark-blue-secondary 0%, $dark-blue-tertiary 50%) !important;
 
     h1, h2, h3, h4, h5, h6, label,
     input[type=checkbox]::before,
@@ -46,7 +46,7 @@
     p, .scopes,
     .login-content .text-center,
     h2 {
-      color: theme-color('white') !important;
+      color: $white !important;
     }
   }
 }
@@ -97,7 +97,7 @@
             height: auto;
           }
 
-          background: linear-gradient(180deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+          background: linear-gradient(180deg, $modal-header-background-gradient-start-color 0%, $modal-header-background-gradient-end-color 50%);
 
           h1, h2, h3, h4, h5, h6, label,
           input[type=checkbox]::before,
@@ -107,7 +107,7 @@
           .help-block,
           p, .scopes,
           h2 {
-            color: theme-color('white') !important;
+            color: $white !important;
           }
 
           .login-content {
@@ -143,7 +143,7 @@
   min-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: theme-color('white');
+  background-color: $white;
 
   h2 {
     text-transform: none;
@@ -151,7 +151,7 @@
   }
 
   &.is-popup {
-    background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+    background: linear-gradient(90deg, $modal-header-background-gradient-start-color 0%, $modal-header-background-gradient-end-color 50%);
 
     h1, h2, h3, h4, h5, h6, label,
     input[type=checkbox]::before,
@@ -161,7 +161,7 @@
     .help-block,
     p, .scopes,
     h2 {
-      color: theme-color('white') !important;
+      color: $white !important;
     }
 
     .btn-link {
@@ -179,7 +179,7 @@
 
   /* Mobile */
   @include media-breakpoint-down(sm) {
-    background: linear-gradient(90deg, theme-color('modal-header-background-gradient-start-color') 0%, theme-color('modal-header-background-gradient-end-color') 50%);
+    background: linear-gradient(90deg, $modal-header-background-gradient-start-color 0%, $modal-header-background-gradient-end-color 50%);
 
     h1, h2, h3, h4, h5, h6, label,
     input[type=checkbox]::before,
@@ -189,7 +189,7 @@
     .help-block,
     p, .scopes,
     h2 {
-      color: theme-color('white') !important;
+      color: $white !important;
       font-size: 14px !important;;
     }
 
@@ -296,7 +296,7 @@
           border: none;
           padding: 0;
           font-style: normal;
-          color: theme-color('text');
+          color: $text;
         }
       }
     }

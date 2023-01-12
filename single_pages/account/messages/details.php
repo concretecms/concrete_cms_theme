@@ -56,7 +56,7 @@ $dateHelper = $app->make(Date::class);
 
                 <div class="col-md col-sm-12">
                     <div class="message-date">
-                        <div class="float-md-right float-lg-right float-xl-right float-sm-left float-xs-left">
+                        <div class="float-md-end float-lg-end float-xl-end float-sm-start float-xs-start">
                             <div class="text-muted">
                                 <?php /** @noinspection PhpUnhandledExceptionInspection */
                                 echo $dateHelper->formatDateTime($msg->getMessageDateAdded()); ?>
@@ -92,7 +92,7 @@ $dateHelper = $app->make(Date::class);
 
                 <div class="col">
                     <div class="message-actions d-none d-md-block">
-                        <div class="float-right">
+                        <div class="float-end">
                             <a href="<?php echo h($deleteUrl) ?>" class="btn btn-danger message-action">
                                 <?php echo t("Delete"); ?>
                             </a>
@@ -141,7 +141,7 @@ $dateHelper = $app->make(Date::class);
             <div class="row">
                 <div class="col">
                     <div class="message-actions message-actions-mobile d-block d-md-none">
-                        <div class="float-right">
+                        <div class="float-end">
                             <a href="<?php echo h($deleteUrl) ?>"
                                class="btn btn-danger message-action">
                                 <?php echo t("Delete"); ?>

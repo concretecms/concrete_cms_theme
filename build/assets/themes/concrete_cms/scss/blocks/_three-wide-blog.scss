@@ -1,0 +1,75 @@
+.twb-container {
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins, sans-serif;
+  margin-bottom: 2rem;
+}
+
+.twb-header {
+  text-align: center;
+  > * {
+    margin-bottom: 1rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    > * {
+      margin-bottom: 0;
+    }
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+}
+
+.twb-header > span {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: #047DDD;
+}
+
+.twb-post {
+  min-height: 421px;
+  background: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .twb-post-title {
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    font-size: 26px;
+    color: #047DDD;
+  }
+
+  .twb-post-time {
+    color: #19191A;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .twb-post-description {
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #19191A;
+    font-family: Noto Sans, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    margin-bottom: 1rem;
+  }
+
+  .twb-post-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex: 1;
+    margin: 0 auto;
+  }
+}

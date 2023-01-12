@@ -41,6 +41,9 @@ export default (options) => {
         return false;
     });
 
+    const modal = new bootstrap.Modal('#' + $modalDialog.attr('id'))
+    modal.show()
+
     $html.find(".btn-primary").click(() => {
         $modalDialog.modal("hide");
         $modalDialog.remove();

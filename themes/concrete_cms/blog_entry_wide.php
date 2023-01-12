@@ -110,7 +110,7 @@ if ($parent->getCollectionTypeHandle() == 'blog_category') {
                     </div>
                 <?php } ?>
                 <?php if (isset($category)) { ?>
-                    <div class="col-md-3 col-4 text-right">
+                    <div class="col-md-3 col-4 text-end">
                         <?=t('in')?> <a href="<?=$category->getCollectionLink()?>"><b><?=$category->getCollectionName()?></b></a>
                     </div>
                 <?php } ?>
@@ -128,10 +128,10 @@ if ($parent->getCollectionTypeHandle() == 'blog_category') {
             if ($ctaUrl && $ctaText && !$c->isEditMode()) { ?>
             <div class="container mb-md-0 mb-4">
                 <div class="d-md-flex mb-3 align-items-center">
-                    <div class="mr-5">
+                    <div class="me-5">
                         <?php $a->display($c); ?>
                     </div>
-                    <div class="mt-md-0 mt-3 ml-auto">
+                    <div class="mt-md-0 mt-3 ms-auto">
                         <a href="<?=$ctaUrl?>" target="_blank" class="text-nowrap btn btn-primary"><?=$ctaText?></a>
                     </div>
                 </div>

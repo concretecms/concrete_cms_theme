@@ -1,9 +1,4 @@
-/**
- * @project:   ConcreteCMS Theme
- *
- * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
- * @author     Fabian Bitter (fabian@bitter.de)
- */
+
 
 $badge-size: 25px;
 
@@ -14,8 +9,8 @@ $badge-size: 25px;
     position: absolute;
     right: 0;
     top: 0;
-    background: theme-color('badge-background');
-    color: theme-color('badge-text');
+    background: $badge-counter-bg;
+    color: $badge-text;
     width: $badge-size;
     height: $badge-size;
     line-height: $badge-size;
@@ -26,4 +21,8 @@ $badge-size: 25px;
     font-size: $badge-size / 2;
     font-weight: bold;
   }
+}
+
+.badge.bg-secondary {
+  @extend .text-dark;
 }

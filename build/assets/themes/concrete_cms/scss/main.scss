@@ -1,37 +1,8 @@
-/**
- * @project:   ConcreteCMS Theme
- *
- * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
- * @author     Fabian Bitter (fabian@bitter.de)
- */
+@import "bootstrap-overrides";
 
-//@import "~@concretecms/bedrock/assets/bedrock/scss/frontend";
-// AE: We're currently importing a relatively ancient version of Bedrock. I don't want to update Bedrock
-// right now because that's gonna require us changing the theme to Bootstrap 5. However, I need to change the
-// "_theme-grid.scss" SASS partial because it's out of date and actually breaking with the core making layouts
-// not work well with the site. So in the meantime, I'm going to copy the entire contents of bedrock/scss/_frontend.css
-// above into this file, EXCEPT the _theme-grid.scss import. Then I'm going to manually set the import to what
-// it's supposed to be.
-// @TODO – upgrade to the latest Bedrock, to Bootstrap5, and remove all this and reinstate the previous approach.
+@import "@concretecms/bedrock/assets/bedrock/scss/frontend";
 
-// 01. Bootstrap Functions go first.
-@import '~bootstrap/scss/functions';
-
-// 02. Bootstrap overrides, have to be done BEFORE bootstrap.
-@import './bootstrap-overrides';
-
-// 03. Bootstrap Variables
-@import '~bootstrap/scss/variables';
-
-// 04. Theme variables, some of which can now be based on bootstrap variable/constants/
-@import './variables';
-@import '~@fortawesome/fontawesome-free/scss/variables';
-
-// 05. Utilities
-@import '~@concretecms/bedrock/assets/bedrock/scss/utilities';
-
-// 06. Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "derived-variables";
 
 // 07. Theme Grid
 // This file ensures that the layout tools work with this theme grid
@@ -42,22 +13,25 @@ div#ccm-theme-grid-edit-mode-row-wrapper {
   }
 }
 
-// AE: End my custom version of assets/bedrock/scss/_frontend.scss
 @import "./fonts/notosans";
 
 @import "~typeface-open-sans/index.css";
 @import "~@openfonts/poppins_all/index.css";
-@import '~@pnotify/core/dist/PNotify.css';
-@import '~@pnotify/bootstrap4/dist/PNotifyBootstrap4.css';
-@import '~bootstrap-select/dist/css/bootstrap-select.css';
+@import '~bootstrap-select/sass/bootstrap-select.scss';
 @import '~ajax-bootstrap-select/dist/css/ajax-bootstrap-select.min.css';
 
-// Feature support - comes outside div.ccm-page
+@import 'node_modules/@pnotify/core/dist/PNotify';
+@import 'node_modules/@pnotify/mobile/dist/PNotifyMobile';
+
+// Containers
+@import "./containers/section";
+@import "./containers/masthead-image-text";
+@import "./containers/feature-list-section";
+@import "./containers/two-column";
+@import "./containers/case-study-header";
+@import "./containers/solution-section";
+
 @import "./features/basics/basics";
-/* CS-668 */
-/* AE: I don't believe this is currently being used, and it's adding a lot to the CSS */
-/* @import "./features/calendar/calendar"; */
-/* @import "./features/conversations/conversations"; */
 @import "./features/faq/faq";
 @import "./features/imagery/imagery";
 @import "./features/navigation/navigation";
@@ -69,95 +43,51 @@ div#ccm-theme-grid-edit-mode-row-wrapper {
 @import "./features/account/karma";
 @import "./features/account/messages";
 
-// Containers
-@import "./containers/section";
-@import "./containers/masthead-image-text";
-@import "./containers/feature-list-section";
-@import "./containers/two-column";
-@import "./containers/case-study-header";
-@import "./containers/solution-section";
-
-
 // Cookie disclosure
 @import "./disclosure";
-
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* CS-668 */
-/* AE: I don't believe this is currently being used, and it's adding a lot to the CSS */
-/* @import "./loading-screen"; */
+@import "./type/font-smoothing";
 
 div.ccm-page {
-  // AE: Do we really need these next four items? Keeping for now...
-  overflow-x: hidden;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
 
-  // AE: What is happening here? Removing this because Chrome is breaking with it all of a sudden. Why do we need this?!?
-  /*
-  main {
-    flex: 1 0 0;
-
-    @-moz-document url-prefix() {
-      flex: 1;
-    }
-  }
-  */
-  
-  img {
-    user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-
+  @import "./alerts";
   @import "./header";
+  @import "./dropdowns";
   @import "./type";
   @import "./tables";
-  @import "./buttons";
-  @import "./pagination";
   @import "./search";
-  @import "./forms";
-  @import "./dropdowns";
-  @import "./modals";
-  @import "./bootstrap-select";
-  @import "./content";
-  @import "./breadcrumbs";
-  @import "./card";
-  @import "./navs";
-  @import "./alerts";
   @import "./badges";
-  @import "./footer";
-  @import "./dark_mode";
-  @import "./hubspot";
-  @import "./profile";
+  @import "./buttons";
+  @import "./breadcrumbs";
 
-  /* Pages */
+  @import "./content";
+
+
   @import "./pages/messages";
-  /* CS-668 */
-  /* AE: I don't believe this is currently being used, and it's adding a lot to the CSS */
-  /* @import "./pages/get_started"; */
   @import "./pages/blog_entry_wide";
   @import "./pages/case_study_detail";
   @import "./pages/case_study_list_view";
   @import "./pages/hosting_inquiry";
   @import "./pages/login";
+  @import "./card";
+  @import "./forms";
+  @import "./bootstrap-select";
+  @import "./navs";
 
-  /* Dialogs */
   @import "./dialogs/showcase_items";
+
+  @import "./dark_mode";
+  @import "./footer";
+
+  @import "./modals";
+  @import "./profile";
+
 }
 
-
-/* Pages and page types */
 @import "./pages/blog";
 @import "./pages/solutions";
 
-/* Custom blocks */
 @import "./blocks/image-with-quote";
+@import "./blocks/three-wide-blog";
 @import "./blocks/statistics";
+@import "./blocks/social-links";
+@import "./legacy";

@@ -99,7 +99,7 @@ $view->inc('elements/stage_warning.php');
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="navbar-inner">
                     <div class="navbar-brand">
-                        <div class="header-site-title">
+                        <div class="header-site-title d-lg-none d-xl-block">
                             <?php if ($enableDarkMode) { ?>
                                 <a href="<?=(string) $opensourceUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
@@ -107,6 +107,17 @@ $view->inc('elements/stage_warning.php');
                             <?php } else { ?>
                                 <a href="<?=(string) $marketingUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                                </a>
+                            <?php } ?>
+                        </div>
+                        <div class="header-site-title-logo-only d-none d-lg-block d-xl-none">
+                            <?php if ($enableDarkMode) { ?>
+                                <a href="<?=(string) $opensourceUrl?>">
+                                    <img src="<?=$view->getThemePath()?>/images/logo_dark_mode.svg" alt="" class="img-fluid">
+                                </a>
+                            <?php } else { ?>
+                                <a href="<?=(string) $marketingUrl?>">
+                                    <img src="<?=$view->getThemePath()?>/images/logo.svg" alt="" class="img-fluid">
                                 </a>
                             <?php } ?>
                         </div>
@@ -119,7 +130,7 @@ $view->inc('elements/stage_warning.php');
 
                     <button id="ccm-toggle-mobile-nav"
                             class="hamburger hamburger--spin navbar-toggler d-block d-lg-none"
-                            type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
@@ -128,7 +139,7 @@ $view->inc('elements/stage_warning.php');
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div id="ccm-desktop-nav" class="header-navigation ml-auto">
+                    <div id="ccm-desktop-nav" class="header-navigation ms-auto">
                         <?php
                         $element = Element::get('header_navigation', 'concrete_cms_theme');
                         $element->render();

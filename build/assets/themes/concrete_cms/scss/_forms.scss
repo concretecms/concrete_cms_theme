@@ -25,7 +25,7 @@
   border-radius: 4px !important;
 
   &:focus {
-    border-color: theme-color('accent');
+    border-color: $accent;
   }
 }
 

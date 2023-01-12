@@ -1,100 +1,104 @@
-/**
- * @project:   ConcreteCMS Theme
- *
- * @copyright  (C) 2021 Portland Labs (https://www.portlandlabs.com)
- * @author     Fabian Bitter (fabian@bitter.de)
- */
+// Colors
+$min-contrast-ratio: 4.0; // Had to set this in order to get the blue button to use white ?!?
+$primary: #017DDD;
+$blue: #017DDD;
+$secondary: #efefef;
 
-// ---- Set up our theme colors
-$accent: #017DDD;
-$secondary: #0099ff;
-$light-gray: rgb(247, 247, 247);
-$border: #979797;
+// Base Typography
+$font-family-base: 'Noto Sans';
+$link-color: $primary;
+$body-bg: #f7f7f7;
+$body-color: #19191A; // news-498
+
+// Headings
+$headings-font-family: "Noto Sans";
+
+// Animation
+$enable-reduced-motion: false;
+
+// Buttons
+$btn-border-radius: 1.25rem;
+$btn-border-radius-lg: 2.5rem;
+$btn-border-radius-sm: 1rem;
+$btn-font-weight: 700;
+$btn-padding-y: .5rem;
+$btn-padding-x: 2rem;
+$btn-padding-y-lg: 1rem;
+$btn-padding-x-lg: 2.4rem;
+$btn-padding-x-sm: 1rem;
+$btn-padding-y-sm: .25rem;
+$btn-font-size-lg: 1rem;
+
+// Cards
+$card-headings-color: #7C8088;
+$card-border-color: #d8d8d8;
+
+// Buttons - increase the hover difference
+$btn-hover-bg-shade-amount: 40%;
+$btn-hover-bg-tint-amount: 40%;
+
+// Forms
+$input-bg: white;
+$input-border-radius: 2px;
+$input-border-radius-lg: 3px;
+
+// Weird random colors used in the theme. Let's clean these up.
 $text: #19191A; // news-498
-$white: #ffffff;
-$dark-gray: #3B3B3B;
 $gray: #828282;
+$dark-blue-secondary: #222533;
+$dark-blue-quaternary: #1D1F2B;
+$dark-blue: #252A47;
+$gray-tertiary: #666666;
 $legal: #19191A;
-$error: #D11A15;
-$breadcrumb: #A9AAAB;
+$accent: #017DDD;
+$dark-gray: #3B3B3B;
 $mobile-nav: #363636;
-$card-border: #D8D8D8;
-$card-headlines: #7C8088;
-$header-image-background: #e4e4e4;
-$modal-header-background-fallback-color: rgba(0, 116, 211, 1);
+$gray-secondary: #9C9C9C;
+$dark-blue-tertiary: #373C53;
+$light-gray: rgb(247, 247, 247);
 $modal-header-background-gradient-start-color: rgba(0, 116, 211, 1);
 $modal-header-background-gradient-end-color: rgba(0, 97, 176, 1);
+$modal-header-background-fallback-color: rgba(0, 116, 211, 1);
 $modal-header-text-color: #ffffff;
-$table-head-background-color: #E5EAEC;
-$nav-hover: #F2F3F3;
-$green: #59AD15;
-$badge-background: #D11A15;
+$header-image-bg: #e4e4e4;
+$table-head-bg: #E5EAEC;
+
+// table things.
+// these two came from the old site. I'm not actually sure this is great behavior, since table-bordered
+// results in tables without borders, but let's bring it back for the time being:
+$table-border-width: 0;
+$table-cell-padding: 10px 0 10px 0;
+
+$badge-counter-bg: #D11A15;
 $badge-text: #ffffff;
-$black: #000000;
-$blue: #017DDD;
-$dark-blue: #252A47;
-$dark-blue-secondary: #222533;
-$gray-secondary: #9C9C9C;
-$gray-tertiary: #666666;
-$dark-blue-tertiary: #373C53;
-$dark-blue-quaternary: #1D1F2B;
-$lead-font-size: 29px;
-$lead-font-weight: 600;
 
+//** Modal backdrop background color
+$modal-backdrop-bg: #ffffff;
+$modal-backdrop-opacity: .9;
+$modal-header-border-color: #e5e5e5;
+$modal-footer-border-color: $modal-header-border-color;
 
-// ---- Map those to theme conventions
-$theme-colors: (
-        'accent': $accent,
-        'secondary': $secondary,
-        'light-gray': $light-gray,
-        'border': $border,
-        'text': $text,
-        'white': $white,
-        'dark-gray': $dark-gray,
-        'gray': $gray,
-        'legal': $legal,
-        'error': $error,
-        'breadcrumb': $breadcrumb,
-        'mobile-nav': $mobile-nav,
-        'card-border': $card-border,
-        'card-headlines': $card-headlines,
-        'header-image-background': $header-image-background,
-        'modal-header-background-fallback-color': $modal-header-background-fallback-color,
-        'modal-header-background-gradient-start-color': $modal-header-background-gradient-start-color,
-        'modal-header-background-gradient-end-color': $modal-header-background-gradient-end-color,
-        'modal-header-text-color': $modal-header-text-color,
-        'table-head-background-color': $table-head-background-color,
-        'nav-hover': $nav-hover,
-        'green': $green,
-        'badge-background': $badge-background,
-        'badge-text': $badge-text,
-        'black': $black,
-        'dark-blue': $dark-blue,
-        'dark-blue-secondary': $dark-blue-secondary,
-        'dark-blue-tertiary': $dark-blue-tertiary,
-        'gray-secondary': $gray-secondary,
-        'gray-tertiary': $gray-tertiary,
-        'dark-blue-quaternary': $dark-blue-quaternary
-);
+// navigations
+$nav-link-hover-color: black;
 
-$link-color: theme-color('accent');
-$link-hover-color: theme-color('accent');
-$link-hover-decoration: none !default;
+// Old things we used to define. Let's clean these up.
 
-$body-bg: $light-gray;
-$body-color: theme-color('text');
-$headings-color: theme-color('text');
-$headings-font-family: "Noto Sans";
-$label-color: theme-color('text');
-$font-family-base: 'Noto Sans';
+/*
+
+$body-color: $text;
+$headings-color: $text;
+
+*/
+/*
+$label-color: $text;
 $alert-border-radius: 0 !default;
 $alert-success-border: $alert-border-radius !default;
 $alert-info-border: $alert-border-radius !default;
 $alert-warning-border: $alert-border-radius !default;
 $alert-danger-border: $alert-border-radius !default;
 $input-border-radius: 0 !default;
-$breadcrumb-color: theme-color('accent') !default;
-$breadcrumb-active-color: theme-color('breadcrumb') !default;
+$breadcrumb-color: $accent !default;
+$breadcrumb-active-color: $breadcrumb !default;
 
 //== Modals
 //
@@ -108,18 +112,12 @@ $modal-content-border-color: rgba(0, 0, 0, .2) !default;
 //** Modal content border color **for IE8**
 $modal-content-fallback-border-color: #999 !default;
 
-//** Modal backdrop background color
-$modal-backdrop-bg: #ffffff !default;
-//** Modal backdrop opacity
-$modal-backdrop-opacity: .9 !default;
-//** Modal header border color
-$modal-header-border-color: #e5e5e5 !default;
-//** Modal footer border color
-$modal-footer-border-color: $modal-header-border-color !default;
+*/
+
 
 $container-max-widths: (
-        sm: 540px,
-        md: 720px,
-        lg: 960px,
-        xl: 1180px
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1180px
 );

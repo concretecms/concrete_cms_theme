@@ -41,6 +41,8 @@ div.ccm-block-testimonial {
   }
 
   div.ccm-block-testimonial-quote {
+    position: relative;
+
     @include make-col-ready();
     @include media-breakpoint-up(md) {
       @include make-col(10);
@@ -71,7 +73,7 @@ div.ccm-block-testimonial {
 
     .ccm-block-testimonial-name {
 
-      color: theme-color('text');
+      color: $text;
       font-weight: bold;
       margin-top: 20px; //new-502
       font-size: 18px;
@@ -89,7 +91,7 @@ div.ccm-block-testimonial {
     div.ccm-block-testimonial-paragraph {
       font-family: "Noto Sans";
       font-size: 1.375rem;
-      color: theme-color('text');
+      color: $text;
       font-weight: bold;
     }
 
@@ -127,78 +129,3 @@ div.ccm-block-testimonial-wrapper {
     }
   }
 }
-
-
-/* Tablet + Mobile */
-/*
-// Note: due to new-502, a lot has changed in this view since this code was written. I'm going to
-// comment this code out for the time being; if we want to bring back some of this code's behaviors
-// we can do it piecemeal
-@include media-breakpoint-down(md) {
-  div.ccm-block-testimonial {
-    div.ccm-block-testimonial-paragraph {
-      font-size: 20px;
-      line-height: 32px;
-    }
-
-    div.ccm-block-testimonial-text {
-
-      &::before {
-        width: 70px;
-        height: 70px;
-        font-size: 70px;
-        top: -35px;
-        left: -35px;
-      }
-    }
-
-    .ccm-block-testimonial-name {
-      font-size: 12px;
-    }
-  }
-
-  .ccm-block-testimonial-image {
-    img {
-      max-width: 140px !important;
-    }
-  }
-}
-
-@include media-breakpoint-down(sm) {
-  div.ccm-block-testimonial {
-    padding: 30px 0;
-    margin: 15px;
-    background-image: linear-gradient(to right, theme-color('white'), rgba(255, 255, 255, 0));
-
-    div.ccm-block-testimonial-text {
-      margin: auto;
-    }
-
-    .ccm-block-testimonial-image {
-      flex: 100% !important;
-      max-width: 100% !important;
-      margin-bottom: 15px;
-
-      img {
-        margin: auto;
-        display: block;
-        width: 100px;
-      }
-    }
-
-    div.ccm-block-testimonial-paragraph {
-      font-size: 14px;
-      line-height: 22px;
-    }
-
-    .ccm-block-testimonial-name {
-      font-size: 12px;
-    }
-  }
-
-  div.ccm-block-testimonial-wrapper {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-}
-*/
