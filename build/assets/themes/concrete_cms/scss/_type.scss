@@ -40,59 +40,59 @@ p.lead-alt {
 h1 {
   // updated per design review feedback: new-498
   font-weight: normal;
-  font-size: 3.688rem;
+  @include font-size(3.688rem);
   letter-spacing: 0;
   color: $blue;
-  line-height: 3.813rem;
+  @include rfs(4rem, 'line-height');
 }
 
 h2 {
   // updated per design review feedback: new-498
   font-weight: normal;
-  font-size: 2.25rem;
+  @include font-size(2.25rem);
   letter-spacing: 0;
   color: #343F46;
-  line-height: 2.75rem;
+  @include rfs(2.75rem, 'line-height');
 }
 
 h3 {
   // updated per design review feedback: new-498
   font-family: "Poppins";
   font-weight: 700;
-  font-size: 1.5rem;
+  @include font-size(1.5rem);
   letter-spacing: 0;
   color: #2F3032;
-  line-height: 1.75rem;
+  @include rfs(1.75rem, 'line-height');
 }
 
 h4 {
   // updated per design review feedback: new-498
   font-family: "Poppins";
   font-weight: 700;
-  font-size: 1.125rem;
+  @include font-size(1.125rem);
   letter-spacing: 0;
   color: #2F3032;
-  line-height: 1.5rem;
+  @include rfs(1.5rem, 'line-height');
 }
 
 h5 {
   // updated per design review feedback: new-498
   font-family: "Poppins";
   font-weight: 700;
-  font-size: 0.875rem;
+  @include font-size(0.875rem);
   letter-spacing: 0;
   color: $blue;
-  line-height: 1.375rem;
+  @include rfs(1.375rem, 'line-height');
 }
 
 h6 {
   // updated per design review feedback: new-498
   font-family: "Poppins";
   font-weight: 700;
-  font-size: 0.875rem;
+  @include font-size(0.875rem);
   letter-spacing: 0;
   color: $blue;
-  line-height: 1.375rem;
+  @include rfs(1.375rem, 'line-height');
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6,
 p {
   big {
     letter-spacing: 0;
-    font-size: 1.375rem; // news-498
-    line-height: 30px; // new-498
+    @include font-size(1.375rem);
+    @include rfs(2rem, 'line-height');
   }
 }
