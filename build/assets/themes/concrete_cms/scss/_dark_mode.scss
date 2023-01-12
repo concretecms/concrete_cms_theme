@@ -129,6 +129,10 @@
     line-height: 22px;
     margin-bottom: 12px;
     display: block;
+    text-decoration: none;
+    &:hover {
+      color: #333;
+    }
   }
 
   main h5 {
