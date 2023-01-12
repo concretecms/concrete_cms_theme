@@ -29,16 +29,6 @@
   }
 }
 
-main {
-  .nav:not(.nav-tabs) {
-    li {
-      display: block;
-      width: 100%;
-      line-height: 38px;
-    }
-  }
-}
-
 // Tabs
 // -------------------------
 
@@ -84,6 +74,60 @@ main {
   // pulling this in mainly for less shorthand
   &.nav-justified {
 
+  }
+}
+
+.col-sidebar {
+  .nav {
+    margin: 0;
+    padding: 0;
+    flex-direction: column; // otherwise it's not a vertical nav
+
+    li {
+      margin: 0;
+      padding: 10px 0;
+      line-height: 26px;
+      list-style-type: none;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 26px;
+        text-decoration: none;
+        &:hover, &.nav-selected {
+          color: #333 !important;
+        }
+      }
+
+      ul {
+        padding: 0;
+        margin: 10px 0 0 25px;
+      }
+    }
+  }
+}
+
+// White background when showing hierarchical nav
+.col-sidebar {
+  > .nav {
+    > li {
+      > ul {
+        padding: 10px 20px;
+        border-radius: $border-radius-lg;
+        margin: 20px 0 0 0;
+        background-color: white;
+      }
+    }
   }
 }
 
