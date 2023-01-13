@@ -73,7 +73,6 @@ class ServiceProvider extends Provider
         $this->registerPageSelectorRedirect();
         $this->registerAPI();
         $this->registerAssetLocalizations();
-        $this->overrideOAuthController();
         $this->registerPagination();
         $this->registerThemePaths();
         $this->registerNavigations();
@@ -101,15 +100,15 @@ class ServiceProvider extends Provider
     private function registerThemePaths()
     {
         if (!$this->themeRouteCollection->getThemeByRoute('/account')) {
-            $this->themeRouteCollection->setThemeByRoute('/account', 'concrete_cms_theme');
+            $this->themeRouteCollection->setThemeByRoute('/account', 'concrete_cms');
         }
         if (!$this->themeRouteCollection->getThemeByRoute('/account/*')) {
-            $this->themeRouteCollection->setThemeByRoute('/account/*', 'concrete_cms_theme');
+            $this->themeRouteCollection->setThemeByRoute('/account/*', 'concrete_cms');
         }
 
-        $this->themeRouteCollection->setThemeByRoute('/register', 'concrete_cms_theme');
-        $this->themeRouteCollection->setThemeByRoute('/login', 'concrete_cms_theme');
-        $this->themeRouteCollection->setThemeByRoute('/oauth/authorize', 'concrete_cms_theme');
+        $this->themeRouteCollection->setThemeByRoute('/register', 'concrete_cms');
+        $this->themeRouteCollection->setThemeByRoute('/login', 'concrete_cms');
+        $this->themeRouteCollection->setThemeByRoute('/oauth/authorize', 'concrete_cms', 'view_oauth2.php');
     }
 
     private function registerPagination()
@@ -122,17 +121,6 @@ class ServiceProvider extends Provider
         });
 
         $this->app->bind(CorePaginationManager::class, ManagerServiceProvider::class);
-    }
-
-    private function overrideOAuthController()
-    {
-        /*
-         * It is required to override the OAuth controller to manipulate the login view
-         */
-        /** @noinspection PhpParamsInspection */
-        $this->router->post('/oauth/2.0/token', [OAuthController::class, 'token']);
-        /** @noinspection PhpParamsInspection */
-        $this->router->all('/oauth/2.0/authorize', [OAuthController::class, 'authorize']);
     }
 
     private function registerPageSelectorRedirect()
