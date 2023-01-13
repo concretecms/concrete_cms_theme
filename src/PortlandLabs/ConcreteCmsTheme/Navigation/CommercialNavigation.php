@@ -42,6 +42,7 @@ class CommercialNavigation extends Navigation
             new Item('{{marketing}}/support', t('Support')),
             new Item('{{marketing}}/about/blog', t('Blog')),
             new Item('{{marketing}}/extensions', t('Extensions')),
+            new Item('{{documentation}}', t('Documentation')),
             new Item('{{forums}}', t('Forums')),
             new Item('{{community}}/members', t('Members')),
             new Item('{{marketing}}/internationalization', t('Internationalization')),
