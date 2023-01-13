@@ -29,17 +29,24 @@ $manager = $app->make(UrlManager::class);
 $marketingUrl = $manager->getMarketingUrl();
 $opensourceUrl = $manager->getMarketingOrgUrl();
 
-$enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page? $c->getAttribute("enable_dark_mode") : false);
+$enableDarkMode = false;
+if (isset($c)) {
+    $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page ? $c->getAttribute(
+            "enable_dark_mode"
+        ) : false);
+}
 ?>
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg">
                 <nav class="nav footer-nav-utility">
-                    <a class="nav-link" href="<?=$opensourceUrl?>/security"><?=t('Security')?></a>
-                    <a class="nav-link" href="<?=$marketingUrl?>/about/legal/terms-use"><?=t('Terms of Use')?></a>
-                    <a class="nav-link" href="<?=$marketingUrl?>/about/legal/privacy-policy"><?=t('Privacy Policy')?></a>
-                    <a class="nav-link" href="<?=$marketingUrl?>/about/contact-us"><?=t('Contact')?></a>
+                    <a class="nav-link" href="<?= $opensourceUrl ?>/security"><?= t('Security') ?></a>
+                    <a class="nav-link" href="<?= $marketingUrl ?>/about/legal/terms-use"><?= t('Terms of Use') ?></a>
+                    <a class="nav-link" href="<?= $marketingUrl ?>/about/legal/privacy-policy"><?= t(
+                            'Privacy Policy'
+                        ) ?></a>
+                    <a class="nav-link" href="<?= $marketingUrl ?>/about/contact-us"><?= t('Contact') ?></a>
                 </nav>
             </div>
 
@@ -59,15 +66,19 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
         <div class="row">
             <div class="col-lg">
                 <div class="text-center text-lg-start footer-site-title">
-                    <?php if ($enableDarkMode) { ?>
-                        <a href="<?=(string) $opensourceUrl?>">
-                            <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
+                    <?php
+                    if ($enableDarkMode) { ?>
+                        <a href="<?= (string)$opensourceUrl ?>">
+                            <img src="<?= $view->getThemePath() ?>/images/logo_text_dark_mode.svg" alt=""
+                                 class="img-fluid">
                         </a>
-                    <?php } else { ?>
-                        <a href="<?=(string) $marketingUrl?>">
-                            <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                    <?php
+                    } else { ?>
+                        <a href="<?= (string)$marketingUrl ?>">
+                            <img src="<?= $view->getThemePath() ?>/images/logo_text.svg" alt="" class="img-fluid">
                         </a>
-                    <?php } ?>
+                    <?php
+                    } ?>
                     </a>
                 </div>
             </div>
@@ -92,7 +103,8 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
                 <div class="text-center text-lg-end">
                     <div class="footer-legal">
                         <p>
-                            <span class="sign">&copy;</span> <?php echo t("PortlandLabs %s-%s", 2008, date('Y')); ?>
+                            <span class="sign">&copy;</span> <?php
+                            echo t("PortlandLabs %s-%s", 2008, date('Y')); ?>
                         </p>
                     </div>
                 </div>
@@ -107,9 +119,11 @@ $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c ins
 /** @noinspection PhpUnhandledExceptionInspection */
 View::element('footer_required');
 ?>
-<script src="<?php echo (string)Url::to("/community/js"); ?>" defer></script>
+<script src="<?php
+echo (string)Url::to("/community/js"); ?>" defer></script>
 <!--suppress HtmlUnknownTarget -->
-<script type="text/javascript" src="<?php echo $view->getThemePath() ?>/js/main.js" defer></script>
+<script type="text/javascript" src="<?php
+echo $view->getThemePath() ?>/js/main.js" defer></script>
 <script>
     $(window).ready(function () {
         if (window.self !== window.top) {
@@ -117,12 +131,14 @@ View::element('footer_required');
         }
     });
 </script>
-<?php if ($u->isRegistered()) {?>
+<?php
+if ($u->isRegistered()) { ?>
     <script>
         if (window.self !== window.top) {
             window.parent.closeIframe(true);
         }
     </script>
-<?php } ?>
+<?php
+} ?>
 </body>
 </html>

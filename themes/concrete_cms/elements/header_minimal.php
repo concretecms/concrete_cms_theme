@@ -21,7 +21,13 @@ $app = Application::getFacadeApplication();
 /** @var Repository $config */
 $config = Site::getSite()->getConfigRepository();
 
-$enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page ? $c->getAttribute("enable_dark_mode") : false);
+if (isset($c)) {
+    $enableDarkMode = $config->get("concrete_cms_theme.enable_dark_mode") || ($c instanceof Page ? $c->getAttribute(
+            "enable_dark_mode"
+        ) : false);
+} else {
+    $enableDarkMode = false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo Localization::activeLanguage() ?>">
@@ -51,4 +57,10 @@ $view->inc('elements/stage_warning.php');
     </div>
 </div>
 
-<div class="<?php echo $c->getPageWrapperClass() ?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">
+<?php
+$pageWrapperClass = 'ccm-page';
+if (isset($c)) {
+    $pageWrapperClass = $c->getPageWrapperClass();
+}
+?>
+<div class="<?=$pageWrapperClass?><?php echo $enableDarkMode ? " ccm-dark-mode" : "";?>">
