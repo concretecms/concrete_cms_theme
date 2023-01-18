@@ -31,36 +31,40 @@ $pkg = $pkgEntity->getController();
 
 $defaultThumbnailUrl = $pkg->getRelativePath() . "/images/default_thumbnail_small.jpg";
 
-$thumbnail = $thumbnail ? \Concrete\Core\File\File::getByID($thumbnail->jsonSerialize()["fID"]) : null;
+if (isset($thumbnail)) {
+    $thumbnail = \Concrete\Core\File\File::getByID($thumbnail->jsonSerialize()["fID"]);
+} else {
+    $thumbnail = null;
+}
 ?>
 
-<div class="case-study-item">
-    <?php
-    $thumbnailUrl = null;
+<a href="<?php echo (string)$link; ?>" class="case-study-item-wrapper-link">
+    <div class="case-study-item">
+        <?php
+        $thumbnailUrl = null;
 
-    if ($thumbnail instanceof File) {
-        $thumbnailApprovedVersion = $thumbnail->getApprovedVersion();
+        if ($thumbnail instanceof File) {
+            $thumbnailApprovedVersion = $thumbnail->getApprovedVersion();
 
-        if ($thumbnailApprovedVersion instanceof Version) {
-            $thumbnailUrl = $thumbnailApprovedVersion->getThumbnailURL("case_study_thumbnail");
+            if ($thumbnailApprovedVersion instanceof Version) {
+                $thumbnailUrl = $thumbnailApprovedVersion->getThumbnailURL("case_study_thumbnail");
+            }
         }
-    }
-    ?>
+        ?>
 
-    <a href="<?php echo (string)$link; ?>" class="thumbnail">
-        <img src="<?php echo $thumbnailUrl ?? $defaultThumbnailUrl; ?>"
-             alt="<?php echo h($title); ?>">
-    </a>
+        <span class="thumbnail">
+            <img src="<?php echo $thumbnailUrl ?? $defaultThumbnailUrl; ?>"
+                 alt="<?php echo h($title); ?>">
+        </span>
 
-    <h3 class="title">
-        <a href="<?php echo (string)$link; ?>">
+        <h3 class="title">
             <?php echo $title; ?>
-        </a>
-    </h3>
+        </h3>
 
-    <p class="description">
-        <?php echo $description ?? t("No Description available"); ?>
-    </p>
+        <p class="description">
+            <?php echo $description ?? t("No Description available"); ?>
+        </p>
 
-    <div class="clearfix"></div>
-</div>
+        <div class="clearfix"></div>
+    </div>
+</a>

@@ -46,7 +46,7 @@ $templateRenderer = $app->make(Renderer::class);
             /** @noinspection PhpDeprecationInspection */
             $pagination = $list->getPagination();
             $pages = $pagination->getCurrentPageResults();
-            echo $pagination->renderView("simple_pagination");
+            echo $pagination->renderView();
             ?>
         </div>
     <?php } ?>
