@@ -25,6 +25,7 @@ use Concrete\Core\Error\UserMessageException;
 use Concrete\Core\File\Import\FileImporter;
 use Concrete\Core\Http\Request;
 use Concrete\Core\Http\Response;
+use Concrete\Core\Localization\Localization;
 use Concrete\Core\Routing\RedirectResponse;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Support\Facade\Url;
@@ -231,6 +232,20 @@ class EditProfile extends AccountPageController
         if (!is_object($profile)) {
             throw new UserMessageException(t('You must be logged in to access this page.'));
         }
+
+        $locales = [];
+        $languages = Localization::getAvailableInterfaceLanguages();
+        if (count($languages) > 0) {
+            array_unshift($languages, Localization::BASE_LOCALE);
+        }
+        if (count($languages) > 0) {
+            foreach ($languages as $lang) {
+                $locales[$lang] = \Punic\Language::getName($lang, $lang);
+            }
+            asort($locales);
+            $locales = array_merge(['' => tc('Default locale', '** Default')], $locales);
+        }
+        $this->set('locales', $locales);
 
         /** @var CategoryService $service */
         $service = $this->app->make(CategoryService::class);
