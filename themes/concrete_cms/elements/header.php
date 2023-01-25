@@ -65,6 +65,10 @@ $subnavElement = Element::get('sub_nav_custom');
     ]);
     ?>
 
+    <?php
+    $view->inc('elements/opengraph.php');
+    ?>
+
     <script type="text/javascript">
         <?php echo "var CCM_SECURITY_TOKEN = '" . $token->generate() . "';"; ?>
     </script>

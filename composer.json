@@ -3,5 +3,13 @@
   "description": "Package that contains the official ConcreteCMS Theme.",
   "minimum-stability": "dev",
   "type": "concrete5-package",
-  "license": "MIT"
+  "license": "MIT",
+  "require": {
+    "spatie/schema-org": "^3"
+  },
+  "autoload": {
+    "files": [
+      "src/helpers.php"
+    ]
+  }
 }
