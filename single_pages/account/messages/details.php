@@ -92,15 +92,19 @@ $dateHelper = $app->make(Date::class);
 
                 <div class="col">
                     <div class="message-actions d-none d-md-block">
-                        <div class="float-end">
+                        <div class="float-end" data-vue-app="send-message">
                             <a href="<?php echo h($deleteUrl) ?>" class="btn btn-danger message-action">
                                 <?php echo t("Delete"); ?>
                             </a>
 
-                            <a href="javascript:void(0);" class="send-message btn btn-primary message-action"
-                               data-message-id="<?php echo $msg->getMessageID(); ?>">
-                                <?php echo t("Reply"); ?>
-                            </a>
+                            <compose-private-message
+                                    send-message-token="<?=$token->generate("validate_send_message")?>"
+                                    :user-select-options='{labelFormat:"username", includeAvatar: true, accessToken:"<?=$userSelectAccessToken?>"}'
+                                    css-class="btn btn-primary"
+                                    reply-to-message-id="<?php echo $msg->getMessageID(); ?>"
+                                    button-text="<?=t('Reply')?>"
+                                    dialog-title="<?=t('Reply')?>"
+                            ></compose-private-message>
                         </div>
                     </div>
                 </div>
@@ -158,3 +162,14 @@ $dateHelper = $app->make(Date::class);
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        Concrete.Vue.activateContext('frontend', function (Vue, config) {
+            new Vue({
+                el: 'div[data-vue-app=send-message]',
+                components: config.components
+            });
+        });
+    });
+</script>

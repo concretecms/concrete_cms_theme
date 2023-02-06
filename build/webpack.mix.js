@@ -40,4 +40,4 @@ mix.copy('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', '../themes/co
 
 mix
     .sass('assets/themes/concrete_cms/scss/main.scss', '../themes/concrete_cms/css')
-    .js('assets/themes/concrete_cms/js/main.js', '../themes/concrete_cms/js');
+    .js('assets/themes/concrete_cms/js/main.js', '../themes/concrete_cms/js').vue()
