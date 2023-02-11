@@ -1,13 +1,23 @@
 import '@concretecms/bedrock/assets/bedrock/js/frontend';
 
 import _ from 'underscore'
-import 'bootstrap-select/js/bootstrap-select'
-import 'ajax-bootstrap-select'
+
+// Yet another autocomplete/comboxbox library
+import TomSelect from 'tom-select'
+window.TomSelect = TomSelect
 
 import '@concretecms/bedrock/assets/imagery/js/frontend'
 import {alert, Stack, defaultModules} from '@pnotify/core';
 import * as PNotifyBootstrap4 from '@pnotify/bootstrap4';
 defaultModules.set(PNotifyBootstrap4, {});
+
+import ComposePrivateMessage from './components/ComposePrivateMessage'
+
+$(function() {
+    window.Concrete.Vue.createContext('frontend', {
+        ComposePrivateMessage
+    }, 'frontend')
+})
 
 const stackBottomModal = new Stack({
     dir1: 'up',
@@ -22,7 +32,6 @@ const stackBottomModal = new Stack({
 });
 
 // Custom assets
-import composeMessage from '../../../messages/js/compose';
 import asyncConfirm from '../../../dialogs/js/confirm';
 
 // Theme stuff
@@ -39,18 +48,6 @@ $("#ccm-toggle-mobile-nav").click(function (e) {
 });
 
 window.asyncConfirm = asyncConfirm;
-
-/*
- * Send message actions
- */
-
-$(".send-message").click(function (e) {
-    e.preventDefault();
-
-    composeMessage($(this).data());
-});
-
-window.sendPrivatePrivate = composeMessage;
 
 /*
  * Message bulk actions

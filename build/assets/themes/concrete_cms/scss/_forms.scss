@@ -5,19 +5,6 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
-.bootstrap-select {
-  display: block !important;
-
-  .status {
-    font-size: 16px;
-
-    &.no-results {
-      font-size: 16px;
-      padding: 10px 20px;
-    }
-  }
-}
-
 .form-control {
   outline: none !important;
   box-shadow: none !important;
@@ -29,11 +16,14 @@
   }
 }
 
+// WTF? What could this possibly be for?
+/*
 .form-check {
   .form-check-label {
     width: calc(100% - 30px);
   }
-}
+ */
+
 
 .form-check {
   cursor: pointer !important;

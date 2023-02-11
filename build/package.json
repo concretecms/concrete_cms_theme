@@ -5,7 +5,7 @@
   "author": "PortlandLabs",
   "license": "MIT",
   "devDependencies": {
-    "@concretecms/bedrock": "github:concrete5/bedrock#1.4.x",
+    "@concretecms/bedrock": "github:concrete5/bedrock#ditch-bootstrap-select",
     "@fontsource/noto-sans": "^4.5.9",
     "@openfonts/poppins_all": "^1.44.7",
     "@pnotify/bootstrap4": "^5.2.0",
@@ -16,7 +16,9 @@
     "sass": "^1.49.7",
     "sass-loader": "^12.4.0",
     "typeface-open-sans": "^1.1.13",
-    "underscore-template-loader": "^1.1.0"
+    "underscore-template-loader": "^1.1.0",
+    "vue-loader": "^15.10.1",
+    "vue-template-compiler": "^2.6.12"
   },
   "scripts": {
     "development": "mix",

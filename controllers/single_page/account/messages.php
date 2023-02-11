@@ -16,6 +16,7 @@ use Concrete\Core\Http\Response;
 use Concrete\Core\Http\ResponseFactory;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Support\Facade\Url;
+use Concrete\Core\User\Component\UserSelectInstanceFactory;
 use Concrete\Core\User\PrivateMessage\Mailbox;
 use Concrete\Core\User\PrivateMessage\Mailbox as UserPrivateMessageMailbox;
 use Concrete\Core\User\PrivateMessage\PrivateMessage as UserPrivateMessage;
@@ -89,6 +90,10 @@ class Messages extends AccountPageController
                     $this->app->make(Token::class)->generate('message_delete_' . $msg->getMessageID())
                 ));
 
+                $userSelectInstanceFactory = $this->app->make(UserSelectInstanceFactory::class);
+                $userSelectInstance = $userSelectInstanceFactory->createInstance('username', true);
+                $this->set('token', $this->app->make('token'));
+                $this->set('userSelectAccessToken', $userSelectInstance->getAccessToken());
                 $this->set("mailbox", $mailbox);
                 $this->set("msg", $msg);
                 $this->render("/account/messages/details");
@@ -111,6 +116,9 @@ class Messages extends AccountPageController
         $sent = UserPrivateMessageMailbox::get($ui, UserPrivateMessageMailbox::MBTYPE_SENT);
         $mailbox = UserPrivateMessageMailbox::get($ui, (int) $msgMailboxID);
 
+        $userSelectInstanceFactory = $this->app->make(UserSelectInstanceFactory::class);
+        $userSelectInstance = $userSelectInstanceFactory->createInstance('username', true);
+
         if ($mailbox instanceof Mailbox) {
             $messageList = $mailbox->getMessageList();
             $messages = $messageList->getPage();
@@ -120,6 +128,7 @@ class Messages extends AccountPageController
             $this->set('inbox', $inbox);
             $this->set('sent', $sent);
             $this->set('currentPage', (int) $this->request('p'));
+            $this->set('userSelectAccessToken', $userSelectInstance->getAccessToken());
         } else {
             return $this->responseFactory->redirect((string)Url::to("/account/messages"), Response::HTTP_TEMPORARY_REDIRECT);
         }

@@ -201,7 +201,7 @@ class Messages
                 // add message attachments
                 $attachments = [];
 
-                foreach ($this->request->files->get("msgAttachments") as $uploadedFile) {
+                foreach ((array) $this->request->files->get("msgAttachments") as $uploadedFile) {
                     if ($uploadedFile instanceof UploadedFile) {
                         try {
                             $fileVersion = $this->importer->importUploadedFile($uploadedFile);

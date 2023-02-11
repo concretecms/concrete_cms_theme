@@ -82,20 +82,15 @@ if ($messageList) {
         <div class="row">
             <div class="col-md col-sm-12">
 
-                <div class="d-flex align-items-center float-md-end">
+                <div class="d-flex align-items-center float-md-end" data-vue-app="send-message">
                     <a href="<?=$marketingUrl?>/about/contact-us/information-request" class="float-end me-3 btn btn-secondary btn-sm">
                         <?=t('Report Inappropriate Content')?>
                     </a>
-                    <?php
-                    // there's a problem with new message - the selectpicker is not working right with ajax
-                    // and i'm not sure how to fix it so instead i'm getting rid of the ability to launch a new
-                    // message except from the profile
-                    /*
-                    ?>
-                    <a href="javascript:void(0);" class="float-end btn btn-primary send-message">
-                        <?php echo t("Send Message"); ?>
-                    </a>
-                    <?php */ ?>
+                    <compose-private-message
+                            send-message-token="<?=$token->generate("validate_send_message")?>"
+                            :user-select-options='{labelFormat:"username", includeAvatar: true, accessToken:"<?=$userSelectAccessToken?>"}'
+                            css-class="float-end btn btn-primary"
+                    ></compose-private-message>
                 </div>
 
 
@@ -247,17 +242,15 @@ if ($messageList) {
             </div>
         </div>
     </div>
-
-    <?php if ($receiverId > 0) { ?>
-        <!--suppress JSUnresolvedFunction -->
-        <script>
-            (function ($) {
-                $(function () {
-                    window.sendPrivatePrivate(<?php /** @noinspection PhpComposerExtensionStubsInspection */echo json_encode([
-                                                                                                                                 "receiver" => $receiverId
-                                                                                                                             ]); ?>);
-                });
-            })(jQuery);
-        </script>
-    <?php } ?>
 </div>
+
+<script>
+    $(function () {
+        Concrete.Vue.activateContext('frontend', function (Vue, config) {
+            new Vue({
+                el: 'div[data-vue-app=send-message]',
+                components: config.components
+            });
+        });
+    });
+</script>
