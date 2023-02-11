@@ -72,8 +72,13 @@ div.ccm-page {
       background-color: white;
       border-top-width: 0;
       text-align: center;
-      padding: 0 4.5rem 3rem 4.5rem;
+      padding-bottom: 3rem;
       display: grid;
+
+      @include media-breakpoint-up(xl) {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
     }
   }
 }
