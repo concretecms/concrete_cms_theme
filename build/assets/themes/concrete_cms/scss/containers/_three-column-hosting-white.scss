@@ -1,6 +1,24 @@
 div.ccm-page {
   .three-column-hosting-white {
 
+    .card {
+      outline: 0 solid $blue;
+      transition: outline-width 100ms;
+
+      &:hover {
+        outline-width: 4px;
+
+        .hosting-buttons {
+          .btn:first-child {
+            display: grid;
+          }
+          .btn:nth-of-type(2) {
+            display: none;
+          }
+        }
+      }
+    }
+
     .hosting-price {
       color: $blue;
       margin-bottom: 2rem;
@@ -60,14 +78,6 @@ div.ccm-page {
       }
     }
 
-    .hosting-more {
-      text-align: center;
-      padding: 0 2rem;
-      .btn {
-        display: grid;
-      }
-    }
-
     .card-footer {
       background-color: white;
       border-top-width: 0;
@@ -78,6 +88,15 @@ div.ccm-page {
       @include media-breakpoint-up(xl) {
         padding-left: 4rem;
         padding-right: 4rem;
+      }
+
+      .hosting-buttons {
+        .btn {
+          display: grid;
+        }
+        .btn:first-child {
+          display: none;
+        }
       }
     }
   }
