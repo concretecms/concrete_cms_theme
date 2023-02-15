@@ -63,8 +63,8 @@ $renderer->setContext(new FrontendFormContext());
                                  alt="<?php echo h(t("concreteCMS Logo")); ?>" class="ccm-logo">
                         </div>
 
-                        <div class="col-md col-sm-12">
-                            <h1 class="ccm-title">
+                        <div class="col-md col-sm-12 d-flex">
+                            <h1 class="ccm-title mt-auto">
                                 <?php echo t("Welcome to our community."); ?>
                             </h1>
                         </div>
