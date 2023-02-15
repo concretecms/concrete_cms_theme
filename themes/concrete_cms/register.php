@@ -65,7 +65,7 @@ $renderer->setContext(new FrontendFormContext());
 
                         <div class="col-md col-sm-12">
                             <h1 class="ccm-title">
-                                <?php echo t("Welcome to our community. Join Concrete now. It’s free!"); ?>
+                                <?php echo t("Welcome to our community."); ?>
                             </h1>
                         </div>
                     </div>
