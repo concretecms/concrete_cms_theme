@@ -1,0 +1,103 @@
+div.ccm-page {
+  .three-column-hosting-white {
+
+    .card {
+      outline: 0 solid $blue;
+      transition: outline-width 100ms;
+
+      &:hover {
+        outline-width: 4px;
+
+        .hosting-buttons {
+          .btn:first-child {
+            display: grid;
+          }
+          .btn:nth-of-type(2) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .hosting-price {
+      color: $blue;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+
+      .hosting-price-inner {
+        position: relative;
+      }
+
+      .hosting-price-cost {
+        font-size: 64px;
+      }
+
+      .hosting-price-explanation {
+        bottom: 0;
+        font-size: 12px;
+        left: 52px;
+        position: absolute;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      @include media-breakpoint-down(lg) {
+        text-align: center;
+
+        .hosting-price-inner {
+          display: inline-block;
+
+          .hosting-price-explanation {
+            position: static;
+          }
+        }
+
+      }
+    }
+
+    ul.hosting-features {
+      border-top: 1px solid #9797972C;
+      margin-bottom: 0;
+      margin-top: 1.5rem;
+      padding: 1.5rem 0 0 1rem;
+
+      li {
+        line-height: 2rem;
+        padding-left: 10px;
+        &::marker {
+          content: '✔️';
+        }
+
+        &.hosting-feature-unavailable {
+          &::marker {
+            content: '❌️';
+          }
+        }
+      }
+    }
+
+    .card-footer {
+      background-color: white;
+      border-top-width: 0;
+      text-align: center;
+      padding-bottom: 3rem;
+      display: grid;
+
+      @include media-breakpoint-up(xl) {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
+
+      .hosting-buttons {
+        .btn {
+          display: grid;
+        }
+        .btn:first-child {
+          display: none;
+        }
+      }
+    }
+  }
+}

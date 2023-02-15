@@ -19,11 +19,7 @@
                                 </label>
 
                                 <div class="col-sm">
-                                    <div v-if="replyToMessageId">
-                                        <input type="text" class="form-control" disabled :value="receiverUsername">
-                                    </div>
                                     <concrete-user-select
-                                        v-else
                                         :access-token="userSelectOptions.accessToken"
                                         :include-avatar="userSelectOptions.includeAvatar"
                                         :label-format="userSelectOptions.labelFormat"
@@ -134,7 +130,6 @@ export default {
             body: null,
             receiver: null,
             receiverUsername: null, // only used in reply mode
-            showDialog: false
         }
     },
     props: {
@@ -164,15 +159,8 @@ export default {
             required: true
         }
     },
-    watch: {
-        showDialog: function() {
-            const modal = bootstrap.Modal.getOrCreateInstance(this.$refs.composeModal);
-            if (modal) {
-                modal.show();
-            }
-        }
-    },
     mounted() {
+        this.modal = bootstrap.Modal.getOrCreateInstance(this.$refs.composeModal)
     },
     computed: {},
     methods: {
@@ -192,11 +180,11 @@ export default {
                         my.subject = data.messageData.msgSubject
                         my.receiver = data.messageData.uID
                         my.receiverUsername = data.messageData.uName
-                        my.showDialog = true
+                        my.modal.show()
                     }
                 })
             } else {
-                my.showDialog = true
+                my.modal.show()
             }
         },
         sendMessage() {
@@ -242,9 +230,9 @@ export default {
                             window.location.href = CCM_DISPATCHER_FILENAME + "/account/messages";
                         }, 3000);
 
-                        $modalDialog.modal('hide');
-                        $html.remove();
-                    }
+
+                        this.modal.hide()
+                   }
                 }
             });
         }

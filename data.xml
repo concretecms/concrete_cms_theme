@@ -107,5 +107,8 @@
         <container handle="section_accent" name="Accent Single Column" icon="two_column.png" package=""/>
         <container handle="solution_section_white" name="Solution Section White" icon="two_column.png" package=""/>
         <container handle="solution_section_light_gray" name="Solution Section Light Gray" icon="two_column.png" package=""/>
+
+        <container handle="three_column_hosting_white" name="Three Column Hosting White" icon="three_column.png" package=""/>
+
     </containers>
 </concrete5-cif>
