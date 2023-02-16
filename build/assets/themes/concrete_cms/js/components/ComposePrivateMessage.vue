@@ -136,6 +136,9 @@ export default {
         replyToMessageId: {
             required: false
         },
+        sendMessageToUserId: {
+            required: false
+        },
         buttonText: {
             type: String,
             required: false,
@@ -160,6 +163,10 @@ export default {
         }
     },
     mounted() {
+        if (this.sendMessageToUserId) {
+            this.receiver = this.sendMessageToUserId
+        }
+
         this.modal = bootstrap.Modal.getOrCreateInstance(this.$refs.composeModal)
     },
     computed: {},
