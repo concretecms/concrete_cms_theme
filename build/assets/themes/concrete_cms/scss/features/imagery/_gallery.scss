@@ -1,0 +1,12 @@
+.ccm-page {
+
+  .ccm-block-gallery {
+    img {
+      // We have customizations found in _content.scss (look for not(.u-avatar)) that override
+      // this and cause problems with the gallery (https://portlandlabs.atlassian.net/browse/CS-944)
+      // This should fix that.
+      margin: auto !important;
+    }
+  }
+
+}
