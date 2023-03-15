@@ -125,7 +125,7 @@ if ($messageList) {
                     <table class="table message-table">
                         <thead>
                         <tr>
-                            <th class="checkbox-wrapper"><div class="dropdown"><button class="dropdown-toggle" type="button"
+                            <th class="checkbox-wrapper"><div class="dropdown"><button class="dropdown-bs-toggle" type="button"
                                                                                        id="ccm-message-bulk-action"
                                                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <input type="checkbox" name="msgAll" id="ccm-select-all-messages"/> &nbsp;
