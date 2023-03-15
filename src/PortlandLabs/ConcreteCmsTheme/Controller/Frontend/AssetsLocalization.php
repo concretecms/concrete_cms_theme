@@ -55,11 +55,12 @@ class AssetsLocalization extends Controller
                 "additionalImage2" => t("Additional Image 2"),
                 "additionalImage3" => t("Additional Image 3"),
                 "uploadNotice" => t("540 x 300px jpg no larger than 2MB"),
-                "uploadFilesNotice" => t("Files no larger then 5MB"),
+                "uploadFilesNotice" => t("Files no larger then %s", ini_get('upload_max_filesize')),
                 "uploadFilesButton" => t("Upload Files"),
                 "uploadButton" => t("Upload Image"),
                 "okayButton" => t("OK"),
                 "confirm" => t("Are you sure?"),
+                "generalError" => t('An unexpected error occurred.'),
                 "userSearch" => [
                     'currentlySelected' => t('Currently Selected'),
                     'emptyTitle' => t('Search Users'),

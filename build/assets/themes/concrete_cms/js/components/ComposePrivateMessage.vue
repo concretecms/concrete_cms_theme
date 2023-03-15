@@ -197,9 +197,15 @@ export default {
         sendMessage() {
             var my = this
             var formData = new FormData()
-            formData.append('uID', my.receiver)
-            formData.append('msgSubject', my.subject)
-            formData.append('msgBody', my.body)
+            if (my.receiver) {
+                formData.append('uID', my.receiver)
+            }
+            if (my.subject) {
+                formData.append('msgSubject', my.subject)
+            }
+            if (my.body) {
+                formData.append('msgBody', my.body)
+            }
             formData.append('ccm_token', my.sendMessageToken)
             if (this.replyToMessageId) {
                 formData.append('msgID', my.replyToMessageId)
@@ -215,6 +221,13 @@ export default {
                 cache: false,
                 contentType: false,
                 processData: false,
+                error: (r) => {
+                    alert({
+                        text: my.i18n.generalError,
+                        stack: stackBottomModal,
+                        type: 'error'
+                    });
+                },
                 success: (data) => {
                     if (data.error) {
                         for (let i = 0; i < data.errors.length; i++) {
