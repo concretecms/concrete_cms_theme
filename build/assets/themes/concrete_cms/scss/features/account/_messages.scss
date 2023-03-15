@@ -21,21 +21,23 @@
     background-color: $white;
     color: $text;
 
-    .checkbox-wrapper {
-      width: 80px;
-      padding-left: 10px;
+    td.checkbox-wrapper {
+      div {
+        padding-left: 1rem;
+      }
+      width: 120px;
     }
 
     thead {
       background-color: $table-head-bg;
       text-transform: uppercase;
-
-      button.dropdown-toggle {
-        padding: 0;
-      }
     }
 
     tbody {
+
+      th, td {
+        border-bottom-width: 1px;
+      }
 
       tr.unread {
         td:nth-child(2),
@@ -44,12 +46,6 @@
         }
       }
 
-    }
-
-
-
-    a {
-      color: $accent;
     }
   }
 }

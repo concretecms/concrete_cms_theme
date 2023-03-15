@@ -31,6 +31,11 @@
   line-height: 26px;
 }
 
+/*
+// When trying to make the dropdown look nice and actually utilize "disabled" styles (part of the visual
+// improvements of CS-950, see below), I found that the block of code below was being greedy and overriding
+// things like disabled styles, when it doesn't even need to really be there. If it turns out that commenting
+// out this does indeed break something, bring it back piecemeal but try to not set the color here.
 .dropdown-item {
   font-weight: 400;
   font-size: 16px;
@@ -45,8 +50,10 @@
 
 .dropdown {
   display: inline;
-}
+}*/
 
+// This looks weird when trying to bring back https://portlandlabs.atlassian.net/browse/CS-950
+/*
 .dropdown-toggle {
   border: none;
   background: transparent;
@@ -58,4 +65,4 @@
     background: auto;
     border: inherit;
   }
-}
+}*/

@@ -125,11 +125,15 @@ if ($messageList) {
                     <table class="table message-table">
                         <thead>
                         <tr>
-                            <th class="checkbox-wrapper"><div class="dropdown"><button class="dropdown-toggle" type="button"
-                                                                                       id="ccm-message-bulk-action"
-                                                                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <input type="checkbox" name="msgAll" id="ccm-select-all-messages"/> &nbsp;
-                                    </button><div class="dropdown-menu" aria-labelledby="ccm-message-bulk-action">
+                            <th class="checkbox-wrapper"><div class="dropdown">
+                                <div class="btn-group">
+                                    <span class="btn btn-sm btn-secondary">
+                                        <input type="checkbox" name="msgAll" id="ccm-select-all-messages"/>
+                                    </span>
+                                    <button type="button" data-bs-reference="parent" data-bs-toggle="dropdown" class="dropdown-toggle dropdown-toggle-split text-black btn btn-sm btn-secondary">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="ccm-message-bulk-menu" aria-labelledby="ccm-message-bulk-action">
                                         <a class="dropdown-item" href="javascript:void(0);"
                                            id="ccm-messages-bulk-action-select-all">
                                             <?php echo t("Select All"); ?>
@@ -159,7 +163,9 @@ if ($messageList) {
                                            data-token="<?= $token->generate('delete_messages') ?>">
                                             <?php echo t("Delete"); ?>
                                         </a>
-                                    </div></div></th>
+                                    </ul>
+                                </div>
+                            </th>
 
                             <th>
                                 <?php if (Mailbox::MBTYPE_SENT == $mailbox->getMailboxID()) { ?>
