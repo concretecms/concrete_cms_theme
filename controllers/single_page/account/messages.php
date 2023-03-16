@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpInconsistentReturnPointsInspection */
+<?php
+/** @noinspection PhpInconsistentReturnPointsInspection */
+
 /** @noinspection PhpUnused */
 /** @noinspection DuplicatedCode */
 
@@ -57,7 +59,10 @@ class Messages extends AccountPageController
             if ($ui->canReadPrivateMessage($msg)) {
                 $msg->delete();
 
-                return $responseFactory->redirect((string)Url::to("/account/messages"), Response::HTTP_TEMPORARY_REDIRECT);
+                return $responseFactory->redirect(
+                    (string)Url::to("/account/messages"),
+                    Response::HTTP_TEMPORARY_REDIRECT
+                );
             } else {
                 return $responseFactory->forbidden(Page::getCurrentPage());
             }
@@ -76,25 +81,29 @@ class Messages extends AccountPageController
         $userInfoRepository = $this->app->make(UserInfoRepository::class);
         $ui = $userInfoRepository->getByID($u->getUserID());
 
-        $mailbox = UserPrivateMessageMailbox::get($ui, (int) $mailboxId);
-        $msg = UserPrivateMessage::getByID((int) $messageId, $mailbox);
+        $mailbox = UserPrivateMessageMailbox::get($ui, (int)$mailboxId);
+        $msg = UserPrivateMessage::getByID((int)$messageId, $mailbox);
 
         if ($msg instanceof UserPrivateMessage) {
             if ($ui->canReadPrivateMessage($msg)) {
                 $msg->markAsRead();
 
-                $this->set('deleteUrl', (string) Url::to(
-                    "/account/messages/delete",
-                    $mailbox->getMailboxID(),
-                    $msg->getMessageID(),
-                    $this->app->make(Token::class)->generate('message_delete_' . $msg->getMessageID())
-                ));
+                $this->set(
+                    'deleteUrl',
+                    (string)Url::to(
+                        "/account/messages/delete",
+                        $mailbox->getMailboxID(),
+                        $msg->getMessageID(),
+                        $this->app->make(Token::class)->generate('message_delete_' . $msg->getMessageID())
+                    )
+                );
 
                 $userSelectInstanceFactory = $this->app->make(UserSelectInstanceFactory::class);
                 $userSelectInstance = $userSelectInstanceFactory->createInstance('username', true);
                 $this->set('token', $this->app->make('token'));
                 $this->set('userSelectAccessToken', $userSelectInstance->getAccessToken());
                 $this->set("mailbox", $mailbox);
+                $this->set('sender', $msg->getMessageAuthorObject());
                 $this->set("msg", $msg);
                 $this->render("/account/messages/details");
             } else {
@@ -103,6 +112,12 @@ class Messages extends AccountPageController
         } else {
             return $responseFactory->notFound(t("Not Found"));
         }
+    }
+
+    public function reply($msgMailboxID = 0, $msgID = 0)
+    {
+        $this->set('openComposeWindow', true);
+        $this->details($msgMailboxID, $msgID);
     }
 
     public function view($msgMailboxID = UserPrivateMessageMailbox::MBTYPE_INBOX)
@@ -114,7 +129,7 @@ class Messages extends AccountPageController
         $ui = $userInfoRepository->getByID($u->getUserID());
         $inbox = UserPrivateMessageMailbox::get($ui, UserPrivateMessageMailbox::MBTYPE_INBOX);
         $sent = UserPrivateMessageMailbox::get($ui, UserPrivateMessageMailbox::MBTYPE_SENT);
-        $mailbox = UserPrivateMessageMailbox::get($ui, (int) $msgMailboxID);
+        $mailbox = UserPrivateMessageMailbox::get($ui, (int)$msgMailboxID);
 
         $userSelectInstanceFactory = $this->app->make(UserSelectInstanceFactory::class);
         $userSelectInstance = $userSelectInstanceFactory->createInstance('username', true);
@@ -127,10 +142,13 @@ class Messages extends AccountPageController
             $this->set('mailbox', $mailbox);
             $this->set('inbox', $inbox);
             $this->set('sent', $sent);
-            $this->set('currentPage', (int) $this->request('p'));
+            $this->set('currentPage', (int)$this->request('p'));
             $this->set('userSelectAccessToken', $userSelectInstance->getAccessToken());
         } else {
-            return $this->responseFactory->redirect((string)Url::to("/account/messages"), Response::HTTP_TEMPORARY_REDIRECT);
+            return $this->responseFactory->redirect(
+                (string)Url::to("/account/messages"),
+                Response::HTTP_TEMPORARY_REDIRECT
+            );
         }
     }
 }

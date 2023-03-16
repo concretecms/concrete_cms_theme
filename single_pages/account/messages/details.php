@@ -90,24 +90,6 @@ $dateHelper = $app->make(Date::class);
                     </div>
                 </div>
 
-                <div class="col">
-                    <div class="message-actions d-none d-md-block">
-                        <div class="float-end" data-vue-app="send-message">
-                            <a href="<?php echo h($deleteUrl) ?>" class="btn btn-danger message-action">
-                                <?php echo t("Delete"); ?>
-                            </a>
-
-                            <compose-private-message
-                                    send-message-token="<?=$token->generate("validate_send_message")?>"
-                                    :user-select-options='{labelFormat:"username", includeAvatar: true, accessToken:"<?=$userSelectAccessToken?>"}'
-                                    css-class="btn btn-primary"
-                                    reply-to-message-id="<?php echo $msg->getMessageID(); ?>"
-                                    button-text="<?=t('Reply')?>"
-                                    dialog-title="<?=t('Reply')?>"
-                            ></compose-private-message>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="row">
@@ -144,22 +126,41 @@ $dateHelper = $app->make(Date::class);
 
             <div class="row">
                 <div class="col">
-                    <div class="message-actions message-actions-mobile d-block d-md-none">
+                    <div class="message-actions">
                         <div class="float-end" data-vue-app="send-message">
-                            <a href="<?php echo h($deleteUrl) ?>"
-                               class="btn btn-danger message-action">
+                            <a href="<?php echo h($deleteUrl) ?>" class="btn btn-danger message-action">
                                 <?php echo t("Delete"); ?>
                             </a>
+
+                            <?php
+                            if (isset($sender) && ($sender->getAttribute('profile_private_messages_enabled') || $sender->getUserID() == $profile->getUserID())) {
+
+                            ?>
 
 
                             <compose-private-message
                                     send-message-token="<?=$token->generate("validate_send_message")?>"
                                     :user-select-options='{labelFormat:"username", includeAvatar: true, accessToken:"<?=$userSelectAccessToken?>"}'
                                     css-class="btn btn-primary"
-                                    reply-to-message-id="<?php echo $msg->getMessageID(); ?>"
+                                    <?php if ($sender->getUserID() == $profile->getUserID()) {
+                                        // Fix for CS-334: if the user is viewing their own sent message and hits reply to it
+                                        // they should not reply to the message specifically (which would literally be sending a message to
+                                        // themselves), instead they should craft a new message to the recient of the original message.
+                                        ?>
+                                        :send-message-to-user-id="<?=$msg->getMessageUserToID()?>"
+                                    <?php } else { ?>
+                                        reply-to-message-id="<?php echo $msg->getMessageID(); ?>"
+                                    <?php } ?>
                                     button-text="<?=t('Reply')?>"
                                     dialog-title="<?=t('Reply')?>"
+                                <?php if (isset($openComposeWindow) && $openComposeWindow == true) {
+                                    // We get here when following a direct "reply-to" link from a PM
+                                    ?>
+                                    :open-compose-window="true"
+                                <?php } ?>
                             ></compose-private-message>
+
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -179,4 +180,6 @@ $dateHelper = $app->make(Date::class);
             })
         });
     });
+
+
 </script>

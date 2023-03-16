@@ -67,8 +67,7 @@ class Messages
 
     protected function validateUser($uID)
     {
-        return $ui = $this->userInfoRepository->getByID($uID) instanceof UserInfo;
-        //return (($ui = $this->userInfoRepository->getByID($uID)) instanceof UserInfo && ($ui->getAttribute('profile_private_messages_enabled') == 1));
+        return (($ui = $this->userInfoRepository->getByID($uID)) instanceof UserInfo && ($ui->getAttribute('profile_private_messages_enabled') == 1));
     }
 
     public function compose()
@@ -150,8 +149,8 @@ class Messages
 
                 if (!$recipient instanceof UserInfo) {
                     $errorList->add(t("The user doesn't exists."));
-                    //} else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
-                    //    $errorList->add(t("The user doesn’t want to receive messages."));
+                } else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
+                    $errorList->add(t("The user doesn’t want to receive messages."));
                 } else {
                     $messageData["uID"] = $uID;
                     $messageData["uName"] = $recipient->getUserName();
@@ -183,8 +182,8 @@ class Messages
 
             if (!$recipient instanceof UserInfo) {
                 $errorList->add(t("The user doesn't exists."));
-            //} else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
-            //    $errorList->add(t("The user doesn’t want to receive messages."));
+            } else if ($recipient->getAttribute('profile_private_messages_enabled') != 1) {
+                $errorList->add(t("The user doesn't want to receive messages."));
             } else {
                 $subject = $this->request->request->get("msgSubject");
                 $body = $this->request->request->get("msgBody");

@@ -43,6 +43,7 @@ class PageTheme extends Theme implements ThemeProviderInterface
             Features::SEARCH,
             Features::TESTIMONIALS,
             Features::TAXONOMY,
+            Features::ACCOUNT,
         ];
     }
 
