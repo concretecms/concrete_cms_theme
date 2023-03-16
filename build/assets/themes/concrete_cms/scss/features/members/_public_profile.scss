@@ -88,6 +88,18 @@
     margin-top: 100px;
     margin-bottom: 15px;
 
+    @include media-breakpoint-up(lg) {
+      align-items: center;
+      display: flex;
+      .profile-user-actions {
+        margin: 0 0 0 0;
+      }
+    }
+
+    .profile-user-actions {
+      margin: 1rem auto;
+    }
+
     h1 {
       display: inline;
       color: #2F3032;
@@ -96,6 +108,8 @@
       text-transform: uppercase;
       font-family: Poppins;
       line-height: 65px;
+      margin-bottom: 0;
+      width: 100%;
       word-break: break-word;
 
       @media screen and (max-width: 768px) {
@@ -105,14 +119,10 @@
       }
     }
 
-    .profile-user-actions {
-      margin-bottom: 25px;
-      display: inline;
-
-      .btn {
-        margin-left: 5px;
-      }
+    .btn {
+      white-space: nowrap;
     }
+
   }
 
   .profile-website {
@@ -129,10 +139,6 @@
     color: RGB(153, 153, 153);
     font-size: 16px;
     line-height: 26px;
-  }
-
-  .profile-user-actions {
-    display: none;
   }
 
   .achievements-box {
@@ -263,22 +269,10 @@
       h1 {
         display: block;
       }
-
-      .profile-user-actions {
-        display: none;
-      }
     }
 
     .profile-description {
       clear: both;
     }
-
-    .profile-user-actions {
-      width: 100%;
-      display: block;
-      float: left;
-      margin-bottom: 25px;
-    }
-
   }
 }
