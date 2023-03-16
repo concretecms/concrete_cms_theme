@@ -103,6 +103,7 @@ class Messages extends AccountPageController
                 $this->set('token', $this->app->make('token'));
                 $this->set('userSelectAccessToken', $userSelectInstance->getAccessToken());
                 $this->set("mailbox", $mailbox);
+                $this->set('sender', $msg->getMessageAuthorObject());
                 $this->set("msg", $msg);
                 $this->render("/account/messages/details");
             } else {

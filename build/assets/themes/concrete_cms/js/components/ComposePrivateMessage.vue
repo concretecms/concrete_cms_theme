@@ -133,6 +133,11 @@ export default {
         }
     },
     props: {
+        openComposeWindow: {
+            required: false,
+            type: Boolean,
+            default: false
+        },
         replyToMessageId: {
             required: false
         },
@@ -168,6 +173,12 @@ export default {
         }
 
         this.modal = bootstrap.Modal.getOrCreateInstance(this.$refs.composeModal)
+
+        if (this.openComposeWindow) {
+            this.$nextTick(() => {
+                this.showMessageModal()
+            })
+        }
     },
     computed: {},
     methods: {
