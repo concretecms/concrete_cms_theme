@@ -133,7 +133,8 @@ $dateHelper = $app->make(Date::class);
                             </a>
 
                             <?php
-                            if (isset($sender) && $sender->getAttribute('profile_private_messages_enabled')) {
+                            if (isset($sender) && ($sender->getAttribute('profile_private_messages_enabled') || $sender->getUserID() == $profile->getUserID())) {
+
                             ?>
 
 
@@ -141,7 +142,15 @@ $dateHelper = $app->make(Date::class);
                                     send-message-token="<?=$token->generate("validate_send_message")?>"
                                     :user-select-options='{labelFormat:"username", includeAvatar: true, accessToken:"<?=$userSelectAccessToken?>"}'
                                     css-class="btn btn-primary"
-                                    reply-to-message-id="<?php echo $msg->getMessageID(); ?>"
+                                    <?php if ($sender->getUserID() && $profile->getUserID()) {
+                                        // Fix for CS-334: if the user is viewing their own sent message and hits reply to it
+                                        // they should not reply to the message specifically (which would literally be sending a message to
+                                        // themselves), instead they should craft a new message to the recient of the original message.
+                                        ?>
+                                        :send-message-to-user-id="<?=$msg->getMessageUserToID()?>"
+                                    <?php } else { ?>
+                                        reply-to-message-id="<?php echo $msg->getMessageID(); ?>"
+                                    <?php } ?>
                                     button-text="<?=t('Reply')?>"
                                     dialog-title="<?=t('Reply')?>"
                                 <?php if (isset($openComposeWindow) && $openComposeWindow == true) {
