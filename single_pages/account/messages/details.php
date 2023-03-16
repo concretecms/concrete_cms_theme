@@ -159,6 +159,11 @@ $dateHelper = $app->make(Date::class);
                                     reply-to-message-id="<?php echo $msg->getMessageID(); ?>"
                                     button-text="<?=t('Reply')?>"
                                     dialog-title="<?=t('Reply')?>"
+                                    <?php if (isset($openComposeWindow) && $openComposeWindow == true) {
+                                        // We get here when following a direct "reply-to" link from a PM
+                                        ?>
+                                        :open-compose-window="true"
+                                    <?php } ?>
                             ></compose-private-message>
                         </div>
                     </div>
@@ -179,4 +184,6 @@ $dateHelper = $app->make(Date::class);
             })
         });
     });
+
+
 </script>
