@@ -36,7 +36,23 @@
     tbody {
 
       th, td {
+        transition: 0.1s linear background-color;
         border-bottom-width: 1px;
+
+        a {
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      tr:hover {
+        td {
+          cursor: pointer;
+          background-color: rgba($primary, 0.05);
+        }
       }
 
       tr.unread {

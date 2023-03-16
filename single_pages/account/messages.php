@@ -167,7 +167,7 @@ if ($messageList) {
                                 </div>
                             </th>
 
-                            <th>
+                            <th class="w-25">
                                 <?php if (Mailbox::MBTYPE_SENT == $mailbox->getMailboxID()) { ?>
                                     <?php echo t('To'); ?>
                                 <?php } else { ?>
@@ -175,13 +175,18 @@ if ($messageList) {
                                 <?php } ?>
                             </th>
 
-                            <th>
+                            <th class="w-25">
                                 <?php echo t('Subject'); ?>
                             </th>
 
-                            <th>
+                            <th class="w-25">
                                 <?php echo t('Sent At'); ?>
                             </th>
+                            <?php if ($mailbox->getMailboxID() === Mailbox::MBTYPE_INBOX) { ?>
+                                <th class="text-center">
+                                    <?php echo t('Replied'); ?>
+                                </th>
+                            <?php } ?>
                         </tr>
                         </thead>
 
@@ -203,7 +208,7 @@ if ($messageList) {
                                         </div>
                                     </td>
                                     <td class="ccm-profile-message-from">
-                                        <a href="<?php echo (string)Url::to("/account/messages/details", $mailbox->getMailboxID(), $msg->getMessageID()); ?>">
+                                        <a href="<?php echo (string)Url::to("/members/profile", $msg->getMessageRelevantUserID()); ?>">
                                             <?php echo $msg->getMessageRelevantUserName(); ?>
                                         </a>
                                     </td>
@@ -218,6 +223,15 @@ if ($messageList) {
                                         <?php /** @noinspection PhpUnhandledExceptionInspection */
                                         echo $dh->formatDateTime($msg->getMessageDateAdded(), true); ?>
                                     </td>
+                                    <?php if ($mailbox->getMailboxID() === Mailbox::MBTYPE_INBOX) { ?>
+                                        <td class="text-center">
+                                        <?php
+                                            if ($msg->isMessageReplied()) { ?>
+                                               <i class="fas fa-check"></i>
+                                        <?php }
+                                        ?>
+                                        </td>
+                                    <?php } ?>
                                 </tr>
                             <?php } ?>
                         <?php } else { ?>

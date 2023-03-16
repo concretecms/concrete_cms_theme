@@ -142,7 +142,7 @@ $dateHelper = $app->make(Date::class);
                                     send-message-token="<?=$token->generate("validate_send_message")?>"
                                     :user-select-options='{labelFormat:"username", includeAvatar: true, accessToken:"<?=$userSelectAccessToken?>"}'
                                     css-class="btn btn-primary"
-                                    <?php if ($sender->getUserID() && $profile->getUserID()) {
+                                    <?php if ($sender->getUserID() == $profile->getUserID()) {
                                         // Fix for CS-334: if the user is viewing their own sent message and hits reply to it
                                         // they should not reply to the message specifically (which would literally be sending a message to
                                         // themselves), instead they should craft a new message to the recient of the original message.
