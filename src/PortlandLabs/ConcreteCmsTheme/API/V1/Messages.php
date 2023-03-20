@@ -243,7 +243,11 @@ class Messages
 
         $response->setError($errorList);
 
-        return new JsonResponse($response);
+        if ($errorList->has()) {
+            return new JsonResponse($response, JsonResponse::HTTP_BAD_REQUEST);
+        } else {
+            return new JsonResponse($response);
+        }
     }
 
     public function delete()

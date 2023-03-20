@@ -87,7 +87,11 @@
                         <button type="button" data-bs-dismiss="modal" class="btn btn-secondary border float-start">
                             {{i18n.cancelButton}}
                         </button>
-                        <button class="btn btn-primary" name="action" type="button" @click="sendMessage">
+                        <button class="btn btn-primary" disabled="disabled" v-if="isSending">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            {{i18n.sendButtonSending}}
+                        </button>
+                        <button v-else class="btn btn-primary" name="action" type="button" @click="sendMessage">
                             {{i18n.sendButton}}
                         </button>
                     </div>
@@ -129,6 +133,7 @@ export default {
             subject: null,
             body: null,
             receiver: null,
+            isSending: false,
             receiverUsername: null, // only used in reply mode
         }
     },
@@ -205,8 +210,20 @@ export default {
                 my.modal.show()
             }
         },
+        handleErrors(errors) {
+            for (let i = 0; i < errors.length; i++) {
+                let errorMessage = errors[i];
+
+                alert({
+                    text: errorMessage,
+                    stack: stackBottomModal,
+                    type: 'error'
+                });
+            }
+        },
         sendMessage() {
             var my = this
+            my.isSending = true
             var formData = new FormData()
             if (my.receiver) {
                 formData.append('uID', my.receiver)
@@ -233,23 +250,33 @@ export default {
                 contentType: false,
                 processData: false,
                 error: (r) => {
-                    alert({
-                        text: my.i18n.generalError,
-                        stack: stackBottomModal,
-                        type: 'error'
-                    });
+                    if (r && r.responseJSON && r.responseJSON.error) {
+                        my.handleErrors(r.responseJSON.errors)
+                    } else {
+                        switch (r.status) {
+                            case 413: // https://portlandlabs.atlassian.net/browse/CS-625
+                                alert({
+                                    text: my.i18n.uploadFileTooLargeNotice,
+                                    stack: stackBottomModal,
+                                    type: 'error'
+                                });
+                                break;
+                            default:
+                                alert({
+                                    text: my.i18n.generalError,
+                                    stack: stackBottomModal,
+                                    type: 'error'
+                                });
+                                break;
+                        }
+                    }
+                },
+                complete: () => {
+                    my.isSending = false
                 },
                 success: (data) => {
                     if (data.error) {
-                        for (let i = 0; i < data.errors.length; i++) {
-                            let errorMessage = data.errors[i];
-
-                            alert({
-                                text: errorMessage,
-                                stack: stackBottomModal,
-                                type: 'error'
-                            });
-                        }
+                        my.handleErrors(data.errors)
                     } else {
                         alert({
                             text: data.message,
