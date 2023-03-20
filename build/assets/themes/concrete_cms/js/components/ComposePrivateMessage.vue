@@ -138,6 +138,10 @@ export default {
         }
     },
     props: {
+        messageSubject: {
+            required: false,
+            type: String
+        },
         openComposeWindow: {
             required: false,
             type: Boolean,
@@ -175,6 +179,12 @@ export default {
     mounted() {
         if (this.sendMessageToUserId) {
             this.receiver = this.sendMessageToUserId
+        }
+
+        if (this.messageSubject) {
+            // Note - don't use this with reply to message, it won't work, it'll be overwritten once the message
+            // details load in
+            this.subject = this.messageSubject
         }
 
         this.modal = bootstrap.Modal.getOrCreateInstance(this.$refs.composeModal)

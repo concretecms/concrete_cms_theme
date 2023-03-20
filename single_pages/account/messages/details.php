@@ -148,6 +148,7 @@ $dateHelper = $app->make(Date::class);
                                         // themselves), instead they should craft a new message to the recient of the original message.
                                         ?>
                                         :send-message-to-user-id="<?=$msg->getMessageUserToID()?>"
+                                        message-subject=<?=json_encode(t('Re: %s', h($msg->getMessageSubject())))?>
                                     <?php } else { ?>
                                         reply-to-message-id="<?php echo $msg->getMessageID(); ?>"
                                     <?php } ?>
