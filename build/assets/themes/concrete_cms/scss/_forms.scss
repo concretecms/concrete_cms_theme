@@ -5,6 +5,8 @@
  * @author     Fabian Bitter (fabian@bitter.de)
  */
 
+// This is interfering with bootstrap validation and it's too fussy. Just use bootstrap variables to control this stuff
+/*
 .form-control {
   outline: none !important;
   box-shadow: none !important;
@@ -15,6 +17,7 @@
     border-color: $accent;
   }
 }
+*/
 
 // WTF? What could this possibly be for?
 /*

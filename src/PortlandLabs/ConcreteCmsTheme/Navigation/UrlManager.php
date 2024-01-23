@@ -29,7 +29,7 @@ class UrlManager implements ApplicationAwareInterface
         'COMMUNITY' => 'https://community.concretecms.com',
         'FORUMS' => 'https://forums.concretecms.org',
         'TRANSLATE' => 'https://translate.concretecms.org',
-        'EXTENSIONS' => 'https://extensions.concretecms.com',
+        'EXTENSIONS' => 'https://marketplace.concretecms.com',
     ];
 
     private $placeholders = [
