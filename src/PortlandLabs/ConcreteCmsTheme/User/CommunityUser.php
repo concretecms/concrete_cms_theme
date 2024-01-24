@@ -22,7 +22,7 @@ class CommunityUser
                 if ($attribute['handle'] === 'first_name') {
                     $firstName = $attribute['value'];
                 }
-                if ($attribute['handle'] === 'first_name') {
+                if ($attribute['handle'] === 'last_name') {
                     $lastName = $attribute['value'];
                 }
             }
@@ -30,6 +30,15 @@ class CommunityUser
         } else {
             return $this->author->getUserName();
         }
+    }
+
+    public function getCommunityUserId(): ?int
+    {
+        $data = app(CommunityUserInspector::class)->getCommunityUserData($this->author);
+        if (isset($data['users']['id'])) {
+            return (int) $data['users']['id'];
+        }
+        return null;
     }
 
     public function getUserAvatar(): AvatarInterface
