@@ -13,6 +13,7 @@ use Concrete\Core\Area\Area;
 use Concrete\Core\Block\BlockType\BlockType;
 use Concrete\Core\Page\Page;
 use Concrete\Core\View\View;
+use Concrete\Core\Block\View\BlockView;
 
 /** @var View $this */
 /** @var Page $c */
@@ -29,6 +30,10 @@ $this->inc('elements/header.php');
                 <?php
                 $bt = BlockType::getByHandle("page_title");
                 $bt->render("templates/docs_title/view");
+                $bt = BlockType::getByHandle('switch_release_version');
+                if (is_object($bt)) {
+                    $bt->render();
+                }
                 ?>
             </div>
         </div>
