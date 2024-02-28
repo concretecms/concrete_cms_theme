@@ -10,6 +10,8 @@ if (isset($color) && $color == 'white') {
     $containerColorClass = 'column-section-container-white';
 } else if ($color == 'dark_gray') {
     $containerColorClass = 'column-section-container-dark-gray';
+} else if ($color == 'blue') {
+    $containerColorClass = 'column-section-container-blue';
 }
 ?>
 <section class="content-section <?=$containerColorClass?>">
