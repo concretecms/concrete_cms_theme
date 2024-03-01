@@ -43,8 +43,8 @@ class CommunityUser
 
     public function getUserAvatar(): AvatarInterface
     {
-        $avatar = app(EmptyAvatar::class, ['userInfo' => $this->author->getUserInfoObject()]);
-        return $avatar;
+        $data = app(CommunityUserInspector::class)->getCommunityUserData($this->author);
+        return new CommunityUserAvatar($data['users']['avatar'], $data['users']['username']);
     }
 
 }
