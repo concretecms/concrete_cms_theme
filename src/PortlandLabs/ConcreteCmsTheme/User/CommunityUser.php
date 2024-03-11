@@ -17,6 +17,8 @@ class CommunityUser
     public function getUserDisplayName(): string
     {
         $data = app(CommunityUserInspector::class)->getCommunityUserData($this->author);
+        $firstName = null;
+        $lastName = null;
         if (isset($data['users']['id'])) {
             foreach ($data['users']['custom_attributes']['custom_attributes'] as $attribute) {
                 if ($attribute['handle'] === 'first_name') {
@@ -26,10 +28,11 @@ class CommunityUser
                     $lastName = $attribute['value'];
                 }
             }
-            return $firstName . ' ' . $lastName;
-        } else {
-            return $this->author->getUserName();
+            if ($firstName && $lastName) {
+                return $firstName . ' ' . $lastName;
+            }
         }
+        return (string) $this->author->getUserName();
     }
 
     public function getCommunityUserId(): ?int
