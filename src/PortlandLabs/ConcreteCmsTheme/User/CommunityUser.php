@@ -4,7 +4,8 @@ namespace PortlandLabs\ConcreteCmsTheme\User;
 
 use Concrete\Core\Entity\User\User;
 use Concrete\Core\User\Avatar\AvatarInterface;
-use Concrete\Core\User\Avatar\EmptyAvatar;
+use PortlandLabs\ConcreteCmsTheme\User\EmptyAvatar;
+use League\Url\Url;
 
 class CommunityUser
 {
@@ -44,10 +45,20 @@ class CommunityUser
         return null;
     }
 
+    public function getUserProfileUrl(): Url
+    {
+        $url = Url::createFromUrl($_ENV['URL_SITE_COMMUNITY']);
+        $url->setPath('/members/profile/' . $this->getCommunityUserId());
+        return $url;
+    }
+
     public function getUserAvatar(): AvatarInterface
     {
         $data = app(CommunityUserInspector::class)->getCommunityUserData($this->author);
-        return new CommunityUserAvatar($data['users']['avatar'], $data['users']['username']);
+        if (!empty($data['users']['avatar'])) {
+            return new CommunityUserAvatar($data['users']['avatar'], $data['users']['username']);
+        }
+        return new EmptyAvatar();
     }
 
 }
