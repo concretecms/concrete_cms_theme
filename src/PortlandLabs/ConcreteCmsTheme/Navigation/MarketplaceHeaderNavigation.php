@@ -17,7 +17,7 @@ class MarketplaceHeaderNavigation extends Navigation
         $this->add(new Item('{{extensions}}/addons', t('Add-Ons'), $activeSection === 'addons'));
         $this->add(new Item('{{extensions}}/integrations', t('Integrations'), $activeSection === 'integrations'));
         $this->add(new Item('{{extensions}}/platforms', t('Platforms'), $activeSection === 'platforms'));
-        $this->add(new Item('{{extensions}}/hosting', t('Web Hosting'), $activeSection === 'hosting'));
+        $this->add(new Item('{{extensions}}/hosting', t('Hosting'), $activeSection === 'hosting'));
         $this->add(new Item('{{extensions}}/services', t('Services'), $activeSection === 'services'));
     }
 }
