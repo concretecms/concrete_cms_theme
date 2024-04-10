@@ -60,7 +60,7 @@ class MyAccountNavigationFactory implements NavigationFactoryInterface, Applicat
         $remoteId = $remoteId ?: $this->user->getUserID();
         $urlHandler = $this->app->make(UrlManager::class);
 
-        $userIcon = $urlHandler->replacePlaceholderIfExists('<img style="max-height:1.9rem;border-radius:50%" src="{{community}}/application/files/avatars/' . (int) $remoteId . '.jpg" />');
+        $userIcon = $urlHandler->replacePlaceholderIfExists('<img class="header-navigation-avatar" src="{{community}}/application/files/avatars/' . (int) $remoteId . '.jpg" />');
 
         $navigation = new Navigation();
         $navigation->add(new Item('{{community}}/members/profile', $userIcon, false, $this->activeSection === 'community', [

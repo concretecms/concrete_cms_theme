@@ -303,6 +303,15 @@ header {
     display: contents;
   }
 
+  img.header-navigation-avatar {
+    height: 1.9rem;
+    width: 1.9rem;
+    border-radius: 50%;
+    border: 1px solid #efefef;
+    object-fit: cover;
+    object-position: center;
+  }
+
   /* General */
   #ccm-toggle-mobile-nav {
     outline: none !important;
