@@ -1,0 +1,88 @@
+.ccm-page {
+  .my-account {
+    .ccm-profile-header {
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+    }
+
+    .ccm-profile-header {
+      margin: 2rem 0;
+
+      [class*='col'] {
+        align-items: center;
+        display: flex;
+      }
+
+      .ccm-profile-avatar {
+        img {
+          border-radius: 50%;
+          display: block;
+          margin-right: 2rem;
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    #private-message-mailboxes {
+      span {
+        margin-left: auto;
+      }
+    }
+
+    .ccm-profile-detail {
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .ccm-profile-username {
+      h1 {
+        display: inline;
+        color: #2F3032;
+        font-size: 59px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: Poppins;
+        line-height: 65px;
+        margin-bottom: 0;
+        width: 100%;
+        word-break: break-word;
+      }
+    }
+  }
+}
+
+.ccm-page {
+  .my-account, .public-profile {
+    .depot-product-single-listing {
+      cursor: pointer;
+
+      a {
+        color: var(--bs-link-color);
+      }
+
+      padding: 1rem;
+
+      img {
+        aspect-ratio: 3 / 2;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: top left;
+        display: block;
+        margin-bottom: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      h5 {
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+      }
+    }
+  }
+}
