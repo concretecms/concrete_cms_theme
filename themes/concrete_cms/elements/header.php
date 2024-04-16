@@ -42,6 +42,7 @@ if (isset($c)) {
 
 $manager = $app->make(UrlManager::class);
 $marketingUrl = $manager->getMarketingUrl();
+$marketplaceUrl = $manager->getExtensionsUrl();
 $opensourceUrl = $manager->getMarketingOrgUrl();
 $searchPageUrl = $manager->getSearchPageUrl($site);
 
@@ -118,6 +119,10 @@ if (isset($c)) {
                                 <a href="<?=(string) $opensourceUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text_dark_mode.svg" alt="" class="img-fluid">
                                 </a>
+                            <?php } else if ($manager->isSite('extensions')) { ?>
+                                <a href="<?=(string) $marketplaceUrl?>">
+                                    <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
+                                </a>
                             <?php } else { ?>
                                 <a href="<?=(string) $marketingUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_text.svg" alt="" class="img-fluid">
@@ -128,6 +133,10 @@ if (isset($c)) {
                             <?php if ($enableDarkMode) { ?>
                                 <a href="<?=(string) $opensourceUrl?>">
                                     <img src="<?=$view->getThemePath()?>/images/logo_dark_mode.svg" alt="" class="img-fluid">
+                                </a>
+                            <?php } else if ($manager->isSite('extensions')) { ?>
+                                <a href="<?=(string) $marketplaceUrl?>">
+                                    <img src="<?=$view->getThemePath()?>/images/logo.svg" alt="" class="img-fluid">
                                 </a>
                             <?php } else { ?>
                                 <a href="<?=(string) $marketingUrl?>">

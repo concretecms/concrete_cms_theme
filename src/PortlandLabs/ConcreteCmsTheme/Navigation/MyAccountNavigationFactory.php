@@ -64,12 +64,8 @@ class MyAccountNavigationFactory implements NavigationFactoryInterface, Applicat
 
         $navigation = new Navigation();
         $navigation->add(new Item('{{community}}/members/profile', $userIcon, false, $this->activeSection === 'community', [
-            new Item('{{community}}/members/profile/', t('My Profile')),
+            new Item('{{community}}/account/welcome/', t('My Account')),
             new Item('{{community}}/account/messages', t('Private Messages')),
-
-            new Item('{{marketplace}}/profile/bank', t('Marketplace Purchases')),
-            new Item('{{community}}/account/hosting', t('My Sites')),
-
             new Item('/login/do_logout/' . $this->token->generate('do_logout'), t('Sign Out')),
         ]));
 
