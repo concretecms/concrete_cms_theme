@@ -32,6 +32,7 @@ class ClientBuilder implements ApplicationAwareInterface
             'grant_type' => 'client_credentials',
             'scope' => [
                 'users:read',
+                'users:stripe:modify',
             ]
         ];
         $cache = $this->app->make('cache/expensive')->getPool();
