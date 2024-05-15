@@ -49,7 +49,7 @@ class CommercialNavigation extends Navigation
         ]));
         $this->add(new Item('{{marketing}}/get-started', t('Get Started'), false, false, [
             new Item('{{community}}/get-concrete-site', t('Try it Now!')),
-            new Item('{{extensions}}/hosting', t('Hosting')),
+            new Item('{{extensions}}/hosting-concrete-cms', t('Hosting')),
             new Item('{{extensions}}/themes', t('Themes')),
             new Item('{{extensions}}/integrations', t('Integrations')),
             new Item('{{extensions}}/addons', t('Add-Ons')),
