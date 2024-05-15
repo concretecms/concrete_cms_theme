@@ -103,6 +103,7 @@
         <container handle="case_study_landing_header" name="Case Study Landing Header" icon="two_column.png" package=""/>
         <container handle="section_light_gray" name="Light Gray Single Column" icon="two_column.png" package=""/>
         <container handle="section_white" name="White Single Column" icon="two_column.png" package=""/>
+        <container handle="section_blue" name="Blue Single Column" icon="two_column.png" package=""/>
         <container handle="section_dark_gray" name="Dark Gray Single Column" icon="two_column.png" package=""/>
         <container handle="section_accent" name="Accent Single Column" icon="two_column.png" package=""/>
         <container handle="solution_section_white" name="Solution Section White" icon="two_column.png" package=""/>

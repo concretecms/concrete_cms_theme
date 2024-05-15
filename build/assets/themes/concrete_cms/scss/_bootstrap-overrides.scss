@@ -32,6 +32,7 @@ $btn-font-size-lg: 1rem;
 // Cards
 $card-headings-color: #7C8088;
 $card-border-color: #d8d8d8;
+$card-cap-bg: rgba(0, 0, 0, 0); // Can't just do white because it interferes with colored cards
 
 // Buttons - increase the hover difference
 $btn-hover-bg-shade-amount: 40%;
@@ -39,8 +40,9 @@ $btn-hover-bg-tint-amount: 40%;
 
 // Forms
 $input-bg: white;
-$input-border-radius: 2px;
-$input-border-radius-lg: 3px;
+$input-border-radius: 4px;
+$input-border-radius-lg: 6px;
+$input-btn-focus-width: 0;
 
 // Weird random colors used in the theme. Let's clean these up.
 $text: #19191A; // news-498

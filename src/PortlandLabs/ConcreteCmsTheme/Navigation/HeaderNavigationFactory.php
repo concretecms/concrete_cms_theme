@@ -33,7 +33,9 @@ class HeaderNavigationFactory implements NavigationFactoryInterface
 
     public function createNavigation(): NavigationInterface
     {
-        if ($this->urlManager->isSite('marketing_org')
+        if ($this->urlManager->isSite('extensions')) {
+            $navigation = new MarketplaceHeaderNavigation($this->activeSection);
+        } else if ($this->urlManager->isSite('marketing_org')
             || $this->urlManager->isSite('translate')
             || $this->urlManager->isSite('documentation')) {
             $navigation = new OpenSourceHeaderNavigation($this->activeSection);

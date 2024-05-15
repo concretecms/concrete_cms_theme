@@ -60,16 +60,12 @@ class MyAccountNavigationFactory implements NavigationFactoryInterface, Applicat
         $remoteId = $remoteId ?: $this->user->getUserID();
         $urlHandler = $this->app->make(UrlManager::class);
 
-        $userIcon = $urlHandler->replacePlaceholderIfExists('<img style="max-height:1.9rem;border-radius:50%" src="{{community}}/application/files/avatars/' . (int) $remoteId . '.jpg" />');
+        $userIcon = $urlHandler->replacePlaceholderIfExists('<img class="header-navigation-avatar" src="{{community}}/application/files/avatars/' . (int) $remoteId . '.jpg" />');
 
         $navigation = new Navigation();
-        $navigation->add(new Item('{{community}}/members/profile', $userIcon, false, $this->activeSection === 'community', [
-            new Item('{{community}}/members/profile/', t('My Profile')),
+        $navigation->add(new Item('{{community}}/account/welcome', $userIcon, false, $this->activeSection === 'community', [
+            new Item('{{community}}/account/welcome/', t('My Account')),
             new Item('{{community}}/account/messages', t('Private Messages')),
-
-            new Item('{{marketplace}}/profile/bank', t('Marketplace Purchases')),
-            new Item('{{community}}/account/hosting', t('My Sites')),
-
             new Item('/login/do_logout/' . $this->token->generate('do_logout'), t('Sign Out')),
         ]));
 

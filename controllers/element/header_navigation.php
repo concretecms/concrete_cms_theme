@@ -10,6 +10,7 @@
 namespace Concrete\Package\ConcreteCmsTheme\Controller\Element;
 
 use Concrete\Core\Controller\ElementController;
+use Concrete\Core\Page\Page;
 use Concrete\Core\Validation\CSRF\Token;
 use PortlandLabs\ConcreteCmsTheme\Navigation\HeaderNavigationFactory;
 use PortlandLabs\ConcreteCmsTheme\Navigation\MyAccountNavigationFactory;
@@ -29,6 +30,10 @@ class HeaderNavigation extends ElementController
 
     public function __construct(HeaderNavigationFactory $headerFactory, MyAccountNavigationFactory $myAccountNavigationFactory)
     {
+        $c = Page::getCurrentPage();
+        $path = trim($c->getCollectionPath(), '/');
+        $section = explode('/', $path)[0];
+        $headerFactory->setActiveSection($section);
         $this->headerFactory = $headerFactory;
         $this->myAccountNavigationFactory = $myAccountNavigationFactory;
     }
@@ -40,9 +45,6 @@ class HeaderNavigation extends ElementController
 
     public function view()
     {
-        $navigationFactory = $this->app->make(HeaderNavigationFactory::class);
-        $accountNavigationFactory = $this->app->make(MyAccountNavigationFactory::class);
-
         $this->set('token', new Token());
         $this->set('headerNavigation', $this->headerFactory->createNavigation());
         $this->set('accountNavigation', $this->myAccountNavigationFactory->createNavigation());
