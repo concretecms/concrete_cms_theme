@@ -19,7 +19,7 @@ class CommunityUserInspector
 
     public function getCommunityUserData(User $user): ?array
     {
-        $cacheKey = '/community/user/' . $user->getUserID();
+        $cacheKey = 'community.user.' . $user->getUserID();
         $cacheItem = $this->cache->getItem($cacheKey);
         if ($cacheItem->isMiss()) {
             $data = null;
