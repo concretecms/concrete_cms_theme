@@ -9,7 +9,7 @@ use HtmlObject\Image;
 class EmptyAvatar implements AvatarInterface
 {
 
-    public function getPath()
+    public function getPath(): string
     {
         return app(Repository::class)->get('concrete.icons.user_avatar.default');
     }
