@@ -14,7 +14,7 @@ class EmptyAvatar implements AvatarInterface
         return app(Repository::class)->get('concrete.icons.user_avatar.default');
     }
 
-    public function output()
+    public function output(): string
     {
         $img = new Image();
         $img->src($this->getPath())->class('u-avatar');
