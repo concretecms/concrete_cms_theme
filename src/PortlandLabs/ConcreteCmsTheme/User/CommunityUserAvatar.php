@@ -23,7 +23,7 @@ class CommunityUserAvatar implements AvatarInterface
         return $this->path;
     }
 
-    public function output()
+    public function output(): string
     {
         $img = new Image();
         $img->src($this->getPath())->class('u-avatar')->alt(h($this->username));
