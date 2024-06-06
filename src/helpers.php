@@ -1,7 +1,6 @@
 <?php
 
-use PortlandLabs\EnterpriseWeb\SEO\OpenGraph;
-
+use PortlandLabs\ConcreteCmsTheme\SEO\OpenGraph;
 /**
  * OpenGraph accessor function
  *

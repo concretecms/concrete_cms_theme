@@ -23,6 +23,7 @@ use Concrete\Core\Page\Summary\Template\Populator;
 use Concrete\Theme\Concrete\PageTheme;
 use Concrete\Theme\Elemental\PageTheme as ElementalPageTheme;
 use PortlandLabs\ConcreteCmsTheme\Provider\ServiceProvider;
+use PortlandLabs\ConcreteCmsTheme\SEO\Provider;
 
 class Controller extends Package
 {
@@ -53,6 +54,8 @@ class Controller extends Package
         /** @var ServiceProvider $serviceProvider */
         $serviceProvider = $this->app->make(ServiceProvider::class);
         $serviceProvider->register();
+        $seoProvider = $this->app->make(Provider::class);
+        $seoProvider->register();
     }
 
     public function testForUninstall()
