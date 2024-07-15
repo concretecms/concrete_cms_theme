@@ -36,6 +36,12 @@
 
 }
 
+.card-body-bordered {
+  border-bottom-style: solid;
+  border-bottom-width: var(--bs-card-border-width) !important;
+  border-bottom-color: var(--bs-card-border-color);
+}
+
 .card-text {
 
   h1, h2, h3, h4, h5, h6 {
