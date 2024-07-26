@@ -133,7 +133,7 @@ $dateHelper = $app->make(Date::class);
                             </a>
 
                             <?php
-                            if (isset($sender) && ($sender->getAttribute('profile_private_messages_enabled') || $sender->getUserID() == $profile->getUserID())) {
+                            if (isset($sender) || $sender->getUserID() == $profile->getUserID()) {
 
                             ?>
 
