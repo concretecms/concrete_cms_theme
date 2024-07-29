@@ -20,6 +20,12 @@
     line-height: 1;
     border-bottom-color: RGB(216, 216, 216);
 
+    .card-header-text {
+      margin-top: 0.5rem;
+      text-transform: none;
+      font-weight: 500;
+    }
+
     div {
       // any dropdowns or anything else weird we default back
       font-family: "Noto Sans";
@@ -36,6 +42,44 @@
 
 }
 
+.card {
+  > .card-table {
+    // These are for tables that show up in the content of cards like on the depot site details page. Codebridge has
+    // designed these to sit flush with the card content, with slightly different table headings and a specific
+    // border, so I thought a special style for them would be good.
+    // https://gitlab.com/portlandlabs/community-stack/depot.concretecms.com/-/issues/276
+    table {
+      margin-bottom: 0;
+      th:first-child, td:first-child {
+        padding-left: var(--bs-card-cap-padding-x); // This will move the headings to sit with the card heading
+      }
+      th:last-child, td:last-child {
+        padding-right: var(--bs-card-cap-padding-x); // This will move the headings to sit with the card heading
+      }
+
+      th {
+        font-family: "Poppins";
+        font-size: 18px;
+        font-weight: 700;
+        color: $card-headings-color;
+        text-transform: uppercase;
+      }
+
+      td, th {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      tbody {
+        border-top: 1px solid var(--bs-card-border-color);
+      }
+
+      tr:not(:last-child) td {
+        border-bottom: 1px solid var(--bs-card-border-color);
+      }
+    }
+  }
+}
 .card-body-bordered {
   border-bottom-style: solid;
   border-bottom-width: var(--bs-card-border-width) !important;
