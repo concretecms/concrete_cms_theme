@@ -99,7 +99,7 @@ if (!isset($authTypeParams)) {
                             </div>
                         </div>
 
-                        <form method="post" action="<?php echo $request->getUri() ?>" class="form-stacked">
+                        <form id="ccm_login_form" method="post" action="<?php echo $request->getUri() ?>" class="form-stacked">
                             <div class="row">
                                 <div class="col">
                                     <?php if (!$authorize) { ?>
@@ -146,7 +146,7 @@ if (!isset($authTypeParams)) {
                                                 <?php echo t("Cancel"); ?>
                                             </a>
 
-                                            <button class="btn btn-primary">
+                                            <button class="btn btn-primary sign-in-button" >
                                                 <?php echo t('Sign in to %s', $client->getName()) ?>
                                             </button>
                                         </div>
@@ -183,3 +183,8 @@ if (!isset($authTypeParams)) {
         </div>
     </main>
 </div>
+<script>
+    $('#ccm_login_form').on('submit', function () {
+        $(this).find('.sign-in-button').attr('disabled', true)
+    })
+</script>
